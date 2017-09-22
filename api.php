@@ -33,11 +33,13 @@ public function viewques(){
 
 	$sql = "SELECT * FROM questions";
     $result = mysqli_query($conn, $sql);
-    $rows = array("error" => FALSE);
-   while($r = mysqli_fetch_assoc($result)) {
-     $rows['object_name'][] = $r;
-   }
-   echo json_encode($rows);
+    $encode = array();
+
+	while($row = mysqli_fetch_assoc($result)) {
+   $encode[] = $row;
+}
+
+echo json_encode($encode); 
 
 }	
 ?>
