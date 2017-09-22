@@ -31,15 +31,33 @@ else{
 
 public function viewques(){
 
-	$sql = "SELECT * FROM questions";
-    $result = mysqli_query($conn, $sql);
-    $encode = array();
+include 'dbconnect.php';
 
-	while($row = mysqli_fetch_assoc($result)) {
-   $encode[] = $row;
+
+$response = array("error" => FALSE);
+$sql = "SELECT * FROM questions";
+$result = mysqli_query($conn, $sql);
+$i=0;
+while($data = mysqli_fetch_assoc($result)){
+	$response["error"] = FALSE;
+	$response["data"][$i]["id"] = $data["id"];
+	$response["data"][$i]["class"] = $data["class"];
+	$response["data"][$i]["type"] = $data["type"];
+	$response["data"][$i]["subject"] = $data["subject"];
+	$response["data"][$i]["chapter"] = $data["chapter"];
+	$response["data"][$i]["level"] = $data["level"];
+	$response["data"][$i]["topic"] = $data["topic"];
+	$response["data"][$i]["marks"] = $data["marks"];
+	$response["data"][$i]["ques_txt"] = $data["ques_txt"];
+	$response["data"][$i]["ques_img"] = $data["ques_img"];
+	//Options Remaining
+	$response["data"][$i]["answer"] = $data["answer"];
+	$response["data"][$i]["youtube"] = $data["youtube"];
+	$i++;
+
 }
 
-echo json_encode($encode); 
+echo json_encode($response);
 
 }	
 ?>
