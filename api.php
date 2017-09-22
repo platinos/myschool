@@ -1,7 +1,5 @@
 <?php
-//header("Content-Type: application/json");
-
-//include 'dbconnect.php';
+header("Content-Type: application/json");
 
 if(isset($_POST["func"]) && !empty($_POST["func"])){
 	switch ($_POST["func"]) {
@@ -24,12 +22,13 @@ else{
     echo json_encode($response);
 }
 
+
 /***********************************************************/
 /********************* Functions Start *********************/
 /***********************************************************/
 
 
-public function viewques(){
+function viewques(){
 
 include 'dbconnect.php';
 
@@ -63,3 +62,4 @@ echo json_encode($response);
 
 }	
 ?>
+
