@@ -34,7 +34,7 @@ public function viewques(){
 	$sql = "SELECT * FROM questions";
     $result = mysqli_query($conn, $sql);
     $rows = array("error" => FALSE);
-   while($r = mysql_fetch_assoc($result)) {
+   while($r = mysqli_fetch_assoc($result)) {
      $rows['object_name'][] = $r;
    }
    echo json_encode($rows);
