@@ -2,7 +2,7 @@
 include 'dbconnect.php';
 $sql = "SELECT * FROM questions";
     $result = mysqli_query($conn, $sql);
-    $rows = array("error" => FALSE);
+    $rows = array();
    while($r = mysql_fetch_assoc($result)) {
      $rows['object_name'][] = $r;
    }
