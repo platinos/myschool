@@ -1,9 +1,9 @@
 <?php
-header("Content-Type: application/json");
+//header("Content-Type: application/json");
 include 'dbconnect.php';
 
-if(isset($_GET["func"]) && !empty($_GET["func"])){
-	switch ($_GET["func"]) {
+if(isset($_POST["func"]) && !empty($_POST["func"])){
+	switch ($_POST["func"]) {
 		case 'viewques':
 
 			viewques();
