@@ -61,5 +61,85 @@ $response["data"]["size"] = $i;
 echo json_encode($response);
 
 }	
+
+function viewsubject(){
+
+include 'dbconnect.php';
+
+
+$response = array("error" => FALSE);
+$sql = "SELECT * FROM subjects";
+$result = mysqli_query($conn, $sql);
+$i=0;
+
+while($data = mysqli_fetch_assoc($result)){
+	$response["error"] = FALSE;
+	$response["data"][$i]["id"] = $data["id"];
+	$response["data"][$i]["name"] = $data["subject"];
+	$response["data"][$i]["chapter_count"] = $data["chapno"];
+	$response["data"][$i]["question_count"] = $data["qno"];
+	
+	$i++;
+
+}
+$response["data"]["size"] = $i;
+
+echo json_encode($response);
+
+}
+
+
+function viewchapter(){
+
+include 'dbconnect.php';
+
+
+$response = array("error" => FALSE);
+$sql = "SELECT * FROM chapters";
+$result = mysqli_query($conn, $sql);
+$i=0;
+
+while($data = mysqli_fetch_assoc($result)){
+	$response["error"] = FALSE;
+	$response["data"][$i]["id"] = $data["id"];
+	$response["data"][$i]["name"] = $data["chap"];
+	$response["data"][$i]["subject"] = $data["subject"];
+	$response["data"][$i]["class"] = $data["class"];
+	$response["data"][$i]["topic_count"] = $data["topicno"];
+	
+	$i++;
+
+}
+$response["data"]["size"] = $i;
+
+echo json_encode($response);
+
+}
+
+function viewtopic(){
+
+include 'dbconnect.php';
+
+
+$response = array("error" => FALSE);
+$sql = "SELECT topics.id as id, name, chap FROM topics,chapters where ch_id = chapters.id";
+$result = mysqli_query($conn, $sql);
+$i=0;
+
+while($data = mysqli_fetch_assoc($result)){
+	$response["error"] = FALSE;
+	$response["data"][$i]["id"] = $data["id"];
+	$response["data"][$i]["name"] = $data["name"];
+	$response["data"][$i]["chapter"] = $data["chap"];
+	
+	
+	$i++;
+
+}
+$response["data"]["size"] = $i;
+
+echo json_encode($response);
+
+}
 ?>
 
