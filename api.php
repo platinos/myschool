@@ -32,7 +32,7 @@ public function viewques(){
 
 	$sql = "SELECT * FROM questions";
     $result = mysqli_query($conn, $sql);
-    $rows = array();
+    $rows = array("error" => FALSE);
    while($r = mysql_fetch_assoc($result)) {
      $rows['object_name'][] = $r;
    }
