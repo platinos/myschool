@@ -38,6 +38,7 @@ $response = array("error" => FALSE);
 $sql = "SELECT * FROM questions";
 $result = mysqli_query($conn, $sql);
 $i=0;
+
 while($data = mysqli_fetch_assoc($result)){
 	$response["error"] = FALSE;
 	$response["data"][$i]["id"] = $data["id"];
@@ -56,6 +57,7 @@ while($data = mysqli_fetch_assoc($result)){
 	$i++;
 
 }
+$response["data"]["size"] = $i;
 
 echo json_encode($response);
 
