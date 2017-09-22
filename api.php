@@ -1,7 +1,7 @@
 <?php
-header("Content-Type: application/json");
+//header("Content-Type: application/json");
 
-include 'dbconnect.php';
+//include 'dbconnect.php';
 
 if(isset($_POST["func"]) && !empty($_POST["func"])){
 	switch ($_POST["func"]) {
