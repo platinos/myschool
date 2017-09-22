@@ -1,4 +1,6 @@
 <?php
+echo "Something";
+/*
 //header("Content-Type: application/json");
 include 'dbconnect.php';
 
@@ -26,7 +28,7 @@ else{
 /***********************************************************/
 /********************* Functions Start *********************/
 /***********************************************************/
-
+/*
 
 public function viewques(){
 
@@ -39,3 +41,4 @@ public function viewques(){
    echo json_encode($rows);
 
 }	
+*/
