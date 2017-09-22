@@ -7,6 +7,18 @@ if(isset($_POST["func"]) && !empty($_POST["func"])){
 
 			viewques();
 			break;
+		case 'viewsubject':
+
+			viewsubject();
+			break;
+		case 'viewchapter':
+
+			viewchapter();
+			break;
+		case 'viewtopic':
+
+			viewtopic();
+			break;
 		
 		default:
 		$response = array("error" => TRUE);
