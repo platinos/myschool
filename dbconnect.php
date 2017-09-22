@@ -5,8 +5,9 @@ $password = "password";
 $dbname = "myschool";
 
 // Create connection
-$conn3 = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
-if (!$conn3) {
+if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+?>
