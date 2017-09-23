@@ -3,9 +3,9 @@ header("Content-Type: application/json");
 
 if(isset($_POST["func"]) && !empty($_POST["func"])){
 	switch ($_POST["func"]) {
-		case 'viewques':
+		case 'viewquestion':
 
-			viewques();
+			viewquestion();
 			break;
 		case 'viewsubject':
 
@@ -40,7 +40,7 @@ else{
 /***********************************************************/
 
 
-function viewques(){
+function viewquestion(){
 
 include 'dbconnect.php';
 
