@@ -6,3 +6,4 @@ if ( $_POST['payload'] ) {
 
 shell_exec( 'cd /usr/share/nginx/html/mypaper && sudo git reset --hard HEAD && sudo git pull' );
 ?>
+hi
