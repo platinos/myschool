@@ -5,7 +5,6 @@
 
 </head>
 <?php include 'part/body.php'; ?>
-<?php include 'part/nav.php'; ?>
 <div class="row">
   <section class="content">
 
@@ -23,7 +22,7 @@
 
                     <div class="info-box-3 bg-pink hover-zoom-effect" >
                         <div class="icon" >
-                          <a href="viewquestion.php">  <i class="material-icons" >QUESTIONS</i></a>
+                          <a href="#">  <i class="material-icons" >QUESTIONS</i></a>
                         </div>
                         <div class="content">
                             <div class="text">TOTAL QUESTION</div>
@@ -35,7 +34,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box-3 bg-blue hover-zoom-effect">
                         <div class="icon">
-                        <a href="viewchapter.php">      <i class="material-icons">CHAPTERS</i></a>
+                            <i class="material-icons">CHAPTERS</i>
                         </div>
                         <div class="content">
                             <div class="text">CHAPTERS</div>
@@ -46,7 +45,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box-3 bg-light-green hover-zoom-effect">
                         <div class="icon">
-                             <a href="viewsubject.php"><i class="material-icons">SUBJECTS</i></a>
+                            <i class="material-icons">SUBJECTS</i>
                         </div>
                         <div class="content">
                             <div class="text">SUBJECTS</div>
@@ -57,7 +56,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box-3 bg-cyan hover-zoom-effect">
                         <div class="icon">
-                           <a href="viewtopic.php"> <i class="material-icons">TOPIC</i></a>
+                            <i class="material-icons">TOPIC</i>
                         </div>
                         <div class="content">
                             <div class="text">TOPICS</div>
@@ -131,7 +130,7 @@
                                     create question paper
                                 </button></a>
 
-                                 <a href="viewquestion.php"> <button type="button" class="btn btn-info waves-effect" >
+                                 <a href="#"> <button type="button" class="btn btn-info waves-effect" >
                                     <i class="material-icons" style="font-size: 90px">question_answer</i>
 
                                 </button></a>
@@ -141,18 +140,18 @@
                                     add new question
                                 </button></a>
 
-                               <a href="viewsubject.php"> <button type="button" class="btn btn-warning waves-effect" >
+                               <a href="#"> <button type="button" class="btn btn-warning waves-effect" >
                                     <i class="material-icons" style="font-size: 90px">subject</i>
                                     add new subject
                                 </button></a>
 
 
-                                 <a href="viewchapter.php"> <button type="button" class="btn btn-danger waves-effect" >
+                                 <a href="#"> <button type="button" class="btn btn-danger waves-effect" >
                                     <i class="material-icons" style="font-size: 90px">control_point</i>
                                     add new chapter
                                 </button></a>
 
-                                 <a href="viewtopic.php"> <button type="button" class="btn bg-pink waves-effect" >
+                                 <a href="#"> <button type="button" class="btn bg-pink waves-effect" >
                                     <i class="material-icons" style="font-size: 90px">control_point_duplicate</i>
                                     add new topic
                                 </button></a>
