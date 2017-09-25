@@ -4,6 +4,6 @@
 //   shell_exec( 'cd /usr/share/nginx/html/mypaper && git reset --hard HEAD && git pull' );
 // }
 
-shell_exec( 'cd /usr/share/nginx/html/mypaper && sudo git reset --hard HEAD && sudo git pull' );
+shell_exec( 'cd /usr/share/nginx/html/mypaper' );
 echo "Hi";
 ?>
