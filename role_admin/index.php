@@ -7,6 +7,36 @@
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
 <div class="row">
+
+<?php
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL,$api_url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+            "func=countdata");
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$output = curl_exec ($ch);
+$feed = json_decode($output, true);
+if($feed['error']==true)
+{
+?>
+<div class="alert alert-danger">
+                                <h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+                         </div>
+                         <?php   
+
+
+}
+else
+{
+
+
+
+?>
+
   <section class="content">
 
 
@@ -27,7 +57,7 @@
                         </div>
                         <div class="content">
                             <div class="text">TOTAL QUESTION</div>
-                            <div class="number">15</div>
+                            <div class="number"><?php echo $feed['data']['questions_count'] ?></div>
                         </div>
                     </div>
 
@@ -111,6 +141,8 @@
 
 
             </section>
+
+            <?php }?>
 
             <section class="content">
                 <div class="row">
