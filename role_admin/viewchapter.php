@@ -61,7 +61,7 @@ else
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                      Add New Chapter
-                                    <a href="viewsubject.php"> <button type="button" class="btn bg-deep-purple btn-circle waves-effect waves-circle waves-float" >
+                                    <a href="addchapter.php"> <button type="button" class="btn bg-deep-purple btn-circle waves-effect waves-circle waves-float" >
                                     <i class="material-icons" >add</i>
                                    
                                 </button></a>

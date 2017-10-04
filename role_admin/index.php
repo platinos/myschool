@@ -69,7 +69,7 @@ else
                         </div>
                         <div class="content">
                             <div class="text">CHAPTERS</div>
-                            <div class="number">92%</div>
+                            <div class="number"><?php echo $feed['data']['chapters_count'] ?></div>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ else
                         </div>
                         <div class="content">
                             <div class="text">SUBJECTS</div>
-                            <div class="number">07:00 AM</div>
+                            <div class="number"><?php echo $feed['data']['subjects_count'] ?></div>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ else
                         </div>
                         <div class="content">
                             <div class="text">TOPICS</div>
-                            <div class="number">Turkey</div>
+                            <div class="number"><?php echo $feed['data']['topics_count'] ?></div>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ else
                         </div>
                         <div class="content">
                             <div class="text">GENERATED QUESTION PAPERS</div>
-                            <div class="number">15</div>
+                            <div class="number"><?php echo $feed['data']['questionpaper_count'] ?></div>
                         </div>
                     </div>
 
@@ -114,7 +114,7 @@ else
                         </div>
                         <div class="content">
                             <div class="text">USERS</div>
-                            <div class="number">92%</div>
+                            <div class="number"><?php echo $feed['data']['users_count'] ?></div>
                         </div>
                     </div>
                 </div>
