@@ -26,15 +26,15 @@ if(isset($func_name) && !empty($func_name)){
 	}
 	else{
 		echo "i am on surface";
-		// $ch = curl_init();
-		// curl_setopt($ch, CURLOPT_URL,$api_url);
-		// curl_setopt($ch, CURLOPT_POST, 1);
-		// curl_setopt($ch, CURLOPT_POSTFIELDS,"func=".$func_name);
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL,$api_url);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS,"func=".$func_name);
 
-		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-		// $output = curl_exec ($ch);
-		// $feed = json_decode($output, true);
+		$output = curl_exec ($ch);
+		$feed = json_decode($output, true);
 	}
 
 
