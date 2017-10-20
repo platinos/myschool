@@ -13,7 +13,7 @@ if(isset($func_name) && !empty($func_name)){
 
 	if(isset($params) && !empty($params)){
 		echo "i got in deep";
-		$func_array = ['func_name' => '$func_name'];
+		$func_array = ['func' => '$func_name'];
 		$values = array_merge($func_name, $params);
 		$parameters = http_build_query($values);
 		$ch = curl_init();
