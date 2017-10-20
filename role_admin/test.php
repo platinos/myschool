@@ -9,7 +9,7 @@ $feed = apicall("viewquestion");
 var_dump($feed);
 echo"<hr>";
 $var =['something'=> 'h'];
-$feed = apicall("viewquestion" ,$var);
+$feed = apicall("addsubject" ,$var);
 var_dump($feed);
 echo"<hr>";
 
