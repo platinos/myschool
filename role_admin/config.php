@@ -7,9 +7,9 @@ $secret_key= "nothing";
 
 function apicall($func_name, $params){
 
-if(isset($func_name)){
+if(isset($func_name) && !empty($func_name)){
 
-	if(isset($params)){
+	if(isset($params) && !empty($params)){
 		$func_array = ['func_name' => '$func_name'];
 		$values = array_merge($func_name, $params)
 		$parameters = http_build_query($values);
