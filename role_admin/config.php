@@ -15,9 +15,7 @@ if(isset($func_name) && !empty($func_name)){
 		echo "i got in deep";
 		$func_array = ['func' => $func_name];
 		$values = array_merge($func_array, $params);
-
 		$parameters = http_build_query($values);
-		var_dump($parameters);
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL,$GLOBALS['api_url']);
 		curl_setopt($ch, CURLOPT_POST, 1);
