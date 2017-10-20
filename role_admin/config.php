@@ -6,6 +6,7 @@ $secret_key= "nothing";
 
 
 function apicall($func_name, $params){
+	$feed = null;
 
 if(isset($func_name) && !empty($func_name)){
 
