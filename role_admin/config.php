@@ -9,10 +9,10 @@ function apicall($func_name, $params){
 	//$feed = null;
 
 if(isset($func_name) && !empty($func_name)){
-	echo "i m here";
+	
 
 	if(isset($params) && !empty($params)){
-		echo "i got in deep";
+		
 		$func_array = ['func' => $func_name];
 		$values = array_merge($func_array, $params);
 		$parameters = http_build_query($values);
@@ -25,7 +25,7 @@ if(isset($func_name) && !empty($func_name)){
 		$feed = json_decode($output, true);
 	}
 	else{
-		echo "i am on surface";
+		
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL,$GLOBALS['api_url']);
 		curl_setopt($ch, CURLOPT_POST, 1);
@@ -40,7 +40,7 @@ if(isset($func_name) && !empty($func_name)){
 
 }
 else{
-	echo "i was out";
+	
 	$output = [ 'error' => 'Function name not set.'];
 	$feed = json_decode($output, true);
 
