@@ -24,7 +24,7 @@
                     </li>
 
                       <li>
-                    	<a href="#">
+                    	<a href="addquestion.php">
                         	<i class="material-icons">note_add</i>
                         	<span>Add New Questions</span>
                     	</a>
