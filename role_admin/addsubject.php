@@ -13,7 +13,6 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
-<?php include 'config.php' ; ?>
 <section class="content">
         <div class="container-fluid">
           
@@ -42,20 +41,9 @@
             <?php
 if(isset($_POST['name']) && !empty($_POST['name'])) {
     $values = array(
-    'func' => addsubject,
     'subject_name' => $_POST['name'],    
   );
-   $params = http_build_query($values);
-    $ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL,$api_url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS,$params);
-
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$output = curl_exec ($ch);
-$feed = json_decode($output, true);
+$feed = apicall("addsubject",$values);
 if($feed['error']==true)
 {
 ?>

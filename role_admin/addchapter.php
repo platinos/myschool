@@ -13,7 +13,7 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
-<?php include 'config.php' ; ?>
+
 <section class="content">
         <div class="container-fluid">
           
@@ -54,22 +54,12 @@
             <?php
 if(isset($_POST['chap']) && !empty($_POST['chap'])) {
     $values = array(
-    'func' => addchapter,
     'chapter_name' => $_POST['chap'],    
     'subject' => $_POST['subj'],    
     'class' => $_POST['clas'],    
   );
-   $params = http_build_query($values);
-    $ch = curl_init();
+$feed = apicall("addchapter", $values);
 
-curl_setopt($ch, CURLOPT_URL,$api_url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS,$params);
-
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$output = curl_exec ($ch);
-$feed = json_decode($output, true);
 if($feed['error']==true)
 {
 ?>

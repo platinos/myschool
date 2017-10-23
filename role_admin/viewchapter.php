@@ -13,7 +13,6 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
-<?php include 'config.php' ; ?>
 <section class="content">
         <div class="container-fluid">
            
@@ -23,17 +22,7 @@
             <!-- Exportable Table -->
             <div class="row clearfix">
 <?php
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL,$api_url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS,
-            "func=viewchapter");
-
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$output = curl_exec ($ch);
-$feed = json_decode($output, true);
+$feed = apicall("viewchapter");
 if($feed['error']==true)
 {
 ?>
