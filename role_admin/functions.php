@@ -8,7 +8,7 @@ include 'config.php';
 
 if(isset($_GET["func"]) && !empty($_GET["func"])){
 
-$func = $_GET["func"]
+$func = $_GET["func"];
 $params = getparams();
 
 echo apicall($func,$params);
