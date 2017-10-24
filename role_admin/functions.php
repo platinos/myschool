@@ -19,6 +19,7 @@ if($feed['error']==true)
 }
 else{
 echo "Executed Successfully.";
+echo "<script>window.close();</script>";
 }
 
 
