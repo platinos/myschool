@@ -12,6 +12,15 @@ $func = $_GET["func"];
 $params = getparams();
 
 $feed = apicall($func,$params);
+
+if($feed['error']==true)
+{
+	echo "an error occured.";
+}
+else{
+echo "Executed Successfully.";
+}
+
 var_dump($feed);
 
 	}
