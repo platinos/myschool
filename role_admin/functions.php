@@ -7,19 +7,28 @@ include 'config.php';
 /***********************************************************/
 
 if(isset($_GET["func"]) && !empty($_GET["func"])){
-	$params = array();
 
-foreach ($_GET as $key => $value) { 
+$func = $_GET["func"]
+$params = getparams();
 
-if($key != 'func'){
-$params[$key] = $value;
-}
-
-}
-
-var_dump($params);
+echo apicall($func,$params);
 
 	}
+
+
+function getparams()
+{
+		$params = array();
+
+		foreach ($_GET as $key => $value) { 
+
+			if($key != 'func')	$params[$key] = $value;
+			
+
+		}
+		return $params;
+}
+
 
 
 ?>
