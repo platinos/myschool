@@ -21,7 +21,6 @@ else{
 echo "Executed Successfully.";
 }
 
-var_dump($feed);
 
 	}
 
