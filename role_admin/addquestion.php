@@ -197,6 +197,7 @@ $(function () {
 
 
     </script>
+    <script type="text/javascript" src="js/wirislib.js"></script>
     
 </body>
 
