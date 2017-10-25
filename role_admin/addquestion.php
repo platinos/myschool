@@ -83,7 +83,7 @@
     <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
     <!-- TinyMCE -->
-    <script src="/plugins/tinymce/tinymce.js"></script>
+    <script src="plugins/tinymce/tinymce.js"></script>
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
@@ -112,7 +112,7 @@ $(function () {
         image_advtab: true
     });
     tinymce.suffix = ".min";
-    tinyMCE.baseURL = '/plugins/tinymce';
+    tinyMCE.baseURL = 'plugins/tinymce';
 });
 
 
