@@ -4,7 +4,7 @@
 <head>
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+    
    
 <title>MyPaper-Controller</title>
 
