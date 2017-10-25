@@ -26,25 +26,57 @@
                         </div>
                         <div class="body">
                             <form id="form_validation" action="" method="POST">
-                                <div class="form-group form-float">
+                                <div class="col-md-8">
+                               
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="chap" required>
-                                        <label class="form-label">Name of The Chapter</label>
-                                    </div>
+                                        <label>Type Question</label>
+                                        <textarea name="question" id="ckeditor2">
+                               
+                          </textarea>
+
+                                        
+                                    
                                  </div>
-                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="subj" required>
-                                        <label class="form-label">Name of The Subject</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="clas" required>
-                                        <label class="form-label">Name of The Class</label>
-                                    </div>
-                                </div>
                                 
+                                    <div class="form-line">
+                                        
+                                        <label>Answer</label>
+                                        <textarea name="question1" id="ckeditor1">
+
+                                        </textarea>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-4"> 
+
+                                    <div class="form-line">                             
+                                    <select id="qclass" name="qclass" size="4" class="form-control">
+                                    <option value="9" selected>IX</option>
+                                    <option value="10">X</option>
+                                    <option value="11">XI</option>
+                                    <option value="12">XII</option>
+                                    </select>
+                                    </div>
+
+               
+
+                 <div class="form-line">
+                                        
+                <select id="qclass" name="qclass" size="4" class="form-control">
+                <option value="9" selected>IX</option>
+                <option value="10">X</option>
+                <option value="11">XI</option>
+                <option value="12">XII</option>
+                </select>
+               
+               
+                </div>
+
+               
+
+</div>
+
+
                                 <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
                         </div>
@@ -109,7 +141,9 @@ else
     <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-
+     <script src="plugins/tinymce/tinymce.js"></script>
+<script src="js/pages/forms/editors.js"></script>
+     <script src="plugins/ckeditor/ckeditor.js"></script>
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
@@ -120,4 +154,3 @@ else
 </body>
 
 </html>
-
