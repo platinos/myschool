@@ -4,7 +4,6 @@
 <head>
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    
    
 <title>MyPaper-Controller</title>
 
@@ -14,7 +13,6 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
-
 <section class="content">
         <div class="container-fluid">
           
@@ -22,21 +20,21 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>ADD QUESTIONS</h2>
+                            <h2>ADD TOPIC</h2>
                            
                         </div>
                         <div class="body">
-                            
-<!-- form body -->
-
-
-
-<!-- end form body -->
-
-
-
-
-
+                            <form id="form_validation" action="" method="POST">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="chap" required>
+                                        <label class="form-label">Name of The Topic</label>
+                                    </div>
+                                 </div>
+                                 
+                                
+                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -49,7 +47,6 @@ if(isset($_POST['chap']) && !empty($_POST['chap'])) {
     'class' => $_POST['clas'],    
   );
 $feed = apicall("addchapter", $values);
-
 if($feed['error']==true)
 {
 ?>
@@ -99,9 +96,7 @@ else
     <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-     <script src="plugins/tinymce/tinymce.js"></script>
-<script src="js/pages/forms/editors.js"></script>
-    <!--  <script src="plugins/ckeditor/ckeditor.js"></script> -->
+
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
@@ -112,3 +107,4 @@ else
 </body>
 
 </html>
+
