@@ -82,6 +82,8 @@
     <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <!-- TinyMCE -->
+    <script src="/plugins/tinymce/tinymce.js"></script>
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
