@@ -4,6 +4,7 @@
 <head>
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
    
 <title>MyPaper-Controller</title>
 
@@ -159,7 +160,7 @@
                           </div>
                           
 
-                
+
 <!-- end form body -->
 
 
@@ -230,7 +231,7 @@ else
     <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
      <script src="plugins/tinymce/tinymce.js"></script>
 <script src="js/pages/forms/editors.js"></script>
-     <script src="plugins/ckeditor/ckeditor.js"></script>
+    <!--  <script src="plugins/ckeditor/ckeditor.js"></script> -->
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
