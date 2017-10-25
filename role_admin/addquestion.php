@@ -78,12 +78,15 @@
 <!-- Right Column -->
 <form>
     
-    <select class="form-control" name="class">
+
+<select class="form-control show-tick" name="class">
                                         <option value="9" selected>IX</option>
                                         <option value="10">X</option>
                                         <option value="11">XI</option>
                                         <option value="12">XII</option>
-    </select>
+                                    </select>
+
+ 
 
 
 </form>
@@ -148,6 +151,7 @@
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
+    <script src="js/pages/forms/basic-form-elements.js"></script>
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
