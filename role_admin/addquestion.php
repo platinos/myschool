@@ -17,7 +17,7 @@
         <div class="container-fluid">
           
            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                     <div class="card">
                         <div class="header">
                             <h2>ADD QUESTIONS</h2>
@@ -29,7 +29,7 @@
 
 <!-- ***************** FORM **********************-->
 <!-- Middle Column -->
-<div class="col-lg-9">
+
 <form>
     <textarea id="question">
     Question
@@ -40,14 +40,8 @@
 </textarea>
 </form>
 
-    
-</div>
-<!-- Right Column -->
-<div class="col-lg-3">
-   <h3>QUESTION ATTRIBUTES</h3>
-                                        
 
-</div>
+
 
 
 
@@ -66,6 +60,46 @@
                         </div>
                     </div>
                 </div>
+
+
+
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <div class="card">
+                        <div class="header">
+                            <h2>QUESTION ATTRIBUTES</h2>
+                           
+                        </div>
+                        <div class="body">
+                            
+
+
+<!-- ***************** FORM **********************-->
+
+<!-- Right Column -->
+
+
+
+
+
+
+
+<!--  ***************** END FORM ********************** -->
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
             </div>
            
             <!-- #END# Exportable Table -->
