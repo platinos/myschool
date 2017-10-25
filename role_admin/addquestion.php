@@ -29,7 +29,7 @@
 
 <!-- ***************** FORM **********************-->
 <!-- Middle Column -->
-<div class="col-xs-9">
+<div class="col-lg-12-9">
 <form>
     <textarea id="question">
     Question
@@ -43,7 +43,7 @@
     
 </div>
 <!-- Right Column -->
-<div class="col-xs-3">
+<div class="col-lg-3">
    <h3>QUESTION ATTRIBUTES</h3>
                                         
 
