@@ -78,7 +78,7 @@
 <!-- Right Column -->
 <form>
     
-    <select class="form-control show-tick" tabindex="-98" name="class">
+    <select class="form-control" name="class">
                                         <option value="9" selected>IX</option>
                                         <option value="10">X</option>
                                         <option value="11">XI</option>
