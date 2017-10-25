@@ -197,7 +197,7 @@ $(function () {
 
 
     </script>
-    <script type="text/javascript" src="js/wirislib.js"></script>
+    <script type="text/javascript" src="plugins/tinymce/plugins/tiny_mce_wiris/integration/wirislib.js"></script>
     
 </body>
 
