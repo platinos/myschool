@@ -87,6 +87,15 @@
                                         <option value="12">XII</option>
                                     </select>
                                     <br><br>
+
+                                    <label class="form-label" >Subject</label>
+<select class="form-control show-tick" name="class">
+                                        <option value="chemistry" selected>Chemistry</option>
+                                        <option value="physics">Physics</option>
+                                        <option value="mathematics">Mathematics</option>
+                                        <option value="english">English</option>
+                                    </select>
+                                    <br><br>
  <label class="form-label">Type</label>
 <select name="type" class="form-control show-tick" onchange="answerbox();">
                   <option value="1">MCQ</option>
@@ -124,6 +133,9 @@
                 <br><br>
 <label class="form-label">Marks alloted</label>  
                               <input id="marks" name="marks" type="number" value="" class="form-control input-md">
+                              <br>
+                              <label class="form-label">Youtube link</label>  
+                              <input id="marks" name="marks" type="text" value="" class="form-control input-md">
                               <br>
 <input type="submit" id="save" name="save" value="Save Question" class="btn btn-primary btn-lg" onclick='ClickToSave()'/>
 </form>
