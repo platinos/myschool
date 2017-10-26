@@ -79,17 +79,53 @@
 <!-- Right Column -->
 <form>
     
-
+ <label class="form-label" >Class</label>
 <select class="form-control show-tick" name="class">
                                         <option value="9" selected>IX</option>
                                         <option value="10">X</option>
                                         <option value="11">XI</option>
                                         <option value="12">XII</option>
                                     </select>
+                                    <br><br>
+ <label class="form-label">Type</label>
+<select name="type" class="form-control show-tick" onchange="answerbox();">
+                  <option value="1">MCQ</option>
+                  <option value="2">TRUE/FALSE</option>
+                  <option value="3" selected>SHORT ANSWER</option>
+                  <option value="4">LONG ANSWER</option>
+                  <option value="5">COMPREHENSION</option>
+                </select>
+<br><br>
+ <label class="form-label">Tag</label>
+ <input type="text" class="form-control" name="tag" required>
+       <br>                              
+ <label class="form-label">Chapter</label>
+  <select id="chapter" name="chapter" size="1" class="form-control" onchange="topic_select()">                                  <option value="Motion in 1 D">Motion in 1 D</option>
+                              </select>
 
- 
+<br><br>
+<label class="form-label">Topic</label>
+                              <select id="topic" name="topic" size="6" class="form-control">                                  <option value="Test">Test</option>
+                                                                <option value="Test33">Test33</option>
+                                                                <option value="test2">test2</option>
+                                                                <option value="xyz">xyz</option>
+                                                                <option value="test3">test3</option>
+                                                                <option value="biomolecules">biomolecules</option>
+                              </select>    
+<br><br>
+<label class="form-label">Level</label>
+                               <select id="level" name="level" size="4" class="form-control">
+                  <option value="1">Easy</option>
+                  <option value="2">Medium</option>
+                  <option value="3">Tough</option>
+                  <option value="4">HOTS</option>
+                </select>   
 
-
+                <br><br>
+<label class="form-label">Marks alloted</label>  
+                              <input id="marks" name="marks" type="number" value="" class="form-control input-md">
+                              <br>
+<input type="submit" id="save" name="save" value="Save Question" class="btn btn-primary btn-lg" onclick='ClickToSave()'/>
 </form>
 
 
