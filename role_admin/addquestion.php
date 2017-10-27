@@ -229,7 +229,21 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-  console.log(response);
+  var data= JSON.parse(response);
+  var i = 0;
+  var dataSize = data.size;
+  var str="";
+  $.each(data, function() {
+
+      str += this['data'][0]['id'] + "-" + this['data'][0]['chapter']+"<br>";
+      i++;
+
+  });
+
+  $('#question').html(str);
+
+
+
 });
 
      }  
