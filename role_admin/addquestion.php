@@ -231,8 +231,9 @@ var settings = {
 $.ajax(settings).done(function (response) {
   var jsonData= JSON.parse(response);
   
-  var dataSize = jsonData.data.size;
-  alert(jsonData.data.0.chapter);
+  var dataSize = jsonData.size;
+
+  
   var str="";
   for (var i = 0; i < jsonData.data.length; i++) {
     var counter = jsonData.data[i];
