@@ -243,7 +243,7 @@ $.ajax(settings).done(function (response) {
 
  //alert(str);
 
-$('#here').html(str);
+//$('#here').html(str);
 
 var select = $('#chapters');
 select.empty().append(str);
