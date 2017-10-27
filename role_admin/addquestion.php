@@ -233,15 +233,15 @@ $.ajax(settings).done(function (response) {
   var i = 0;
   var dataSize = data1.size;
   alert(dataSize);
-  var str="";
-  $.each(data1, function() {
+  // var str="";
+  // $.each(data1, function() {
 
-      str += this.data[i].id.+ "-" + this['data'][0]['chapter']+"<br>";
-      i++;
+  //     str += this.data[i].id.+ "-" + this['data'][0]['chapter']+"<br>";
+  //     i++;
 
-  });
+  // });
 
-  $('#question').html(str);
+  // $('#question').html(str);
 
 
 
