@@ -245,7 +245,7 @@ $.ajax(settings).done(function (response) {
 
 $('#here').html(str);
 
-var select = $('#chapters);
+var select = $('#chapters');
 select.empty().append(str);
 
 
