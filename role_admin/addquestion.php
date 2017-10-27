@@ -229,13 +229,14 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-  var data= JSON.parse(response);
+  var data1= JSON.parse(response);
   var i = 0;
-  var dataSize = data.size;
+  var dataSize = data1.size;
+  alert(dataSize);
   var str="";
-  $.each(data, function() {
+  $.each(data1, function() {
 
-      str += this['data'][i]['id'] + "-" + this['data'][0]['chapter']+"<br>";
+      str += this.data[i].id.+ "-" + this['data'][0]['chapter']+"<br>";
       i++;
 
   });
