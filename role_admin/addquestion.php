@@ -241,7 +241,7 @@ $.ajax(settings).done(function (response) {
 }
 
  alert(str);
-  $('#question').html(str);
+  $('#chapter').html(str);
 
 
 
