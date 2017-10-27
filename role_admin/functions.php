@@ -24,6 +24,18 @@ echo "<script>window.close();</script>";
 
 
 	}
+	else if (isset($_POST['func'] && !empty($_POST['func'])) {
+	
+
+$func = $_POST["func"];
+$params = getparams2();
+
+$feed = apicall($func,$params);
+
+echo $feed;
+
+
+}
 
 
 function getparams()
@@ -52,18 +64,7 @@ function getparams2()
 }
 
 
-if (isset($_POST['func'] && !empty($_POST['func'])) {
-	
 
-$func = $_POST["func"];
-$params = getparams2();
-
-$feed = apicall($func,$params);
-
-echo $feed;
-
-
-}
 
 
 ?>
