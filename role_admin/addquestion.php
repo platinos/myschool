@@ -201,7 +201,7 @@
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
-    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+   <!--  <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
