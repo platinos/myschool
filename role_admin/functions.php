@@ -31,7 +31,7 @@ $params = getparams2();
 
 $feed = apicall($func,$params);
 
-echo $feed;
+echo json_encode($feed);
 
 
 }
