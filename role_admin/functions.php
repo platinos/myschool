@@ -22,9 +22,8 @@ echo "Executed Successfully.";
 echo "<script>window.close();</script>";
 }
 
-
-	}
-	else if (isset($_POST['func'] && !empty($_POST['func'])) {
+}
+	else if (isset($_POST['func']) && !empty($_POST['func'])) {
 	
 
 $func = $_POST["func"];
