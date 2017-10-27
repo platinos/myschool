@@ -241,10 +241,12 @@ $.ajax(settings).done(function (response) {
     str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
 }
 
- alert(str);
+ //alert(str);
 
 $('#here').html(str);
-$('#chapters').html(str);
+
+var select = $('#chapters);
+select.empty().append(str);
 
 
 
