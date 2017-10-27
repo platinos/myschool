@@ -237,7 +237,7 @@ $.ajax(settings).done(function (response) {
   var str="";
   for (var i = 0; i < jsonData.data.length; i++) {
     var counter = jsonData.data[i];
-    str += counter.id+" - "+counter.chapter;
+    str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
 }
 
  alert(str);
