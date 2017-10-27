@@ -21,7 +21,7 @@
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                     <div class="card">
                         <div class="header">
-                            <h2>ADD QUESTIONS</h2>
+                            <h2 id="here">ADD QUESTIONS</h2>
                            
                         </div>
                         <div class="body">
@@ -241,10 +241,8 @@ $.ajax(settings).done(function (response) {
 }
 
  alert(str);
- alert($('#chapter').val());
 
-  $('#chapter').empty().append(str);
-
+$('#here').html(str);
 
 
 });
