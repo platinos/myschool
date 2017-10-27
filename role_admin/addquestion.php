@@ -219,13 +219,9 @@ form.append("subject", "Chemistry");
 
 var settings = {
   "async": true,
-  "crossDomain": true,
-  "url": "http://35.194.226.60/msapi/api.php",
+  "url": "functions.php",
   "method": "POST",
-  "headers": {
-    "cache-control": "no-cache",
-    "postman-token": "55cc836d-cb1e-d61a-417f-b466b2c2710a"
-  },
+
   "processData": false,
   "contentType": false,
   "mimeType": "multipart/form-data",

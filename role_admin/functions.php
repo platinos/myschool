@@ -38,7 +38,32 @@ function getparams()
 		}
 		return $params;
 }
+function getparams2()
+{
+		$params = array();
 
+		foreach ($_POST as $key => $value) { 
+
+			if($key != 'func')	$params[$key] = $value;
+			
+
+		}
+		return $params;
+}
+
+
+if (isset($_POST['func'] && !empty($_POST['func'])) {
+	
+
+$func = $_POST["func"];
+$params = getparams2();
+
+$feed = apicall($func,$params);
+
+echo $feed;
+
+
+}
 
 
 ?>
