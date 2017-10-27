@@ -80,7 +80,7 @@
 <form>
     
  <label class="form-label" >Class</label>
-<select class="form-control show-tick" name="class">
+<select class="form-control show-tick" name="class" id="class">
                                         <option value="9" selected>IX</option>
                                         <option value="10">X</option>
                                         <option value="11">XI</option>
@@ -89,7 +89,7 @@
                                     <br><br>
 
                                     <label class="form-label" >Subject</label>
-<select class="form-control show-tick" name="class">
+<select class="form-control show-tick" name="subject" id="subject" onchange="chap_select()">
                                         <option value="chemistry" selected>Chemistry</option>
                                         <option value="physics">Physics</option>
                                         <option value="mathematics">Mathematics</option>
@@ -97,7 +97,7 @@
                                     </select>
                                     <br><br>
  <label class="form-label">Type</label>
-<select name="type" class="form-control show-tick" onchange="answerbox();">
+<select name="type" class="form-control show-tick" id="type" onchange="answerbox();">
                   <option value="1">MCQ</option>
                   <option value="2">TRUE/FALSE</option>
                   <option value="3" selected>SHORT ANSWER</option>
@@ -204,7 +204,24 @@
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
+
+
+
+
     <script type="text/javascript">
+
+
+     function chap_select(){
+        $.post("http://35.194.226.60/msapi/api.php", 
+            {
+                class: $('#class').val(),
+                subject:$('#subject').val()
+            }, 
+            function(result){
+        $('#question').html(result);
+    });
+
+     }  
         
 $(function () {
     
