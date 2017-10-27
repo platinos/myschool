@@ -236,7 +236,7 @@ $.ajax(settings).done(function (response) {
   var str="";
   $.each(data1, function() {
 
-      str += this.data.i.id.+ "-" + this.data.i.chapter+"<br>";
+      str += this.data.i.id+ "-" + this.data.i.chapter+"<br>";
       i++;
 
   });
