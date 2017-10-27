@@ -241,6 +241,8 @@ $.ajax(settings).done(function (response) {
 }
 
  alert(str);
+ alert($('#chapter').val());
+
   $('#chapter').empty().append(str);
 
 
