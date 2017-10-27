@@ -235,7 +235,7 @@ $.ajax(settings).done(function (response) {
   var str="";
   $.each(data, function() {
 
-      str += this['data'][0]['id'] + "-" + this['data'][0]['chapter']+"<br>";
+      str += this['data'][i]['id'] + "-" + this['data'][0]['chapter']+"<br>";
       i++;
 
   });
