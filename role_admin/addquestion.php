@@ -231,7 +231,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
   var data1= JSON.parse(response);
   var i = 0;
-  var dataSize = data1.size;
+  var dataSize = data1.data.size;
   alert(dataSize);
   // var str="";
   // $.each(data1, function() {
