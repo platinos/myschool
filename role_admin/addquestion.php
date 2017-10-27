@@ -229,18 +229,17 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-  var data1= JSON.parse(response);
-  var i = 0;
-  var dataSize = data1.data.size;
+  var jsonData= JSON.parse(response);
+  
+  var dataSize = jsonData.data.size;
   alert(dataSize);
   var str="";
-  $.each(data1, function() {
+  for (var i = 0; i < jsonData.data.length; i++) {
+    var counter = jsonData.data[i];
+    str += counter.id+" - "+counter.chapter;
+}
 
-      str += this.data[i].id+ "-" + this.data[i].chapter+"<br>";
-      i++;
-
-  });
-
+    console.log(str);
   $('#question').html(str);
 
 
