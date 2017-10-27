@@ -109,7 +109,8 @@
  <input type="text" class="form-control" name="tag" required>
        <br>                              
  <label class="form-label">Chapter</label>
-  <select id="chapter" name="chapter" size="1" class="form-control" onchange="topic_select()">                                  <option value="Motion in 1 D">Motion in 1 D</option>
+  <select id="chapters" name="chapters" class="form-control" onchange="topic_select()">                                  
+    <option value="Motion in 1 D">Motion in 1 D</option>
                               </select>
 
 <br><br>
@@ -243,6 +244,8 @@ $.ajax(settings).done(function (response) {
  alert(str);
 
 $('#here').html(str);
+$('#chapters').html(str);
+
 
 
 });
