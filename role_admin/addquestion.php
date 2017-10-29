@@ -324,7 +324,7 @@ if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
 <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 <!-- TinyMCE -->
-<script src="plugins/tinymce/tinymce.js"></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
