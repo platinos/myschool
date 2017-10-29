@@ -46,10 +46,10 @@
 <div id=2>
                                 <br>
                                 <br>
-                                <input name="group" type="radio" id="true" checked />
-                                <label for="true" id="true1">True</label>  <BR>
-                                <input name="group" type="radio" id="false" />
-                                <label for="false" id="false1">False</label>
+                                 <input name="group" type="radio" id="true" value="true" checked />
+                                <label for="true" id="true" >True</label>  <BR>
+                                <input name="group" type="radio" value="true" id="false" />
+                                <label for="false" id="false">False</label>
                                 
 </div> 
 
