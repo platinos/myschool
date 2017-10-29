@@ -186,7 +186,7 @@ $newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
     'subject' => $_POST['subject'], 
     'type' => $_POST['type'], 
     'tag' => $_POST['tag'], 
-    'chapters' => $_POST['chapters'], 
+    'chapter' => $_POST['chapters'], 
     'topic' => $_POST['topic'], 
     'level' => $_POST['level'], 
     'marks' => $_POST['marks'], 
@@ -361,7 +361,7 @@ $.ajax(settings).done(function (response) {
   var str="";
   for (var i = 0; i < dataSize; i++) {
     var counter = jsonData1.data[i];
-    str += "<option value='"+counter.id+"'>"+counter.topic+"</option>";
+    str += "<option value='"+counter.topic+"'>"+counter.topic+"</option>";
 
 }
 
