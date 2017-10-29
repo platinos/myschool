@@ -34,7 +34,7 @@
 
 <textarea id="example" name="example">
 								Testing maths
-							</textarea>
+</textarea>
 
 
 
