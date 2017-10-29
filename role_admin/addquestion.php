@@ -170,7 +170,7 @@ $new = date("Y-m-d-H-i-sa",$t);
 $fileName = $_FILES["file_upload"]["name"];
 $splitName = explode(".", $fileName); //split the file name by the dot
 $fileExt = end($splitName); //get the file extension
-echo $newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
+$newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
 
      if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
      {
