@@ -563,7 +563,7 @@ tinyMCE.baseURL = 'plugins/tinymce';
 
 
 </script>
-<script type="text/javascript" src="plugins/tinymce/plugins/tiny_mce_wiris/integration/wirislib.js"></script>
+<script type="text/javascript" src="plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=image"></script>
 
 </body>
 
