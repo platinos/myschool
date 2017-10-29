@@ -10,6 +10,7 @@ var _wrs_conf_editor = "TinyMCE";
 if (typeof _wrs_isMoodle24 == 'undefined') {
     _wrs_baseURL = tinymce.baseURL;
     _wrs_conf_path = _wrs_baseURL + '/plugins/tiny_mce_wiris/'; // TODO use the same variable name always.
+    _wrs_conf_path = 'plugins/tinymce/plugins/tiny_mce_wiris/'; // TODO use the same variable name always.
 }else{
     var base = tinymce.baseURL;
     var search = 'lib/editor/tinymce';
