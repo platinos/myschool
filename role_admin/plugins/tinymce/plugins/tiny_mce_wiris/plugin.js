@@ -2,6 +2,7 @@
 var _wrs_int_conf_file = "integration/configurationjs.php";
 var _wrs_int_conf_async = true;
 var _wrs_baseURL;
+var _wrs_conf_saveMode = "xml";
 
 // Stats editor (needed by core/editor.js).
 var _wrs_conf_editor = "TinyMCE";
