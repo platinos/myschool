@@ -47,9 +47,9 @@
                                 <br>
                                 <br>
                                 <input name="group" type="radio" id="true" checked />
-                                <label for="true" id="true" value="true">True</label>  <BR>
+                                <label for="true" id="true1">True</label>  <BR>
                                 <input name="group" type="radio" id="false" />
-                                <label for="false" id="false" value="false">False</label>
+                                <label for="false" id="false1">False</label>
                                 
 </div> 
 
@@ -93,7 +93,7 @@
 
     
  <label class="form-label" >Class</label>
-<select class="form-control show-tick" name="class" id="class" onchange="chap_select()">
+<select class="form-control show-tick" name="class" id="class">
                                         <option value="9" selected>IX</option>
                                         <option value="10">X</option>
                                         <option value="11">XI</option>
@@ -193,7 +193,7 @@ echo $newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
     'link' => $_POST['link'], 
     'file' => 'scan/'.$newFileName,
   );
-    print_r ($values);
+    
 
 $feed = apicall("addquestions", $values);
 if($feed['error']==true)
