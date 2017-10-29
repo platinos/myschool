@@ -32,7 +32,7 @@
 
 
 
-<textarea id="question" name="example">
+<textarea id="example" name="example">
 								Testing maths
 							</textarea>
 
