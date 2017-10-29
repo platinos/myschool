@@ -9,6 +9,7 @@ var _wrs_conf_editor = "TinyMCE";
 // Define _wrs_conf_path (path where configuration is found).
 if (typeof _wrs_isMoodle24 == 'undefined') {
     _wrs_baseURL = tinymce.baseURL;
+    _wrs_baseURL = "/plugins/tinymce";
     _wrs_conf_path = _wrs_baseURL + '/plugins/tiny_mce_wiris/'; // TODO use the same variable name always.
 }else{
     var base = tinymce.baseURL;
