@@ -102,13 +102,44 @@
                                     <br><br>
 
                                     <label class="form-label" >Subject</label>
-<select class="form-control show-tick" name="subject" id="subject" onchange="chap_select()">
+
+<?php
+
+$feed = apicall("viewsubject");
+if($feed['error']==true)
+{
+?>
+<div class="alert alert-danger">
+                                <h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+                         </div>
+                         <?php   
+
+
+}
+else
+{?>
+	<select class="form-control show-tick" name="subject" id="subject" onchange="chap_select()">
                                         <option value="select" selected>Select</option>
-                                         <option value="chemistry" >Chemistry</option>
-                                        <option value="physics">Physics</option>
-                                        <option value="mathematics">Mathematics</option>
-                                        <option value="english">English</option>
+                                        <?php
+$size = $feed['data']['size']; 
+                                for($i=0; $i<$size; $i++)
+                                {?>
+                                        
+                                         <option value=<?php echo $feed['data'][$i]['name'] ?> ><?php echo $feed['data'][$i]['name'] ?></option>
+                                         <?php  }
+
+                                                                            ?>
+
+
+
+
+
+
                                     </select>
+
+                                    <?php
+}
+?>
                                     <br><br>
 
  <label class="form-label">Type</label>

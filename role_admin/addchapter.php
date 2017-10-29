@@ -13,6 +13,25 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
+<?php
+
+$feed = apicall("viewsubject");
+if($feed['error']==true)
+{
+?>
+<div class="alert alert-danger">
+                                <h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+                         </div>
+                         <?php   
+
+
+}
+else
+{
+
+
+
+?>
 
 <section class="content">
         <div class="container-fluid">
@@ -32,18 +51,36 @@
                                         <label class="form-label">Name of The Chapter</label>
                                     </div>
                                  </div>
-                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="subj" required>
-                                        <label class="form-label">Name of The Subject</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="clas" required>
-                                        <label class="form-label">Name of The Class</label>
-                                    </div>
-                                </div>
+
+ <label class="form-label" >Subject</label>
+<label class="form-label" >Subject</label>
+<select class="form-control show-tick" name="subject" id="subject" onchange="chap_select()">
+    <option value="select" selected>Select</option>
+    <?php
+
+                                $size = $feed['data']['size']; 
+                                for($i=0; $i<$size; $i++)
+                                {?>
+                                        
+                                         <option value=<?php echo $feed['data'][$i]['name'] ?> ><?php echo $feed['data'][$i]['name'] ?></option>
+                                         <?php  }
+                                    ?>
+                                        
+                                    </select>
+                                    <br>
+                                    <br>
+
+                                    <label class="form-label" >Class</label>
+<select class="form-control show-tick" name="class" id="class">
+                                        <option value="9" selected>IX</option>
+                                        <option value="10">X</option>
+                                        <option value="11">XI</option>
+                                        <option value="12">XII</option>
+                                    </select>
+
+                                    <BR>
+                                    <BR>
+                                 
                                 
                                 <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
@@ -82,7 +119,9 @@ else
             <!-- #END# Exportable Table -->
         </div>
     </section>
-
+<?php
+}
+?>
 
     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
@@ -91,7 +130,7 @@ else
     <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
 
     <!-- Slimscroll Plugin Js -->
     <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
