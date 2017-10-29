@@ -48,7 +48,7 @@
                                 <br>
                                  <input name="group" type="radio" id="true" value="true" checked />
                                 <label for="true" id="true" >True</label>  <BR>
-                                <input name="group" type="radio" value="true" id="false" />
+                                <input name="group" type="radio" value="false" id="false" />
                                 <label for="false" id="false">False</label>
                                 
 </div> 
@@ -151,7 +151,7 @@
                               <br>
 
                               <label class="form-label">Youtube link</label>  
-                              <input id="link" name="link" type="text" value="" class="form-control input-md">
+                              <input id="link" name="link" required type="text" value="" class="form-control input-md">
                               <br>
 
                               <label class="form-label">Scanned Copy</label>  
@@ -174,9 +174,24 @@ $newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
 
      if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
      {
+
+if($_POST['type']==1)
+{
+$ans = $_POST['mcq1'];
+}
+else if($_POST['type']==2)
+{
+	$ans = $_POST['group'];
+}
+else
+{
+	$ans = $_POST['answer'];
+}
+
+
         $values = array(
     'question' => $_POST['question'],    
-    'answer' => $_POST['answer'],    
+    'answer' => $ans,    
     'truefalse' => $_POST['group'],  
     'mcq1' => $_POST['mcq1'],  
     'mcq2' => $_POST['mcq2'],  
@@ -194,7 +209,7 @@ $newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
     'file' => 'scan/'.$newFileName,
   );
     
-
+print_r($values);
 $feed = apicall("addquestions", $values);
 if($feed['error']==true)
 {
