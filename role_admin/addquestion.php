@@ -44,7 +44,8 @@
 </div>
 
 <div id=2>
-
+                                <br>
+                                <br>
                                 <input name="group" type="radio" id="true" checked />
                                 <label for="true" id="true1">True</label>  <BR>
                                 <input name="group" type="radio" id="false" />
@@ -126,7 +127,7 @@
 
  <label class="form-label">Chapter</label>
   <select id="chapters" name="chapters" class="form-control" onchange="topic_select()">
-    <option value="Motion in 1 D">Motion in 1 D</option>
+    <option value="Motion in 1 D">Loading...</option>
                               </select>
 <br><br>
 
@@ -154,16 +155,81 @@
                               <br>
 
                               <label class="form-label">Scanned Copy</label>  
-                              <input type="file" name="upload" id="upload" accept="image/*">
+                              <input type="file" name="file_upload" id="upload" required accept="image/*">
                               <br>
-                              
-<input type="submit" id="save" name="save" value="Save Question" class="btn btn-primary btn-lg" onclick='ClickToSave()'/>
+
+<input type="submit" id="submit" name="submit" value="Save Question" class="btn btn-primary btn-lg" onclick='ClickToSave()'/>
 </form>
 
 
+<?php
+if(isset($_POST['submit']) && !empty($_POST['submit'])) {
+
+$t=time();
+$new = date("Y-m-d-H-i-sa",$t);
+$fileName = $_FILES["file_upload"]["name"];
+$splitName = explode(".", $fileName); //split the file name by the dot
+$fileExt = end($splitName); //get the file extension
+echo $newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
+
+     if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
+     {
+        $values = array(
+    'question' => $_POST['question'],    
+    'answer' => $_POST['answer'],    
+    'truefalse' => $_POST['group'],  
+    'mcq1' => $_POST['mcq1'],  
+    'mcq2' => $_POST['mcq2'],  
+    'mcq3' => $_POST['mcq3'], 
+    'mcq4' => $_POST['mcq4'], 
+    'class' => $_POST['class'], 
+    'subject' => $_POST['subject'], 
+    'type' => $_POST['type'], 
+    'tag' => $_POST['tag'], 
+    'chapters' => $_POST['chapters'], 
+    'topic' => $_POST['topic'], 
+    'level' => $_POST['level'], 
+    'marks' => $_POST['marks'], 
+    'link' => $_POST['link'], 
+    'file' => 'scan/'.$newFileName,
+  );
+    print_r ($values);
+
+$feed = apicall("addquestions", $values);
+if($feed['error']==true)
+{
+?>
+<div class="alert alert-danger">
+              <h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+                         <?php   
+
+
+}
+else
+{
+    ?>
+<div class="alert alert-info">
+               <h2><b><strong>Chapter Details Sucessfully Added</strong></b></h2>
+ </div>
+                         <?Php
+
+}
+
+
+     }
+
+     else
+     {
+          echo 'file upload error';
+     }
 
 
 
+  
+    
+}
+
+?>
 
 <!--  ***************** END FORM ********************** -->
 
