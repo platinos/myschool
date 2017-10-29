@@ -46,9 +46,9 @@
 <div id=2>
 
                                 <input name="group" type="radio" id="true" checked />
-                                <label for="true" id="true1">True</label>  <BR>
+                                <label for="true" id="true" value="true">True</label>  <BR>
                                 <input name="group" type="radio" id="false" />
-                                <label for="false" id="false1">False</label>
+                                <label for="false" id="false" value="false">False</label>
                                 
 </div> 
 
@@ -92,7 +92,7 @@
 
     
  <label class="form-label" >Class</label>
-<select class="form-control show-tick" name="class" id="class">
+<select class="form-control show-tick" name="class" id="class" onchange="chap_select()">
                                         <option value="9" selected>IX</option>
                                         <option value="10">X</option>
                                         <option value="11">XI</option>
