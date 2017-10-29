@@ -565,6 +565,7 @@ tinyMCE.baseURL = 'plugins/tinymce';
 
 </script>
 
+<script src="plugins/tinymce/tiny_mce_wiris/core/WIRISplugins.js"></script>
 
 </body>
 
