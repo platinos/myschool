@@ -476,22 +476,7 @@ select.empty().append(str);
 $(function () {
 
 
-tinymce.init({
- 		selector: '#example',
- 		height : 300,
- 		plugins: 'tiny_mce_wiris',
- 		toolbar: 'code,|,bold,italic,underline,|,cut,copy,paste,|,search,|,undo,redo,|,forecolor,backcolor,|,justifyleft,justifycenter,justifyright,fontselect,fontsizeselect,|,tiny_mce_wiris_formulaEditor,tiny_mce_wiris_formulaEditorChemistry,|,fullscreen',
- 		init_instance_callback : "updateFunctionTimeOut",
- 		setup : function(ed)
- 		{
- 			ed.on('init', function() 
- 			{
- 				this.getDoc().body.style.fontSize = '16px';
- 				this.getDoc().body.style.fontFamily = 'Arial, "Helvetica Neue", Helvetica, sans-serif';
- 			});
- 		},
- 		
- 	});
+
 
 
 //TinyMCE
