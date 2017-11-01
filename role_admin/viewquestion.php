@@ -63,6 +63,7 @@ else
                                         <th>Marks</th>
                                         <th>Question</th>                                       
                                         <th>Image</th>
+                                        <th>QR</th>
                                         <th>Answer</th>
                                         <th style="width: 50px;">Youtube</th> 
                                         <th>Action</th>
@@ -83,6 +84,7 @@ else
                                         <th>Marks</th>
                                         <th>Question</th>                                       
                                         <th>Image</th>
+                                        <th>QR</th>
                                         <th>Answer</th>
                                         <th style="width: 50px;">Youtube</th> 
                                         <th>Action</th>
@@ -106,11 +108,18 @@ else
                                                 <td><?php echo $feed['data'][$i]['topic'] ?></td>
                                                 <td><?php echo $feed['data'][$i]['marks'] ?></td>
                                                 <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
-                                                <td><a target="_blank" href = "<?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
-
+                                                <td>
+                                                	<a target="_blank" href = "<?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
                                                     <img alt="<?php echo $feed['data'][$i]['ques_img'] ?>" src="<?php echo $feed['data'][$i]['ques_img'] ?>">
-                                                </a>
-                                            </td>
+                                                	</a>
+                                          	    </td>
+
+                                          	    <td>
+                                                	<a target="_blank" href = "https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['id'] ?>"  >
+                                                    <img hieght="100" width="100" alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['id'] ?>">
+                                                	</a>
+                                          	    </td>
+
                                             <td><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
                                             <td><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
 
