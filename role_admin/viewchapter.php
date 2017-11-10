@@ -96,7 +96,7 @@
                                         <td><?php echo $feed['data'][$i]['subject'] ?></td>
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
                                         <td><?php echo $feed['data'][$i]['topic_count'] ?></td>
-                                        <td><a href="editchapter.php?ch_id=<?php echo $feed['data'][$i]['id'] ?>"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
+                                        <td><a href="fdaf"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
                                             <a onclick="window.open('functions.php?func=deletechapter&ch_id=<?php echo $feed['data'][$i]['id'] ?>','_BLANK');setTimeout(location.reload.bind(location), 2000);"><i class="material-icons" style="color: red">delete</i></a>
                                         </td>
 
