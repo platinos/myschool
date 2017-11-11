@@ -195,7 +195,7 @@
                     var dataSize = jsonData.size;
 
 
-                    var str="<option value=select>Select</option>";
+                    var str="";
                     for (var i = 0; i < jsonData.data.length; i++) {
                         var counter = jsonData.data[i];
                         str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
@@ -230,7 +230,7 @@
         $('#class').val(clas).prop('selected',true);
         $('#subject').val(subject).prop('selected',true);
         chap_select();
-       
+        $.delay(1999);
         $('#chapters').val(chap_name).prop('selected',true);
 
         console.log(subject+" "+clas+" "+chap_name);

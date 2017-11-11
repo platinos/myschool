@@ -98,7 +98,7 @@
                 if($ch_id=="0")
                     {?>
                         <script>
-                            alert("Plaese Select a chapter");
+                            alert("Please Select a chapter");
                         </script>
 
 
@@ -107,7 +107,8 @@
                         {
                             $values = array(
                                 'ch_id' => $_POST['chapters'],    
-                                'topic' => $_POST['chap'], 
+                                'topic_name' => $_POST['chap'],
+                                'topic_id'=> $_GET['topic_id'] 
                             );
                             $feed = apicall("addtopic", $values);
                             if($feed['error']==true)
