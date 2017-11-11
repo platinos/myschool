@@ -199,20 +199,22 @@
                     var str="<option value=0>Select</option>";
                     for (var i = 0; i < jsonData.data.length; i++) {
                         var counter = jsonData.data[i];
-                        str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
+                        str += "<option value='"+counter.chapters+"'>"+counter.chapter+"</option>";
                     }
 
 
-//alert(str);
+                    //alert(str);
 
-//$('#here').html(str);
+                    //$('#here').html(str);
 
-var select = $('#chapters');
-select.empty().append(str);
+                    var select = $('#chapters');
+                    select.empty().append(str);
 
 
 
-});}
+                    });}
+
+
 
         //appends data
         console.log('testing');
@@ -223,7 +225,7 @@ select.empty().append(str);
         <?php $feedChapterDetails=apicall('getchapterbyid', array("ch_id"=>$feed['data'][0]['ch_id'])) ?>
         var subject="<?php echo $feedChapterDetails['data'][0]['subject'] ?>";
         var clas="<?php echo $feedChapterDetails['data'][0]['class'] ?>";
-         var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
+        var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
          //alert(chap_name);
 
         $('#class').val(clas).prop('selected',true);
