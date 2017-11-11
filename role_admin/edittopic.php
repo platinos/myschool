@@ -108,7 +108,7 @@
                         {
                             $values = array(
                                 'ch_id' => $_POST['chapters'],
-                                'topic' => $_GET['topic_id'],
+                                'topic_id' => $_GET['topic_id'],
                                 'topic' => $_POST['chap']
                             );
                             $feedTopic = apicall("edittopic", $values);
