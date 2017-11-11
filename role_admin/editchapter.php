@@ -155,10 +155,17 @@
  <!-- Demo Js -->
  <script src="js/demo.js"></script>
 
- <script>
+ <script>  
 
-   
+    var name="<?php echo $feed['data'][0]['chapter']; ?>";
 
+    var subject="<?php echo $feed['data'][0]['subject'] ?>";
+    var clas="<?php echo $feed['data'][0]['class'] ?>";
+    $('#chap_name').val(name);
+    $('#name_header').addClass('focused');
+    $('#subj').val(subject).prop('selected',true);
+    $('#class').val(clas).prop('selected',true);
+    
  </script>
 
 </body>
