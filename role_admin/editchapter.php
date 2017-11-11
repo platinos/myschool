@@ -28,21 +28,20 @@
                     if($feedSend['error']==true)
                     {
                         ?>
-                        <div class="alert alert-danger">
-                          <h2> <b><strong>Oh snap!</strong></b> <?php echo $feedSend['error_msg'];?></h2>
-                          <?php   
+                        <script>
+                         alert('Unable to update Chapter Details '.<? echo $feedSend['error_msg']?>);
+                         </script>  <?php   
 
 
                       }
                       else
                       {
                         ?>
-                        //<div class="alert alert-info">
+                      
                          <script>
                          alert('Chapter Details Sucessfully Updated');
                          </script>
-                     </div>
-                     <?php
+                                              <?php
                  }
              }
            
