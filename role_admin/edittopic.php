@@ -26,7 +26,7 @@
                 <div class="body">
                     <form id="form_validation" action="" method="POST">
                         <div class="form-group form-float">
-                            <div class="form-line">
+                            <div class="form-line" id="name_header">
                                 <input type="text" class="form-control" id="topic_name" name="topic" required>
                                 <label class="form-label">Name of The Topic</label>
                             </div>
@@ -202,6 +202,9 @@
                         str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
                     }
                 });
+                var select = $('#chapters');
+                select.empty().append(str);
+
 
             }
 
