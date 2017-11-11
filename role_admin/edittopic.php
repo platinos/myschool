@@ -7,12 +7,23 @@
 
     <title>MyPaper-Controller</title>
 
+    <script>
+            var name="<?php echo $feed['data'][0]['topic']; ?>";
+
+            <?php $feedChapterDetails=apicall('getchapterbyid', array("ch_id"=>$feed['data'][0]['ch_id'])) ?>
+            var subject="<?php echo $feedChapterDetails['data'][0]['subject'] ?>";
+            var clas="<?php echo $feedChapterDetails['data'][0]['class'] ?>";
+            var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
+    </script>
     <!-- Favicon-->
 
 </head>
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
+
+
+
 <section class="content">
     <div class="container-fluid">
 
@@ -106,9 +117,9 @@
                         else
                         {
                             $values = array(
-                                'ch_id' => $_POST['chapters'],
+                                'ch_id' => $feed['data'][0]['ch_id'],
                                 'topic_id' => $_GET['topic_id'],
-                                'topic' => $_POST['chap']
+                                'topic_name' => $feed['data'][0]['topic']
                                 );
                             $feedTopic = apicall("edittopic", $values);
                             if($feedTopic['error']==true)
@@ -216,21 +227,14 @@
 
 
         //appends data
-        console.log('testing');
-        var name="<?php echo $feed['data'][0]['topic']; ?>";
-        $('#topic_name').val(name);
-        $('#name_header').addClass('focused');
 
-        <?php $feedChapterDetails=apicall('getchapterbyid', array("ch_id"=>$feed['data'][0]['ch_id'])) ?>
-        var subject="<?php echo $feedChapterDetails['data'][0]['subject'] ?>";
-        var clas="<?php echo $feedChapterDetails['data'][0]['class'] ?>";
-        var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
          //alert(chap_name);
 
+        $('#name_header').addClass('focused');
+        $('#topic_name').val(name);
         $('#class').val(clas).prop('selected',true);
         $('#subject').val(subject).prop('selected',true);
         chap_select();
-        $.delay(1999);
         $('#chapters').val(chap_name).prop('selected',true);
 
         console.log(subject+" "+clas+" "+chap_name);
