@@ -177,7 +177,12 @@
 
 
   
-    //appends data
+
+});
+
+    }
+
+        //appends data
     console.log('testing');
     var name="<?php echo $feed['data'][0]['chapter']; ?>";
     $('#topic_name').val(name);
@@ -195,9 +200,6 @@
     $('#chapters').val(chap_name).prop('selected',true);
 
     console.log(subject+" "+clas+" "+chap_name);
-});
-
-            }
         </script>  
 
         <!-- Jquery Core Js -->
