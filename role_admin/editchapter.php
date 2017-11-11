@@ -37,8 +37,10 @@
                       else
                       {
                         ?>
-                        <div class="alert alert-info">
-                         <h2><b><strong>Chapter Details Sucessfully Updated</strong></b></h2>
+                        //<div class="alert alert-info">
+                         <script>
+                         alert('Chapter Details Sucessfully Updated');
+                         </script>
                      </div>
                      <?php
                  }
