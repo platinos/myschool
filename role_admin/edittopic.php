@@ -110,7 +110,7 @@
                                 'ch_id' => $_POST['chapters'],
                                 'topic_id' => $_GET['topic_id'],
                                 'topic' => $_POST['chap']
-                            );
+                                );
                             $feedTopic = apicall("edittopic", $values);
                             if($feedTopic['error']==true)
                             {
@@ -165,77 +165,64 @@
                         var counter = jsonData.data[i];
                         str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
                     }
+                });
 
-
-//alert(str);
-
-//$('#here').html(str);
-
-//var select = $('#chapters');
-//select.empty().append(str);
-
-
-
-  
-
-});
-
-    }
+            }
 
         //appends data
-    console.log('testing');
-    var name="<?php echo $feed['data'][0]['chapter']; ?>";
-    $('#topic_name').val(name);
-    $('#name_header').addClass('focused');
+        console.log('testing');
+        var name="<?php echo $feed['data'][0]['chapter']; ?>";
+        var topicName=$('#topic_name').val(name);
+        $('#name_header').addClass('focused');
 
-    <?php $feedChapterDetails=apicall('getchapterbyid', array("ch_id"=>$feed['data'][0]['ch_id'])) ?>
-    var subject="<?php echo $feedChapterDetails['data'][0]['subject'] ?>";
-    var clas="<?php echo $feedChapterDetails['data'][0]['class'] ?>";
-
-
-    $('#class').val(clas).prop('selected',true);
-    $('#subject').val(subject).prop('selected',true);
-    chap_select();
-    var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
-    $('#chapters').val(chap_name).prop('selected',true);
-
-    console.log(subject+" "+clas+" "+chap_name);
-        </script>  
-
-        <!-- Jquery Core Js -->
-        <script src="plugins/jquery/jquery.min.js"></script>
-
-        <!-- Bootstrap Core Js -->
-        <script src="plugins/bootstrap/js/bootstrap.js"></script>
-
-        <!-- Select Plugin Js -->
+        <?php $feedChapterDetails=apicall('getchapterbyid', array("ch_id"=>$feed['data'][0]['ch_id'])) ?>
+        var subject="<?php echo $feedChapterDetails['data'][0]['subject'] ?>";
+        var clas="<?php echo $feedChapterDetails['data'][0]['class'] ?>";
 
 
-        <!-- Slimscroll Plugin Js -->
-        <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+        $('#class').val(clas).prop('selected',true);
+        $('#subject').val(subject).prop('selected',true);
+        chap_select();
+        var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
+        $('#chapters').val(chap_name).prop('selected',true);
 
-        <!-- Waves Effect Plugin Js -->
-        <script src="plugins/node-waves/waves.js"></script>
+        console.log(subject+" "+clas+" "+chap_name);
+    </script>  
 
-        <!-- Jquery DataTable Plugin Js -->
-        <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
-        <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-        <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-        <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-        <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-        <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-        <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-        <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-        <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
 
-        <!-- Custom Js -->
-        <script src="js/admin.js"></script>
-        <script src="js/pages/tables/jquery-datatable.js"></script>
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
-        <!-- Demo Js -->
-        <script src="js/demo.js"></script>
+    <!-- Select Plugin Js -->
 
-    </body>
 
-    </html>
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/tables/jquery-datatable.js"></script>
+
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+
+</body>
+
+</html>
 
