@@ -180,7 +180,7 @@
                 form.append("subject", document.getElementById("subject").value);
 
                 var settings = {
-                    "async": true,
+                    "async": false,
                     "url": "functions.php",
                     "method": "POST",
 
@@ -214,12 +214,13 @@
         <?php $feedChapterDetails=apicall('getchapterbyid', array("ch_id"=>$feed['data'][0]['ch_id'])) ?>
         var subject="<?php echo $feedChapterDetails['data'][0]['subject'] ?>";
         var clas="<?php echo $feedChapterDetails['data'][0]['class'] ?>";
-
+         var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
+         //alert(chap_name);
 
         $('#class').val(clas).prop('selected',true);
         $('#subject').val(subject).prop('selected',true);
         chap_select();
-        var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
+       
         $('#chapters').val(chap_name).prop('selected',true);
 
         console.log(subject+" "+clas+" "+chap_name);
