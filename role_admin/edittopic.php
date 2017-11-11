@@ -171,13 +171,14 @@
 
 //$('#here').html(str);
 
-var select = $('#chapters');
-select.empty().append(str);
+//var select = $('#chapters');
+//select.empty().append(str);
 
 
 
   
     //appends data
+    console.log('testing');
     var name="<?php echo $feed['data'][0]['chapter']; ?>";
     $('#topic_name').val(name);
     $('#name_header').addClass('focused');
