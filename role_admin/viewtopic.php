@@ -95,7 +95,7 @@
                                         <td><?php echo $feed['data'][$i]['id'] ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['chapter'] ?></td>
-                                        <td><a href="fdaf"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
+                                        <td><a href="edittopic?topic_id="<?php echo $feed['data'][$i]['id'] ?>"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
                                             <a onclick="window.open('functions.php?func=deletetopic&topicid=<?php echo $feed['data'][$i]['id'] ?>','_BLANK');setTimeout(location.reload.bind(location), 2000);"><i class="material-icons" style="color: red">delete</i></a>
                                         </td>
                                         

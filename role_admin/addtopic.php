@@ -123,7 +123,7 @@
                               {
                                 ?>
                                 <div class="alert alert-info">
-                                 <h2><b><strong>Chapter Details Sucessfully Added</strong></b></h2>
+                                 <h2><b><strong>Topic Details Sucessfully Added</strong></b></h2>
                              </div>
                              <?Php
                          }
