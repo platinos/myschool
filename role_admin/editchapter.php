@@ -13,6 +13,39 @@
 
     <?php include 'part/body.php'; ?>
     <?php include 'part/nav.php'; ?>
+
+
+<?php
+                if(isset($_POST['chap']) && !empty($_POST['chap'])) {
+                    $values = array(
+                        'ch_id' => $_GET['ch_id'],
+                        'chapter_name' => $_POST['chap'],    
+                        'subject' => $_POST['subj'],    
+                        'class' => $_POST['clas'],    
+                    );
+                    $feedSend = apicall("editchapter", $values);
+
+                    if($feedSend['error']==true)
+                    {
+                        ?>
+                        <div class="alert alert-danger">
+                          <h2> <b><strong>Oh snap!</strong></b> <?php echo $feedSend['error_msg'];?></h2>
+                          <?php   
+
+
+                      }
+                      else
+                      {
+                        ?>
+                        <div class="alert alert-info">
+                         <h2><b><strong>Chapter Details Sucessfully Updated</strong></b></h2>
+                     </div>
+                     <?php
+                 }
+             }
+           
+             ?>
+
     <?php
 
     $value = array("ch_id"=>$_GET['ch_id']);
@@ -87,39 +120,14 @@
                         </div>
                     </div>
                 </div>
-                <?php
-                if(isset($_POST['chap']) && !empty($_POST['chap'])) {
-                    $values = array(
-                        'ch_id' => $_GET['ch_id'],
-                        'chapter_name' => $_POST['chap'],    
-                        'subject' => $_POST['subj'],    
-                        'class' => $_POST['clas'],    
-                    );
-                    $feedSend = apicall("editchapter", $values);
-
-                    if($feedSend['error']==true)
-                    {
-                        ?>
-                        <div class="alert alert-danger">
-                          <h2> <b><strong>Oh snap!</strong></b> <?php echo $feedSend['error_msg'];?></h2>
-                          <?php   
-
-
-                      }
-                      else
-                      {
-                        ?>
-                        <div class="alert alert-info">
-                         <h2><b><strong>Chapter Details Sucessfully Updated</strong></b></h2>
-                     </div>
-                     <?php
-                 }
-             }
-           }
-             ?>
+                
              <!-- #END# Exportable Table -->
          </div>
      </section>
+
+     <?php
+     }
+     ?>
   
 
  <!-- Jquery Core Js -->
