@@ -54,7 +54,7 @@
                                 <select class="form-control show-tick" name="subj" id="subj">
                                     <option value="select" selected>Select</option>
                                     <?php
-                                  $feedChapter=apicall("viewsubject");
+                                  $feedChapter=apc_inc(key)all("viewsubject");
                                     $size = $feedChapter['data']['size']; 
                                     for($i=0; $i<$size; $i++)
                                         {?>
@@ -119,7 +119,7 @@
          </div>
      </section>
      <?php
- 
+    }
  ?>
 
  <!-- Jquery Core Js -->
