@@ -51,17 +51,17 @@
 
                                 
                                 <label class="form-label" >Subject</label>
-                                <!-- <select class="form-control show-tick" name="subj" id="subj">
+                                <select class="form-control show-tick" name="subj" id="subj">
                                     <option value="select" selected>Select</option>
                                     <?php
-//
-  //                                  $size = $feed1['data']['size']; 
-    //                                for($i=0; $i<$size; $i++)
-  //                                      {?>
-//
-    //                                       <option value=<?php //echo $feed1['data'][$i]['name'] ?> ><?php //echo $feed1['data'][$i]['name'] ?></option>
-      //                                     <?php  }
-        //                                   ?>
+                                  $feed1=apicall("viewsubject");
+                                    $size = $feed1['data']['size']; 
+                                    for($i=0; $i<$size; $i++)
+                                        {?>
+
+                                           <option value=<?php echo $feed1['data'][$i]['name'] ?> ><?php echo $feed1['data'][$i]['name'] ?></option>
+                                           <?php  }
+                                           ?>
 
                                        </select> -->
                                        <<input type="text" name="subject" value="<?php echo $feed['data'][0]['subject'] ?> " placeholder="">
@@ -119,7 +119,7 @@
          </div>
      </section>
      <?php
- }
+ 
  ?>
 
  <!-- Jquery Core Js -->
