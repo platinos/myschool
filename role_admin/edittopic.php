@@ -59,7 +59,6 @@
                         else
                             {?>
                                 <select class="form-control show-tick" name="subject" id="subject" onchange="chap_select()">
-                                    <option value="select" selected>Select</option>
                                     <?php
                                     $feedSubject=apicall('viewsubject');
                                     $size = $feedSubject['data']['size']; 
