@@ -199,7 +199,7 @@
                     var str="<option value=0>Select</option>";
                     for (var i = 0; i < jsonData.data.length; i++) {
                         var counter = jsonData.data[i];
-                        str += "<option value='"+counter.chapters+"'>"+counter.chapter+"</option>";
+                        str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
                     }
 
 
