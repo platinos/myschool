@@ -44,7 +44,7 @@
                             <form id="form_validation" action="" method="POST">
                                 <div class="form-group form-float">
                                     <div class="form-line" id="name_header">
-                                        <input type="text" id="chap_name" class="form-control" name="chap"  value="<?php var_dump($feed); ?>" required>
+                                        <input type="text" id="chap_name" class="form-control" name="chap"  value="<?php var_dump($feed['data']); ?>" required>
                                         <label class="form-label">Name of The Chapter</label>
                                     </div>
                                 </div>
