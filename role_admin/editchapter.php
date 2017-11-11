@@ -65,7 +65,7 @@
                                            ?>
 
                                        </select>
-                                       <input type="text" name="subject" value="<?php echo $feed['data'][0]['subject'] ?> " placeholder="">
+                                       
                                        <br>
                                        <br>
 
@@ -165,7 +165,7 @@
     $('#name_header').addClass('focused');
     $('#subj').val(subject).prop('selected',true);
     $('#class').val(clas).prop('selected',true);
-    
+
  </script>
 
 </body>
