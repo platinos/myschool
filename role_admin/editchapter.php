@@ -54,12 +54,12 @@
                                 <select class="form-control show-tick" name="subj" id="subj">
                                     <option value="select" selected>Select</option>
                                     <?php
-                                  $feed1=apicall("viewsubject");
-                                    $size = $feed1['data']['size']; 
+                                  $feedChapter=apicall("viewsubject");
+                                    $size = $feedChapter['data']['size']; 
                                     for($i=0; $i<$size; $i++)
                                         {?>
 
-                                           <option value=<?php echo $feed1['data'][$i]['name'] ?> ><?php echo $feed1['data'][$i]['name'] ?></option>
+                                           <option value=<?php echo $feedChapter['data'][$i]['name'] ?> ><?php echo $feedChapter['data'][$i]['name'] ?></option>
                                            <?php  }
                                            ?>
 
@@ -94,13 +94,13 @@
                         'subject' => $_POST['subj'],    
                         'class' => $_POST['clas'],    
                     );
-                    $feed = apicall("editchapter", $values);
+                    $feedSend = apicall("editchapter", $values);
 
-                    if($feed['error']==true)
+                    if($feedSend['error']==true)
                     {
                         ?>
                         <div class="alert alert-danger">
-                          <h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+                          <h2> <b><strong>Oh snap!</strong></b> <?php echo $feedSend['error_msg'];?></h2>
                           <?php   
 
 
