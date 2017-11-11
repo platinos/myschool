@@ -196,7 +196,7 @@
                     var dataSize = jsonData.size;
 
 
-                    var str="<option value=0>Select</option>";
+                    var str="<option value=select>Select</option>";
                     for (var i = 0; i < jsonData.data.length; i++) {
                         var counter = jsonData.data[i];
                         str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
