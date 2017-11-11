@@ -171,8 +171,8 @@
 
         //appends data
         console.log('testing');
-        var name="<?php echo $feed['data'][0]['chapter']; ?>";
-        var topicName=$('#topic_name').val(name);
+        var name="<?php echo $feed['data'][0]['topic']; ?>";
+        $('#topic_name').val(name);
         $('#name_header').addClass('focused');
 
         <?php $feedChapterDetails=apicall('getchapterbyid', array("ch_id"=>$feed['data'][0]['ch_id'])) ?>
