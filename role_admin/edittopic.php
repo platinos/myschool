@@ -192,6 +192,8 @@ select.empty().append(str);
     chap_select();
     var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
     $('#chapters').val(chap_name).prop('selected',true);
+
+    console.log(subject+" "+clas+" "+chap_name);
 });
 
             }
