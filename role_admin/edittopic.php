@@ -180,7 +180,7 @@
                 form.append("subject", document.getElementById("subject").value);
 
                 var settings = {
-                    "async": false,
+                    "async": true,
                     "url": "functions.php",
                     "method": "POST",
 
@@ -201,12 +201,18 @@
                         var counter = jsonData.data[i];
                         str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
                     }
-                });
-                var select = $('#chapters');
-                select.empty().append(str);
 
 
-            }
+//alert(str);
+
+//$('#here').html(str);
+
+var select = $('#chapters');
+select.empty().append(str);
+
+
+
+});}
 
         //appends data
         console.log('testing');
