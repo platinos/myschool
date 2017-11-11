@@ -54,7 +54,7 @@
                                 <select class="form-control show-tick" name="subj" id="subj">
                                     <option value="select" selected>Select</option>
                                     <?php
-                                  $feedChapter=apc_inc(key)all("viewsubject");
+                                  $feedChapter=apicall("viewsubject");
                                     $size = $feedChapter['data']['size']; 
                                     for($i=0; $i<$size; $i++)
                                         {?>
@@ -111,16 +111,15 @@
                         <div class="alert alert-info">
                          <h2><b><strong>Chapter Details Sucessfully Updated</strong></b></h2>
                      </div>
-                     <?Php
+                     <?php
                  }
              }
+           }
              ?>
              <!-- #END# Exportable Table -->
          </div>
      </section>
-     <?php
-    }
- ?>
+  
 
  <!-- Jquery Core Js -->
  <script src="plugins/jquery/jquery.min.js"></script>
@@ -157,13 +156,7 @@
 
  <script>
 
-    var name="<?php echo $feed['data'][0]['chapter'] ?>";
-    var subject="<?php echo $feed['data'][0]['subject'] ?>";
-    var clas="<?php echo $feed['data'][0]['class'] ?>";
-    $('#chap_name').val(name);
-    $('#name_header').addClass('focused');
-    $('#subj').val(subject).prop('selected',true);
-    $('#class').val(clas).prop('selected',true);
+   
 
  </script>
 
