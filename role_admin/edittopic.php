@@ -166,7 +166,7 @@
                 form.append("subject", document.getElementById("subject").value);
 
                 var settings = {
-                    "async": false,
+                    "async": true,
                     "url": "functions.php",
                     "method": "POST",
 
@@ -249,7 +249,8 @@ select.empty().append(str);
         $('#class').val(classvar).prop('selected',true);
         $('#subject').val(subject).prop('selected',true);
         chap_select();
-        $('#chapters').val(chapter).prop('selected',true);
+        setTimeout("$('#chapters').val(chapter).prop('selected',true);", 2000);
+        
 
         </script>
 
