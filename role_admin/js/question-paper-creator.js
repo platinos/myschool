@@ -23,6 +23,7 @@ function addQuestion(questionID){
 	})
 	.done(function() {	
 		$(''+questionID).css("background-color", "green");
+		console.log(questionID+" question id add");
 		$('addQuestion'+questionID).hide();
 		$('removeQuestion'+questionID).show();
 		count++;
@@ -42,6 +43,8 @@ function removeQuestion(questionID){
 	})
 	.done(function() {
 		$(''+questionID).css("background-color", "");
+
+		console.log(questionID+" question id delete");
 		$('addQuestion'+questionID).show();
 		$('removeQuestion'+questionID).hide();
 		count--;
