@@ -22,10 +22,10 @@ function addQuestion(questionID){
 		data: {questionID: questionID, action:"add_question"},
 	})
 	.done(function() {	
-		$(''+questionID).css("background-color", "green");
+		$('#'+questionID).css("background-color", "green");
 		console.log(questionID+" question id add");
-		$('addQuestion'+questionID).hide();
-		$('removeQuestion'+questionID).show();
+		$('#addQuestion'+questionID).hide();
+		$('#removeQuestion'+questionID).show();
 		count++;
 		$('#create_paper').show();
 	})
@@ -42,11 +42,11 @@ function removeQuestion(questionID){
 		data: {questionID: questionID, action:"remove_question"},
 	})
 	.done(function() {
-		$(''+questionID).css("background-color", "");
+		$('#'+questionID).css("background-color", "");
 
 		console.log(questionID+" question id delete");
-		$('addQuestion'+questionID).show();
-		$('removeQuestion'+questionID).hide();
+		$('#addQuestion'+questionID).show();
+		$('#removeQuestion'+questionID).hide();
 		count--;
 		if(count==0){
 			$('#create_paper').hide();
