@@ -70,7 +70,7 @@
 
                         <label class="form-label" >Subject</label>
 
-                       ?>
+                       
                                 <select class="form-control show-tick" name="subject" id="subject" onchange="chap_select()">
                                     <?php
                                     $feedSubject=apicall('viewsubject');
