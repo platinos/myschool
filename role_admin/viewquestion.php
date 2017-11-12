@@ -101,7 +101,7 @@ else
                                     for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                                <td><button class='questionAdd btn btn-success waves-effect' id="<?php echo 'questionAdd'.$i ?>" >Add to my paper</button>
+                                                <td><button class='questionAdd btn btn-success waves-effect' id="<?php echo 'questionAdd'.$i ?>" onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Add to my paper</button>
                                                 <button style="display: none;" class=' questionRemove btn btn-danger waves-effect' id="<?php echo 'questionRemove'.$i ?>" >Remove</button></td>
                                                 <td><?php echo $i; ?></td>
                                                 <td><?php echo $feed['data'][$i]['class'] ?></td>

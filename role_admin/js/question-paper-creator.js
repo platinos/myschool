@@ -1,17 +1,17 @@
 //global count of no of questions selected
 var count=0;
 
-//click event for add button
-$('.questionAdd').click(function () {
-	var questionID=$(this).parent().attr('id');
-	addQuestion(questionID);
-});
+// //click event for add button
+// $('.questionAdd').click(function () {
+// 	var questionID=$(this).parent().attr('id');
+// 	addQuestion(questionID);
+// });
 
-//click event for remove button
-$('.questionRemove').click(function () {
-	var questionID=$(this).parent().attr('id');
-	removeQuestion(questionID);
-});
+// //click event for remove button
+// $('.questionRemove').click(function () {
+// 	var questionID=$(this).parent().attr('id');
+// 	removeQuestion(questionID);
+// });
 
 
 //adds question to list and highlights the added question
@@ -22,9 +22,9 @@ function addQuestion(questionID){
 		data: {questionID: questionID, action:"add_question"},
 	})
 	.done(function() {	
-		$(this).parent().addClass('success');
-		$(this).hide();
-		$(this).next().show();
+		$(''+questionID).css("background-color", "green");
+		$('addQuestion'+questionID).hide();
+		$('removeQuestion'+questionID).show();
 		count++;
 		$('#create_paper').show();
 	})
@@ -35,15 +35,15 @@ function addQuestion(questionID){
 
 //removes question from list and removes the highlighting
 function removeQuestion(questionID){
-	$.$.ajax({
+	$.ajax({
 		url: 'question-paper-creator.php',
 		type: 'POST',
 		data: {questionID: questionID, action:"remove_question"},
 	})
 	.done(function() {
-		$(this).parent().removeClass('success');
-		$(this).hide();
-		$(this).prev().show();
+		$(''+questionID).css("background-color", "");
+		$('addQuestion'+questionID).show();
+		$('removeQuestion'+questionID).hide();
 		count--;
 		if(count==0){
 			$('#create_paper').hide();
