@@ -2,13 +2,13 @@
 var count=0;
 
 //click event for add button
-$('.questionAdd').onclick(function () {
+$('.questionAdd').click(function () {
 	var questionID=$(this).parent().attr('id');
 	addQuestion(questionID);
 });
 
 //click event for remove button
-$.('.questionRemove').onclick(function () {
+$.('.questionRemove').click(function () {
 	var questionID=$(this).parent().attr('id');
 	removeQuestion(questionID);
 });
