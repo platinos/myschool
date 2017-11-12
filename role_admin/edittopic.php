@@ -14,6 +14,47 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
+<?php
+            if(isset($_POST['chap']) && !empty($_POST['chap'])) {
+                $ch_id = $_POST['chapters'];
+                if($ch_id=="0")
+                    {?>
+                        <script>
+                            alert("Please Select a chapter");
+                        </script>
+
+
+                        <?php  }
+                        else
+                        {
+                            $values = array(
+                                'ch_id' => $_POST['ch_id'],
+                                'topic_id' => $_GET['topic_id'],
+                                'topic_name' => $_POST['topic']
+                                );
+                            $feedTopic = apicall("edittopic", $values);
+                            if($feedTopic['error']==true)
+                            {
+                                ?>
+                                <div class="alert alert-danger">
+                                  <h2> <b><strong>Oh snap!</strong></b> <?php echo $feedTopic['error_msg'];?></h2>
+                                  <?php   
+
+
+                              }
+                              else
+                              {
+                                ?>
+                                <div class="alert alert-info">
+                                 <h2><b><strong>Topic Details Sucessfully Updated</strong></b></h2>
+                             </div>
+                             <?php
+                         }
+                     }
+                 }
+                 ?>
+
+
  <?php
 
                         $feed = apicall("gettopicbyid",array("topic_id"=>$_GET['topic_id']));
@@ -105,45 +146,7 @@
                     </div>
                 </div>
             </div>
-            <?php
-            if(isset($_POST['chap']) && !empty($_POST['chap'])) {
-                $ch_id = $_POST['chapters'];
-                if($ch_id=="0")
-                    {?>
-                        <script>
-                            alert("Please Select a chapter");
-                        </script>
-
-
-                        <?php  }
-                        else
-                        {
-                            $values = array(
-                                'ch_id' => $feed['data'][0]['ch_id'],
-                                'topic_id' => $_GET['topic_id'],
-                                'topic_name' => $feed['data'][0]['topic']
-                                );
-                            $feedTopic = apicall("edittopic", $values);
-                            if($feedTopic['error']==true)
-                            {
-                                ?>
-                                <div class="alert alert-danger">
-                                  <h2> <b><strong>Oh snap!</strong></b> <?php echo $feedTopic['error_msg'];?></h2>
-                                  <?php   
-
-
-                              }
-                              else
-                              {
-                                ?>
-                                <div class="alert alert-info">
-                                 <h2><b><strong>Topic Details Sucessfully Updated</strong></b></h2>
-                             </div>
-                             <?php
-                         }
-                     }
-                 }
-                 ?>
+            
                  <!-- #END# Exportable Table -->
              </div>
          </section>
