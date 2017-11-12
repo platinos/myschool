@@ -249,7 +249,9 @@ select.empty().append(str);
         $('#class').val(classvar).prop('selected',true);
         $('#subject').val(subject).prop('selected',true);
         chap_select();
-        setTimeout("$('#chapters').text(chapter).prop('selected',true);", 2000);
+        //setTimeout("$('#chapters').text(chapter).prop('selected',true);", 2000);
+
+        $("#chapters option[value="+ch_id+"]").prop('selected',true);
         
 
         </script>
