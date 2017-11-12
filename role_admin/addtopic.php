@@ -107,8 +107,8 @@
                         {
                             $values = array(
                                 'ch_id' => $_POST['chapters'],    
-                                'topic_name' => $_POST['chap'],
-                                'topic_id'=> $_GET['topic_id'] 
+                                'topic' => $_POST['chap'],
+                                //'topic_id'=> $_GET['topic_id'] 
                             );
                             $feed = apicall("addtopic", $values);
                             if($feed['error']==true)
