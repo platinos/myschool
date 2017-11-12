@@ -17,7 +17,7 @@ $('.questionRemove').click(function () {
 //adds question to list and highlights the added question
 function addQuestion(questionID){
 	$.ajax({
-		url: '../question-paper-creator.php',
+		url: 'question-paper-creator.php',
 		type: 'POST',
 		data: {questionID: questionID, action:"add_question"},
 	})
@@ -36,7 +36,7 @@ function addQuestion(questionID){
 //removes question from list and removes the highlighting
 function removeQuestion(questionID){
 	$.$.ajax({
-		url: '../question-paper-creator.php',
+		url: 'question-paper-creator.php',
 		type: 'POST',
 		data: {questionID: questionID, action:"remove_question"},
 	})
