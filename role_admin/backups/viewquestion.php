@@ -1,4 +1,4 @@
-﻿    <!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -44,7 +44,6 @@ else
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button>
                             <h2>
                                 ALL QUESTIONS LIST
                             </h2>
@@ -75,7 +74,6 @@ else
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Select</th>
                                         <th>Id</th>
                                         <th>Class</th>
                                         <th>Type</th>
@@ -100,10 +98,8 @@ else
                                     $size = $feed['data']['size']; 
                                     for($i=0; $i<$size; $i++)
                                         {?>
-                                            <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                                <td><button onclick='addToCart();' class='btn btn-success waves-effect' id='questionAdd'.concat(<?php echo $i; ?>)>Add to my paper</button>
-                                                <button onclick='addToCart();' style="display: none;" class='btn btn-danger waves-effect' id='questionRemove'.concat(<?php echo $i; ?>)>Remove</button></td>
-                                                <td><?php echo $i; ?></td>
+                                            <tr>
+                                                <td><?php echo $feed['data'][$i]['id'] ?></td>
                                                 <td><?php echo $feed['data'][$i]['class'] ?></td>
                                                 <td><?php echo $feed['data'][$i]['type'] ?></td>
                                                 <td><?php echo $feed['data'][$i]['subject'] ?></td>
@@ -178,7 +174,6 @@ else
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
-    <script src="/js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
