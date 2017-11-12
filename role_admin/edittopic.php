@@ -86,7 +86,7 @@
                 <div class="body">
                     <form id="form_validation" action="" method="POST">
                         <div class="form-group form-float">
-                            <div class="form-line">
+                            <div class="form-line" id="name_header">
                                 <input type="text" class="form-control" name="chap" value="<?php echo $feed_topic['data'][0]['topic']?>" required>
                                 <label class="form-label">Name of The Topic</label>
                             </div>
@@ -166,7 +166,7 @@
                 form.append("subject", document.getElementById("subject").value);
 
                 var settings = {
-                    "async": true,
+                    "async": false,
                     "url": "functions.php",
                     "method": "POST",
 
