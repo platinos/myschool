@@ -2,7 +2,7 @@
 var count=0;
 
 //click event for add button
-$(.questionAdd).onclick(function () {
+$('.questionAdd').onclick(function () {
 	var questionID=$(this).parent().attr('id');
 	addQuestion(questionID);
 });

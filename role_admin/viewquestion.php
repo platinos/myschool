@@ -101,8 +101,8 @@ else
                                     for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                                <td><button onclick='addToCart();' class='btn btn-success waves-effect' id='questionAdd'.concat(<?php echo $i; ?>)>Add to my paper</button>
-                                                <button onclick='addToCart();' style="display: none;" class='btn btn-danger waves-effect' id='questionRemove'.concat(<?php echo $i; ?>)>Remove</button></td>
+                                                <td><button class='questionAdd btn btn-success waves-effect' id="<?php echo 'questionRemove'.$i ?>" >Add to my paper</button>
+                                                <button style="display: none;" class=' questionRemove btn btn-danger waves-effect' id="<?php echo 'questionRemove'.$i ?>" >Remove</button></td>
                                                 <td><?php echo $i; ?></td>
                                                 <td><?php echo $feed['data'][$i]['class'] ?></td>
                                                 <td><?php echo $feed['data'][$i]['type'] ?></td>
@@ -178,7 +178,7 @@ else
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
-    <script src="/js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
