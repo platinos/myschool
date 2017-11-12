@@ -8,7 +8,7 @@ $('.questionAdd').click(function () {
 });
 
 //click event for remove button
-$.('.questionRemove').click(function () {
+$('.questionRemove').click(function () {
 	var questionID=$(this).parent().attr('id');
 	removeQuestion(questionID);
 });
