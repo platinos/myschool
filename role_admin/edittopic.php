@@ -7,7 +7,31 @@
 
     <title>MyPaper-Controller</title>
 
-    <script>
+
+    <!-- Favicon-->
+
+</head>
+
+<?php include 'part/body.php'; ?>
+<?php include 'part/nav.php'; ?>
+ <?php
+
+                        $feed = apicall("gettopicbyid",array("topic_id"=>$_GET['topic_id']));
+                        if($feed['error']==true)
+                        {
+                            ?>
+                            <div class="alert alert-danger">
+                                <h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+                            </div>
+                            <?php   
+
+
+                        }
+                        else
+                            {?>
+
+  <script>
+        
             var name="<?php echo $feed['data'][0]['topic']; ?>";
 
             <?php $feedChapterDetails=apicall('getchapterbyid', array("ch_id"=>$feed['data'][0]['ch_id'])) ?>
@@ -15,14 +39,6 @@
             var clas="<?php echo $feedChapterDetails['data'][0]['class'] ?>";
             var chap_name="<?php echo $feedChapterDetails['data'][0]['chapter'] ?>";
     </script>
-    <!-- Favicon-->
-
-</head>
-
-<?php include 'part/body.php'; ?>
-<?php include 'part/nav.php'; ?>
-
-
 
 <section class="content">
     <div class="container-fluid">
@@ -54,21 +70,7 @@
 
                         <label class="form-label" >Subject</label>
 
-                        <?php
-
-                        $feed = apicall("gettopicbyid",array("topic_id"=>$_GET['topic_id']));
-                        if($feed['error']==true)
-                        {
-                            ?>
-                            <div class="alert alert-danger">
-                                <h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
-                            </div>
-                            <?php   
-
-
-                        }
-                        else
-                            {?>
+                       ?>
                                 <select class="form-control show-tick" name="subject" id="subject" onchange="chap_select()">
                                     <?php
                                     $feedSubject=apicall('viewsubject');
