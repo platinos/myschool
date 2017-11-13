@@ -19,7 +19,7 @@ function addQuestion(questionID){
 	$.ajax({
 		url: 'question-paper-creator.php',
 		type: 'POST',
-		data: {questionID: questionID, action:"add_question"},
+		data: {qid: questionID, action: "add_question"},
 	})
 	.done(function(data) {
 		$('#'+questionID).css("background-color", "green");
@@ -40,7 +40,7 @@ function removeQuestion(questionID){
 	$.ajax({
 		url: 'question-paper-creator.php',
 		type: 'POST',
-		data: {questionID: questionID, action:"remove_question"},
+		data: {qid: questionID, action:"remove_question"},
 	})
 	.done(function() {
 
