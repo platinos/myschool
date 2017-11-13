@@ -21,13 +21,14 @@ function addQuestion(questionID){
 		type: 'POST',
 		data: {questionID: questionID, action:"add_question"},
 	})
-	.done(function() {
+	.done(function(data) {
 		$('#'+questionID).css("background-color", "green");
 		console.log(questionID+" question id add");
 		$('#addQuestion'+questionID).hide();
 		$('#removeQuestion'+questionID).show();
 		count++;
 		$('#create_paper').show();
+		alert(data);
 	})
 	.fail(function() {
 		alert('An error occured while trying to select question. Please try later');
