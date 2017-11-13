@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -34,28 +36,28 @@
 						<table class="table table-bordered table-striped table-hover dataTable js-exportable">
 							<thead>
 								<tr>
-									<th>Select</th>
+									
 									<th>Id</th>
 									<th>Chapter</th>
 									<th>Topic</th>
 									<th>Question</th>
 									<th>Image</th>
 									<th>Answer</th>
-									<th style="width: 50px;">Youtube</th>
+									<th>Youtube</th>
 									<th>Marks</th>
 
 								</tr>
 							</thead>
 							<tfoot>
 								<tr>
-									<th>Select</th>
+									
 									<th>Id</th>
 									<th>Chapter</th>
 									<th>Topic</th>
 									<th>Question</th>
 									<th>Image</th>
 									<th>Answer</th>
-									<th style="width: 50px;">Youtube</th>
+									<th>Youtube</th>
 									<th>Marks</th>
 
 
@@ -64,7 +66,7 @@
 							<tbody>
 								<!-- Items to be displayed: id,chapter,topic,question,image,answer,youtube -->
 								<?php
-								session_start();
+								
 								$i=0;
 								foreach ($_SESSION["questionCart"] as $qid) {
 									$question_id=array("qid"=>$qid);
@@ -89,12 +91,12 @@
 										<td><?php echo $i; ?></td>
 										<td><?php echo $chapter ?></td>
 										<td><?php echo $topic ?></td>
-										<td><?php echo $ques_txt ?></td>
+										<td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
 										<td><?php echo $image ?></td>
 										<td><?php echo $answer ?></td>
 										<td><?php echo $youtube ?></td>
 										<td><?php echo $marks ?></td>
-										<td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
+
 
 
 									</tr>
