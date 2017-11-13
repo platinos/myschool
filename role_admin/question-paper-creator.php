@@ -18,6 +18,7 @@
 		echo "{'msg':'successfully added id : ".$_POST['qid']."'}";
 	}
 
+	//apply null check
 	function removeQuestion(){
 		unset($_SESSION["questionCart"],$_POST['qid']);
 		echo "{'msg':'successfully removed'}";
