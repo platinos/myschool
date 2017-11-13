@@ -21,8 +21,7 @@ function addQuestion(questionID){
 		type: 'POST',
 		data: {questionID: questionID, action:"add_question"},
 	})
-	.done(function() {	
-		alert('done adding question');
+	.done(function() {
 		$('#'+questionID).css("background-color", "green");
 		console.log(questionID+" question id add");
 		$('#addQuestion'+questionID).hide();
@@ -44,7 +43,6 @@ function removeQuestion(questionID){
 	})
 	.done(function() {
 
-		alert('done removing question');
 		$('#'+questionID).css("background-color", "");
 
 		console.log(questionID+" question id delete");

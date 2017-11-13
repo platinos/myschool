@@ -44,7 +44,7 @@ else
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button>
+                            <a href='display-paper.php' ><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
                             <h2>
                                 ALL QUESTIONS LIST
                             </h2>
@@ -54,6 +54,8 @@ else
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
+
+                                        <th>Select</th>
                                         <th>Id</th>
                                         <th>Class</th>
                                         <th>Type</th>
