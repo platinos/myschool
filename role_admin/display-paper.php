@@ -68,7 +68,7 @@
 								$i=0;
 								foreach ($_SESSION["questionCart"] as $qid) {
 									$question_id=array("qid"=>$qid);
-									$question_feed['data'][0]=apicall("getquestionbyid",$question_id);
+									$question_feed=apicall("getquestionbyid",$question_id);
 
 									$topic=$question_feed['data'][0]['topic'];
 									$class=$question_feed['data'][0]['class'];
@@ -140,7 +140,7 @@
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
-<script src="/js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
