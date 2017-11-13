@@ -44,7 +44,7 @@ else
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                        <a href='display-paper.php' ><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+                        <button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button>
                             <h2>
                                 ALL QUESTIONS SELECTION
                             </h2>
@@ -103,8 +103,10 @@ else
                                         {?>
                                             <tr>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                                <td><button class='btn btn-success waves-effect' id="<?php echo 'addQuestion'.$feed['data'][$i]['id'] ?>" onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Add to my paper</button>
-                                                <button style="display: none;" class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button></td>
+                                                <td>
+                                                <button class='btn btn-success waves-effect' id="<?php echo 'addQuestion'.$feed['data'][$i]['id'] ?>" onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Add to my paper</button>
+                                                <button style="display: none;" class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button>
+                                                </td>
                                                 <td><?php echo $feed['data'][$i]['id'] ?></td>
                                                 <td><?php echo $feed['data'][$i]['class'] ?></td>
                                                 <td><?php echo $feed['data'][$i]['type'] ?></td>
