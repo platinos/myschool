@@ -22,6 +22,7 @@ function addQuestion(questionID){
 		data: {questionID: questionID, action:"add_question"},
 	})
 	.done(function() {	
+		alert('done adding question');
 		$('#'+questionID).css("background-color", "green");
 		console.log(questionID+" question id add");
 		$('#addQuestion'+questionID).hide();
@@ -42,6 +43,8 @@ function removeQuestion(questionID){
 		data: {questionID: questionID, action:"remove_question"},
 	})
 	.done(function() {
+
+		alert('done removing question');
 		$('#'+questionID).css("background-color", "");
 
 		console.log(questionID+" question id delete");
