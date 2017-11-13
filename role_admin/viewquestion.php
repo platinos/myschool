@@ -101,8 +101,8 @@ else
                                     for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                                <td><button class='btn btn-success waves-effect' id="<?php echo 'questionAdd'.$feed['data'][$i]['id'] ?>" onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Add to my paper</button>
-                                                <button style="display: none;" class='btn btn-danger waves-effect' id="<?php echo 'questionRemove'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button></td>
+                                                <td><button class='btn btn-success waves-effect' id="<?php echo 'addQuestion'.$feed['data'][$i]['id'] ?>" onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Add to my paper</button>
+                                                <button style="display: none;" class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button></td>
                                                 <td><?php echo $i; ?></td>
                                                 <td><?php echo $feed['data'][$i]['class'] ?></td>
                                                 <td><?php echo $feed['data'][$i]['type'] ?></td>
