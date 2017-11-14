@@ -18,7 +18,7 @@ function addQuestion(questionID){
 		type: 'POST',
 		data: {qid: questionID, action: "add_question"},
 		beforeSend: function(){
-			toggleAddRemove();
+			toggleAddRemove(questionID);
 			$('#create_paper').show();
 		}
 	})
@@ -27,7 +27,7 @@ function addQuestion(questionID){
 	})
 	.fail(function() {
 		alert('An error occured while trying to select question. Please try later');
-		toggleAddRemove();
+		toggleAddRemove(questionID);
 		$('#create_paper').hide();
 	})
 }
@@ -40,7 +40,7 @@ function removeQuestion(questionID){
 		data: {qid: questionID, action:"remove_question"},
 		beforeSend: function(){
 
-			toggleAddRemove();
+			toggleAddRemove(questionID);
 			data=JSON.parse(data);
 			if(data.size==0){
 				$('#create_paper').hide();
@@ -49,7 +49,7 @@ function removeQuestion(questionID){
 	})
 	.fail(function() {
 		alert('An error occured while trying to select question. Please try later');
-		toggleAddRemove();
+		toggleAddRemove(questionID);
 		$('#create_paper').show();
 	})
 }
