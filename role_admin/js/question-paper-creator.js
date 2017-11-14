@@ -17,18 +17,18 @@ function addQuestion(questionID){
 		url: 'question-paper-creator.php',
 		type: 'POST',
 		data: {qid: questionID, action: "add_question"},
+		beforeSend: function(){
+			toggleAddRemove();
+			$('#create_paper').show();
+		}
 	})
-	.done(function(data) {
-		$('#'+questionID).css("background-color", "green");
-		console.log(questionID+" question id add");
-		$('#addQuestion'+questionID).hide();
-		$('#removeQuestion'+questionID).show();
-
-		$('#create_paper').show();
-		alert(data);
+	.done(function(data){
+		$('#cartCount').html(data.size+' questions present.');
 	})
 	.fail(function() {
 		alert('An error occured while trying to select question. Please try later');
+		toggleAddRemove();
+		$('#create_paper').hide();
 	})
 }
 
@@ -38,27 +38,23 @@ function removeQuestion(questionID){
 		url: 'question-paper-creator.php',
 		type: 'POST',
 		data: {qid: questionID, action:"remove_question"},
-	})
-	.done(function(data) {
+		beforeSend: function(){
 
-		$('#'+questionID).css("background-color", "");
-
-		console.log(questionID+" question id delete");
-		$('#addQuestion'+questionID).show();
-		$('#removeQuestion'+questionID).hide();
-		data=JSON.parse(data);
-		console.log('data size: '+data+' '+data.size+' '+typeof data.size)
-		if(data.size==0){
-			$('#create_paper').hide();
+			toggleAddRemove();
+			data=JSON.parse(data);
+			if(data.size==0){
+				$('#create_paper').hide();
+			}
 		}
-
 	})
 	.fail(function() {
 		alert('An error occured while trying to select question. Please try later');
+		toggleAddRemove();
+		$('#create_paper').show();
 	})
 }
 
-//create paper on click handler
-$('#create_paper').click(function() {
-	
-});
+function toggleAddRemove(){
+	$('#addQuestion'+questionID).toggle();
+	$('#removeQuestion'+questionID).toggle();
+}
