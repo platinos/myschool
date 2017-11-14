@@ -39,6 +39,8 @@
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
                 <a class="navbar-brand" href="index.php"><b>My Paper - Control Room</b></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span id="cartCount"></span>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
