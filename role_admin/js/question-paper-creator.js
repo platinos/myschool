@@ -54,7 +54,7 @@ function removeQuestion(questionID){
 	})
 }
 
-function toggleAddRemove(){
+function toggleAddRemove(questionID){
 	$('#addQuestion'+questionID).toggle();
 	$('#removeQuestion'+questionID).toggle();
 }
