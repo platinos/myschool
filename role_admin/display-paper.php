@@ -32,51 +32,6 @@
 						</h2>
 
 
-
-
-
-						<?php
-								
-								$i=0;
-								foreach ($_SESSION["questionCart"] as $qid) {
-									$question_id=array("qid"=>$qid);
-									$question_feed=apicall("getquestionbyid",$question_id);
-
-									$topic=$question_feed['data'][0]['topic'];
-									$class=$question_feed['data'][0]['class'];
-									$type=$question_feed['data'][0]['type'];
-									$subject=$question_feed['data'][0]['subject'];
-									$chapter=$question_feed['data'][0]['chapter'];
-									$level=$question_feed['data'][0]['level'];
-									$marks=$question_feed['data'][0]['marks'];
-									$ques_txt=$question_feed['data'][0]['ques_txt'];
-									$ques_img=$question_feed['data'][0]['ques_img'];
-									$qr=$question_feed['data'][0]['qr'];
-									$answer=$question_feed['data'][0]['answer'];
-									$youtube=$question_feed['data'][0]['youtube'];
-									$i++;
-									}
-
-									?>
-									<p>sample data to be displayed here</p>
-
-<p><?php echo $topic ?></p><br>
-<p><?php echo $class ?></p><br>
-<p><?php echo $type ?></p><br>
-<p><?php echo $subject ?></p><br>
-<p><?php echo $chapter ?></p><br>
-<p><?php echo $level ?></p><br>
-<p><?php echo $marks ?></p><br>
-<p><?php echo $ques_txt ?></p><br>
-<p><?php echo $ques_img ?></p><br>
-<p><?php echo $qr ?></p><br>
-<p><?php echo $answer ?></p><br>
-<p><?php echo $youtube ?></p><br>
-
-<p>sample data ends here</p>
-
-
-
 					</div>
 					<div class="body">
 						<table class="table table-bordered table-striped table-hover dataTable js-exportable">
@@ -137,7 +92,7 @@
 										<td><?php echo $i; ?></td>
 										<td><?php echo $chapter ?></td>
 										<td><?php echo $topic ?></td>
-										<td><?php echo $ques_txt ?></td>
+										<td><?php echo  htmlspecialchars_decode($ques_txt) ?></td>
 										<td><?php echo $image ?></td>
 										<td><?php echo $answer ?></td>
 										<td><?php echo $youtube ?></td>
