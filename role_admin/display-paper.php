@@ -93,7 +93,7 @@
 										<td><?php echo $chapter ?></td>
 										<td><?php echo $topic ?></td>
 										<td><?php echo  htmlspecialchars_decode($ques_txt) ?></td>
-										<td><img src='<?php echo $ques_img ?>'></td>
+										<td><img class='thumbnail' src='<?php echo $ques_img ?>'></td>
 										<td><?php echo $answer ?></td>
 										<td><?php echo $youtube ?></td>
 										<td><?php echo $marks ?></td>
