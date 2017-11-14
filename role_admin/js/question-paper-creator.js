@@ -23,6 +23,7 @@ function addQuestion(questionID){
 		}
 	})
 	.done(function(data){
+		data=JSON.parse(data);
 		$('#cartCount').html(data.size+' questions present.');
 	})
 	.fail(function() {
@@ -45,9 +46,12 @@ function removeQuestion(questionID){
 		}
 	})
 	.done(function(data){
+
 		data=JSON.parse(data);
+		$('#cartCount').html(data.size+' questions present.');
 			if(data.size==0){
 				$('#create_paper').hide();
+				$('#cartCount').html('');
 			}
 	})
 	.fail(function() {
