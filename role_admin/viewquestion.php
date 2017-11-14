@@ -106,10 +106,16 @@ else
                                                 <td>
                                                     <?php if(incart($feed['data'][$i]['id'])){
                                                         ?>
-                                                        <button style="display: none;" class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button>
+                                                        <button class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button>
+                                                        <button style="display: none;" class='btn btn-success waves-effect' 
+                                                        id="<?php echo 'addQuestion'.$feed['data'][$i]['id'] ?>" 
+                                                        onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>
+                                                        Add to my paper
+                                                </button>
                                                         <?php
                                                     }
                                                             else{ ?>
+                                                        <button style="display: none;" class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button>
                                                         <button class='btn btn-success waves-effect' 
                                                         id="<?php echo 'addQuestion'.$feed['data'][$i]['id'] ?>" 
                                                         onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>
