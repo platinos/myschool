@@ -6,6 +6,7 @@ $(function () {
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel'
-        ]
+        ],
+        order: [[ 2, "asc" ]]
     });
 });

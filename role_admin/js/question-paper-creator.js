@@ -68,9 +68,3 @@ function toggleAddRemove(questionID){
 
 
 
-//for data table
-$(document).ready(function() {
-    $('#allQuestions').DataTable( {
-        "order": [[ 2, "asc" ]]
-    } );
-} );
