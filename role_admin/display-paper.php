@@ -91,7 +91,7 @@
 										<td><?php echo $i; ?></td>
 										<td><?php echo $chapter ?></td>
 										<td><?php echo $topic ?></td>
-										<td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
+										<td><?php echo $ques_txt ?></td>
 										<td><?php echo $image ?></td>
 										<td><?php echo $answer ?></td>
 										<td><?php echo $youtube ?></td>
@@ -144,7 +144,7 @@
 <script src="js/pages/tables/jquery-datatable.js"></script>
 <script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 
-<!-- Demo Js -->
+<!-- Demo js -->
 <script src="js/demo.js"></script>
 
 </body>
