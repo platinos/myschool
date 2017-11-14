@@ -31,6 +31,52 @@
 							ALL QUESTIONS LIST
 						</h2>
 
+
+
+
+
+						<?php
+								
+								$i=0;
+								foreach ($_SESSION["questionCart"] as $qid) {
+									$question_id=array("qid"=>$qid);
+									$question_feed=apicall("getquestionbyid",$question_id);
+
+									$topic=$question_feed['data'][0]['topic'];
+									$class=$question_feed['data'][0]['class'];
+									$type=$question_feed['data'][0]['type'];
+									$subject=$question_feed['data'][0]['subject'];
+									$chapter=$question_feed['data'][0]['chapter'];
+									$level=$question_feed['data'][0]['level'];
+									$marks=$question_feed['data'][0]['marks'];
+									$ques_txt=$question_feed['data'][0]['ques_txt'];
+									$ques_img=$question_feed['data'][0]['ques_img'];
+									$qr=$question_feed['data'][0]['qr'];
+									$answer=$question_feed['data'][0]['answer'];
+									$youtube=$question_feed['data'][0]['youtube'];
+									$i++;
+									}
+
+									?>
+									<p>sample data to be displayed here</p>
+
+<p>$topic</p><br>
+<p>$class</p><br>
+<p>$type</p><br>
+<p>$subject</p><br>
+<p>$chapter</p><br>
+<p>$level</p><br>
+<p>$marks</p><br>
+<p>$ques_txt</p><br>
+<p>$ques_img</p><br>
+<p>$qr</p><br>
+<p>$answer</p><br>
+<p>$youtube</p><br>
+
+<p>sample data ends here</p>
+
+
+
 					</div>
 					<div class="body">
 						<table class="table table-bordered table-striped table-hover dataTable js-exportable">
