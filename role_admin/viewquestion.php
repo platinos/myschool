@@ -44,7 +44,16 @@ else
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                        <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+
+<?php
+if(displayPaperButton()){
+
+?>
+
+                        <a href='display-paper.php'><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+                    <?php } else { ?>
+                    <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+                    <?php } ?>
                             <h2>
                                 ALL QUESTIONS SELECTION by kartik
                             </h2>
