@@ -59,7 +59,7 @@
                     </li>
 
                     <li>
-                    	<a href="#">
+                    	<a href="display-paper.php">
                         	<i class="material-icons">blur_on</i>
                         	<span>View My Paper</span>
                     	</a>
