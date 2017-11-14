@@ -1,6 +1,3 @@
-//global count of no of questions selected
-var count=0;
-
 // //click event for add button
 // $('.questionAdd').click(function () {
 // 	var questionID=$(this).parent().attr('id');
@@ -26,7 +23,7 @@ function addQuestion(questionID){
 		console.log(questionID+" question id add");
 		$('#addQuestion'+questionID).hide();
 		$('#removeQuestion'+questionID).show();
-		count++;
+
 		$('#create_paper').show();
 		alert(data);
 	})
@@ -42,15 +39,14 @@ function removeQuestion(questionID){
 		type: 'POST',
 		data: {qid: questionID, action:"remove_question"},
 	})
-	.done(function() {
+	.done(function(data) {
 
 		$('#'+questionID).css("background-color", "");
 
 		console.log(questionID+" question id delete");
 		$('#addQuestion'+questionID).show();
 		$('#removeQuestion'+questionID).hide();
-		count--;
-		if(count==0){
+		if(data.size==0){
 			$('#create_paper').hide();
 		}
 
