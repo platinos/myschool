@@ -122,7 +122,6 @@ else
                                 $size = $feed['data']['size']; 
                                 for($i=0; $i<$size; $i++)
                                     {?>
-                                        <tr>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
                                                 <td>
                                                     <?php if(incart($feed['data'][$i]['id'])){
