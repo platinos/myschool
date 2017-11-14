@@ -41,11 +41,14 @@ function removeQuestion(questionID){
 		beforeSend: function(){
 
 			toggleAddRemove(questionID);
-			data=JSON.parse(data);
+			
+		}
+	})
+	.done(function(data){
+		data=JSON.parse(data);
 			if(data.size==0){
 				$('#create_paper').hide();
 			}
-		}
 	})
 	.fail(function() {
 		alert('An error occured while trying to select question. Please try later');
