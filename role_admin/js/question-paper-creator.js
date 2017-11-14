@@ -65,3 +65,12 @@ function toggleAddRemove(questionID){
 	$('#addQuestion'+questionID).toggle();
 	$('#removeQuestion'+questionID).toggle();
 }
+
+
+
+//for data table
+$(document).ready(function() {
+    $('#allQuestions').DataTable( {
+        "order": [[ 2, "asc" ]]
+    } );
+} );
