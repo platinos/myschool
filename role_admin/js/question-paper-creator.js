@@ -46,7 +46,7 @@ function removeQuestion(questionID){
 		console.log(questionID+" question id delete");
 		$('#addQuestion'+questionID).show();
 		$('#removeQuestion'+questionID).hide();
-		if(data.size==0){
+		if(data.size=='0'){
 			$('#create_paper').hide();
 		}
 
