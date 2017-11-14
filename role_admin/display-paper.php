@@ -60,18 +60,18 @@
 									?>
 									<p>sample data to be displayed here</p>
 
-<p>$topic</p><br>
-<p>$class</p><br>
-<p>$type</p><br>
-<p>$subject</p><br>
-<p>$chapter</p><br>
-<p>$level</p><br>
-<p>$marks</p><br>
-<p>$ques_txt</p><br>
-<p>$ques_img</p><br>
-<p>$qr</p><br>
-<p>$answer</p><br>
-<p>$youtube</p><br>
+<p><?php echo $topic ?></p><br>
+<p><?php echo $class ?></p><br>
+<p><?php echo $type ?></p><br>
+<p><?php echo $subject ?></p><br>
+<p><?php echo $chapter ?></p><br>
+<p><?php echo $level ?></p><br>
+<p><?php echo $marks ?></p><br>
+<p><?php echo $ques_txt ?></p><br>
+<p><?php echo $ques_img ?></p><br>
+<p><?php echo $qr ?></p><br>
+<p><?php echo $answer ?></p><br>
+<p><?php echo $youtube ?></p><br>
 
 <p>sample data ends here</p>
 
