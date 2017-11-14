@@ -14,13 +14,13 @@
 
 
 	function addQuestion(){
-		array_push(	$_SESSION["questionCart"], $_POST['qid']);
+		$_SESSION["questionCart"][$_POST['qid']] = $_POST['qid'];
 		echo "{'msg':'successfully added id : ".$_POST['qid']."'}";
 	}
 
 	//apply null check
 	function removeQuestion(){
-		unset($_SESSION["questionCart"],$_POST['qid']);
+		unset($_SESSION["questionCart"][$_POST['qid']]);
 		echo "{'msg':'successfully removed'}";
 	}
 ?>
