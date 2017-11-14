@@ -16,7 +16,7 @@
 
 <section class="content">
     <div class="container-fluid">
-     
+
         <!-- Basic Examples -->
         
         <!-- #END# Basic Examples -->
@@ -51,8 +51,8 @@
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
-                                   Add New Subject
-                                   <a href="addsubject.php"> <button type="button" class="btn bg-deep-purple btn-circle waves-effect waves-circle waves-float" >
+                                 Add New Subject
+                                 <a href="addsubject.php"> <button type="button" class="btn bg-deep-purple btn-circle waves-effect waves-circle waves-float" >
                                     <i class="material-icons" >add</i>
                                     
                                 </button></a>
@@ -76,16 +76,16 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                 <th>Id</th>
-                                 <th>Name</th>
-                                 <th>Chapter Count</th>
-                                 <th>Question Count</th>
-                                 <th>Actions</th>
-                                 
-                                 
-                             </tr>
-                         </tfoot>
-                         <tbody>
+                                   <th>Id</th>
+                                   <th>Name</th>
+                                   <th>Chapter Count</th>
+                                   <th>Question Count</th>
+                                   <th>Actions</th>
+
+
+                               </tr>
+                           </tfoot>
+                           <tbody>
                             <?php
 
                             $size = $feed['data']['size']; 
@@ -145,6 +145,7 @@
 <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
 <!-- Custom Js -->
+
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
 
