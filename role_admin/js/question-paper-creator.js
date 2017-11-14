@@ -23,6 +23,7 @@ function addQuestion(questionID){
 		}
 	})
 	.done(function(data){
+		data=JSON.parse(data);
 		$('#cartCount').html(data.size+' questions present.');
 	})
 	.fail(function() {
@@ -41,11 +42,17 @@ function removeQuestion(questionID){
 		beforeSend: function(){
 
 			toggleAddRemove(questionID);
-			data=JSON.parse(data);
+			
+		}
+	})
+	.done(function(data){
+
+		data=JSON.parse(data);
+		$('#cartCount').html(data.size+' questions present.');
 			if(data.size==0){
 				$('#create_paper').hide();
+				$('#cartCount').html('');
 			}
-		}
 	})
 	.fail(function() {
 		alert('An error occured while trying to select question. Please try later');
@@ -54,7 +61,7 @@ function removeQuestion(questionID){
 	})
 }
 
-function toggleAddRemove(){
+function toggleAddRemove(questionID){
 	$('#addQuestion'+questionID).toggle();
 	$('#removeQuestion'+questionID).toggle();
 }
