@@ -72,7 +72,7 @@ else
 
                     </div>
                     <div class="body">
-                        <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
                             <thead>
                                 <tr>
                                     <th>Select</th>
