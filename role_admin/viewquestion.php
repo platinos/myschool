@@ -56,7 +56,7 @@ if(displayPaperButton()){
                                    <a href='display-paper.php'><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
                             </li>
                         </ul>
-                        <a href='display-paper.php'><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+                        
                     <?php } else { ?>
                     <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -67,7 +67,7 @@ if(displayPaperButton()){
                 
                     <?php } ?>
                             <h2>
-                                ALL QUESTIONS SELECTION by kartik
+                                ALL QUESTIONS SELECTION
                             </h2>
                             
                         </div>
