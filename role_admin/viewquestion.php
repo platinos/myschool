@@ -50,9 +50,21 @@ if(displayPaperButton()){
 
 ?>
 
+                        <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    
+                                   <a href='display-paper.php'><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+                            </li>
+                        </ul>
                         <a href='display-paper.php'><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
                     <?php } else { ?>
-                    <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+                    <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    
+                                   <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+                            </li>
+                        </ul>
+                
                     <?php } ?>
                             <h2>
                                 ALL QUESTIONS SELECTION by kartik
