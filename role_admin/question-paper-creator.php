@@ -15,12 +15,16 @@
 
 	function addQuestion(){
 		$_SESSION["questionCart"][$_POST['qid']] = $_POST['qid'];
-		echo "{'msg':'successfully added id : ".$_POST['qid']."', 'size': '".count($_SESSION["questionCart"])."'}";
+		$response['msg'] = 'successfully added id : '.$_POST["qid"];
+		$response['size'] = count($_SESSION["questionCart"]);
+		echo json_encode($response);
 	}
 
 	//apply null check
 	function removeQuestion(){
 		unset($_SESSION["questionCart"][$_POST['qid']]);
-		echo "{'msg':'successfully removed', 'size': '".count($_SESSION["questionCart"])."'}";
+		$response['msg'] = 'successfully removed id : '.$_POST["qid"];
+		$response['size'] = count($_SESSION["questionCart"]);
+		echo json_encode($response);
 	}
 ?>
