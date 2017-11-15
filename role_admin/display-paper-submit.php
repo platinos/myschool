@@ -3,7 +3,7 @@
 	$qc=$_SESSION['questionCart'];
 	$qidString='';
 	foreach($qc as $qid => $val){
-		$qidString+=($qid+',');
+		$qidString.= $qid.',';
 	}
 	$q=rtrim($qidString,',');
 	$response['str'] = $q;
