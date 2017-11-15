@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
     <thead>
         <tr>
@@ -31,7 +34,7 @@
     <tbody>
         <!-- Items to be displayed: id,chapter,topic,question,image,answer,youtube -->
         <?php
-        
+
         $i=0;
         foreach ($_SESSION["questionCart"] as $qid) {
             $question_id=array("qid"=>$qid);
@@ -54,7 +57,7 @@
             <tr id="<?php echo $qid ?>" >
                 <td>
                     <button class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$qid ?>" onclick='removeQuestionFromDisplay(<?php echo $qid ?>)'>Remove</button>
-                    
+
                 </td>
                 <td><?php echo $i; ?></td>
                 <td><?php echo $chapter ?></td>
