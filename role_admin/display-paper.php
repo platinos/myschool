@@ -27,7 +27,11 @@
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="card">
 					<div class="header">
-						<button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button>
+
+						<li class="dropdown">
+
+                                     <a href="display-paper.php"><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Question Paper</button></a>
+                                 </li>
 						<h2>
 							ALL QUESTIONS LIST
 						</h2>

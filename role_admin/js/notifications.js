@@ -1,15 +1,3 @@
-// $(function () {
-//     $('.jsdemo-notification-button button').on('click', function () {
-//         var placementFrom = $(this).data('placement-from');
-//         var placementAlign = $(this).data('placement-align');
-//         var animateEnter = $(this).data('animate-enter');
-//         var animateExit = $(this).data('animate-exit');
-//         var colorName = $(this).data('color-name');
-//         var alertText= $(this).data('alert-text');
-//         showNotification(colorName, alertText, placementFrom, placementAlign, animateEnter, animateExit);
-//     });
-// });
-
 function showNotification(colorName, text, placementFrom, placementAlign, animateEnter, animateExit) {
     if (colorName === null || colorName === '') { colorName = 'bg-black'; }
     if (text === null || text === '') { text = 'Turning standard Bootstrap alerts'; }
