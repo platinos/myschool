@@ -1,6 +1,6 @@
 
 
-<body class="theme-blue">
+<body class="theme-light-green">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
