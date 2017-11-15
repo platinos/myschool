@@ -24,7 +24,7 @@ function showNotification(colorName, text, placementFrom, placementAlign, animat
             type: colorName,
             allow_dismiss: allowDismiss,
             newest_on_top: true,
-            timer: 500,
+            timer: 200,
             placement: {
                 from: placementFrom,
                 align: placementAlign
@@ -34,7 +34,7 @@ function showNotification(colorName, text, placementFrom, placementAlign, animat
                 exit: animateExit
             },
             template: '<div data-notify="container" class="bootstrap-notify-container alert alert-dismissible {0} ' + (allowDismiss ? "p-r-35" : "") + '" role="alert">' +
-            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss"></button>' +
+            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">x</button>' +
             '<span data-notify="icon"></span> ' +
             '<span data-notify="title">{1}</span> ' +
             '<span data-notify="message">{2}</span>' +
