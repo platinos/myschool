@@ -51,7 +51,7 @@ else
 
                     </div>
                     <div class="body">
-                        <table class="table table-bordered table-striped table-hover dataTable">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
                                     
