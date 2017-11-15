@@ -24,16 +24,14 @@ function addQuestion(questionID){
 	})
 	.done(function(data){
 		data=JSON.parse(data);
-		showNotification("", "Question Successfully added", "bottom", "right", "", "");
 		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
-
+		showNotification("", "Question Successfully added", "bottom", "right", "", "");	
 	})
 	.fail(function() {
-
-		showNotification("", "An error occured while trying to select question. Please try after some time.", "bottom", "right", "", "");
 		//alert('An error occured while trying to select question. Please try after some time.');
 		toggleAddRemove(questionID);
 		$('#create_paper').hide();
+		showNotification("", "An error occured while trying to select question. Please try after some time.", "bottom", "right", "", "");
 	})
 }
 
@@ -52,21 +50,18 @@ function removeQuestion(questionID){
 	.done(function(data){
 
 		data=JSON.parse(data);
-
-
-		showNotification("", "Question Successfully removed", "bottom", "right", "", "");
 		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
 		if(data.size==0){
 			$('#create_paper').hide();
 			$('#cartCount').html('');
 		}
+		showNotification("", "Question Successfully removed", "bottom", "right", "", "");
 	})
 	.fail(function() {
-		showNotification("", "An error occured while trying to remove question. Please try after some time.", "bottom", "right", "", "");
-		
 		//alert('An error occured while trying to remove question. Please try after some time.');
 		toggleAddRemove(questionID);
 		$('#create_paper').show();
+		showNotification("", "An error occured while trying to remove question. Please try after some time.", "bottom", "right", "", "");
 	})
 }
 
@@ -94,15 +89,14 @@ function removeQuestionFromDisplay(questionID){
 			$('#cartTable').hide();
 			$('#noQues').show();
 		}
-		
 		showNotification("", "Question Successfully removed", "bottom", "right", "", "");
 	})
 	.fail(function() {
-		showNotification("", "An error occured while trying to remove question. Please try after some time.", "bottom", "right", "", "");
 		//alert('An error occured while trying to remove question. Please try after some time.');
 		$('#questionID').show();
 		$('#create_paper').show();
 		$('#noQues').hide();
+		showNotification("", "An error occured while trying to remove question. Please try after some time.", "bottom", "right", "", "");
 	})
 }
 

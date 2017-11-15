@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 
 <head>
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    
+    <link href="plugins/animate-css/animate.css" rel="stylesheet">
     <title>MyPaper-Controller</title>
 
     <!-- Favicon-->

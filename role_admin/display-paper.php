@@ -6,7 +6,8 @@
 <head>
 	<?php include 'part/head.php'; ?>
 	<link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-	s	<title>MyPaper-Controller</title>
+    <link href="plugins/animate-css/animate.css" rel="stylesheet">
+	<title>MyPaper-Controller</title>
 
 	<!-- Favicon-->
 
