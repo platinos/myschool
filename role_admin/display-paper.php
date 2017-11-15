@@ -31,7 +31,7 @@
 						<ul class="header-dropdown m-r--5">
 							<li class="dropdown">
 
-								<a href='show-question-paper-sets.php'><button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#finalizePaperModal" id="create_paper"> Finalize Paper</button></a>
+								<button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="create_paper"> Finalize Paper</button>
 							</li>
 						</ul>
 
@@ -81,7 +81,7 @@
 
 									</div>
 									<div class="modal-footer">
-										<button type="button" onclick='$("finalizeForm").submit();' class="btn btn-link waves-effect">SAVE PAPER</button>
+										<button type="button" class="btn btn-link waves-effect">SAVE PAPER</button>
 										<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCEL</button>
 									</div>
 								</div>
