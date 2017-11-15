@@ -76,6 +76,7 @@
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
 <script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="js/notifications.js"></script>
 
 <!-- Demo js -->
 <script src="js/demo.js"></script>

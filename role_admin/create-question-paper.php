@@ -193,7 +193,7 @@ else
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
-
+<script src="js/notifications.js"></script>
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
