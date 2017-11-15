@@ -33,7 +33,7 @@ function addQuestion(questionID){
 		$('#create_paper').hide();
 		showNotification("alert-warning", 'An error occured while trying to add question. Please try after some time.', "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
 		
-		})
+	})
 }
 
 //removes question from list and removes the highlighting
@@ -57,7 +57,7 @@ function removeQuestion(questionID){
 			$('#cartCount').html('');
 		}
 		showNotification("alert-danger", "Question Successfully removed.", "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
-	
+
 	})
 	.fail(function() {
 		//alert('An error occured while trying to remove question. Please try after some time.');
@@ -94,7 +94,7 @@ function removeQuestionFromDisplay(questionID){
 			$('#noQues').show();
 		}
 		showNotification("alert-danger", "Question Successfully removed.", "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
-	
+
 	})
 	.fail(function() {
 		//alert('An error occured while trying to remove question. Please try after some time.');
@@ -111,3 +111,11 @@ function toggleAddRemove(questionID){
 	$('#removeQuestion'+questionID).toggle();
 }
 
+
+
+//modal opening helper
+$('#finalise').on('click', function () {
+	var color = $(this).data('color');
+	$('#mdModal .modal-content').removeAttr('class').addClass('modal-content modal-col-' + color);
+	$('#mdModal').modal('show');
+});

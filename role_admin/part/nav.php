@@ -52,7 +52,7 @@
                     </li>
 
                      <li>
-                    	<a href="#">
+                    	<a href="viewquestionpapers.php">
                         	<i class="material-icons">brightness_1</i>
                         	<span>Questions Papers</span>
                     	</a>
