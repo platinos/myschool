@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include_once 'functions.php';
 ?>
 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
     <thead>
