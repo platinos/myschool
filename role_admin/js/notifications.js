@@ -1,15 +1,3 @@
-// $(function () {
-//     $('.jsdemo-notification-button button').on('click', function () {
-//         var placementFrom = $(this).data('placement-from');
-//         var placementAlign = $(this).data('placement-align');
-//         var animateEnter = $(this).data('animate-enter');
-//         var animateExit = $(this).data('animate-exit');
-//         var colorName = $(this).data('color-name');
-//         var alertText= $(this).data('alert-text');
-//         showNotification(colorName, alertText, placementFrom, placementAlign, animateEnter, animateExit);
-//     });
-// });
-
 function showNotification(colorName, text, placementFrom, placementAlign, animateEnter, animateExit) {
     if (colorName === null || colorName === '') { colorName = 'bg-black'; }
     if (text === null || text === '') { text = 'Turning standard Bootstrap alerts'; }
@@ -24,7 +12,7 @@ function showNotification(colorName, text, placementFrom, placementAlign, animat
             type: colorName,
             allow_dismiss: allowDismiss,
             newest_on_top: true,
-            timer: 1000,
+            timer: 200,
             placement: {
                 from: placementFrom,
                 align: placementAlign
@@ -34,7 +22,7 @@ function showNotification(colorName, text, placementFrom, placementAlign, animat
                 exit: animateExit
             },
             template: '<div data-notify="container" class="bootstrap-notify-container alert alert-dismissible {0} ' + (allowDismiss ? "p-r-35" : "") + '" role="alert">' +
-            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">Ã—</button>' +
+            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">&times;</button>' +
             '<span data-notify="icon"></span> ' +
             '<span data-notify="title">{1}</span> ' +
             '<span data-notify="message">{2}</span>' +

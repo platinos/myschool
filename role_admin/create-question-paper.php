@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 
 <head>
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    
+    <link href="plugins/animate-css/animate.css" rel="stylesheet">
     <title>MyPaper-Controller</title>
 
     <!-- Favicon-->
@@ -189,6 +189,8 @@ else
 <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+<script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
 
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
