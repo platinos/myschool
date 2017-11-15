@@ -10,9 +10,9 @@
 
                     </li>
                     <li>
-                    	<a href="#">
+                    	<a href="create-question-paper.php">
                         	<i class="material-icons">settings_applications</i>
-                        	<span>Auto Generate Paper</span>
+                        	<span>Create Paper</span>
                     	</a>
                     </li>
 

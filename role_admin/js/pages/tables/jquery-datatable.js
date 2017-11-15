@@ -7,7 +7,7 @@ $(function () {
         buttons: [
             'copy', 'csv', 'excel'
         ]    });
-    
+
     //Exportable table
     $('#allQuestions').DataTable({
         dom: 'Bfrtip',
@@ -17,3 +17,4 @@ $(function () {
         order: [[ 2, "asc" ]]
     });
 });
+
