@@ -9,4 +9,9 @@
 	{
 		return (isset($_SESSION['questionCart']) && !empty($_SESSION['questionCart']));
 	}
+
+// Add to edited questions list.
+	function addToEditedList(){
+		
+	}
 ?>
