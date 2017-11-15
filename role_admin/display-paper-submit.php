@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$qc=$_SESSION['questionCart'];
 	$qidString='';
 	foreach($qc as $qid){
