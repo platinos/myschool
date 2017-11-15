@@ -6,7 +6,7 @@
 <head>
 	<?php include 'part/head.php'; ?>
 	<link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="plugins/animate-css/animate.css" rel="stylesheet">
+	<link href="plugins/animate-css/animate.css" rel="stylesheet">
 	<title>MyPaper-Controller</title>
 
 	<!-- Favicon-->
@@ -28,10 +28,12 @@
 				<div class="card">
 					<div class="header">
 
-						<li class="dropdown">
+						<ul class="header-dropdown m-r--5">
+							<li class="dropdown">
 
-                                     <a href="display-paper.php"><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Question Paper</button></a>
-                                 </li>
+								<a href='display-paper.php'><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+							</li>
+						</ul>
 						<h2>
 							ALL QUESTIONS LIST
 						</h2>
@@ -39,8 +41,8 @@
 
 					</div>
 					<div style='display: none;' id='noQues'><h2>
-							No Questions selected.
-						</h2></div>
+						No Questions selected.
+					</h2></div>
 					<div id="cartTable" class="body">
 						<?php include 'question-cart-table.php' ?>
 					</div>
