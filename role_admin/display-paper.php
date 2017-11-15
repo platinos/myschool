@@ -48,7 +48,7 @@
 										<form id='paperdetails' action="functions.php" method="post" accept-charset="utf-8">
 											<div class="form-group">
 												<div class="form-line">
-													<input type="text" name='qpname' class="form-control" placeholder="Username">
+													<input type="text" name='qpname' class="form-control" placeholder="Paper Name">
 												</div>
 											</div>
 
@@ -66,7 +66,7 @@
 
 											<div class="form-group">
 												<div class="form-line">
-													<input type="number" name='qpsubject' class="form-control" placeholder="Interval in minutes">
+													<input type="number" name='qptime' class="form-control" placeholder="Interval in minutes">
 												</div>
 											</div>
 
