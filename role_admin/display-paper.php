@@ -31,9 +31,64 @@
 						<ul class="header-dropdown m-r--5">
 							<li class="dropdown">
 
-								<a href='display-paper.php'><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+								<button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="create_paper"> Finalize Paper</button>
 							</li>
 						</ul>
+
+						<!-- qpname, qpclass, qpsubject qptime qlist qparraywhichitrig-->
+						<div class="modal fade in" id="mdModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content modal-col-teal">
+									<div class="modal-header">
+										<h4 class="modal-title" id="defaultModalLabel">Enter question paper details: </h4>
+									</div>
+									<div class="modal-body">
+
+
+										<form id='paperdetails' action="functions.php" method="post" accept-charset="utf-8">
+											<div class="form-group">
+												<div class="form-line">
+													<input type="text" name='qpname' class="form-control" placeholder="Paper Name">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="form-line">
+													<input type="text" name='qpclass' class="form-control" placeholder="Class">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="form-line">
+													<input type="text" name='qpsubject' class="form-control" placeholder="Subject">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="form-line">
+													<input type="number" name='qptime' class="form-control" placeholder="Interval in minutes">
+												</div>
+											</div>
+
+											<input type="hidden" name="func" value="sendcartdata">
+											<input type="hidden" name="qlist" id='qlist' >
+
+										</form>
+
+
+										
+
+
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-link waves-effect" onclick="sessiontostring();">SAVE PAPER</button>
+										<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCEL</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
 						<h2>
 							ALL QUESTIONS LIST
 						</h2>
