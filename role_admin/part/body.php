@@ -42,19 +42,19 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span id="cartCount"><?php if(displayPaperButton()) {echo count($_SESSION["questionCart"])." questions present."; }?></span>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+           <!--  <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Call Search -->
+
                     <center>
                     <img src="images/user.png" height="50" width="50">
 <a class="navbar-brand" href="index.php"><b>MY SCHOOL	</b></a>
 </center>
-                    <!-- #END# Call Search -->
+                   
                     
                     
                     
                 </ul>
-            </div>
+            </div> -->
         </div>
     </nav>
     <!-- #Top Bar -->
