@@ -25,13 +25,13 @@ function addQuestion(questionID){
 	.done(function(data){
 		data=JSON.parse(data);
 		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
-		showNotification("bg-green", "Question Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+		showNotification("bg-green", "Question Successfully added.", "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
 	})
 	.fail(function() {
 		//alert('An error occured while trying to select question. Please try after some time.');
 		toggleAddRemove(questionID);
 		$('#create_paper').hide();
-		showNotification("alert-warning", 'An error occured while trying to add question. Please try after some time.', "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+		showNotification("alert-warning", 'An error occured while trying to add question. Please try after some time.', "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
 		
 		})
 }
@@ -56,14 +56,14 @@ function removeQuestion(questionID){
 			$('#create_paper').hide();
 			$('#cartCount').html('');
 		}
-		showNotification("alert-danger", "Question Successfully removed.", "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+		showNotification("alert-danger", "Question Successfully removed.", "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
 	
 	})
 	.fail(function() {
 		//alert('An error occured while trying to remove question. Please try after some time.');
 		toggleAddRemove(questionID);
 		$('#create_paper').show();
-		showNotification("alert-warning", 'An error occured while trying to remove question. Please try after some time.', "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+		showNotification("alert-warning", 'An error occured while trying to remove question. Please try after some time.', "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
 		
 
 	})
@@ -93,7 +93,7 @@ function removeQuestionFromDisplay(questionID){
 			$('#cartTable').hide();
 			$('#noQues').show();
 		}
-		showNotification("alert-danger", "Question Successfully removed.", "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+		showNotification("alert-danger", "Question Successfully removed.", "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
 	
 	})
 	.fail(function() {
@@ -101,7 +101,7 @@ function removeQuestionFromDisplay(questionID){
 		$('#questionID').show();
 		$('#create_paper').show();
 		$('#noQues').hide();
-		showNotification("alert-warning", 'An error occured while trying to remove question. Please try after some time.', "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+		showNotification("alert-warning", 'An error occured while trying to remove question. Please try after some time.', "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
 		
 	})
 }
