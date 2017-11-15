@@ -65,9 +65,11 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>Chapter Count</th>
-                                    <th>Question Count</th>
-                                    <th>Actions</th>
+                                    <th>Class</th>
+                                    <th>Subject</th>
+                                    <th>Created On</th>
+                                    <th>Duration</th>
+                                    <th>Marks</th>
                                     
 
 
@@ -77,10 +79,12 @@
                             <tfoot>
                                 <tr>
                                    <th>Id</th>
-                                   <th>Name</th>
-                                   <th>Chapter Count</th>
-                                   <th>Question Count</th>
-                                   <th>Actions</th>
+                                    <th>Name</th>
+                                    <th>Class</th>
+                                    <th>Subject</th>
+                                    <th>Created On</th>
+                                    <th>Duration</th>
+                                    <th>Marks</th>
 
 
                                </tr>
@@ -88,17 +92,17 @@
                            <tbody>
                             <?php
 
-                            $size = $feed['data']['size']; 
+                            $size = $feed['size']; 
                             for($i=0; $i<$size; $i++)
                                 {?>
                                     <tr>
                                         <td><?php echo $feed['data'][$i]['id'] ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['chapter_count'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['question_count'] ?></td>
-                                        <td><a href="fdaf"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
-                                            <a onclick="window.open('functions.php?func=deletesubject&qid=<?php echo $feed['data'][$i]['id'] ?>','_BLANK');setTimeout(location.reload.bind(location), 2000);"><i class="material-icons" style="color: red">delete</i></a>
-                                        </td>
+                                        <td><?php echo $feed['data'][$i]['class'] ?></td>
+                                        <td><?php echo $feed['data'][$i]['subject'] ?></td>
+                                        <td><?php echo $feed['data'][$i]['date'] ?></td>
+                                        <td><?php echo $feed['data'][$i]['time'] ?></td>
+                                        <td><?php echo $feed['data'][$i]['marks'] ?></td>
                                         
                                         
 
