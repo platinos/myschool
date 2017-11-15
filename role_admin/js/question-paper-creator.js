@@ -24,7 +24,7 @@ function addQuestion(questionID){
 	})
 	.done(function(data){
 		data=JSON.parse(data);
-		$('#cartCount').html(data.size+' questions present.');
+		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
 	})
 	.fail(function() {
 		alert('An error occured while trying to select question. Please try later');
