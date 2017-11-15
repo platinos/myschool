@@ -48,7 +48,9 @@ function removeQuestion(questionID){
 	.done(function(data){
 
 		data=JSON.parse(data);
-		$('#cartCount').html(data.size+' questions present.');
+
+
+		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
 			if(data.size==0){
 				$('#create_paper').hide();
 				$('#cartCount').html('');
