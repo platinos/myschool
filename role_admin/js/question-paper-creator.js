@@ -125,6 +125,7 @@ function sessiontostring(){
 	$.getJSON('display-paper-submit.php', function(json, textStatus) {
 			var str=json.str;
 			$('#qlist').val(str);
-			$('#paperdetails').submit();
+			console.log(str+"asdfasdf");
+			//$('#paperdetails').submit();
 	});
 }
