@@ -39,8 +39,10 @@
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
                 <a class="navbar-brand" href="index.php"><b>My Paper - Control Room</b></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span id="cartCount"><?php if(displayPaperButton()) {echo count($_SESSION["questionCart"])." questions present."; }?></span>
+                <div class="navbar-brand alert alert-info pull-right" id="cartCount">
+                <strong><?php if(displayPaperButton()) {echo count($_SESSION["questionCart"]); }?></strong> questions present.
+                </div>
+                
             </div>
            <!--  <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
