@@ -37,7 +37,7 @@
 						<table class="table table-bordered table-striped table-hover dataTable js-exportable">
 							<thead>
 								<tr>
-									
+									<th>Select</th>
 									<th>Id</th>
 									<th>Chapter</th>
 									<th>Topic</th>
@@ -51,7 +51,7 @@
 							</thead>
 							<tfoot>
 								<tr>
-									
+									<th>Select</th>
 									<th>Id</th>
 									<th>Chapter</th>
 									<th>Topic</th>
@@ -88,7 +88,10 @@
 									$i++;
 									?>
 									<tr id=" <?php echo $question_id ?>" >
-
+										<td>
+                                            <button class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $question_id ?>)'>Remove</button>
+                                                        
+                                        </td>
 										<td><?php echo $i; ?></td>
 										<td><?php echo $chapter ?></td>
 										<td><?php echo $topic ?></td>
