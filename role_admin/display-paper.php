@@ -87,9 +87,9 @@
 									$youtube=$question_feed['data'][0]['youtube'];
 									$i++;
 									?>
-									<tr id=" <?php echo $question_id ?>" >
+									<tr id="<?php echo $question_id ?>" >
 										<td>
-                                            <button class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $question_id ?>)'>Remove</button>
+                                            <button class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestionFromDisplay(<?php echo $question_id ?>)'>Remove</button>
                                                         
                                         </td>
 										<td><?php echo $i; ?></td>

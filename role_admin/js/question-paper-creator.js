@@ -27,7 +27,7 @@ function addQuestion(questionID){
 		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
 	})
 	.fail(function() {
-		alert('An error occured while trying to select question. Please try later');
+		alert('An error occured while trying to select question. Please try after some time.');
 		toggleAddRemove(questionID);
 		$('#create_paper').hide();
 	})
@@ -57,8 +57,37 @@ function removeQuestion(questionID){
 			}
 	})
 	.fail(function() {
-		alert('An error occured while trying to select question. Please try later');
+		alert('An error occured while trying to remove question. Please try after some time.');
 		toggleAddRemove(questionID);
+		$('#create_paper').show();
+	})
+}
+
+
+//removes question from display-paper
+function removeQuestionFromDisplay(questionID){
+	$.ajax({
+		url: 'question-paper-creator.php',
+		type: 'POST',
+		data: {qid: questionID, action:"remove_question"},
+		beforeSend: function(){
+
+			$('#questionID').hide();
+			
+		}
+	})
+	.done(function(data){
+
+		$('#questionID').remove();
+		data=JSON.parse(data);
+		$('#cartCount').html(data.size+' questions present.');
+			if(data.size==0){
+				$('#cartCount').html('');
+			}
+	})
+	.fail(function() {
+		alert('An error occured while trying to remove question. Please try after some time.');
+		$('#questionID').show();
 		$('#create_paper').show();
 	})
 }
