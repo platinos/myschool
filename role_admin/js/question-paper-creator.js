@@ -84,12 +84,15 @@ function removeQuestionFromDisplay(questionID){
 		$('#cartTable').load("qpcarttable.php");
 			if(data.size==0){
 				$('#cartCount').html('');
+				$('#cartTable').hide();
+				$('#noQues').show();
 			}
 	})
 	.fail(function() {
 		alert('An error occured while trying to remove question. Please try after some time.');
 		$('#questionID').show();
 		$('#create_paper').show();
+		$('#noQues').hide();
 	})
 }
 

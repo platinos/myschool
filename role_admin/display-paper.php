@@ -33,6 +33,7 @@
 
 
 					</div>
+					<div style='display: none;' id='noQues'>No questions are selected</div>
 					<div id="cartTable" class="body">
 						<?php include 'question-cart-table.php' ?>
 					</div>
