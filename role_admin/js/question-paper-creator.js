@@ -119,3 +119,12 @@ $('#finalise').on('click', function () {
 	$('#mdModal .modal-content').removeAttr('class').addClass('modal-content modal-col-' + color);
 	$('#mdModal').modal('show');
 });
+
+//display paper convert session array to string
+function sessiontostring(){
+	$.getJSON('display-paper-submit.php', function(json, textStatus) {
+			var str=json.str;
+			$('#qlist').val(str);
+			$('#paperdetails').submit();
+	});
+}

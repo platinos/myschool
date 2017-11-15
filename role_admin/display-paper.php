@@ -45,7 +45,7 @@
 									<div class="modal-body">
 
 
-										<form action="functions.php" method="post" accept-charset="utf-8">
+										<form id='paperdetails' action="functions.php" method="post" accept-charset="utf-8">
 											<div class="form-group">
 												<div class="form-line">
 													<input type="text" name='qpname' class="form-control" placeholder="Username">
@@ -71,7 +71,7 @@
 											</div>
 
 											<input type="hidden" name="func" value="sendcartdata">
-											<input type="hidden" name="qlist">
+											<input type="hidden" name="qlist" id='qlist' >
 
 										</form>
 
@@ -81,7 +81,7 @@
 
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-link waves-effect">SAVE PAPER</button>
+										<button type="button" class="btn btn-link waves-effect" onclick="sessiontostring();">SAVE PAPER</button>
 										<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCEL</button>
 									</div>
 								</div>
