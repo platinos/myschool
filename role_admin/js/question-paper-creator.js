@@ -25,14 +25,15 @@ function addQuestion(questionID){
 	.done(function(data){
 		data=JSON.parse(data);
 		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
-		showNotification("", "Question Successfully added", "bottom", "right", "", "");	
+		showNotification("bg-green", "Question Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");	
 	})
 	.fail(function() {
 		//alert('An error occured while trying to select question. Please try after some time.');
 		toggleAddRemove(questionID);
 		$('#create_paper').hide();
-		showNotification("", "An error occured while trying to select question. Please try after some time.", "bottom", "right", "", "");
-	})
+		showNotification("alert-warning", 'An error occured while trying to add question. Please try after some time.', "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+		
+		})
 }
 
 //removes question from list and removes the highlighting
@@ -55,13 +56,16 @@ function removeQuestion(questionID){
 			$('#create_paper').hide();
 			$('#cartCount').html('');
 		}
-		showNotification("", "Question Successfully removed", "bottom", "right", "", "");
+		showNotification("alert-danger", "Question Successfully removed.", "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+	
 	})
 	.fail(function() {
 		//alert('An error occured while trying to remove question. Please try after some time.');
 		toggleAddRemove(questionID);
 		$('#create_paper').show();
-		showNotification("", "An error occured while trying to remove question. Please try after some time.", "bottom", "right", "", "");
+		showNotification("alert-warning", 'An error occured while trying to remove question. Please try after some time.', "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+		
+
 	})
 }
 
@@ -89,14 +93,16 @@ function removeQuestionFromDisplay(questionID){
 			$('#cartTable').hide();
 			$('#noQues').show();
 		}
-		showNotification("", "Question Successfully removed", "bottom", "right", "", "");
+		showNotification("alert-danger", "Question Successfully removed.", "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+	
 	})
 	.fail(function() {
 		//alert('An error occured while trying to remove question. Please try after some time.');
 		$('#questionID').show();
 		$('#create_paper').show();
 		$('#noQues').hide();
-		showNotification("", "An error occured while trying to remove question. Please try after some time.", "bottom", "right", "", "");
+		showNotification("alert-warning", 'An error occured while trying to remove question. Please try after some time.', "top", "right", "animated bounceInRight", "animated bounceOutRight");	
+		
 	})
 }
 
@@ -104,6 +110,4 @@ function toggleAddRemove(questionID){
 	$('#addQuestion'+questionID).toggle();
 	$('#removeQuestion'+questionID).toggle();
 }
-
-
 
