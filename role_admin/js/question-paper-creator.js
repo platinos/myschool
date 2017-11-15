@@ -80,7 +80,7 @@ function removeQuestionFromDisplay(questionID){
 
 		$('#questionID').remove();
 		data=JSON.parse(data);
-		$('#cartCount').html(data.size+' questions present.');
+		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
 			if(data.size==0){
 				$('#cartCount').html('');
 			}
