@@ -81,6 +81,7 @@ function removeQuestionFromDisplay(questionID){
 		$('#questionID').remove();
 		data=JSON.parse(data);
 		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
+		$('#cartTable').load("question-cart-table.php");
 			if(data.size==0){
 				$('#cartCount').html('');
 			}
