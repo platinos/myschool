@@ -5,7 +5,7 @@
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     
-    <title>MyPaper-Controller</title>
+    <title>MyPaper-Controller | View All Questions</title>
 
     <!-- Favicon-->
 
@@ -45,37 +45,16 @@ else
                     <div class="card">
                         <div class="header">
 
-                            <?php
-                            if(displayPaperButton()){
-
-                                ?>
-
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown">
-
-                                     <a href='display-paper.php'><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
-                                 </li>
-                             </ul>
-
-                             <?php } else { ?>
-                             <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-
-                                 <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
-                             </li>
-                         </ul>
-
-                         <?php } ?>
                          <h2>
                             ALL QUESTIONS SELECTION
                         </h2>
 
                     </div>
                     <div class="body">
-                        <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>Select</th>
+                                    
                                     <th>Id</th>
                                     <th>Class</th>
                                     <th>Type</th>
@@ -97,7 +76,7 @@ else
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Select</th>
+                                    
                                     <th>Id</th>
                                     <th>Class</th>
                                     <th>Type</th>
@@ -123,27 +102,7 @@ else
                                 for($i=0; $i<$size; $i++)
                                     {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                                <td>
-                                                    <?php if(incart($feed['data'][$i]['id'])){
-                                                        ?>
-                                                        <button class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button>
-                                                        <button style="display: none;" class='btn btn-success waves-effect' 
-                                                        id="<?php echo 'addQuestion'.$feed['data'][$i]['id'] ?>" 
-                                                        onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>
-                                                        Add to my paper
-                                                    </button>
-                                                    <?php
-                                                }
-                                                else{ ?>
-                                                <button style="display: none;" class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button>
-                                                <button class='btn btn-success waves-effect' 
-                                                id="<?php echo 'addQuestion'.$feed['data'][$i]['id'] ?>" 
-                                                onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>
-                                                Add to my paper
-                                            </button>
-                                            <?php }
-                                            ?>
-                                        </td>
+                                               
                                         <td><?php echo $feed['data'][$i]['id'] ?></td>
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
                                         <td><?php echo $feed['data'][$i]['type'] ?></td>
@@ -223,7 +182,6 @@ else
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
-<script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 
 </html>
