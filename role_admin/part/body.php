@@ -46,7 +46,7 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <div class="alert alert-info" id="cartCount">
-                <strong><?php if(displayPaperButton()) {echo count($_SESSION["questionCart"]); }?></strong> questions present.
+                <?php if(displayPaperButton()) {echo "<strong>".count($_SESSION["questionCart"])."</strong> questions present."; }?>
                 </div>    
                 </ul>
            <!--  <div class="collapse navbar-collapse" id="navbar-collapse">
