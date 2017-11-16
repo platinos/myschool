@@ -23,8 +23,8 @@
         <!-- Exportable Table -->
         <div class="row clearfix">
             <?php
-
-            $feed = apicall("getquestionpaperbyid");
+            $qp_id=$_GET['qp_id'];
+            $feed = apicall("getquestionpaperbyid",array("qp_id"=>$qp_id));
             if($feed['error']==true)
             {
             ?>

@@ -89,14 +89,15 @@
                             for($i=0; $i<$size; $i++)
                                 {?>
                                     <tr>
-                                        <td><?php echo $feed['data'][$i]['id'] ?></td>
+                                        <?php $id=$feed['data'][$i]['id'] ?>
+                                        <td><?php echo $id ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
                                         <td><?php echo $feed['data'][$i]['subject'] ?></td>
                                         <td><?php echo $feed['data'][$i]['date'] ?></td>
                                         <td><?php echo $feed['data'][$i]['time'] ?></td>
                                         <td><?php echo $feed['data'][$i]['marks'] ?></td>
-                                        <td><a href='viewcurrentpaper.php' ><button class='btn btn-primary waves-effect' id="<?php echo 'print'.$feed['data'][$i]['id']?>"><i class="material-icons">print</i> Print</button>
+                                        <td><a href="<?php'viewcurrentpaper.php?qp_id='.$id ?>" ><button class='btn btn-primary waves-effect' id="<?php echo 'print'.$feed['data'][$i]['id']?>"><i class="material-icons">print</i> Print</button>
                                         </a></td>                                      
 
                                     </tr>
