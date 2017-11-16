@@ -88,6 +88,8 @@ function removeQuestionFromDisplay(questionID){
 		data=JSON.parse(data);
 		$('#cartCount').html("<div class='alert alert-info' ><strong>"+data.size+"</strong> questions present.</div> ");
 		$('#cartTable').load("qpcarttable.php");
+		console.log(data.size+" "+typeof data.size);
+
 		if(data.size==0){
 			$('#cartCount').html('');
 			$('#cartTable').hide();
