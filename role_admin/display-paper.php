@@ -29,8 +29,12 @@
 					<div class="header">
 
 						<ul class="header-dropdown m-r--5">
+							
+
+							<h2>
+								ALL QUESTIONS LIST
+							</h2>
 							<li class="dropdown">
-								
 								<button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="create_paper"> Finalize Paper</button>
 							</li>
 						</ul>
@@ -88,10 +92,6 @@
 							</div>
 						</div>
 
-
-						<h2>
-							ALL QUESTIONS LIST
-						</h2>
 
 
 					</div>
