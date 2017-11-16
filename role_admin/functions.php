@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 include 'config.php';
 
@@ -31,6 +31,7 @@ $params = getparams2();
 
 $feed = apicall($func,$params);
 if($func == "sendcartdata"){
+	$_SESSION['questioncart'] = null;
 	header('location:viewquestionpapers.php');
 
 }
