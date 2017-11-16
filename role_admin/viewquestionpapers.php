@@ -62,6 +62,7 @@
                                     <th>Created On</th>
                                     <th>Duration</th>
                                     <th>Marks</th>
+                                    <th>Action</th>
                                     
 
 
@@ -77,7 +78,7 @@
                                     <th>Created On</th>
                                     <th>Duration</th>
                                     <th>Marks</th>
-
+                                    <th>Action</th>
 
                                </tr>
                            </tfoot>
@@ -95,7 +96,7 @@
                                         <td><?php echo $feed['data'][$i]['date'] ?></td>
                                         <td><?php echo $feed['data'][$i]['time'] ?></td>
                                         <td><?php echo $feed['data'][$i]['marks'] ?></td>
-                                        
+                                        <td><button id=<?php echo 'print'.$i?>Print</button>
                                         
 
                                     </tr>
