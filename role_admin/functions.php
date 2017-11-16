@@ -30,8 +30,14 @@ $func = $_POST["func"];
 $params = getparams2();
 
 $feed = apicall($func,$params);
+if($func == "sendcartdata"){
+	header('location:viewquestionpapers.php');
 
-echo json_encode($feed);
+}
+else{
+	echo json_encode($feed);
+}
+
 
 
 }
