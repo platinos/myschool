@@ -92,6 +92,7 @@ function removeQuestionFromDisplay(questionID){
 			$('#cartCount').html('');
 			$('#cartTable').hide();
 			$('#noQues').show();
+			$('#create_paper').hide();
 		}
 		showNotification("alert-danger", "Question Successfully removed.", "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
 
