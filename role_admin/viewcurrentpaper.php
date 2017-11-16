@@ -24,7 +24,7 @@
         <div class="row clearfix">
             <?php
 
-            $feed = apicall("viewquestionpaper");
+            $feed = apicall("getquestionpaperbyid");
             if($feed['error']==true)
             {
             ?>
@@ -45,7 +45,7 @@
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
-                <div id='questionPaper'>
+                <div style='position:relative;'id='questionPaper'>
                     <?php include 'printformat.html'; ?>
                 </div>
             </div>
