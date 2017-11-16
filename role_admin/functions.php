@@ -31,7 +31,7 @@ $params = getparams2();
 
 $feed = apicall($func,$params);
 if($func == "sendcartdata"){
-	$_SESSION['questioncart'] = null;
+	$_SESSION['questionCart'] = null;
 	header('location:viewquestionpapers.php');
 
 }
