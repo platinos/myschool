@@ -96,8 +96,8 @@
                                         <td><?php echo $feed['data'][$i]['date'] ?></td>
                                         <td><?php echo $feed['data'][$i]['time'] ?></td>
                                         <td><?php echo $feed['data'][$i]['marks'] ?></td>
-                                        <td><button class='btn btn-primary waves-effect' id="<?php echo 'print'.$feed['data'][$i]['id']?>"><i class="material-icons">print</i> Print</button>
-                                        
+                                        <td><a href='viewcurrentpaper.php' ><button class='btn btn-primary waves-effect' id="<?php echo 'print'.$feed['data'][$i]['id']?>"><i class="material-icons">print</i> Print</button>
+                                        </a></td>                                      
 
                                     </tr>
                                     <?php  }
