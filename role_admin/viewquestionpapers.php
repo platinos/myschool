@@ -49,15 +49,7 @@
                             <h2>
                                 Created Question Papers
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                 Add New Subject
-                                 <a href="addsubject.php"> <button type="button" class="btn bg-deep-purple btn-circle waves-effect waves-circle waves-float" >
-                                    <i class="material-icons" >add</i>
-                                    
-                                </button></a>
-                            </li>
-                        </ul>
+                            
                     </div>
                     <div class="body">
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
