@@ -1030,50 +1030,37 @@ table.MsoTableGrid
  style='width:496.2pt;margin-left:-21.55pt;border-collapse:collapse;border:
  none;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
  none;mso-border-insidev:none'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
-  <td width=28 valign=top style='width:21.3pt;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><a name="OLE_LINK3"></a><a name="OLE_LINK2"></a><a name="OLE_LINK1"><span
-  style='mso-bookmark:OLE_LINK2'><span style='mso-bookmark:OLE_LINK3'>
-    <?php echo $feed['data'][0]['question_id']; ?>
-  </span></span></a></p>
-  </td>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <td width=567 valign=top style='width:15.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'> <?php echo $feed['data'][0]['ques_txt']; ?></span></span></span></p>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'><o:p>&nbsp;</o:p></span></span></span></p>
-  </td>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <td width=66 valign=top style='width:49.65pt;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'> <?php echo $feed['data'][0]['question_id']; ?> Marks</span></span></span></p>
-  </td>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
- </tr>
+
+
+
+<?php 
+for($i = 0; $i< count($feed['data']); $i++){
+  ?>
+
+
  <tr style='mso-yfti-irow:1'>
   <td width=28 valign=top style='width:21.3pt;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'>2.</span></span></span></p>
+  style='mso-bookmark:OLE_LINK3'>
+
+
+  <?php echo $feed['data'][$i]['question_id']; ?>
+    
+
+  </span></span></span></p>
   </td>
   <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
   style='mso-bookmark:OLE_LINK3'></span></span></span>
   <td width=567 valign=top style='width:15.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'>Two forces of 6N and 3N are acting on the two
-  blocks of 2kg and 1kg kept on a frictionless floor. What is the force exerted
-  on 2kg block by 1kg block? </span></span></span></p>
+  style='mso-bookmark:OLE_LINK3'>
+
+  <?php echo $feed['data'][$i]['ques_txt']; ?>
+    
+
+  </span></span></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
   style='mso-bookmark:OLE_LINK3'><o:p>&nbsp;</o:p></span></span></span></p>
@@ -1089,69 +1076,18 @@ table.MsoTableGrid
   <td width=66 valign=top style='width:49.65pt;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'>1 mark</span></span></span></p>
+  style='mso-bookmark:OLE_LINK3'>
+
+  <?php echo $feed['data'][$i]['question_id']; ?> Marks
+
+</span></span></span></p>
   </td>
   <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
   style='mso-bookmark:OLE_LINK3'></span></span></span>
  </tr>
- <tr style='mso-yfti-irow:2'>
-  <td width=28 valign=top style='width:21.3pt;padding:0cm 5.4pt 0cm 5.4pt'><span
-  style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'><o:p>&nbsp;</o:p></span></span></span></p>
-  </td>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <td width=567 valign=top style='width:15.0cm;padding:0cm 5.4pt 0cm 5.4pt'><span
-  style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'><o:p>&nbsp;</o:p></span></span></span></p>
-  </td>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <td width=66 valign=top style='width:49.65pt;padding:0cm 5.4pt 0cm 5.4pt'><span
-  style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'><o:p>&nbsp;</o:p></span></span></span></p>
-  </td>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
- </tr>
- <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
-  <td width=28 valign=top style='width:21.3pt;padding:0cm 5.4pt 0cm 5.4pt'><span
-  style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'><o:p>&nbsp;</o:p></span></span></span></p>
-  </td>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <td width=567 valign=top style='width:15.0cm;padding:0cm 5.4pt 0cm 5.4pt'><span
-  style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'><o:p>&nbsp;</o:p></span></span></span></p>
-  </td>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <td width=66 valign=top style='width:49.65pt;padding:0cm 5.4pt 0cm 5.4pt'><span
-  style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'><o:p>&nbsp;</o:p></span></span></span></p>
-  </td>
-  <span style='mso-bookmark:OLE_LINK1'><span style='mso-bookmark:OLE_LINK2'><span
-  style='mso-bookmark:OLE_LINK3'></span></span></span>
- </tr>
+
+<?php }?>
+
 </table>
 
 <span style='mso-bookmark:OLE_LINK3'></span><span style='mso-bookmark:OLE_LINK2'></span><span
