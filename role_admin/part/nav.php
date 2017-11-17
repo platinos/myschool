@@ -66,12 +66,12 @@
                     </li>
 
                      
-                    <li>
+                   <!--  <li>
                         <a href="#">
                             <i class="material-icons">print</i>
                             <span>Print My-Paper</span>
                         </a>
-                    </li>
+                    </li> -->
 
                     
 
