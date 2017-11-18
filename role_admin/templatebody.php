@@ -1,7 +1,8 @@
 <!-- removing p tags by using strip_tags to ensure no new line is created by default-->
 <?php 
+$i=0;
 $questionsFeed=$feed['data'];
-for($i=0;i<count($questionsFeed);$i++) {
+foreach($questionsFeed as $key=> $value) {
 	?>
 	<div id="question">
 		<p><strong id="ques_no">Q.<?php echo $i+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($questionsFeed[$i]['ques_txt']) ?> </span></p>
@@ -21,6 +22,7 @@ for($i=0;i<count($questionsFeed);$i++) {
 	</div>
 	<p>&nbsp;</p>
 <?php
+	$i++;
 	} 
 ?>
 
