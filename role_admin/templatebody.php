@@ -8,7 +8,7 @@ foreach($questionsFeed as $key=> $value) {
 	?>
 	<div id="question">
 		<strong id="ques_no">Q.<?php echo $i+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($questionsFeed[$i]['ques_txt']) ?> </span>
-		<img src="https://www.computerhope.com/issues/pictures/html.jpg" id="img_src" align="middle"/>
+		<br><img src="https://www.computerhope.com/issues/pictures/html.jpg" id="img_src" align="middle"/>
 		<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
 			<tbody>
 				<tr style="height: 26px;">
