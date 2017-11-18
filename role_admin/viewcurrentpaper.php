@@ -42,19 +42,18 @@
 
                 ?>
 
-                <form method="POST" action='' enctype="multipart/form-data">
-
-                    <textarea id="question" name="question">
-                        Question
-                    </textarea>
-
-                </form>
-
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                    <div id='questionPaper'>
-                        <?php include 'printformat.html'; ?>
-                    </div>
+
+                    <form method="POST" action='' enctype="multipart/form-data">
+
+                        <textarea id="question" name="question">
+                            <?php include 'printformat.html'; ?>
+                        </textarea>
+
+                    </form>
+
+                        
 
                 </div>
             </div>
