@@ -27,35 +27,69 @@
             $feed = apicall("getquestionpaperbyid",array("qp_id"=>$qp_id));
             if($feed['error']==true)
             {
-            ?>
-            <div class="alert alert-danger">
-                <h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
-            </div>
-            <?php   
-
-
-        }
-        else
-        {
-
-
-
-        ?>
-
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-           
-                <div id='questionPaper'>
-                    <?php include 'template.html'; ?>
+                ?>
+                <div class="alert alert-danger">
+                    <h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
                 </div>
-            
+                <?php   
+
+
+            }
+            else
+            {
+
+
+
+                ?>
+
+                <form method="POST" action='' enctype="multipart/form-data">
+
+                    <textarea id="question" name="question">
+                        Question
+                    </textarea>
+
+
+                    <div id=2>
+                        <br>
+                        <br>
+                        <input name="group" type="radio" id="true" value="true" checked />
+                        <label for="true" id="true" >True</label>  <BR>
+                        <input name="group" type="radio" value="false" id="false" />
+                        <label for="false" id="false">False</label>
+
+                    </div> 
+
+                    <div id=3>
+                        <textarea id="mcq1" name="mcq1">
+                            option -1 - please place your correct answer in this field
+                        </textarea>
+
+                        <textarea id="mcq2" name="mcq2">
+                            option -2
+                        </textarea>
+
+                        <textarea id="mcq3" name="mcq3">
+                            option -3
+                        </textarea>
+
+                        <textarea id="mcq4" name="mcq4">
+                            option -4
+                        </textarea>
+                    </div>
+                </form>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <div id='questionPaper'>
+                        <?php include 'printformat.html'; ?>
+                    </div>
+
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
         </div>
-    </div>
-</div>
-<!-- #END# Exportable Table -->
-</div>
-</section>
-<?php
+    </section>
+    <?php
 }
 ?>
 
