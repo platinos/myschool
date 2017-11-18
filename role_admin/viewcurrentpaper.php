@@ -48,12 +48,16 @@
                     <form method="POST" action='' enctype="multipart/form-data">
 
                         <textarea id="question" name="question">
-                            <?php include 'printformat.html'; ?>
+                            <?php include 'templatehead.html'; ?>
+
+                            //insert all questions
+                            <?php include 'templatebody.php'; ?>
+
                         </textarea>
 
                     </form>
 
-                        
+
 
                 </div>
             </div>
