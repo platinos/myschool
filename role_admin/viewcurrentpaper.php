@@ -48,34 +48,6 @@
                         Question
                     </textarea>
 
-
-                    <div id=2>
-                        <br>
-                        <br>
-                        <input name="group" type="radio" id="true" value="true" checked />
-                        <label for="true" id="true" >True</label>  <BR>
-                        <input name="group" type="radio" value="false" id="false" />
-                        <label for="false" id="false">False</label>
-
-                    </div> 
-
-                    <div id=3>
-                        <textarea id="mcq1" name="mcq1">
-                            option -1 - please place your correct answer in this field
-                        </textarea>
-
-                        <textarea id="mcq2" name="mcq2">
-                            option -2
-                        </textarea>
-
-                        <textarea id="mcq3" name="mcq3">
-                            option -3
-                        </textarea>
-
-                        <textarea id="mcq4" name="mcq4">
-                            option -4
-                        </textarea>
-                    </div>
                 </form>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -126,6 +98,113 @@
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
+
+<script>
+
+
+    $(function () {
+
+
+
+
+
+//TinyMCE
+tinymce.init({
+    selector: "textarea#question",
+    theme: "modern",
+    height: 200,
+    plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools'
+    ],
+    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+    toolbar2: 'print preview media | forecolor backcolor emoticons',
+    image_advtab: true
+});
+
+tinymce.init({
+    selector: "textarea#answer",
+    theme: "modern",
+    height: 200,
+    plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools'
+    ],
+    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+    toolbar2: 'print preview media | forecolor backcolor emoticons',
+    image_advtab: true
+});
+
+tinymce.init({
+    selector: "textarea#mcq1",
+    theme: "modern",
+    height: 100,
+    plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools'
+    ],
+    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+    toolbar2: 'print preview media | forecolor backcolor emoticons',
+    image_advtab: true
+});
+
+tinymce.init({
+    selector: "textarea#mcq2",
+    theme: "modern",
+    height: 100,
+    plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools'
+    ],
+    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+    toolbar2: 'print preview media | forecolor backcolor emoticons',
+    image_advtab: true
+});
+
+tinymce.init({
+    selector: "textarea#mcq3",
+    theme: "modern",
+    height: 100,
+    plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools'
+    ],
+    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+    toolbar2: 'print preview media | forecolor backcolor emoticons',
+    image_advtab: true
+});
+
+tinymce.init({
+    selector: "textarea#mcq4",
+    theme: "modern",
+    height: 100,
+    plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools'
+    ],
+    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+    toolbar2: 'print preview media | forecolor backcolor emoticons',
+    image_advtab: true
+});
+
+tinymce.suffix = ".min";
+tinyMCE.baseURL = 'plugins/tinymce';
+});
+
+
+</script>
 
 </body>
 
