@@ -41,8 +41,7 @@
                  <?php 
                  if(isset($_POST["submitVal"])){
                         //if file is uploaded
-                    var_dump($_FILES);
-                    echo basename($_FILES["file"]["name"]);
+                    
                     $target_dir = "uploads/";
                     $target_file = $target_dir . basename($_FILES["file"]["name"]);
                     $uploadOk = 1;
@@ -51,14 +50,14 @@
                         //Allow certain file formats
 
                     $mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv');
-                    // if(in_array($_FILES['file']['type'],$mimes)){
-                    //   // do something
-                    // } else {
-                    //   echo "Sorry, only csv files are allowed.";
-                    //   $uploadOk = 0;
-                    // }
+                    if(in_array($_FILES['file']['type'],$mimes)){
+                      // do something
+                    } else {
+                      echo "Sorry, only csv files are allowed.";
+                      $uploadOk = 0;
+                    }
 
-                    echo $csvFileType;
+                    
                         // Check if $uploadOk is set to 0 by an error
                     if ($uploadOk == 0) {
                         echo "Sorry, your file was not uploaded.";
@@ -71,7 +70,100 @@
                         $uploaded = 1;
                     }
 
-                   echo $target_file;
+                    //After file is successfully uploaded
+ // read the file and display contents in datatable
+                    if($uploaded == 1){
+                        $file = fopen($target_file.".".$csvFileType,"r");
+
+                        var_dump(fgetcsv($file));
+
+
+                        ?>
+
+                        <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>Id</th>
+                                    <th>Class</th>
+                                    <th>Type</th>
+                                    <th>Subject</th>
+                                    <th>Chapter</th>
+                                    <th>Level</th>
+                                    <th>Topic</th>
+                                    <th>Marks</th>
+                                    <th>Question</th>                                       
+                                    <th>Image</th>
+                                    <th>Option 1</th>
+                                    <th>Option 2</th>
+                                    <th>Option 3</th>
+                                    <th>Option 4</th>
+                                    <th>Answer</th>
+                                    <th>Tags</th>
+                                    <th>Youtube</th>
+
+
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Class</th>
+                                    <th>Type</th>
+                                    <th>Subject</th>
+                                    <th>Chapter</th>
+                                    <th>Level</th>
+                                    <th>Topic</th>
+                                    <th>Marks</th>
+                                    <th>Question</th>                                       
+                                    <th>Image</th>
+                                    <th>Option 1</th>
+                                    <th>Option 2</th>
+                                    <th>Option 3</th>
+                                    <th>Option 4</th>
+                                    <th>Answer</th>
+                                    <th>Tags</th>
+                                    <th>Youtube</th>
+
+
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php
+                        while(! feof($file)){
+                            $feed = array();
+                            $feed = fgetcsv($file);?>
+                             <tr>
+                                <td> <?php echo $feed[0];?></td>
+                                <td> <?php echo $feed[1];?></td>
+                                <td> <?php echo $feed[2];?></td>
+                                <td> <?php echo $feed[3];?></td>
+                                <td> <?php echo $feed[4];?></td>
+                                <td> <?php echo $feed[5];?></td>
+                                <td> <?php echo $feed[6];?></td>
+                                <td> <?php echo $feed[7];?></td>
+                                <td> <?php echo $feed[8];?></td>
+                                <td> <?php echo $feed[9];?></td>
+                                <td> <?php echo $feed[10];?></td>
+                                <td> <?php echo $feed[11];?></td>
+                                <td> <?php echo $feed[12];?></td>
+                                <td> <?php echo $feed[13];?></td>
+                                <td> <?php echo $feed[14];?></td>
+                                <td> <?php echo $feed[15];?></td>
+                                <td> <?php echo $feed[16];?></td>
+                                                    
+                            </tr>
+                            <?php  }
+                            ?>
+                        </tbody>
+                    </table>
+
+
+                        <?php
+                        fclose($file);
+
+                    }
 
 
 
@@ -82,12 +174,7 @@
 
                     <!-- form here --> 
                     <form action="bulkuploader.php" id="frmFileUpload"  method="post" enctype="multipart/form-data">
-                        <div class="dz-message">
-                            <div class="drag-icon-cph">
-                                <i class="material-icons">touch_app</i>
-                            </div>
-                            <h3>Drop files here or click to upload CSV file.</h3>
-                        </div>
+                        
                         <div class="fallback">
                             <input name="file" type="file" multiple accept=".csv"/>
                         </div>
