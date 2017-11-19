@@ -6,7 +6,9 @@ $i=0;
 $questionsFeed=$feed['data'];
 $sectionFeed=array();
 foreach ($questionsFeed as $key => $value) {
-
+	?>
+	<script>console.log("inside for each loop of questionsFeed");</script>
+	<?php
 	if($sectionFeed[$questionsFeed[$i]['section']]==null){
 		$sectionFeed[$questionsFeed[$i]['section']]=array();
 	}
