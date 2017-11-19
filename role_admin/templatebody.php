@@ -9,22 +9,25 @@ foreach ($questionsFeed as $key => $value) {
 	if($sectionFeed[$questionsFeed[$i]['section']]==null){
 		$sectionFeed[$questionsFeed[$i]['section']]=array();
 	}
-	echo "\nsectionFeed section:".$questionsFeed[$i]['section']." question: ".$questionsFeed[$i]['ques_txt'];
+	//echo "\nsectionFeed section:".$questionsFeed[$i]['section']." question: ".$questionsFeed[$i]['ques_txt'];
 	array_push($sectionFeed[$questionsFeed[$i]['section']],$questionsFeed[$i]);
-	echo "\nin array ".$sectionFeed[$questionsFeed[$i]['section']][0]['ques_txt'];
+	//echo "\nin array ".$sectionFeed[$questionsFeed[$i]['section']][0]['ques_txt'];
 	$i++;
 }
 
 $i=0;
+echo "\n no of sections: ".count($sectionFeed);
 foreach($sectionFeed as $key=> $value) {
+	echo "\nquestion count in section: ".count($sectionFeed);
 	ksort($sectionFeed);
 	?>
 	<section>
-		<p>Section: <?php echo $sectionFeed[$i++]['section']?></p><br>
+		<p>Section: <?php echo 'we are in section '.$sectionFeed[$i]['section']?></p><br>
 		<?php printSection($sectionFeed); ?>
 	</section>
 
 <?php
+$i++;
 } 
 ?>
 
