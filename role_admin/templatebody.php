@@ -11,7 +11,7 @@ foreach ($questionsFeed as $key => $value) {
 		$sectionFeed[$questionsFeed[$i]['section']]=array();
 	}
 	?>
-	<script>console.log($sectionFeed[$questionsFeed[$i]['section']]+" :test:"+$questionsFeed[$i]);</script>
+	<script>console.log(<?php echo $sectionFeed[$questionsFeed[$i]['section']]." :test:".$questionsFeed[$i] ?>);</script>
 	<?php
 	array_push($sectionFeed[$questionsFeed[$i]['section']],$questionsFeed[$i++]);
 }
@@ -32,6 +32,7 @@ foreach($sectionFeed as $key=> $value) {
 <?php 
 function printSection($sectionFeed){
 	$i=0;
+	echo "inside printsection";
 	foreach($sectionFeed as $key=> $value) {
 		?>
 		<div id="question">
