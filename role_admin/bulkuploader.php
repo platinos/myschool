@@ -75,7 +75,7 @@
                         move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
                         
                         $str =  "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
-                        echo '<div class="alert alert-success"><strong>'.$str.'</strong></div>';
+                        echo '<div  id="successMsg" class="alert alert-success"><strong>'.$str.'</strong></div>';
                         $uploaded = 1;
                     }
 
@@ -89,7 +89,7 @@
 
                         ?>
                         <div align="center">
-                            <img src="https://digitalsynopsis.com/wp-content/uploads/2016/06/loading-animations-preloader-gifs-ui-ux-effects-4.gif" alt="Please Wait">
+                            <img id="loading" src="https://digitalsynopsis.com/wp-content/uploads/2016/06/loading-animations-preloader-gifs-ui-ux-effects-4.gif" alt="Please Wait" style="display: none">
                             
                         </div>
                         

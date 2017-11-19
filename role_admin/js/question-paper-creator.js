@@ -124,6 +124,8 @@ function sessiontostring(){
 function submitAll(file) {
 	$("#upload_questions").hide();
 	$("#allQuestions").hide();
+	$("#loading").show();
+	$("#successMsg").hide();
 
 	$.ajax({
 		url: 'utilities.php',
@@ -131,6 +133,7 @@ function submitAll(file) {
 		data: {'addQuestionsFromCsv': file}
 	})
 	.done(function(data) {
+		$("#loading").show();
 		data=JSON.parse(data);
 		showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
 		if(data.notAdded > 0)
