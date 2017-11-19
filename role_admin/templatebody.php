@@ -22,7 +22,7 @@ foreach($sectionFeed as $key=> $value) {
 	//	ksort($sectionFeed);
 	?>
 	<section>
-		<p>Section: <?php echo 'key is'.$key.'we are in section '.$sectionFeed[$i][0]['section']?></p><br>
+		<p>Section: <?php echo 'key is'.$key.'we are in section '.$sectionFeed[$i][$key]['section']?></p><br>
 		<?php printSection($sectionFeed); ?>
 	</section>
 
