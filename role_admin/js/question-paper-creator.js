@@ -122,6 +122,9 @@ function sessiontostring(){
 
 //sending bulk questions to php
 function submitAll(file) {
+	$("#upload_questions").hide();
+	$("#allQuestions").hide();
+
 	$.ajax({
 		url: 'utilities.php',
 		type: 'GET',
@@ -129,10 +132,12 @@ function submitAll(file) {
 	})
 	.done(function(data) {
 		data=JSON.parse(data);
-		showNotification("bg-green", data.added+" Questions Successfully added.", "bottom", "right", "animated bounceInRight", "animated bounceOutRight");
-		showNotification("bg-danger", data.notAdded+" Questions could not be added.", "bottom", "right", "animated bounceInRight", "animated bounceOutRight");
+		showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+		if(data.notAdded > 0)
+		showNotification("bg-danger", data.notAdded+" Questions could not be added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
 	})
 	.fail(function() {
+		$("#upload_questions").show();
 		showNotification("alert-warning", 'An error occured while trying to insert questions. Please try after some time.', "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
 	});
 	
