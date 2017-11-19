@@ -14,10 +14,11 @@ foreach ($questionsFeed as $key => $question) {
 
 $i=0;
 //contains every section
+ksort($sectionsFeed);
 foreach($sectionsFeed as $key=> $section) {
 	?>
 	<section>
-		<p align="center">Section: <?php $section['section'] ?></p><br>
+		<p align="center">Section: <?php $section[0]['section'] ?></p><br>
 		<?php printSection($section); ?>
 	</section>
 
@@ -32,8 +33,8 @@ function printSection($sectionFeed){
 	foreach($sectionFeed as $key=> $question) {
 		?>
 		<div id="question">
-			<strong id="ques_no">Q.<?php echo $i+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($question['ques_txt']) ?> </span>
-			<p align="center"> <img src="<?php echo strip_tags($question['img_src']) ?>" id="img_src" align="middle"/></p>
+			<div><strong id="ques_no">Q.<?php echo $i+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($question['ques_txt']) ?> </span><span id="marks"><?php echo strip_tags($question['marks'])?></span></div>
+			<div align="center"> <img src="<?php echo strip_tags($question['img_src']) ?>" id="img_src" align="middle"/></div>
 			<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
 				<tbody>
 					<tr style="height: 26px;">
