@@ -42,9 +42,9 @@
                  if(isset($_POST["submitVal"])){
                         //if file is uploaded
                     var_dump($_FILES);
-                    echo basename($_FILES["file"]["name"]);
+                    echo basename($_FILES["file12"]["name"]);
                     $target_dir = "uploads/";
-                    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+                    $target_file = $target_dir . basename($_FILES["file12"]["name"]);
                     $uploadOk = 1;
                     $csvFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
@@ -64,9 +64,9 @@
                         echo "Sorry, your file was not uploaded.";
                         // if everything is ok, try to upload file
                     } else {
-                        move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
+                        move_uploaded_file($_FILES["file12"]["tmp_name"], $target_file);
                         
-                        $str =  "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+                        $str =  "The file ". basename( $_FILES["file12"]["name"]). " has been uploaded.";
                         echo '<div class="alert alert-success"><strong>'.$str.'</strong></div>';
                         $uploaded = 1;
                     }
