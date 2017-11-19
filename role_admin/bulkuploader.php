@@ -64,7 +64,105 @@
                         // if everything is ok, try to upload file
                     } else {
                         move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
-                        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+                        
+                        $str =  "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+                        echo '<div class="alert alert-success"><strong>'.$str.'</strong></div>';
+                        $uploaded = 1;
+                    }
+
+                    //After file is successfully uploaded
+                    // read the file and display contents in datatable
+                    if($uploaded == 1){
+                        $file = fopen($target_file.".".$csvFileType,"r");
+
+                        var_dump(fgetcsv($file));
+
+
+                        ?>
+
+                        <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>Id</th>
+                                    <th>Class</th>
+                                    <th>Type</th>
+                                    <th>Subject</th>
+                                    <th>Chapter</th>
+                                    <th>Level</th>
+                                    <th>Topic</th>
+                                    <th>Marks</th>
+                                    <th>Question</th>                                       
+                                    <th>Image</th>
+                                    <th>Option 1</th>
+                                    <th>Option 2</th>
+                                    <th>Option 3</th>
+                                    <th>Option 4</th>
+                                    <th>Answer</th>
+                                    <th>Tags</th>
+                                    <th>Youtube</th>
+
+
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Class</th>
+                                    <th>Type</th>
+                                    <th>Subject</th>
+                                    <th>Chapter</th>
+                                    <th>Level</th>
+                                    <th>Topic</th>
+                                    <th>Marks</th>
+                                    <th>Question</th>                                       
+                                    <th>Image</th>
+                                    <th>Option 1</th>
+                                    <th>Option 2</th>
+                                    <th>Option 3</th>
+                                    <th>Option 4</th>
+                                    <th>Answer</th>
+                                    <th>Tags</th>
+                                    <th>Youtube</th>
+
+
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php
+                        while(false){
+                            $feed = array();
+                            $feed = fgetcsv($file);?>
+                             <tr>
+                                <td> <?php echo $feed[0];?></td>
+                                <td> <?php echo $feed[1];?></td>
+                                <td> <?php echo $feed[2];?></td>
+                                <td> <?php echo $feed[3];?></td>
+                                <td> <?php echo $feed[4];?></td>
+                                <td> <?php echo $feed[5];?></td>
+                                <td> <?php echo $feed[6];?></td>
+                                <td> <?php echo $feed[7];?></td>
+                                <td> <?php echo $feed[8];?></td>
+                                <td> <?php echo $feed[9];?></td>
+                                <td> <?php echo $feed[10];?></td>
+                                <td> <?php echo $feed[11];?></td>
+                                <td> <?php echo $feed[12];?></td>
+                                <td> <?php echo $feed[13];?></td>
+                                <td> <?php echo $feed[14];?></td>
+                                <td> <?php echo $feed[15];?></td>
+                                <td> <?php echo $feed[16];?></td>
+                                                    
+                            </tr>
+                            <?php  }
+                            ?>
+                        </tbody>
+                    </table>
+
+
+                        <?php
+                        fclose($file);
+
                     }
 
 
