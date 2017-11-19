@@ -68,7 +68,7 @@
                      
                     <li>
                         <a href="bulkuploader.php">
-                            <i class="material-icons">upload</i>
+                            <i class="material-icons">file_upload</i>
                             <span>Bulk Upload</span>
                         </a>
                     </li> 
