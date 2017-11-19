@@ -49,23 +49,23 @@
 
                         // Allow certain file formats
                        
-                        $csv_mimetypes = array(
-                            'text/csv',
-                            'text/plain',
-                            'application/csv',
-                            'text/comma-separated-values',
-                            'application/excel',
-                            'application/vnd.ms-excel',
-                            'application/vnd.msexcel',
-                            'text/anytext',
-                            'application/octet-stream',
-                            'application/txt',
-                        );
+                        // $csv_mimetypes = array(
+                        //     'text/csv',
+                        //     'text/plain',
+                        //     'application/csv',
+                        //     'text/comma-separated-values',
+                        //     'application/excel',
+                        //     'application/vnd.ms-excel',
+                        //     'application/vnd.msexcel',
+                        //     'text/anytext',
+                        //     'application/octet-stream',
+                        //     'application/txt',
+                        // );
 
-                        if (!in_array($_FILES['file']['type'], $csv_mimetypes)) {
-                            echo "Sorry, only csv files are allowed.";
-                            $uploadOk = 0;
-                        }
+                        // if (!in_array($_FILES['file']['type'], $csv_mimetypes)) {
+                        //     echo "Sorry, only csv files are allowed.";
+                        //     $uploadOk = 0;
+                        // }
                         // Check if $uploadOk is set to 0 by an error
                         if ($uploadOk == 0) {
                         echo "Sorry, your file was not uploaded.";
@@ -94,7 +94,7 @@
                                     <h3>Drop files here or click to upload CSV file.</h3>
                                                                     </div>
                                 <div class="fallback">
-                                    <input name="file" type="file" multiple />
+                                    <input name="file" type="file" multiple accept=".csv"/>
                                 </div>
                                 <input type="hidden" name="submitVal" value="2">
                                 
