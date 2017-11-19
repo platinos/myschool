@@ -66,12 +66,12 @@
                     </li>
 
                      
-                   <!--  <li>
-                        <a href="#">
-                            <i class="material-icons">print</i>
-                            <span>Print My-Paper</span>
+                    <li>
+                        <a href="bulkuploader.php">
+                            <i class="material-icons">upload</i>
+                            <span>Bulk Upload</span>
                         </a>
-                    </li> -->
+                    </li> 
 
                     
 
