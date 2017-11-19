@@ -32,9 +32,7 @@ else
 
 
     ?>
-    <<script>
-        console.log(<?php var_dump($feed); ?>)
-    </script>
+ 
 
     <section class="content">
         <div class="container-fluid">
