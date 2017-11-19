@@ -9,7 +9,10 @@ foreach ($questionsFeed as $key => $value) {
 	if($sectionFeed[$questionsFeed[$i]['section']]==null){
 		$sectionFeed[$questionsFeed[$i]['section']]=array();
 	}
-	array_push($sectionFeed[$questionsFeed[$i]['section']],$questionsFeed[$i++]);
+	echo "\nsectionFeed section:".$questionsFeed[$i]['section']." question: ".$questionsFeed[$i]['ques_txt'];
+	array_push($sectionFeed[$questionsFeed[$i]['section']],$questionsFeed[$i]);
+	echo "\nin array ".$sectionFeed[$questionsFeed[$i]['section']][0]['ques_txt'];
+	$i++;
 }
 
 $i=0;
@@ -30,8 +33,6 @@ function printSection($sectionFeed){
 	$i=0;
 	echo "inside printsection";
 	foreach($sectionFeed as $key=> $value) {
-		
-		echo "question text".$sectionFeed[$i]['ques_txt'];
 		?>
 		<div id="question">
 			<strong id="ques_no">Q.<?php echo $i+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($sectionFeed[$i]['ques_txt']) ?> </span>
