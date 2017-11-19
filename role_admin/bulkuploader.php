@@ -89,7 +89,7 @@
                             <h3>Drop files here or click to upload CSV file.</h3>
                         </div>
                         <div class="fallback">
-                            <input name="file" type="file" multiple accept=".csv"/>
+                            <!-- <input name="file" type="file" multiple accept=".csv"/> -->
                         </div>
                         <input type="hidden" name="submitVal" value="2">
 
