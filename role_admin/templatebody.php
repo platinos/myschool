@@ -24,7 +24,8 @@ foreach($sectionsFeed as $key=> $section) {
 	</section>
 
 	<?php
-	$answerkey[$question['section']]=array();
+	if($answerkey[$question['section']]==null)
+		$answerkey[$question['section']]=array();
 	$i++;
 } 
 ?>
@@ -32,7 +33,7 @@ foreach($sectionsFeed as $key=> $section) {
 <?php 
 function printSection($sectionFeed){
 	$i=0;
-	foreach($sectionFeed as $keys=> $question) {
+	foreach($sectionFeed as $keyz=> $question) {
 		?>
 		<div id="question">
 			<div><strong id="ques_no">Q.<?php echo $i+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($question['ques_txt']) ?> </span><span id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></span></div>
