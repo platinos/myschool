@@ -1,4 +1,5 @@
 <!-- removing p tags by using strip_tags to ensure no new line is created by default-->
+//inside template body
 <?php 
 
 $i=0;
