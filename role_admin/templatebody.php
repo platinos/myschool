@@ -10,7 +10,7 @@ foreach ($questionsFeed as $key => $value) {
 		$sectionFeed[$questionsFeed[$i]['section']]=array();
 	}
 	?>
-	<script>console.log($sectionFeed[$questionsFeed[$i]['section']]+" "+$questionsFeed[$i]);</script>
+	<script>console.log($sectionFeed[$questionsFeed[$i]['section']]+" :test:"+$questionsFeed[$i]);</script>
 	<?php
 	array_push($sectionFeed[$questionsFeed[$i]['section']],$questionsFeed[$i++]);
 }
