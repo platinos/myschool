@@ -81,7 +81,7 @@
 
 
                     <!-- form here --> 
-                    <form action="bulkuploader.php" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                    <form action="bulkuploader.php" id="frmFileUpload" class="dropzone" method="POST" enctype="multipart/form-data">
                         <div class="dz-message">
                             <div class="drag-icon-cph">
                                 <i class="material-icons">touch_app</i>
