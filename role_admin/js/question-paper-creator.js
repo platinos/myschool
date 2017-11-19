@@ -122,7 +122,7 @@ function sessiontostring(){
 
 //sending bulk questions to php
 function submitAll(file) {
-	$.$.ajax({
+	$.ajax({
 		url: 'utilities.php?addQuestionsFromCsv='+file,
 		type: 'POST',
 		data: {file: file},
