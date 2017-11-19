@@ -41,7 +41,7 @@
                  <?php 
                  if(isset($_POST["submitVal"])){
                         //if file is uploaded
-
+                    echo basename($_FILES["file"]["name"]);
                     $target_dir = "uploads/";
                     $target_file = $target_dir . basename($_FILES["file"]["name"]);
                     $uploadOk = 1;
