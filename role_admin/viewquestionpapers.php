@@ -97,7 +97,7 @@
                                         <td><?php echo $date=$feed['data'][$i]['date'] ?></td>
                                         <td><?php echo $time=$feed['data'][$i]['time'] ?></td>
                                         <td><?php echo $fmarks=$feed['data'][$i]['marks'] ?></td>
-                                        <?php $querystr='qp_id='.$id.'&date='.$d.'&time='.$time.'&fmarks='.$fmarks.'&subject='.$subject?>
+                                        <?php $querystr='qp_id='.$id.'&date='.$date.'&time='.$time.'&fmarks='.$fmarks.'&subject='.$subject?>
                                         <td><a href="<?php echo 'viewcurrentpaper.php?'.$querystr ?>" ><button class='btn btn-primary waves-effect'><i class="material-icons">print</i> Print</button>
                                         </a></td>                                      
 
