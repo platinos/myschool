@@ -39,7 +39,7 @@
                     </div>
                     <div class="body">
                        <?php 
-                       if(isset($_FILES["file"])){
+                       if(isset($_POST["submitVal"])){
                         //if file is uploaded
 
                         $target_dir = "uploads/";
@@ -83,13 +83,12 @@
                                 <div class="fallback">
                                     <input name="file" type="file" multiple />
                                 </div>
-
-                                <button type="submit" class="btn btn-info waves-effect" >Submit</button>
+                                <<input type="hidden" name="submitVal" value="2">
                                 
                             </form>
                             <br>
                                 <br>
-                                
+                                <button type="button" class="btn btn-info waves-effect" onclick="document.getElementById('frmFileUpload').submit();">Submit</button>
 
 
                         <?php
