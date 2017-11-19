@@ -48,11 +48,24 @@
                         $csvFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
                         // Allow certain file formats
-                        if($csvFileType != "csv") {
+                       
+                        $csv_mimetypes = array(
+                            'text/csv',
+                            'text/plain',
+                            'application/csv',
+                            'text/comma-separated-values',
+                            'application/excel',
+                            'application/vnd.ms-excel',
+                            'application/vnd.msexcel',
+                            'text/anytext',
+                            'application/octet-stream',
+                            'application/txt',
+                        );
+
+                        if (!in_array($_FILES['file']['type'], $csv_mimetypes)) {
                             echo "Sorry, only csv files are allowed.";
                             $uploadOk = 0;
                         }
-
                         // Check if $uploadOk is set to 0 by an error
                         if ($uploadOk == 0) {
                         echo "Sorry, your file was not uploaded.";
