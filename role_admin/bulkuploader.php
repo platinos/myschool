@@ -47,11 +47,11 @@
                                 <div class="fallback">
                                     <input name="file" type="file" multiple />
                                 </div>
-                                <br>
-                                <<br>
-                                <button type="submit" class="btn btn-info waves-effect">Submit</button>
+                                
                             </form>
-
+                            <br>
+                                <br>
+                                <button type="button" class="btn btn-info waves-effect" onclick="document.getElementById('frmFileUpload').submit();">Submit</button>
 
                 </div>
             </div>
