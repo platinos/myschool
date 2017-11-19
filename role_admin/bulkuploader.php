@@ -5,6 +5,8 @@
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     <link href="plugins/animate-css/animate.css" rel="stylesheet">
+    <!-- Dropzone Css -->
+    <link href="plugins/dropzone/dropzone.css" rel="stylesheet">
     <title>MyPaper-Controller</title>
 
     <!-- Favicon-->
@@ -96,7 +98,7 @@
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
 <script src="js/notifications.js"></script>
-<script src="js/pages/forms/advanced-form-elements.js"></script>
+<!-- <script src="js/pages/forms/advanced-form-elements.js"></script> -->
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
