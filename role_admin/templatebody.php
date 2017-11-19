@@ -16,37 +16,64 @@ $i=0;
 //contains every section
 ksort($sectionsFeed);
 foreach($sectionsFeed as $key=> $section) {
+
 	?>
 	<section>
 		<p align="center">Section: <?php echo $key ?></p>
 		<?php printSection($section); ?>
 	</section>
 
-<?php
-$i++;
+	<?php
+	$answerkey[$question['section']]=array();
+	$i++;
 } 
 ?>
 
 <?php 
 function printSection($sectionFeed){
 	$i=0;
-	foreach($sectionFeed as $key=> $question) {
+	foreach($sectionFeed as $keys=> $question) {
 		?>
 		<div id="question">
 			<div><strong id="ques_no">Q.<?php echo $i+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($question['ques_txt']) ?> </span><span id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></span></div>
 			<div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div>
+
+
+			<?php
+			$options=array(
+				'A'=>$question['options']['option1'],
+				'B'=>$question['options']['option2'],
+				'C'=>$question['options']['option3'],
+				'D'=>$question['options']['option4']);
+
+			$shuffled_options = array();
+
+			$keys = array_keys($options);
+			shuffle($keys);
+
+			foreach ($keys as $key)
+			{
+				$shuffled_options[$key] = $options[$key];
+			}
+
+			array_push($answerkey[$question['section']],array_search($options['A'], $shuffled_options));
+
+			?>
+
 			<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
 				<tbody>
 					<tr style="height: 26px;">
-						<td style="width: 50%; height: 26px;" id="option1">(A)<?php echo strip_tags($question['option1']) ?></td>
-						<td style="width: 50%; 244px; height: 26px;" id="option2">(B)<?php echo strip_tags($question['option2']) ?></td>
+						<td style="width: 50%; height: 26px;">(A)<?php echo strip_tags($question['options']['option1']) ?></td>
+						<td style="width: 50%; 244px; height: 26px;">(B)<?php echo strip_tags($question['options']['option2']) ?>
+						</td>
 					</tr>
 					<tr style="height: 26px;">
-						<td style="width: 50%; height: 26px;" id="option3">(C)<?php echo strip_tags($question['option3']) ?></td>
-						<td style="width: 50%; height: 26px;" id="option4">(D)<?php echo strip_tags($question['option4']) ?></td>
+						<td style="width: 50%; height: 26px;">(C)<?php echo strip_tags($question['options']['option3']) ?></td>
+						<td style="width: 50%; height: 26px;">(D)<?php echo strip_tags($question['options']['option4']) ?></td>
 					</tr>
 				</tbody>
 			</table>
+
 		</div>
 		<p>&nbsp;</p>
 		<?php

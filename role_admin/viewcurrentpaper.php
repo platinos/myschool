@@ -21,6 +21,9 @@
         
         <!-- #END# Basic Examples -->
         <!-- Exportable Table -->
+
+
+
         <div class="row clearfix">
             <?php
             $qp_id=$_GET['qp_id'];
@@ -37,10 +40,17 @@
             }
             else
             {
-
-
-
                 ?>
+                <!--  answer key and question paper switch button -->
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="viewanswerkey"> View Answer Key</button>
+                    </li>
+                    <li class="dropdown">
+                        <button type="button" style='display: none;' class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="viewquestionpaper"> View Question Paper</button>
+                    </li>
+                </ul>
+
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
@@ -48,6 +58,7 @@
                     <form method="POST" action='' enctype="multipart/form-data">
 
                         <textarea id="questionpaper" name="questionpaper">
+
                             <?php include 'templatehead.php'; ?>
 
                             
@@ -55,16 +66,29 @@
 
                         </textarea>
 
-                    </form>
+
+
+                        <textarea id="answerkey" name="answerkey">
+                           <?php $answerkey=array();
+                           foreach ($answerkey as $key => $value) {
+                                echo "section:".$key;
+                                foreach ($value as $key1 => $value1) {
+                                    echo $key1." ".$value1;
+                                }
+                           }
+                           ?> 
+                       </textarea>
+
+                   </form>
 
 
 
-                </div>
-            </div>
-            <!-- #END# Exportable Table -->
-        </div>
-    </section>
-    <?php
+               </div>
+           </div>
+           <!-- #END# Exportable Table -->
+       </div>
+   </section>
+   <?php
 }
 ?>
 
@@ -116,6 +140,26 @@
 //TinyMCE
 tinymce.init({
     selector: "textarea#questionpaper",
+    theme: "modern",
+    height: screen.availHeight,
+    plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools'
+    ],
+    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+    toolbar2: 'print preview media | forecolor backcolor emoticons',
+    image_advtab: true
+});
+
+tinymce.suffix = ".min";
+tinyMCE.baseURL = 'plugins/tinymce';
+});
+
+//TinyMCE
+tinymce.init({
+    selector: "textarea#answerkey",
     theme: "modern",
     height: screen.availHeight,
     plugins: [
