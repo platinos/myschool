@@ -132,3 +132,8 @@ function sessiontostring(){
 			$('#paperdetails').submit();
 	});
 }
+
+function submitAll(file) {
+	
+	
+	}
