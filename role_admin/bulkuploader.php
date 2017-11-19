@@ -38,8 +38,42 @@
 
                     </div>
                     <div class="body">
-                       <!-- form here --> 
-                       <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                       <?php 
+                       if(isset($_POST)){
+                        //if file is uploaded
+
+                        $target_dir = "uploads/";
+                        $target_file = $target_dir . basename($_FILES["file"]["name"]);
+                        $uploadOk = 1;
+                        $csvFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+                        // Allow certain file formats
+                        if($csvFileType != "csv") {
+                            echo "Sorry, only csv files are allowed.";
+                            $uploadOk = 0;
+                        }
+
+                        // Check if $uploadOk is set to 0 by an error
+                        if ($uploadOk == 0) {
+                        echo "Sorry, your file was not uploaded.";
+                        // if everything is ok, try to upload file
+                        } else {
+                        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                        } else {
+                        echo "Sorry, there was an error uploading your file.";
+                        }
+                        }
+
+                        
+
+                       }
+                       else{
+                        ?>
+
+
+                        <!-- form here --> 
+                       <form action="" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
                                 <div class="dz-message">
                                     <div class="drag-icon-cph">
                                         <i class="material-icons">touch_app</i>
@@ -54,6 +88,11 @@
                             <br>
                                 <br>
                                 <button type="button" class="btn btn-info waves-effect" onclick="document.getElementById('frmFileUpload').submit();">Submit</button>
+
+
+                        <?php
+                       }
+                       ?>
 
                 </div>
             </div>
