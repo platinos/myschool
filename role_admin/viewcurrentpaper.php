@@ -117,7 +117,7 @@
 tinymce.init({
     selector: "textarea#questionpaper",
     theme: "modern",
-    height: 200,
+    height: screen.availHeight,
     plugins: [
     'advlist autolink lists link image charmap print preview hr anchor pagebreak',
     'searchreplace wordcount visualblocks visualchars code fullscreen',
