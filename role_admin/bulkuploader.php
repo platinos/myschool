@@ -75,7 +75,7 @@
                     if($uploaded == 1){
                         $file = fopen($target_file,"r");
 
-                        var_dump(fgetcsv($file));
+                        //var_dump(fgetcsv($file));
 
 
                         ?>
@@ -131,8 +131,8 @@
                             </tfoot>
                             <tbody>
                                 <?php
-                        while(false){
-                            $feed = array();
+                        while(! feof($file)){
+                            
                             $feed = fgetcsv($file);?>
                              <tr>
                                 <td> <?php echo $feed[0];?></td>
