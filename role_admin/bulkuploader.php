@@ -66,7 +66,7 @@
                         move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
                         
                         $str =  "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
-                        echo '<div class="alert alert-success"><h2> $str</h2></div>';
+                        echo '<div class="alert alert-success"><h2>'.$str.'</h2></div>';
                         $uploaded = 1;
                     }
 
