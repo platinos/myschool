@@ -40,7 +40,7 @@
                  if(isset($_POST["submitVal"])){ ?>
                     <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
-                                <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="create_paper">Submit All Questions</button>
+                                <button type="button" class="btn btn-primary waves-effect" id="upload_questions" onclick="submitAll('<?php echo $target_file; ?>')">Submit All Questions</button>
                             </li>
                         </ul>
                         <?php } ?>
