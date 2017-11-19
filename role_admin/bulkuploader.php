@@ -83,7 +83,7 @@
                                 <div class="fallback">
                                     <input name="file" type="file" multiple />
                                 </div>
-                                <<input type="hidden" name="submitVal" value="2">
+                                <input type="hidden" name="submitVal" value="2">
                                 
                             </form>
                             <br>
