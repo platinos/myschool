@@ -133,7 +133,7 @@ function submitAll(file) {
 		data: {'addQuestionsFromCsv': file}
 	})
 	.done(function(data) {
-		$("#loading").show();
+		$("#loading").hide();
 		data=JSON.parse(data);
 		showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
 		if(data.notAdded > 0)
