@@ -93,11 +93,12 @@
                                         <td><?php echo $id ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['subject'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['date'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['time'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['marks'] ?></td>
-                                        <td><a href="<?php echo 'viewcurrentpaper.php?qp_id='.$id ?>" ><button class='btn btn-primary waves-effect'><i class="material-icons">print</i> Print</button>
+                                        <td><?php echo $subject=$feed['data'][$i]['subject'] ?></td>
+                                        <td><?php echo $date=$feed['data'][$i]['date'] ?></td>
+                                        <td><?php echo $time=$feed['data'][$i]['time'] ?></td>
+                                        <td><?php echo $fmarks=$feed['data'][$i]['marks'] ?></td>
+                                        <?php $querystr='qp_id='.$id.'&date='.$d.'&time='.$time.'&fmarks='.$fmarks.'&subject='.$subject?>
+                                        <td><a href="<?php echo 'viewcurrentpaper.php?'.$querystr ?>" ><button class='btn btn-primary waves-effect'><i class="material-icons">print</i> Print</button>
                                         </a></td>                                      
 
                                     </tr>
