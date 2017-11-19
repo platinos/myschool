@@ -39,7 +39,7 @@
                     </div>
                     <div class="body">
                        <?php 
-                       if(isset($_POST)){
+                       if(isset($_FILES["file"])){
                         //if file is uploaded
 
                         $target_dir = "uploads/";
