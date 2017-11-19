@@ -184,6 +184,7 @@ else
 
 <!-- Jquery DataTable Plugin Js -->
 <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.16/filtering/row-based/TableTools.ShowSelectedOnly.js"></script>
 <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
@@ -197,7 +198,7 @@ else
 
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
-<script src="js/pages/tables/jquery-datatable.js"></script>
+
 <script src="js/notifications.js"></script>
 
 <!-- Demo Js -->
@@ -205,13 +206,25 @@ else
 <script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 
 
-<script>
-    function filteredData(){
-        $('#allQuestions').DataTable().column(2).data().filter(function(value,index){
-            return value==11?true:false;
-        });
-    }
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        //All Questions table
+    var table = $('#allQuestions').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel'
+        ],
+        order: [[ 2, "asc" ]]
+    });
+          
+        /* Add event listeners to the two range filtering inputs */
+        $('#min, #max').keyup( function() {
+            table.draw();
+        } );
+    } );
 </script>
+
 
 </body>
 
