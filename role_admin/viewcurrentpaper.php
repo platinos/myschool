@@ -48,7 +48,7 @@
                     <form method="POST" action='' enctype="multipart/form-data">
 
                         <textarea id="questionpaper" name="questionpaper">
-                            <?php include 'templatehead.html'; ?>
+                            <?php include 'templatehead.php'; ?>
 
                             
                             <?php include 'templatebody.php'; ?>
