@@ -62,7 +62,9 @@
                             'application/txt',
                         );
 
-                        if (!in_array($_FILES['file']['type'], $csv_mimetypes)) {
+                        if (in_array($_FILES['file']['type'], $csv_mimetypes)) {
+                            
+                        }else{
                             echo "Sorry, only csv files are allowed.";
                             $uploadOk = 0;
                         }
