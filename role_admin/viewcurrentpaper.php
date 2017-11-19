@@ -115,84 +115,9 @@
 
 //TinyMCE
 tinymce.init({
-    selector: "textarea#question",
+    selector: "textarea#questionpaper",
     theme: "modern",
     height: 200,
-    plugins: [
-    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-    'searchreplace wordcount visualblocks visualchars code fullscreen',
-    'insertdatetime media nonbreaking save table contextmenu directionality',
-    'emoticons template paste textcolor colorpicker textpattern imagetools'
-    ],
-    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-    toolbar2: 'print preview media | forecolor backcolor emoticons',
-    image_advtab: true
-});
-
-tinymce.init({
-    selector: "textarea#answer",
-    theme: "modern",
-    height: 200,
-    plugins: [
-    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-    'searchreplace wordcount visualblocks visualchars code fullscreen',
-    'insertdatetime media nonbreaking save table contextmenu directionality',
-    'emoticons template paste textcolor colorpicker textpattern imagetools'
-    ],
-    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-    toolbar2: 'print preview media | forecolor backcolor emoticons',
-    image_advtab: true
-});
-
-tinymce.init({
-    selector: "textarea#mcq1",
-    theme: "modern",
-    height: 100,
-    plugins: [
-    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-    'searchreplace wordcount visualblocks visualchars code fullscreen',
-    'insertdatetime media nonbreaking save table contextmenu directionality',
-    'emoticons template paste textcolor colorpicker textpattern imagetools'
-    ],
-    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-    toolbar2: 'print preview media | forecolor backcolor emoticons',
-    image_advtab: true
-});
-
-tinymce.init({
-    selector: "textarea#mcq2",
-    theme: "modern",
-    height: 100,
-    plugins: [
-    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-    'searchreplace wordcount visualblocks visualchars code fullscreen',
-    'insertdatetime media nonbreaking save table contextmenu directionality',
-    'emoticons template paste textcolor colorpicker textpattern imagetools'
-    ],
-    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-    toolbar2: 'print preview media | forecolor backcolor emoticons',
-    image_advtab: true
-});
-
-tinymce.init({
-    selector: "textarea#mcq3",
-    theme: "modern",
-    height: 100,
-    plugins: [
-    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-    'searchreplace wordcount visualblocks visualchars code fullscreen',
-    'insertdatetime media nonbreaking save table contextmenu directionality',
-    'emoticons template paste textcolor colorpicker textpattern imagetools'
-    ],
-    toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-    toolbar2: 'print preview media | forecolor backcolor emoticons',
-    image_advtab: true
-});
-
-tinymce.init({
-    selector: "textarea#mcq4",
-    theme: "modern",
-    height: 100,
     plugins: [
     'advlist autolink lists link image charmap print preview hr anchor pagebreak',
     'searchreplace wordcount visualblocks visualchars code fullscreen',
