@@ -19,10 +19,10 @@ $i=0;
 echo "\n no of sections: ".count($sectionFeed);
 foreach($sectionFeed as $key=> $value) {
 	echo "\nquestion count in section: ".count($sectionFeed);
-	ksort($sectionFeed);
+	//	ksort($sectionFeed);
 	?>
 	<section>
-		<p>Section: <?php echo 'we are in section '.$sectionFeed[$i]['section']?></p><br>
+		<p>Section: <?php echo 'we are in section '.$sectionFeed[$i][$i]['section']?></p><br>
 		<?php printSection($sectionFeed); ?>
 	</section>
 
