@@ -63,13 +63,13 @@ function printSection($sectionFeed){
 			<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
 				<tbody>
 					<tr style="height: 26px;">
-						<td style="width: 50%; height: 26px;">(A)<?php echo strip_tags($question['options']['option1']) ?></td>
-						<td style="width: 50%; 244px; height: 26px;">(B)<?php echo strip_tags($question['options']['option2']) ?>
+						<td style="width: 50%; height: 26px;">(A)<?php echo strip_tags($shuffled_options['A']) ?></td>
+						<td style="width: 50%; 244px; height: 26px;">(B)<?php echo strip_tags($shuffled_options['B']) ?>
 						</td>
 					</tr>
 					<tr style="height: 26px;">
-						<td style="width: 50%; height: 26px;">(C)<?php echo strip_tags($question['options']['option3']) ?></td>
-						<td style="width: 50%; height: 26px;">(D)<?php echo strip_tags($question['options']['option4']) ?></td>
+						<td style="width: 50%; height: 26px;">(C)<?php echo strip_tags($shuffled_options['C']) ?></td>
+						<td style="width: 50%; height: 26px;">(D)<?php echo strip_tags($shuffled_options['D']) ?></td>
 					</tr>
 				</tbody>
 			</table>
