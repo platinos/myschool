@@ -65,10 +65,10 @@ if(isset($_GET['addQuestionsFromCsv'])){
 
 
     }
-    echo "{
-    	'added' : ".$added.",
-    	'notAdded' : ".$notAdded."
-    }";
+    echo '{
+    	"added" : '.$added.',
+    	"notAdded" : '.$notAdded.'
+    }';
                             
 
 }
