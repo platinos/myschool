@@ -16,8 +16,8 @@ foreach($sectionFeed as $key=> $value) {
 	ksort($sectionFeed);
 	?>
 	<section>
-		<p>Section: <?php echo $value['section']?></p><br>
-		printSection($sectionFeed);
+		<p>Section: <?php echo $sectionFeed[$i++]['section']?></p><br>
+		<?php printSection($sectionFeed); ?>
 	</section>
 
 <?php
