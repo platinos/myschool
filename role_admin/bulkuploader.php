@@ -49,25 +49,14 @@
 
                         //Allow certain file formats
 
-                        $csv_mimetypes = array(
-                            'text/csv',
-                            'text/plain',
-                            'application/csv',
-                            'text/comma-separated-values',
-                            'application/excel',
-                            'application/vnd.ms-excel',
-                            'application/vnd.msexcel',
-                            'text/anytext',
-                            'application/octet-stream',
-                            'application/txt',
-                        );
+                    $mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv');
+                    if(in_array($_FILES['file']['type'],$mimes)){
+                      // do something
+                    } else {
+                      echo "Sorry, only csv files are allowed.";
+                      $uploadOk = 0;
+                    }
 
-                        if (in_array($_FILES['file']['type'], $csv_mimetypes)) {
-                            
-                        }else{
-                            echo "Sorry, only csv files are allowed.";
-                            $uploadOk = 0;
-                        }
                         // Check if $uploadOk is set to 0 by an error
                     if ($uploadOk == 0) {
                         echo "Sorry, your file was not uploaded.";
