@@ -73,7 +73,7 @@
                     //After file is successfully uploaded
  // read the file and display contents in datatable
                     if($uploaded == 1){
-                        $file = fopen($target_file.".".$csvFileType,"r");
+                        $file = fopen($target_file,"r");
 
                         var_dump(fgetcsv($file));
 
@@ -131,7 +131,7 @@
                             </tfoot>
                             <tbody>
                                 <?php
-                        while(! feof($file)){
+                        while(false){
                             $feed = array();
                             $feed = fgetcsv($file);?>
                              <tr>
