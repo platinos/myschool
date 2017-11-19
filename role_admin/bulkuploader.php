@@ -131,6 +131,7 @@
                             </tfoot>
                             <tbody>
                                 <?php
+                                fgetcsv($file);
                         while(! feof($file)){
                             
                             $feed = fgetcsv($file);?>
