@@ -8,7 +8,7 @@ $(function () {
             'copy', 'csv', 'excel'
         ]    });
 
-    //Exportable table
+    //All Questions table
     $('#allQuestions').DataTable({
         dom: 'Bfrtip',
         buttons: [
@@ -16,5 +16,15 @@ $(function () {
         ],
         order: [[ 2, "asc" ]]
     });
+
+    //Question Paper table
+    $('#questionPaperTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel'
+        ],
+        order: [[ 4, "desc" ]]
+    });
+
 });
 

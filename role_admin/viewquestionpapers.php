@@ -52,7 +52,7 @@
                             
                     </div>
                     <div class="body">
-                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <table class="table table-bordered table-striped table-hover dataTable" id="questionPaperTable">
                             <thead>
                                 <tr>
                                     <th>Id</th>
