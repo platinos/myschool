@@ -50,13 +50,14 @@
                         //Allow certain file formats
 
                     $mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv');
-                    if(in_array($_FILES['file']['type'],$mimes)){
-                      // do something
-                    } else {
-                      echo "Sorry, only csv files are allowed.";
-                      $uploadOk = 0;
-                    }
+                    // if(in_array($_FILES['file']['type'],$mimes)){
+                    //   // do something
+                    // } else {
+                    //   echo "Sorry, only csv files are allowed.";
+                    //   $uploadOk = 0;
+                    // }
 
+                    echo $_FILES['file']['type'];
                         // Check if $uploadOk is set to 0 by an error
                     if ($uploadOk == 0) {
                         echo "Sorry, your file was not uploaded.";
