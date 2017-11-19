@@ -240,7 +240,7 @@ if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
 		'level' => $_POST['level'], 
 		'marks' => $_POST['marks'], 
 		'link' => $_POST['link'], 
-		'file' => 'scan/'.$newFileName,
+		'file' => 'scan/'.$newFileName
 	);
 
 	
@@ -258,7 +258,7 @@ if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
 		{
 			?>
 			<div class="alert alert-info">
-				<h2><b><strong>Chapter Details Sucessfully Added</strong></b></h2>
+				<h2><b><strong>Question Details Sucessfully Added</strong></b></h2>
 			</div>
 			<?Php
 
