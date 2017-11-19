@@ -1,16 +1,3 @@
-// //click event for add button
-// $('.questionAdd').click(function () {
-// 	var questionID=$(this).parent().attr('id');
-// 	addQuestion(questionID);
-// });
-
-// //click event for remove button
-// $('.questionRemove').click(function () {
-// 	var questionID=$(this).parent().attr('id');
-// 	removeQuestion(questionID);
-// });
-
-
 //adds question to list and highlights the added question
 function addQuestion(questionID){
 	$.ajax({
@@ -133,7 +120,18 @@ function sessiontostring(){
 	});
 }
 
+//sending bulk questions to php
 function submitAll(file) {
+	$.$.ajax({
+		url: 'utilities.php',
+		type: 'POST',
+		data: {file: file},
+	})
+	.done(function(data) {
+		showNotification("bg-green", "Questions Successfully added.", "bottom", "right", "animated bounceInRight", "animated bounceOutRight");
+	})
+	.fail(function() {
+		showNotification("alert-warning", 'An error occured while trying to insert questions. Please try after some time.', "bottom", "right", "animated bounceInRight", "animated bounceOutRight");	
+	});
 	
-	
-	}
+}
