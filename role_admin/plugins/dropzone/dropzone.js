@@ -131,7 +131,7 @@
       clickable: true,
       ignoreHiddenFiles: true,
       acceptedFiles: null,
-      acceptedMimeTypes: "csv",
+      acceptedMimeTypes: ".csv",
       autoProcessQueue: true,
       autoQueue: true,
       addRemoveLinks: false,

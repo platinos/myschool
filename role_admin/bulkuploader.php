@@ -42,9 +42,9 @@
                  if(isset($_POST["submitVal"])){
                         //if file is uploaded
                     var_dump($_FILES);
-                    echo basename($_FILES["file12"]["name"]);
+                    echo basename($_FILES["file"]["name"]);
                     $target_dir = "uploads/";
-                    $target_file = $target_dir . basename($_FILES["file12"]["name"]);
+                    $target_file = $target_dir . basename($_FILES["file"]["name"]);
                     $uploadOk = 1;
                     $csvFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
@@ -64,9 +64,9 @@
                         echo "Sorry, your file was not uploaded.";
                         // if everything is ok, try to upload file
                     } else {
-                        move_uploaded_file($_FILES["file12"]["tmp_name"], $target_file);
+                        move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
                         
-                        $str =  "The file ". basename( $_FILES["file12"]["name"]). " has been uploaded.";
+                        $str =  "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
                         echo '<div class="alert alert-success"><strong>'.$str.'</strong></div>';
                         $uploaded = 1;
                     }
@@ -81,7 +81,7 @@
 
 
                     <!-- form here --> 
-                    <form action="bulkuploader.php" id="frmFileUpload" class="dropzone" method="POST" enctype="multipart/form-data">
+                    <form action="bulkuploader.php" id="frmFileUpload"  method="post" enctype="multipart/form-data">
                         <div class="dz-message">
                             <div class="drag-icon-cph">
                                 <i class="material-icons">touch_app</i>
@@ -89,7 +89,7 @@
                             <h3>Drop files here or click to upload CSV file.</h3>
                         </div>
                         <div class="fallback">
-                            <!-- <input name="file" type="file" multiple accept=".csv"/> -->
+                            <input name="file" type="file" multiple accept=".csv"/>
                         </div>
                         <input type="hidden" name="submitVal" value="2">
 
