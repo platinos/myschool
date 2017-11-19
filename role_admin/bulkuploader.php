@@ -66,7 +66,7 @@
                         move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
                         
                         $str =  "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
-                        echo '<div class="alert alert-success"><h2>'.$str.'</h2></div>';
+                        echo '<div class="alert alert-success"><strong>'.$str.'</strong></div>';
                         $uploaded = 1;
                     }
 
@@ -75,7 +75,7 @@
                     if($uploaded == 1){
                         $file = fopen($target_file,"r");
 
-                        
+                        var_dump(fgetcsv($file));
 
 
                         ?>
@@ -132,27 +132,28 @@
                             <tbody>
                                 <?php
                         while(! feof($file)){
-                        $feed = (fgetcsv($file));?>
-                         <tr>
-                            <td> <?php echo $feed[0];?></td>
-                            <td> <?php echo $feed[1];?></td>
-                            <td> <?php echo $feed[2];?></td>
-                            <td> <?php echo $feed[3];?></td>
-                            <td> <?php echo $feed[4];?></td>
-                            <td> <?php echo $feed[5];?></td>
-                            <td> <?php echo $feed[6];?></td>
-                            <td> <?php echo $feed[7];?></td>
-                            <td> <?php echo $feed[8];?></td>
-                            <td> <?php echo $feed[9];?></td>
-                            <td> <?php echo $feed[10];?></td>
-                            <td> <?php echo $feed[11];?></td>
-                            <td> <?php echo $feed[12];?></td>
-                            <td> <?php echo $feed[13];?></td>
-                            <td> <?php echo $feed[14];?></td>
-                            <td> <?php echo $feed[15];?></td>
-                            <td> <?php echo $feed[16];?></td>
-                                                
-                        </tr>
+                            $feed = array();
+                            $feed = fgetcsv($file);?>
+                             <tr>
+                                <td> <?php echo $feed[0];?></td>
+                                <td> <?php echo $feed[1];?></td>
+                                <td> <?php echo $feed[2];?></td>
+                                <td> <?php echo $feed[3];?></td>
+                                <td> <?php echo $feed[4];?></td>
+                                <td> <?php echo $feed[5];?></td>
+                                <td> <?php echo $feed[6];?></td>
+                                <td> <?php echo $feed[7];?></td>
+                                <td> <?php echo $feed[8];?></td>
+                                <td> <?php echo $feed[9];?></td>
+                                <td> <?php echo $feed[10];?></td>
+                                <td> <?php echo $feed[11];?></td>
+                                <td> <?php echo $feed[12];?></td>
+                                <td> <?php echo $feed[13];?></td>
+                                <td> <?php echo $feed[14];?></td>
+                                <td> <?php echo $feed[15];?></td>
+                                <td> <?php echo $feed[16];?></td>
+                                                    
+                            </tr>
                             <?php  }
                             ?>
                         </tbody>
