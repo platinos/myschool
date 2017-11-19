@@ -125,7 +125,7 @@ function submitAll(file) {
 	$.ajax({
 		url: 'utilities.php',
 		type: 'GET',
-		data: {'addQuestionsFromCsv': file},
+		data: {'addQuestionsFromCsv': file}
 	})
 	.done(function(data) {
 		data=JSON.parse(data);

@@ -24,7 +24,8 @@ if(isset($_GET['addQuestionsFromCsv'])){
 	$file = fopen($target_file,"r");
 	fgetcsv($file);
     while(! feof($file)){
-    	//$feed[2]; // convert to type int;
+    	
+    	$feed = fgetcsv($file);
     	switch($feed[2]){
     		case 'MCQ' : $type = 1; break;
     		case 'True / False' : $type = 2; break;
