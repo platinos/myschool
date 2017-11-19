@@ -18,7 +18,7 @@ ksort($sectionsFeed);
 foreach($sectionsFeed as $key=> $section) {
 	?>
 	<section>
-		<p align="center">Section: <?php $key ?></p>
+		<p align="center">Section: <?php echo $key ?></p>
 		<?php printSection($section); ?>
 	</section>
 
@@ -42,8 +42,8 @@ function printSection($sectionFeed){
 						<td style="width: 50%; 244px; height: 26px;" id="option2">(B)<?php echo strip_tags($question['option2']) ?></td>
 					</tr>
 					<tr style="height: 26px;">
-						<td style="width: 50%; height: 26px;" id="option3">(C)<?php strip_tags($question['option3']) ?></td>
-						<td style="width: 50%; height: 26px;" id="option4">(D)<?php strip_tags($question['option4']) ?></td>
+						<td style="width: 50%; height: 26px;" id="option3">(C)<?php echo strip_tags($question['option3']) ?></td>
+						<td style="width: 50%; height: 26px;" id="option4">(D)<?php echo strip_tags($question['option4']) ?></td>
 					</tr>
 				</tbody>
 			</table>
