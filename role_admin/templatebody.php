@@ -5,9 +5,13 @@ $i=0;
 $questionsFeed=$feed['data'];
 $sectionFeed=array();
 foreach ($questionsFeed as $key => $value) {
+
 	if($sectionFeed[$questionsFeed[$i]['section']]==null){
 		$sectionFeed[$questionsFeed[$i]['section']]=array();
 	}
+	?>
+	<script>console.log($sectionFeed[$questionsFeed[$i]['section']]+" "+$questionsFeed[$i]);</script>
+	<?php
 	array_push($sectionFeed[$questionsFeed[$i]['section']],$questionsFeed[$i++]);
 }
 
