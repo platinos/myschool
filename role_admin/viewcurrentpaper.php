@@ -155,7 +155,7 @@ tinymce.init({
 
 tinymce.suffix = ".min";
 tinyMCE.baseURL = 'plugins/tinymce';
-});
+
 
 //TinyMCE
 tinymce.init({
