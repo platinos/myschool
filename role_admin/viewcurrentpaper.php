@@ -50,7 +50,7 @@
                         <textarea id="question" name="question">
                             <?php include 'templatehead.html'; ?>
 
-                            //insert all questions
+                            
                             <?php include 'templatebody.php'; ?>
 
                         </textarea>
