@@ -63,6 +63,8 @@ else
                                 <li class="dropdown">
 
                                  <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+
+                                  <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
                              </li>
                          </ul>
 
@@ -201,6 +203,16 @@ else
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
 <script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
+
+
+<script>
+    function filteredData(){
+        $('#allQuestions').DataTable().column(2).data().filter(function(value,index){
+            return value==11?true:false;
+        });
+    }
+</script>
+
 </body>
 
 </html>
