@@ -32,7 +32,7 @@ function printSection($sectionFeed){
 	$i=0;
 	foreach($sectionFeed as $key=> $question) {
 		?>
-		<div id="questionpaper">
+		<div id="question">
 			<div><strong id="ques_no">Q.<?php echo $i+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($question['ques_txt']) ?> </span><span id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></span></div>
 			<div align="center"> <img src="<?php echo strip_tags($question['img_src']) ?>" id="img_src" align="middle"/></div>
 			<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
