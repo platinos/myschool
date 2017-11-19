@@ -47,7 +47,8 @@
                                 <div class="fallback">
                                     <input name="file" type="file" multiple />
                                 </div>
-
+                                <br>
+                                <<br>
                                 <button type="submit" class="btn btn-info waves-effect">Submit</button>
                             </form>
 
@@ -87,12 +88,15 @@
 <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+ <!-- Dropzone Plugin Js -->
+    <script src="plugins/dropzone/dropzone.js"></script>
 
 
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
 <script src="js/notifications.js"></script>
+<script src="js/pages/forms/advanced-form-elements.js"></script>
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
