@@ -1,11 +1,3 @@
-<ul class="header-dropdown m-r--5">
-	<li class="dropdown">
-		<button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="create_paper"> View Answer Key</button>
-	</li>
-	<li class="dropdown">
-		<button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="create_paper"> View Question Paper</button>
-	</li>
-</ul>
 <h2 style="text-align: center;">MySchool Coaching Institute</h2>
 <h3 style="text-align: center;">MySchool, Udichi Building, (Opp. Hotel Asansol INN) Police Line,</h3>
 <h3 style="text-align: center;">Asansol, West Bengal. 713304.</h3>

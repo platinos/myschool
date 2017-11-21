@@ -46,12 +46,14 @@
                     <li class="dropdown">
                         <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="viewanswerkey"> View Answer Key</button>
                     </li>
+                </ul>
+
+                <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
                         <button type="button" style='display: none;' class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="viewquestionpaper"> View Question Paper</button>
                     </li>
                 </ul>
-
-
+                
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 
