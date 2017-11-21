@@ -32,11 +32,11 @@ foreach($sectionsFeed as $key=> $section) {
 
 <?php 
 function printSection($sectionFeed){
-	$i=0;
-	foreach($sectionFeed as $keyz=> $question) {
+	$index=0;
+	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
-			<div><strong id="ques_no">Q.<?php echo $i+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($question['ques_txt']) ?> </span><span id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></span></div>
+			<div><strong id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($question['ques_txt']) ?> </span><span id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></span></div>
 			<div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div>
 
 
@@ -52,9 +52,11 @@ function printSection($sectionFeed){
 			$keys = array_keys($options);
 			shuffle($keys);
 
+
+			$i=0;
 			foreach ($keys as $key)
 			{
-				$shuffled_options[$key] = $options[$key];
+				$shuffled_options[$keys[$i++]] = $options[$key];
 			}
 
 			array_push($answerkey[$question['section']],array_search($options['A'], $shuffled_options));
@@ -78,7 +80,7 @@ function printSection($sectionFeed){
 		</div>
 		<p>&nbsp;</p>
 		<?php
-		$i++;
+		$index++;
 	} 
 }
 ?>
