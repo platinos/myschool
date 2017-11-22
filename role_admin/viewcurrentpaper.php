@@ -43,48 +43,53 @@
                 ?>
                 <!--  answer key and question paper switch button -->
                 <ul class="header-dropdown m-r--5">
+
+
                     <li class="dropdown">
-                        <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#mdModal" id="viewanswerkey"> View Answer Key</button>
-                    </li>
-                </ul>
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button>
 
-
-                    <form method="POST" action='' enctype="multipart/form-data">
-
-                        <textarea id="questionpaper" name="questionpaper">
-
-                            <?php include 'templatehead.php'; ?>
-
-                            
-                            <?php include 'templatebody.php'; ?>
-
-                        </textarea>
+                   </li>
+               </ul>
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 
+                <form method="POST" action='' enctype="multipart/form-data">
 
-                        <textarea id="answerkey" name="answerkey">
-                           <?php $answerkey=array();
-                           foreach ($answerkey as $key => $value) {
-                                echo "section:".$key;
-                                foreach ($value as $key1 => $value1) {
-                                    echo $key1." ".$value1;
-                                }
-                           }
-                           ?> 
-                       </textarea>
+                    <textarea id="questionpaper" name="questionpaper">
 
-                   </form>
+                        <?php include 'templatehead.php'; ?>
+
+
+                        <?php include 'templatebody.php'; ?>
+
+                    </textarea>
 
 
 
-               </div>
-           </div>
-           <!-- #END# Exportable Table -->
-       </div>
-   </section>
-   <?php
+                    <textarea id="answerkey" name="answerkey">
+                     <?php 
+                     echo "puttin in answers";
+                     $answerkey=array();
+                     foreach ($answerkey as $key => $value) {
+                        echo "section:".$key;
+                        foreach ($value as $key1 => $value1) {
+                            echo $key1." ".$value1;
+                        }
+                    }
+                    ?> 
+                </textarea>
+
+            </form>
+
+
+
+        </div>
+    </div>
+    <!-- #END# Exportable Table -->
+</div>
+</section>
+<?php
 }
 ?>
 
