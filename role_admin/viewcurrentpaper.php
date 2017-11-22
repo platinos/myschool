@@ -68,8 +68,8 @@
                          
                          foreach ($answerkey as $key => $value) {
                             echo "section:".$key." values".$value;
-                            foreach ($value as $key1 => $value1) {
-                                echo $key1." ".$value1;
+                            foreach ($value as $key1) {
+                                echo $key1;
                             }
                         }
                         ?> 
