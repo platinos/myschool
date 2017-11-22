@@ -20,7 +20,7 @@ foreach($sectionsFeed as $key=> $section) {
 	?>
 	<section>
 		<p align="center">Section: <?php echo $key ?></p>
-		<?php $answerkey.="Section: ".$section."<br>";?>
+		<?php $answerkey.="Section: ".$section['section']."<br>";?>
 		<?php printSection($section); ?>
 	</section>
 
