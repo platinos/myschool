@@ -65,7 +65,7 @@
                         <textarea id="answerkey" name="answerkey">
                          <?php 
                          echo "puttin in answers";
-                         $answerkey=array();
+                         
                          foreach ($answerkey as $key => $value) {
                             echo "section:".$key;
                             foreach ($value as $key1 => $value1) {
