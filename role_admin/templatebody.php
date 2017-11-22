@@ -24,6 +24,7 @@ foreach($sectionsFeed as $key=> $section) {
 	</section>
 
 	<?php
+	var_dump($answerkey[$question['section']]);
 	if($answerkey[$question['section']]==null)
 		$answerkey[$question['section']]=array();
 	$i++;
