@@ -56,7 +56,7 @@ function printSection($sectionFeed){
 			$i='A';
 			foreach ($keys as $key)
 			{
-				$shuffled_options[$keys[$i++]] = $options[$key];
+				$shuffled_options[$i++] = $options[$key];
 			}
 
 			array_push($answerkey[$question['section']],array_search($options['A'], $shuffled_options));
