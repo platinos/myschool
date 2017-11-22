@@ -25,8 +25,8 @@ foreach($sectionsFeed as $key=> $section) {
 	</section>
 
 	<?php
-	if($answerkey[$question['section']]==null)
-		$answerkey[$question['section']]=array();
+	if($answerkey[$section['section']]==null)
+		$answerkey[$section['section']]=array();
 	$i++;
 } 
 ?>
@@ -63,7 +63,7 @@ function printSection($sectionFeed){
 			$answer=array_search($options['A'], $shuffled_options);
 			var_dump($answer);
 		
-			array_push($answerkey[$question['section']],$answer);
+			array_push($answerkey[$section['section']],$answer);
 
 			?>
 
