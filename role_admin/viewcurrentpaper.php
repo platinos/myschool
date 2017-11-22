@@ -42,20 +42,14 @@
             {
                 ?>
                 <!--  answer key and question paper switch button -->
-                
+
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                 
+
                     <form method="POST" action='' enctype="multipart/form-data">
-                        <ul class="header-dropdown m-r--5">
+                       
+                                <button type="button" class="btn btn-primary waves-effect pull-right" id="create_paper"> Create Paper</button>
 
-
-                            <li class="dropdown">
-
-                                <button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button>
-
-                            </li>
-                        </ul>
                         <textarea id="questionpaper" name="questionpaper">
 
                             <?php include 'templatehead.php'; ?>
