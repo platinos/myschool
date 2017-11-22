@@ -61,7 +61,7 @@
                         </textarea>
 
 
-                        <<a href="#answerkey"></a>
+                        <a href="#answerkey"></a>
                         <textarea id="answerkey" name="answerkey">
                          <?php 
                          echo "puttin in answers<hr>";
