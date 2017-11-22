@@ -21,7 +21,7 @@ foreach($sectionsFeed as $key=> $section) {
 	<section>
 		<p align="center">Section: <?php echo $key ?></p>
 		<?php $answerkey =$answerkey."Section: ".$key."<br>";?>
-		<?php printSection($section); ?>
+		<?php $answerkey .= printSection($section); ?>
 	</section>
 
 	<?php
@@ -33,6 +33,7 @@ foreach($sectionsFeed as $key=> $section) {
 <?php 
 function printSection($sectionFeed){
 	$index=0;
+	$answerkey2 = "";
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
@@ -60,12 +61,12 @@ function printSection($sectionFeed){
 			}
 
 			$answer=array_search($options['A'], $shuffled_options);
-			var_dump($answer);
-			$answerkey = $answerkey.($index+1)." - ".$answer."<br>";
+			//var_dump($answer);
+			$answerkey2 = $answerkey2.($index+1)." - ".$answer."<br>";
 		
 
 			?>
-			<?php echo $answerkey; ?>
+			
 			<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
 				<tbody>
 					<tr style="height: 26px;">
@@ -85,5 +86,6 @@ function printSection($sectionFeed){
 		<?php
 		$index++;
 	} 
+	return $answerkey2;
 }
 ?>
