@@ -42,18 +42,18 @@
             {
                 ?>
                 <!--  answer key and question paper switch button -->
-                <ul class="header-dropdown m-r--5">
+                
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                   <ul class="header-dropdown m-r--5">
 
 
                     <li class="dropdown">
 
-                    <button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button>
+                        <button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button>
 
-                   </li>
-               </ul>
-               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-
+                    </li>
+                </ul>
                 <form method="POST" action='' enctype="multipart/form-data">
 
                     <textarea id="questionpaper" name="questionpaper">
@@ -68,10 +68,10 @@
 
 
                     <textarea id="answerkey" name="answerkey">
-                     <?php 
-                     echo "puttin in answers";
-                     $answerkey=array();
-                     foreach ($answerkey as $key => $value) {
+                       <?php 
+                       echo "puttin in answers";
+                       $answerkey=array();
+                       foreach ($answerkey as $key => $value) {
                         echo "section:".$key;
                         foreach ($value as $key1 => $value1) {
                             echo $key1." ".$value1;
