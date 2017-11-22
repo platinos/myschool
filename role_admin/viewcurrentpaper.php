@@ -55,7 +55,7 @@
 
                             <?php include 'templatehead.php'; ?>
 
-                            <?php $answerkey=array(); ?>
+                            <?php $answerkey=""; ?>
                             <?php include 'templatebody.php'; ?>
 
                         </textarea>
