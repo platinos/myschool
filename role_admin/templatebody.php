@@ -60,7 +60,13 @@ function printSection($sectionFeed){
 			}
 
 			$answer=array_search($options['A'], $shuffled_options);
-			var_dump($answer+" this is answer");
+			var_dump($answer);
+			var_dump($options['A']);
+			var_dump($shuffled_options['A']);
+			var_dump($shuffled_options['B']);
+			var_dump($shuffled_options['C']);
+			var_dump($shuffled_options['D']);
+
 			array_push($answerkey[$question['section']],answer);
 
 			?>
