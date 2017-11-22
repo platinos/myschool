@@ -63,7 +63,7 @@ function printSection($sectionFeed){
 			$answer=array_search($options['A'], $shuffled_options);
 			var_dump($answer);
 		
-			array_push($answerkey[$question['section']],answer);
+			array_push($answerkey[$question['section']],$answer);
 
 			?>
 
