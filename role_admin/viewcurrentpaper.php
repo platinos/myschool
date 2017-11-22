@@ -44,11 +44,11 @@
                 <!--  answer key and question paper switch button -->
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
+<button type="button" class="btn btn-primary waves-effect pull-right" id="create_paper"> Create Paper</button>
 
                     <form method="POST" action='' enctype="multipart/form-data">
                        
-                                <button type="button" class="btn btn-primary waves-effect pull-right" id="create_paper"> Create Paper</button>
+                                
 
                         <textarea id="questionpaper" name="questionpaper">
 
