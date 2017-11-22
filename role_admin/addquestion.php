@@ -202,52 +202,52 @@
 									$t=time();
 									$new = date("Y-m-d-H-i-sa",$t);
 									$fileName = $_FILES["file_upload"]["name"];
-$splitName = explode(".", $fileName); //split the file name by the dot
-$fileExt = end($splitName); //get the file extension
-$newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
+									$splitName = explode(".", $fileName); //split the file name by the dot
+									$fileExt = end($splitName); //get the file extension
+									$newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
 
-if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
-{
+									if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
+									{
 
-	if($_POST['type']==1)
-	{
-		$ans = $_POST['mcq1'];
-	}
-	else if($_POST['type']==2)
-	{
-		$ans = $_POST['group'];
-	}
-	else
-	{
-		$ans = $_POST['answer'];
-	}
+										if($_POST['type']==1)
+										{
+											$ans = $_POST['mcq1'];
+										}
+										else if($_POST['type']==2)
+										{
+											$ans = $_POST['group'];
+										}
+										else
+										{
+											$ans = $_POST['answer'];
+										}
 
 
-	$values = array(
-		'question' => $_POST['question'],    
-		'answer' => $ans,    
-		'truefalse' => $_POST['group'],  
-		'mcq1' => $_POST['mcq1'],  
-		'mcq2' => $_POST['mcq2'],  
-		'mcq3' => $_POST['mcq3'], 
-		'mcq4' => $_POST['mcq4'], 
-		'class' => $_POST['class'], 
-		'subject' => $_POST['subject'], 
-		'type' => $_POST['type'], 
-		'tag' => $_POST['tag'], 
-		'chapter' => $_POST['chapters'], 
-		'topic' => $_POST['topic'], 
-		'level' => $_POST['level'], 
-		'marks' => $_POST['marks'], 
-		'link' => $_POST['link'], 
-		'file' => 'scan/'.$newFileName
-	);
+										$values = array(
+											'question' => $_POST['question'],    
+											'answer' => $ans,    
+											'truefalse' => $_POST['group'],  
+											'mcq1' => $_POST['mcq1'],  
+											'mcq2' => $_POST['mcq2'],  
+											'mcq3' => $_POST['mcq3'], 
+											'mcq4' => $_POST['mcq4'], 
+											'class' => $_POST['class'], 
+											'subject' => $_POST['subject'], 
+											'type' => $_POST['type'], 
+											'tag' => $_POST['tag'], 
+											'chapter' => $_POST['chapters'], 
+											'topic' => $_POST['topic'], 
+											'level' => $_POST['level'], 
+											'marks' => $_POST['marks'], 
+											'link' => $_POST['link'], 
+											'file' => 'scan/'.$newFileName
+										);
 
-	
-	$feed = apicall("addquestions", $values);
-	if($feed['error']==true)
-	{
-		?>
+										
+										$feed = apicall("addquestions", $values);
+										if($feed['error']==true)
+										{
+											?>
 		<div class="alert alert-danger">
 			<h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
 			<?php   
