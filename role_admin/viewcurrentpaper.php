@@ -42,7 +42,7 @@
             {
                 ?>
                 <!--  answer key and question paper switch button -->
-                <button type="button" class="btn btn-primary waves-effect pull-right" id="create_paper">View Answer Key</button>
+                <a href="#answerkey" class="btn btn-primary waves-effect pull-right" id="create_paper">View Answer Key</a>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
@@ -61,7 +61,7 @@
                         </textarea>
 
 
-
+                        <<a href="#answerkey"></a>
                         <textarea id="answerkey" name="answerkey">
                          <?php 
                          echo "puttin in answers<hr>";
