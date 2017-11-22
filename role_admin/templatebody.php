@@ -53,7 +53,7 @@ function printSection($sectionFeed){
 			shuffle($keys);
 
 
-			$i=0;
+			$i='A';
 			foreach ($keys as $key)
 			{
 				$shuffled_options[$keys[$i++]] = $options[$key];
