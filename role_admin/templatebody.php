@@ -65,7 +65,7 @@ function printSection($sectionFeed){
 		
 
 			?>
-
+			<?php echo $answerkey; ?>
 			<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
 				<tbody>
 					<tr style="height: 26px;">
