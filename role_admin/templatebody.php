@@ -62,7 +62,7 @@ function printSection($sectionFeed){
 
 			$answer=array_search($options['A'], $shuffled_options);
 			//var_dump($answer);
-			$answerkey2 = $answerkey2.($index+1)." - ".$answer."<br>";
+			$answerkey2 = $answerkey2.($index+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['id']."' height=100px><br>";
 		
 
 			?>
