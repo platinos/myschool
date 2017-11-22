@@ -64,7 +64,7 @@
 
                         <textarea id="answerkey" name="answerkey">
                          <?php 
-                         echo "puttin in answers";
+                         echo "puttin in answers<hr>";
                          
                          
                         echo $answerkey;
