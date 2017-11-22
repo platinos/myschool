@@ -42,9 +42,10 @@
             {
                 ?>
                 <!--  answer key and question paper switch button -->
+                <button type="button" class="btn btn-primary waves-effect pull-right" id="create_paper">View Answer Key</button>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<button type="button" class="btn btn-primary waves-effect pull-right" id="create_paper"> Create Paper</button>
+
 
                    
                        
