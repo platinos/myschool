@@ -15,7 +15,6 @@ foreach ($questionsFeed as $key => $question) {
 $i=0;
 //contains every section
 ksort($sectionsFeed);
-$answerkey=array();
 foreach($sectionsFeed as $key=> $section) {
 
 	?>
