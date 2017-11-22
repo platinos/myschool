@@ -20,7 +20,7 @@ foreach($sectionsFeed as $key=> $section) {
 	?>
 	<section>
 		<p align="center">Section: <?php echo $key ?></p>
-		$answerkey.=("Section: ".$section."\n");
+		<?php $answerkey.="Section: ".$section."<br>";?>
 		<?php printSection($section); ?>
 	</section>
 
@@ -61,7 +61,7 @@ function printSection($sectionFeed){
 
 			$answer=array_search($options['A'], $shuffled_options);
 			var_dump($answer);
-			$answerkey.=($answer."\n");
+			$answerkey.=$answer."<br>";
 		
 
 			?>
