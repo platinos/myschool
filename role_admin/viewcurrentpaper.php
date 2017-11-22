@@ -67,7 +67,7 @@
                          echo "puttin in answers";
                          
                          foreach ($answerkey as $key => $value) {
-                            echo "section:".$key." values".$value;
+                            echo "section:".$key." values".$value[0];
                             foreach ($value as $key1 => $value1) {
                                 echo $key1." ".$value1;
                             }
