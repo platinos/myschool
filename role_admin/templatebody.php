@@ -15,6 +15,7 @@ foreach ($questionsFeed as $key => $question) {
 $i=0;
 //contains every section
 ksort($sectionsFeed);
+$answerkey=array();
 foreach($sectionsFeed as $key=> $section) {
 
 	?>
@@ -24,7 +25,6 @@ foreach($sectionsFeed as $key=> $section) {
 	</section>
 
 	<?php
-	var_dump($answerkey[$question['section']]);
 	if($answerkey[$question['section']]==null)
 		$answerkey[$question['section']]=array();
 	$i++;
