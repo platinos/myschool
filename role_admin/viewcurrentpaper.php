@@ -42,7 +42,8 @@
             {
                 ?>
                 <!--  answer key and question paper switch button -->
-                <a href="#answerkey" class="btn btn-primary waves-effect pull-right" id="create_paper">View Answer Key</a>
+                <button class="btn btn-primary waves-effect pull-right" id="answerkeybutton">View Answer Key</a>
+                <button class="btn btn-primary waves-effect pull-right" id="questionpaperbutton" style='display: none;'>Go back to Question Paper</a>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
@@ -62,12 +63,9 @@
 
 
                         <a="#answerkey"></a>
-                        <textarea name="answerkey"" id="answerkey" name="answerkey">
-                         <?php 
-                         echo "puttin in answers<hr>";
-                         
-                         
-                        echo $answerkey;
+                        <textarea name="answerkey"" id="answerkey" name="answerkey" style='display: none;'>
+                         <?php                      
+                            echo $answerkey;
                         ?> 
                     </textarea>
 
@@ -119,6 +117,7 @@
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
+<script src="js/currentpaper.js"></script>
 
 <script>
 
