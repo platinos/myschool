@@ -46,10 +46,6 @@
                 <button class="btn btn-primary waves-effect pull-right" id="questionpaperbutton" style='display: none;'>Go back to Question Paper</button>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    
-
-
-
 
 
                     <textarea id="questionpaper" name="questionpaper">
@@ -58,15 +54,11 @@
                         <?php include 'templatebody.php'; ?>
                     </textarea>
 
-                    <textarea name="answerkey"" id="answerkey" name="answerkey" style='display: none;'>
-                       <?php                      
-                       echo $answerkey;
+                    <textarea name="answerkey"" id="answerkey" name="answerkey">
+                       <?php
+                            echo $answerkey;
                        ?> 
                    </textarea>
-
-
-
-
 
                </div>
            </div>
@@ -161,6 +153,7 @@ tinymce.init({
 
 tinymce.suffix = ".min";
 tinyMCE.baseURL = 'plugins/tinymce';
+$('#answerkey').hide();
 });
 
 
