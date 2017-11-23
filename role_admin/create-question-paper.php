@@ -32,7 +32,7 @@ else
 
 
     ?>
- 
+
 
     <section class="content">
         <div class="container-fluid">
@@ -59,62 +59,62 @@ else
                              </ul>
 
                              <?php } else { ?>
-                             <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
+                                 <ul class="header-dropdown m-r--5">
+                                    <li class="dropdown">
 
-                                 <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
+                                     <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
 
-                                  <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
-                             </li>
-                         </ul>
+                                     <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
+                                 </li>
+                             </ul>
 
-                         <?php } ?>
-                         <h2>
-                            ALL QUESTIONS SELECTION
-                        </h2>
+                             <?php } ?>
+                             <h2>
+                                ALL QUESTIONS SELECTION
+                            </h2>
 
-                    </div>
-                    <div class="body">
-                        <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                                <tr>
-                                    <th>Select</th>
-                                    <th>Id</th>
-                                    <th>Class</th>
-                                    <th>Type</th>
-                                    <th>Subject</th>
-                                    <th>Chapter</th>
-                                    <th>Topic</th>
-                                    <th>Marks</th>
-                                    <th>Question</th>                                       
-                                    <th>Image</th>
-
-
-
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Select</th>
-                                    <th>Id</th>
-                                    <th>Class</th>
-                                    <th>Type</th>
-                                    <th>Subject</th>
-                                    <th>Chapter</th>
-                                    <th>Topic</th>
-                                    <th>Marks</th>
-                                    <th>Question</th>                                       
-                                    <th>Image</th>
+                        </div>
+                        <div class="body">
+                            <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Id</th>
+                                        <th>Class</th>
+                                        <th>Type</th>
+                                        <th>Subject</th>
+                                        <th>Chapter</th>
+                                        <th>Topic</th>
+                                        <th>Marks</th>
+                                        <th>Question</th>                                       
+                                        <th>Image</th>
 
 
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <?php
 
-                                $size = $feed['data']['size']; 
-                                for($i=0; $i<$size; $i++)
-                                    {?>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Id</th>
+                                        <th>Class</th>
+                                        <th>Type</th>
+                                        <th>Subject</th>
+                                        <th>Chapter</th>
+                                        <th>Topic</th>
+                                        <th>Marks</th>
+                                        <th>Question</th>                                       
+                                        <th>Image</th>
+
+
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <?php
+
+                                    $size = $feed['data']['size']; 
+                                    for($i=0; $i<$size; $i++)
+                                        {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
                                                 <td>
                                                     <?php if(incart($feed['data'][$i]['id'])){
@@ -128,42 +128,42 @@ else
                                                     <?php
                                                 }
                                                 else{ ?>
-                                                <button style="display: none;" class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button>
-                                                <button class='btn btn-success waves-effect' 
-                                                id="<?php echo 'addQuestion'.$feed['data'][$i]['id'] ?>" 
-                                                onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>
-                                                Add to my paper
-                                            </button>
-                                            <?php }
-                                            ?>
-                                        </td>
-                                        <td><?php echo $feed['data'][$i]['id'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['class'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['type'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['subject'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['chapter'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['topic'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['marks'] ?></td>
-                                        <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
-                                        <td>
-                                           <a target="_blank" href = "<?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
-                                            <img alt="<?php echo $feed['data'][$i]['ques_img'] ?>" src="<?php echo $feed['data'][$i]['ques_img'] ?>">
+                                                    <button style="display: none;" class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button>
+                                                    <button class='btn btn-success waves-effect' 
+                                                    id="<?php echo 'addQuestion'.$feed['data'][$i]['id'] ?>" 
+                                                    onclick='addQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>
+                                                    Add to my paper
+                                                </button>
+                                                <?php }
+                                                ?>
+                                            </td>
+                                            <td><?php echo $feed['data'][$i]['id'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['class'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['type'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['subject'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['chapter'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['topic'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['marks'] ?></td>
+                                            <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
+                                            <td>
+                                               <a target="_blank" href = "<?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
+                                                <img alt="<?php echo $feed['data'][$i]['ques_img'] ?>" src="<?php echo $feed['data'][$i]['ques_img'] ?>">
                                             </a>
                                         </td>
 
-                            </tr>
-                            <?php  }
-                            ?>
-                        </tbody>
-                    </table>
+                                    </tr>
+                                    <?php  }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- #END# Exportable Table -->
         </div>
-    </div>
-    <!-- #END# Exportable Table -->
-</div>
-</section>
-<?php
+    </section>
+    <?php
 }
 ?>
 
@@ -209,20 +209,24 @@ else
 
 <script type="text/javascript">
     $(document).ready(function() {
+        function filteredData () {
+            
+            
         //All Questions table
-    var table = $('#allQuestions').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
+        var table = $('#allQuestions').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
             'copy', 'csv', 'excel'
-        ],
-        order: [[ 2, "asc" ]]
-    });
-          
-        /* Add event listeners to the two range filtering inputs */
-        $('#min, #max').keyup( function() {
-            table.draw();
-        } );
+            ],
+            order: [[ 2, "asc" ]]
+        });
+    }
+
+    /* Add event listeners to the two range filtering inputs */
+    $('#min, #max').keyup( function() {
+        table.draw();
     } );
+} );
 </script>
 
 

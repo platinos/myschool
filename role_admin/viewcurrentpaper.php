@@ -102,6 +102,7 @@
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
+<script src="js/currentpaper.js"></script>
 
 <script>
 
