@@ -53,16 +53,11 @@
                                 
 
                         <textarea id="questionpaper" name="questionpaper">
-
                             <?php include 'templatehead.php'; ?>
-
                             <?php $answerkey=""; ?>
                             <?php include 'templatebody.php'; ?>
-
                         </textarea>
 
-
-                        <a="#answerkey"></a>
                         <textarea name="answerkey"" id="answerkey" name="answerkey" style='display: none;'>
                          <?php                      
                             echo $answerkey;
