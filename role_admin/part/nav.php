@@ -58,12 +58,13 @@
                     	</a>
                     </li>
 
-                    <li>
-                    	<a href="display-paper.php">
-                        	<i class="material-icons">blur_on</i>
-                        	<span>View My Paper</span>
-                    	</a>
-                    </li>
+                     <?php if(displayPaperButton()) {echo "<li>
+                        <a href='display-paper.php'>
+                            <i class='material-icons'>blur_on</i>
+                            <span>View My Paper</span>
+                        </a>
+                    </li>"; }?>
+
 
                      
                     <li>
