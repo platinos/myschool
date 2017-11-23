@@ -13,7 +13,7 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
-<?php include 'utilities.php'; ?>
+
 
 <section class="content">
     <div class="container-fluid">
