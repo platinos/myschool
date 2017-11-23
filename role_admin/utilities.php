@@ -73,4 +73,37 @@ if(isset($_GET['addQuestionsFromCsv'])){
 
 }
 
+//local api to view users
+function localapicall($func){
+
+$servername = "localhost";
+$username = "platirvw_google";
+$password = "P@$$9333172315";
+$dbname = "platirvw_google";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$response = array("error" => FALSE);
+	$sql = "SELECT * FROM users";
+	$result = mysqli_query($conn, $sql);
+
+	while($data = mysqli_fetch_assoc($result)){
+		$response["error"] = FALSE;
+
+		$response["data"]  = array();
+			$response["data"][] = array("id" => $data["id"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
+
+
+	}
+	
+
+	echo json_encode($response);
+
+}
+
 ?>
