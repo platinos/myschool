@@ -34,9 +34,7 @@
                 <div class="alert alert-danger">
                     <h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
                 </div>
-                <?php   
-
-
+                <?php
             }
             else
             {
@@ -104,7 +102,6 @@
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
-<script src="js/currentpaper.js"></script>
 
 <script>
 
@@ -153,7 +150,6 @@ tinymce.init({
 
 tinymce.suffix = ".min";
 tinyMCE.baseURL = 'plugins/tinymce';
-$('#answerkey').hide();
 });
 
 
