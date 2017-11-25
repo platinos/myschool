@@ -57,6 +57,7 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Status</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Picture</th>
@@ -70,6 +71,7 @@
                             <tfoot>
                                 <tr>
                                    <th>Id</th>
+                                    <th>Status</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Picture</th>
@@ -86,6 +88,7 @@
                                 {?>
                                     <tr>
                                         <td><?php echo $feed['data'][$i]['id'] ?></td>
+                                        <td><?php echo $feed['data'][$i]['status'] ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['email'] ?></td>
                                         <td><img width='100' src='<?php echo $feed['data'][$i]['picture'] ?>'/></td>
