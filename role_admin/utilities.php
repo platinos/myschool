@@ -101,9 +101,9 @@ $response = array("error" => FALSE);
 	}
 	
 
-	echo json_encode($response);
+	return json_encode($response);
 
 }
-localapicall();
+
 
 ?>
