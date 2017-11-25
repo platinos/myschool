@@ -89,9 +89,7 @@
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['email'] ?></td>
                                         <td><img src='<?php echo $feed['data'][$i]['picture'] ?>'/></td>
-                                        <td><a href="fdaf"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
-                                            <a onclick="window.open('functions.php?func=deletesubject&qid=<?php echo $feed['data'][$i]['id'] ?>','_BLANK');setTimeout(location.reload.bind(location), 2000);"><i class="material-icons" style="color: red">delete</i></a>
-                                        </td>
+                                        <td></td>
                                         
                                         
 
