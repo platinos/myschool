@@ -89,7 +89,14 @@
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['email'] ?></td>
                                         <td><img width='100' src='<?php echo $feed['data'][$i]['picture'] ?>'/></td>
-                                        <td></td>
+                                        <td><<select name="user_action" onchange="userAction()">
+                                            <option value="">Choose an Action</option>
+                                            <option value="assignCreator">Assign as Paper Creator</option>
+                                            <option value="assignEditor">Assign as Editor</option>
+                                            <option value="assignAdmin">Assign as Admin</option>
+                                            <option value="assignDelete">Delete User</option>
+                                            option
+                                        </select></td>
                                         
                                         
 
@@ -115,8 +122,6 @@
 <!-- Bootstrap Core Js -->
 <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
-<!-- Select Plugin Js -->
-<script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
 <!-- Slimscroll Plugin Js -->
 <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
