@@ -91,11 +91,11 @@ if (!$conn) {
 $response = array("error" => FALSE);
 	$sql = "SELECT * FROM users";
 	$result = mysqli_query($conn, $sql);
-
+	$response["data"]  = array();
 	while($data = mysqli_fetch_assoc($result)){
 
-		$response["data"]  = array();
-			$response["data"][] = array("id" => $data["id"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
+		
+		$response["data"][] = array("id" => $data["id"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
 
 
 	}
