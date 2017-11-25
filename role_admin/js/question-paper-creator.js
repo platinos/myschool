@@ -151,7 +151,7 @@ $('#subj').change(function() {
 
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex )
-        var col = parseInt( data[2] ); // use data for the age column
+        var col = parseInt( data[4] ); // use data for the age column
 
         if (( col == s ) )
         {
