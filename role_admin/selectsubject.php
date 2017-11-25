@@ -1,5 +1,5 @@
 <?php 
-$feed = apicall("viewquestion"); ?>
+$feed = apicall("viewsubject"); ?>
 <div>
  <select class="form-control show-tick" name="subj" id="subj">
    <option value="select" selected>Select</option>
