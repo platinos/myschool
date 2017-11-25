@@ -88,7 +88,7 @@
                                         <td><?php echo $feed['data'][$i]['id'] ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['email'] ?></td>
-                                        <td><img src='<?php echo $feed['data'][$i]['picture'] ?>'/></td>
+                                        <td><img width='100' src='<?php echo $feed['data'][$i]['picture'] ?>'/></td>
                                         <td></td>
                                         
                                         
