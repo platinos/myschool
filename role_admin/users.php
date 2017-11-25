@@ -25,7 +25,7 @@
         <div class="row clearfix">
             <?php
 
-            $feed = json_decode(localapicall("viewusers")) ;
+            $feed = json_decode(localapicall("viewusers"), true) ;
             if($feed['error']==true)
             {
                 ?>
