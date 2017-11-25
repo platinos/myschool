@@ -46,6 +46,8 @@ else
                     <div class="card">
                         <div class="header">
 
+                            <?php include 'selectsubject.php'; ?>
+
                             <?php
                             if(displayPaperButton()){
 
@@ -66,7 +68,6 @@ else
 
                                      <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
 
-                                    <?php include 'selectsubject.php'; ?>
                                  </li>
                              </ul>
 
