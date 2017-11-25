@@ -113,11 +113,11 @@ $('#finalise').on('click', function () {
 //display paper convert session array to string
 function sessiontostring(){
 	$.getJSON('display-paper-submit.php', function(json, textStatus) {
-			var str=json.str;
-			$('#qlist').val(str);
+		var str=json.str;
+		$('#qlist').val(str);
 			//console.log(str+"asdfasdf");
 			$('#paperdetails').submit();
-	});
+		});
 }
 
 //sending bulk questions to php
@@ -137,7 +137,7 @@ function submitAll(file) {
 		data=JSON.parse(data);
 		showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
 		if(data.notAdded > 0)
-		showNotification("bg-danger", data.notAdded+" Questions could not be added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+			showNotification("bg-danger", data.notAdded+" Questions could not be added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
 	})
 	.fail(function() {
 		$("#upload_questions").show();
@@ -146,17 +146,21 @@ function submitAll(file) {
 	
 }
 
-$.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
-        var req = 10;
+$('#subj').change(function() {
+	var s=this.value;
+
+	$.fn.dataTable.ext.search.push(
+		function( settings, data, dataIndex ) {
+			var max = 10;
         var class56 = parseInt( data[2] ); // use data for the age column
- 
-        if (( class56 == req ) )
+
+        if (( class56 == max ) )
         {
-            return true;
+        	return true;
         }
         return false;
     }
-);
-    
-$('#allQuestions').DataTable().draw();
+    );
+
+	$('#allQuestions').DataTable().draw();
+});
