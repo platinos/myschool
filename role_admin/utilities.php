@@ -93,7 +93,6 @@ $response = array("error" => FALSE);
 	$result = mysqli_query($conn, $sql);
 
 	while($data = mysqli_fetch_assoc($result)){
-		$response["error"] = FALSE;
 
 		$response["data"]  = array();
 			$response["data"][] = array("id" => $data["id"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
