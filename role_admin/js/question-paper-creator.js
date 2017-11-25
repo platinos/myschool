@@ -150,11 +150,10 @@ $('#subj').change(function() {
 	var s=this.value;
 
 	$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-			var max = 10;
-        var class56 = parseInt( data[2] ); // use data for the age column
+		function( settings, data, dataIndex )
+        var col = parseInt( data[2] ); // use data for the age column
 
-        if (( class56 == max ) )
+        if (( col == s ) )
         {
         	return true;
         }
