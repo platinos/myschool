@@ -145,3 +145,18 @@ function submitAll(file) {
 	});
 	
 }
+
+$.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        var req = 10;
+        var class56 = parseInt( data[2] ); // use data for the age column
+ 
+        if (( class56 == req ) )
+        {
+            return true;
+        }
+        return false;
+    }
+);
+    
+$('#allQuestions').DataTable().draw();
