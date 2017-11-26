@@ -60,25 +60,7 @@ else
 
                                      <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        function filteredData () {
-        //All Questions table
-        var table = $('#allQuestions').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-            'copy', 'csv', 'excel'
-            ],
-            order: [[ 2, "asc" ]]
-        });
-    }
-    /* Add event listeners to the two range filtering inputs */
-    $('#min, #max').keyup( function() {
-        table.draw();
-    } );
-} );
 
-</script>
 
                                     <?php include 'selectsubject.php'; ?>
                                  </li>
@@ -222,7 +204,25 @@ else
 
 
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        function filteredData () {
+        //All Questions table
+        var table = $('#allQuestions').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+            'copy', 'csv', 'excel'
+            ],
+            order: [[ 2, "asc" ]]
+        });
+    }
+    /* Add event listeners to the two range filtering inputs */
+    $('#min, #max').keyup( function() {
+        table.draw();
+    } );
+} );
 
+</script>
 
 </body>
 
