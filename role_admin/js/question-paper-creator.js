@@ -163,7 +163,7 @@ function filterSubj() {
         var col = data[4]; // use data for the subj column
 
         if(s=='select'){
-        	reset=true;
+        	return true;
         }
 
         if (col == s)
@@ -191,7 +191,7 @@ function filterClass() {
         var col = ( data[2] ); // use data for the subj column
 
         if(s=='select'){
-        	reset=true;
+        	return true;
         }
 
         if (col == s)
