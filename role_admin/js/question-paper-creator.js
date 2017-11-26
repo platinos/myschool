@@ -147,17 +147,6 @@ function submitAll(file) {
 }
 
 
-$.fn.dataTable.Api.register( 'order.neutral()', function () {
-	return this.iterator( 'table', function ( s ) {
-		s.aaSorting.length = 0;
-		s.aiDisplay.sort( function (a,b) {
-			return a-b;
-		} );
-		s.aiDisplayMaster.sort( function (a,b) {
-			return a-b;
-		} );
-	} );
-} );
 
 var table=$('#allQuestions').DataTable();
 
@@ -165,10 +154,13 @@ function filterSubj() {
 	var s=$('#subj').val();
 	var reset=false;
 	console.log(s+" selected");
+	$.fn.dataTable.ext.search.pop();
+	table.draw();
+
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
-        var col = ( data[4] ); // use data for the subj column
+        var col = data[4]; // use data for the subj column
 
         if(s=='select'){
         	reset=true;
@@ -181,9 +173,6 @@ function filterSubj() {
         return false;
     });
 
-    if(reset==true){
-    	table.order.neutral().draw();
-    }
 
 	table.draw();
 }
@@ -192,14 +181,17 @@ function filterSubj() {
 function filterClass() {
 	var s=$('#class').val();
 	console.log(s+" selected");
-	var reset=false;
+	var reset = false;
+	$.fn.dataTable.ext.search.pop();
+	table.draw();
+	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
         var col = ( data[2] ); // use data for the subj column
 
         if(s=='select'){
-  	    	$.fn.dataTable.ext.search.pop();
+        	reset=true;
         }
 
         if (col == s)
@@ -209,10 +201,5 @@ function filterClass() {
         return false;
     });
 
-
-    if(reset==true){
-    	table.order.neutral().draw();
-    }
-    else
-		table.draw();
+	table.draw();
 }
