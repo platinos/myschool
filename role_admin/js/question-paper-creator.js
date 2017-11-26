@@ -149,8 +149,8 @@ function submitAll(file) {
 
 
 var table=$('#allQuestions').DataTable();
-var classval=0;
-var subjval=0;
+var classval=1;
+var subjval=1;
 var redirect=0;
 
 function filterSubj() {
