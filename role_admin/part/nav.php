@@ -74,6 +74,13 @@
                         </a>
                     </li> 
 
+                    <li>
+                        <a href="users.php">
+                            <i class="material-icons">users</i>
+                            <span>Users</span>
+                        </a>
+                    </li> 
+
                     
 
 
