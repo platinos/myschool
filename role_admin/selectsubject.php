@@ -1,7 +1,7 @@
 <?php 
 $feedsubjects = apicall("viewsubject"); ?>
 <div>
- <select class="form-control show-tick" name="subj" id="subj">
+ <select class="form-control" name="subj" id="subj">
    <option value="select" selected>Select</option>
    <?php
 

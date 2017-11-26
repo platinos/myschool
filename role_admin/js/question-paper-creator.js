@@ -148,7 +148,7 @@ function submitAll(file) {
 
 $('#subj').change(function() {
 	var s=this.value;
-
+	console.log(s+" selected");
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 	
