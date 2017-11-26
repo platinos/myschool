@@ -55,15 +55,9 @@ else
                              <?php } else { ?>
                                  <ul class="header-dropdown m-r--5">
                                     <li class="dropdown">
-
-                                     <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
-
-                                     <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
-
-
-
-                                    <?php include 'selectsubject.php'; ?>
+                                    <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
                                  </li>
+                                 <li><?php include 'selectsubject.php'; ?></li>
                              </ul>
 
                              <?php } ?>
