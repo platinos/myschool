@@ -1,8 +1,8 @@
 <?php
 class User {
 	private $dbHost     = "localhost";
-    private $dbUsername = "root";
-    private $dbPassword = "password";
+    private $dbUsername = "platirvw_google";
+    private $dbPassword = "P@$$9333172315";
     private $dbName     = "platirvw_google";
     private $userTbl    = 'users';
 	
