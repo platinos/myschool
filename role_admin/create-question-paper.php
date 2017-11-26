@@ -58,7 +58,7 @@ else
 
                                      <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
 
-                                    <!--  <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
+                                     <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -78,7 +78,7 @@ else
     } );
 } );
 
-</script> -->
+</script>
 
                                     <?php //include 'selectsubject.php'; ?>
                                  </li>
@@ -215,6 +215,7 @@ else
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
+<script src="js/pages/tables/jquery-datatable.js"></script>
 <script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 
 
