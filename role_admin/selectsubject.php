@@ -1,6 +1,6 @@
 <?php 
 $feedsubjects = apicall("viewsubject"); ?>
-<div>
+
  <select class="form-control" name="subj" id="subj">
    <option value="select" selected>Select</option>
    <?php
@@ -14,4 +14,3 @@ $feedsubjects = apicall("viewsubject"); ?>
         ?>
 
      </select>
-  </div>

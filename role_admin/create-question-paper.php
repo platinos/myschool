@@ -204,26 +204,6 @@ else
 
 
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        function filteredData () {
-        //All Questions table
-        var table = $('#allQuestions').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-            'copy', 'csv', 'excel'
-            ],
-            order: [[ 2, "asc" ]]
-        });
-    }
-    /* Add event listeners to the two range filtering inputs */
-    $('#min, #max').keyup( function() {
-        table.draw();
-    } );
-} );
-
-</script>
-
 </body>
 
 </html>
