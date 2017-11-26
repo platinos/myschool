@@ -147,14 +147,14 @@ function submitAll(file) {
 }
 
 function filterSubj() {
-	var s=document.getElementById("subj").value;
+	var s=$('#subj').val();
 	console.log(s+" selected");
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 	
         var col = ( data[4] ); // use data for the subj column
 
-        if (( col == s ) )
+        if (col == s)
         {
         	return true;
         }
