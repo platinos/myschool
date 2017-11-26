@@ -18,19 +18,14 @@
 $feed = apicall("viewquestion");
 if($feed['error']==true)
 {
-
     ?>
     <div class="alert alert-danger">
         <h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
     </div>
     <?php   
-
 }
 else
 {
-
-
-
     ?>
 
 
@@ -48,7 +43,6 @@ else
 
                             <?php
                             if(displayPaperButton()){
-
                                 ?>
 
                                 <ul class="header-dropdown m-r--5">
@@ -66,6 +60,7 @@ else
 
                                      <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
 
+                                    <?php include 'selectsubject.php'; ?>
                                  </li>
                              </ul>
 
@@ -112,7 +107,6 @@ else
                                 </tfoot>
                                 <tbody>
                                     <?php
-
                                     $size = $feed['data']['size']; 
                                     for($i=0; $i<$size; $i++)
                                         {?>
@@ -174,6 +168,9 @@ else
 <!-- Bootstrap Core Js -->
 <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
+<!-- Select Plugin Js -->
+<script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
 <!-- Slimscroll Plugin Js -->
 <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
@@ -208,8 +205,6 @@ else
 <script type="text/javascript">
     $(document).ready(function() {
         function filteredData () {
-
-
         //All Questions table
         var table = $('#allQuestions').DataTable({
             dom: 'Bfrtip',
@@ -219,7 +214,6 @@ else
             order: [[ 2, "asc" ]]
         });
     }
-
     /* Add event listeners to the two range filtering inputs */
     $('#min, #max').keyup( function() {
         table.draw();
@@ -231,4 +225,3 @@ else
 </body>
 
 </html>
-
