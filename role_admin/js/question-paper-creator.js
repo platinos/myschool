@@ -146,6 +146,10 @@ function submitAll(file) {
 	
 }
 
+
+
+var table=$('#allQuestions').DataTable();
+
 function filterSubj() {
 	var s=$('#subj').val();
 	console.log(s+" selected");
@@ -165,7 +169,7 @@ function filterSubj() {
         return false;
     });
 
-	$('#allQuestions').DataTable().draw();
+	table.draw();
 }
 
 
@@ -188,5 +192,5 @@ function filterClass() {
         return false;
     });
 
-	$('#allQuestions').DataTable().draw();
+	table.draw();
 }

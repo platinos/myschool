@@ -2,7 +2,7 @@
 $feedsubjects = apicall("viewsubject"); ?>
 
 <select onchange="filterSubj();" class="form-control" name="subj" id="subj">
-   <option value="select" selected>Select</option>
+<option value="select" selected>Select subject</option>
    <?php
 
    $size = $feedsubjects['data']['size']; 
