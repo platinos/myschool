@@ -188,7 +188,7 @@ function filterClass() {
         var col = ( data[2] ); // use data for the subj column
 
         if(s=='select'){
-        	reset=true;
+  	    	$.fn.dataTable.ext.search.pop();
         }
 
         if (col == s)
