@@ -76,7 +76,7 @@
 
                     <li>
                         <a href="users.php">
-                            <i class="material-icons">users</i>
+                            <i class="material-icons">face</i>
                             <span>Users</span>
                         </a>
                     </li> 
