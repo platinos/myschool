@@ -149,20 +149,25 @@ function submitAll(file) {
 
 
 var table=$('#allQuestions').DataTable();
+var classval=null;
+var subjval=null;
 
 function filterSubj() {
 	var s=$('#subj').val();
 	var reset=false;
 	console.log(s+" selected");
-	$.fn.dataTable.ext.search.pop();
-	table.draw();
-
+	if(classval==null){
+		$.fn.dataTable.ext.search.pop();
+		table.draw();
+	}
+	filterClass();
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
         var col = data[4]; // use data for the subj column
 
         if(s=='select'){
+        	classval=null;
         	return true;
         }
 
@@ -182,15 +187,19 @@ function filterClass() {
 	var s=$('#class').val();
 	console.log(s+" selected");
 	var reset = false;
-	$.fn.dataTable.ext.search.pop();
-	table.draw();
-	
+
+	if(subjval==null){
+		$.fn.dataTable.ext.search.pop();
+		table.draw();
+	}
+	filterSubj();
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
-        var col = ( data[2] ); // use data for the subj column
+        var col = data[2]; // use data for the subj column
 
         if(s=='select'){
+        	classval=null;
         	return true;
         }
 
