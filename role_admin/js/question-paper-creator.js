@@ -154,11 +154,11 @@ var subjval=1;
 var redirect=0;
 
 function filterSubj() {
-	if(redirect==0 && $('#class').val()!='select'){
-		redirect=1;
-		filterClass();
-		redirect=0;
-	}
+	// if(redirect==0 && $('#class').val()!='select'){
+	// 	redirect=1;
+	// 	filterClass();
+	// 	redirect=0;
+	// }
 	
 	var s=$('#subj').val();
 	var reset=false;
@@ -192,11 +192,11 @@ function filterSubj() {
 
 function filterClass() {
 
-	if(redirect==0 && $('#subj').val()!='select'){
-		redirect=1;
-		filterSubj();
-		redirect=0;
-	}
+	// if(redirect==0 && $('#subj').val()!='select'){
+	// 	redirect=1;
+	// 	filterSubj();
+	// 	redirect=0;
+	// }
 
 
 	var s=$('#class').val();
