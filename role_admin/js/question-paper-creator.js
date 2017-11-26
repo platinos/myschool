@@ -151,8 +151,15 @@ function submitAll(file) {
 var table=$('#allQuestions').DataTable();
 var classval=null;
 var subjval=null;
+var redirect=0;
 
 function filterSubj() {
+	if(redirect==0){
+		redirect=1;
+		filterClass();
+		redirect=0;
+	}
+	
 	var s=$('#subj').val();
 	var reset=false;
 	console.log(s+" selected");
@@ -160,7 +167,6 @@ function filterSubj() {
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
 	}
-	filterClass();
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
@@ -175,15 +181,23 @@ function filterSubj() {
         {
         	return true;
         }
+
         return false;
     });
-
 
 	table.draw();
 }
 
 
 function filterClass() {
+
+	if(redirect==0){
+		redirect=1;
+		filterSubj();
+		redirect=0;
+	}
+
+
 	var s=$('#class').val();
 	console.log(s+" selected");
 	var reset = false;
@@ -192,7 +206,6 @@ function filterClass() {
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
 	}
-	filterSubj();
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
