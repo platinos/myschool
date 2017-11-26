@@ -152,14 +152,15 @@ var table=$('#allQuestions').DataTable();
 
 function filterSubj() {
 	var s=$('#subj').val();
+	var reset=false;
 	console.log(s+" selected");
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
-	
+
         var col = ( data[4] ); // use data for the subj column
 
         if(s=='select'){
-        	return true;
+        	reset=true;
         }
 
         if (col == s)
@@ -168,6 +169,10 @@ function filterSubj() {
         }
         return false;
     });
+
+    if(reset==true){
+    	$.fn.dataTable.ext.search.pop();
+    }
 
 	table.draw();
 }
@@ -176,13 +181,14 @@ function filterSubj() {
 function filterClass() {
 	var s=$('#class').val();
 	console.log(s+" selected");
+	var reset=false;
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
-	
+
         var col = ( data[2] ); // use data for the subj column
 
         if(s=='select'){
-        	return true;
+        	reset=true;
         }
 
         if (col == s)
@@ -191,6 +197,11 @@ function filterClass() {
         }
         return false;
     });
+
+
+    if(reset==true){
+    	$.fn.dataTable.ext.search.pop();
+    }
 
 	table.draw();
 }
