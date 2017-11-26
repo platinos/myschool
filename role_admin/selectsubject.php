@@ -1,7 +1,7 @@
 <?php 
 $feedsubjects = apicall("viewsubject"); ?>
 
- <select class="form-control" name="subj" id="subj">
+ <select onchange="filterSubj();" class="form-control" name="subj" id="subj">
    <option value="select" selected>Select</option>
    <?php
 
