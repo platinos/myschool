@@ -3,6 +3,8 @@
 	function incart($qid){
 		if(isset($_SESSION['questionCart']))
 			return array_search($qid, $_SESSION['questionCart']);
+		else
+			return false;
 	
 	}
 // If the cart is empty.
