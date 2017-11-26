@@ -46,8 +46,6 @@ else
                     <div class="card">
                         <div class="header">
 
-                            <?php include 'selectsubject.php'; ?>
-
                             <?php
                             if(displayPaperButton()){
 

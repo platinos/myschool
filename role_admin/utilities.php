@@ -1,7 +1,8 @@
 <?php
 // If the given question id is present in the cart.
 	function incart($qid){
-		return array_search($qid, $_SESSION['questionCart']);
+		if(isset($_SESSION['questionCart']))
+			return array_search($qid, $_SESSION['questionCart']);
 	
 	}
 // If the cart is empty.
