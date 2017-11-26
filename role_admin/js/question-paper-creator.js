@@ -154,7 +154,7 @@ var subjval=0;
 var redirect=0;
 
 function filterSubj() {
-	if(redirect==0){
+	if(redirect==0 && $('#class').val()!=null){
 		redirect=1;
 		filterClass();
 		redirect=0;
@@ -192,7 +192,7 @@ function filterSubj() {
 
 function filterClass() {
 
-	if(redirect==0){
+	if(redirect==0 && $('#subj').val()!=null){
 		redirect=1;
 		filterSubj();
 		redirect=0;
