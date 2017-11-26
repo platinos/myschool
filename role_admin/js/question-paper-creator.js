@@ -147,7 +147,7 @@ function submitAll(file) {
 }
 
 function filterSubj() {
-	var s=this.value;
+	var s=document.getElementById("subj").value;
 	console.log(s+" selected");
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
@@ -159,8 +159,7 @@ function filterSubj() {
         	return true;
         }
         return false;
-    }
-    );
+    });
 
 	$('#allQuestions').DataTable().draw();
 }
