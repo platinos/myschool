@@ -152,7 +152,7 @@ function filterSubj() {
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 	
-        var col = parseInt( data[4] ); // use data for the age column
+        var col = ( data[4] ); // use data for the subj column
 
         if (( col == s ) )
         {
