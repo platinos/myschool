@@ -95,7 +95,7 @@ $response = array("error" => FALSE);
 	while($data = mysqli_fetch_assoc($result)){
 
 		
-		$response["data"][] = array("id" => $data["id"],"status" => $data["status"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
+		$response["data"][] = array("id" => $data["id"], "status" => $data["status"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
 
 
 	}
