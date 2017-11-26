@@ -3,6 +3,8 @@
 	function incart($qid){
 		if(isset($_SESSION['questionCart']))
 			return array_search($qid, $_SESSION['questionCart']);
+		else
+			return false;
 	
 	}
 // If the cart is empty.
@@ -96,7 +98,7 @@ $response = array("error" => FALSE);
 	while($data = mysqli_fetch_assoc($result)){
 
 		
-		$response["data"][] = array("id" => $data["id"],"status" => $data["status"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
+		$response["data"][] = array("id" => $data["id"], "status" => $data["status"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
 
 
 	}
