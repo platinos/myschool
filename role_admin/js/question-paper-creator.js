@@ -154,11 +154,7 @@ var subjval=null;
 var redirect=0;
 
 function filterSubj() {
-	if(redirect==0){
-		redirect=1;
-		filterClass();
-		redirect=0;
-	}
+	
 	
 	var s=$('#subj').val();
 	var reset=false;
@@ -166,6 +162,11 @@ function filterSubj() {
 	if(classval==null){
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
+	}
+	if(redirect==0){
+		redirect=1;
+		filterClass();
+		redirect=0;
 	}
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
@@ -191,11 +192,7 @@ function filterSubj() {
 
 function filterClass() {
 
-	if(redirect==0){
-		redirect=1;
-		filterSubj();
-		redirect=0;
-	}
+	
 
 
 	var s=$('#class').val();
@@ -205,6 +202,11 @@ function filterClass() {
 	if(subjval==null){
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
+	}
+	if(redirect==0){
+		redirect=1;
+		filterSubj();
+		redirect=0;
 	}
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
