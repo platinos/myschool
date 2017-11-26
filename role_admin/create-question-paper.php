@@ -46,8 +46,6 @@ else
                     <div class="card">
                         <div class="header">
 
-                            <?php include 'selectsubject.php'; ?>
-
                             <?php
                             if(displayPaperButton()){
 
@@ -176,6 +174,9 @@ else
 <!-- Bootstrap Core Js -->
 <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
+<!-- Select Plugin Js -->
+<script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
 <!-- Slimscroll Plugin Js -->
 <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
@@ -194,6 +195,8 @@ else
 <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
+<script src="js/pages/forms/basic-form-elements.js"></script>
 
 
 <!-- Custom Js -->
