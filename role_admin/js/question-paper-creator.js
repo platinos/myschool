@@ -202,6 +202,6 @@ function filterClass() {
     if(reset==true){
     	$.fn.dataTable.ext.search.pop();
     }
-
-	table.draw();
+    else
+		table.draw();
 }
