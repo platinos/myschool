@@ -75,7 +75,7 @@ else
                                 <thead>
                                     <tr>
                                         <th>Select</th>
-                                        <th>Id</th>
+                                        
                                         <th>Class</th>
                                         <th>Type</th>
                                         <th>Subject</th>
@@ -92,7 +92,7 @@ else
                                 <tfoot>
                                     <tr>
                                         <th>Select</th>
-                                        <th>Id</th>
+                                        
                                         <th>Class</th>
                                         <th>Type</th>
                                         <th>Subject</th>
@@ -132,7 +132,7 @@ else
                                                 <?php }
                                                 ?>
                                             </td>
-                                            <td><?php echo $feed['data'][$i]['id'] ?></td>
+                                            
                                             <td><?php echo $feed['data'][$i]['class'] ?></td>
                                             <td><?php echo $feed['data'][$i]['type'] ?></td>
                                             <td><?php echo $feed['data'][$i]['subject'] ?></td>
