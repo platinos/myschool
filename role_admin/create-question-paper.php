@@ -80,7 +80,7 @@ else
 
 </script>
 
-                                    <?php //include 'selectsubject.php'; ?>
+                                    <?php include 'selectsubject.php'; ?>
                                  </li>
                              </ul>
 
@@ -216,6 +216,8 @@ else
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
+
+
 <script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 
 
