@@ -46,6 +46,8 @@ else
                                 ?>
 
                                 <ul class="header-dropdown m-r--5">
+                                <li><?php include 'selectclass.html'; ?></li>
+                                 <li><?php include 'selectsubject.php'; ?></li>
                                     <li class="dropdown">
 
                                      <a href='display-paper.php'><button type="button" class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
@@ -54,11 +56,12 @@ else
 
                              <?php } else { ?>
                                  <ul class="header-dropdown m-r--5">
+                                <li><?php include 'selectclass.html'; ?></li>
+                                 <li><?php include 'selectsubject.php'; ?></li>
                                     <li class="dropdown">
                                     <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
                                  </li>
-                                 <li><?php include 'selectclass.html'; ?></li>
-                                 <li><?php include 'selectsubject.php'; ?></li>
+                                 
                              </ul>
 
                              <?php } ?>
