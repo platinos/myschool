@@ -154,6 +154,33 @@ function filterSubj() {
 	
         var col = ( data[4] ); // use data for the subj column
 
+        if(s=='select'){
+        	return true;
+        }
+
+        if (col == s)
+        {
+        	return true;
+        }
+        return false;
+    });
+
+	$('#allQuestions').DataTable().draw();
+}
+
+
+function filterClass() {
+	var s=$('#class').val();
+	console.log(s+" selected");
+	$.fn.dataTable.ext.search.push(
+		function( settings, data, dataIndex ) {
+	
+        var col = ( data[2] ); // use data for the subj column
+
+        if(s=='select'){
+        	return true;
+        }
+
         if (col == s)
         {
         	return true;

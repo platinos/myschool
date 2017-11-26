@@ -57,6 +57,7 @@ else
                                     <li class="dropdown">
                                     <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
                                  </li>
+                                 <li><?php include 'selectclass.php'; ?></li>
                                  <li><?php include 'selectsubject.php'; ?></li>
                              </ul>
 
