@@ -58,9 +58,29 @@ else
 
                                      <a href='display-paper.php'><button type="button" style='display: none;' class="btn btn-primary waves-effect" id="create_paper"> Create Paper</button></a>
 
-                                     <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
+                                    <!--  <button onclick="filteredData();" type="button" class="btn btn-primary waves-effect" id="create_paper">All class 9</button>
 
-                                    <?php include 'selectsubject.php'; ?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        function filteredData () {
+        //All Questions table
+        var table = $('#allQuestions').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+            'copy', 'csv', 'excel'
+            ],
+            order: [[ 2, "asc" ]]
+        });
+    }
+    /* Add event listeners to the two range filtering inputs */
+    $('#min, #max').keyup( function() {
+        table.draw();
+    } );
+} );
+
+</script> -->
+
+                                    <?php //include 'selectsubject.php'; ?>
                                  </li>
                              </ul>
 
@@ -199,7 +219,6 @@ else
 
 
 
-</script>
 
 
 </body>
