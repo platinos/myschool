@@ -148,8 +148,11 @@
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
 
-<!-- Demo Js -->
-<script src="js/demo.js"></script>
+<script>
+    
+
+
+</script>
 
 </body>
 
