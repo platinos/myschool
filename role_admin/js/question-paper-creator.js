@@ -149,21 +149,26 @@ function submitAll(file) {
 
 
 var table=$('#allQuestions').DataTable();
-var classval=1;
-var subjval=1;
-var redirect=0;
+var classval;
+var subjval;
 
 function filterSubj() {
   var s=$('#subj').val();
   var reset=false;
   console.log(s+" selected");
+  if(classval==null){
+    $.fn.dataTable.ext.search.pop();
+    table.draw();
+  }
+  filterClass();
   $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
  
-        var col = ( data[4] ); // use data for the subj column
+        var col = data[4]; // use data for the subj column
  
         if(s=='select'){
-          reset=true;
+          classval=null;
+          return true;
         }
  
         if (col == s)
@@ -173,9 +178,6 @@ function filterSubj() {
         return false;
     });
  
-    if(reset==true){
-      $.fn.dataTable.ext.search.pop();
-    }
  
   table.draw();
 }
@@ -184,14 +186,21 @@ function filterSubj() {
 function filterClass() {
   var s=$('#class').val();
   console.log(s+" selected");
-  var reset=false;
+  var reset = false;
+ 
+  if(subjval==null){
+    $.fn.dataTable.ext.search.pop();
+    table.draw();
+  }
+  filterSubj();
   $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
  
-        var col = ( data[2] ); // use data for the subj column
+        var col = data[2]; // use data for the subj column
  
         if(s=='select'){
-          reset=true;
+          classval=null;
+          return true;
         }
  
         if (col == s)
@@ -200,11 +209,6 @@ function filterClass() {
         }
         return false;
     });
- 
- 
-    if(reset==true){
-      $.fn.dataTable.ext.search.pop();
-    }
  
   table.draw();
 }
