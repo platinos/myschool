@@ -51,108 +51,131 @@
                                 ALL USERS LIST
                             </h2>
                             
-                    </div>
-                    <div class="body">
-                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Status</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Picture</th>
-                                    <th>Actions</th>
-                                    
-
-
-                                    
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                   <th>Id</th>
-                                    <th>Status</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Picture</th>
-                                    <th>Actions</th>
-
-
-                               </tr>
-                           </tfoot>
-                           <tbody>
-                            <?php
-
-                             
-                            for($i=0; $i<count($feed['data']); $i++)
-                                {?>
+                        </div>
+                        <div class="body">
+                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $feed['data'][$i]['id'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['status'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['name'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['email'] ?></td>
-                                        <td><img width='100' src='<?php echo $feed['data'][$i]['picture'] ?>'/></td>
-                                        <td><select name="user_action" onchange="userAction()">
-                                            <option value="">Choose an Action</option>
-                                            <option value="assignCreator">Assign as Paper Creator</option>
-                                            <option value="assignEditor">Assign as Editor</option>
-                                            <option value="assignAdmin">Assign as Admin</option>
-                                            <option value="assignDelete">Delete User</option>
-                                            option
-                                        </select></td>
-                                        
-                                        
+                                        <th>Id</th>
+                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Picture</th>
+                                        <th>Actions</th>
+
+
+
 
                                     </tr>
-                                    <?php  }
-                                    ?>
-                                </tbody>
-                            </table>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                       <th>Id</th>
+                                       <th>Status</th>
+                                       <th>Name</th>
+                                       <th>Email</th>
+                                       <th>Picture</th>
+                                       <th>Actions</th>
+
+
+                                   </tr>
+                               </tfoot>
+                               <tbody>
+                                <?php
+
+
+                                for($i=0; $i<count($feed['data']); $i++)
+                                    {?>
+                                        <tr>
+                                            <td><?php echo $feed['data'][$i]['id'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['status'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['name'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['email'] ?></td>
+                                            <td><img width='100' src='<?php echo $feed['data'][$i]['picture'] ?>'/></td>
+                                            <td><select id='user_action' name="user_action" onchange="userAction(<?php echo $feed['data'][$i]['id'] ?>)">
+                                                <option value="">Choose an Action</option>
+                                                <option value="assignCreator">Assign as Paper Creator</option>
+                                                <option value="assignEditor">Assign as Editor</option>
+                                                <option value="assignAdmin">Assign as Admin</option>
+                                                <option value="assignDelete">Delete User</option>
+                                                option
+                                            </select></td>
+
+
+
+                                        </tr>
+                                        <?php  }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- #END# Exportable Table -->
             </div>
-            <!-- #END# Exportable Table -->
-        </div>
-    </section>
-    <?php
-}
-?>
+        </section>
+        <?php
+    }
+    ?>
 
-<!-- Jquery Core Js -->
-<script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
 
-<!-- Bootstrap Core Js -->
-<script src="plugins/bootstrap/js/bootstrap.js"></script>
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
 
-<!-- Slimscroll Plugin Js -->
-<script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
-<!-- Waves Effect Plugin Js -->
-<script src="plugins/node-waves/waves.js"></script>
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
 
-<!-- Jquery DataTable Plugin Js -->
-<script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
-<script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-<script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-<script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-<script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-<script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-<script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-<script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-<script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
 
 <!-- Custom Js -->
-
 <script src="js/admin.js"></script>
-<script src="js/pages/tables/jquery-datatable.js"></script>
 
-<script>
-    
+<script src="js/notifications.js"></script>
+    <script src="js/pages/tables/jquery-datatable.js"></script>
 
+    <script>
 
-</script>
+        function onchange(id){
+var ans=confirm('Do you really want to do this action?');
+                    if(ans===true){
+                    
+
+            $.ajax({
+                url: 'functions.php',
+                type: 'POST',
+                data: {id: id, funcLocal: $('#user_action').val()},
+                
+            })
+            .done(function(data){
+                data=JSON.parse(data);
+                showNotification("bg-green", data.msg, "bottom", "right", "animated bounceInRight", "animated bounceOutRight");   
+            })
+            .fail(function() {
+        
+        showNotification("alert-warning", 'An error occured while trying to modify User. Please try after some time.', "bottom", "right", "animated bounceInRight", "animated bounceOutRight");    
+        
+    })
+        }
+        }
+    </script>
 
 </body>
 

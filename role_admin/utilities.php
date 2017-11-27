@@ -95,7 +95,7 @@ switch ($func) {
 	case 'viewusers':
 		$data =  viewUsers($conn);
 		break;
-	case 'assigncreator':
+	case 'assignCreator':
 		$data =  assignCreator($conn, $id);
 		break;
 	
