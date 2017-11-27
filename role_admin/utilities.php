@@ -91,7 +91,29 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$response = array("error" => FALSE);
+switch ($func) {
+	case 'viewusers':
+		$data =  viewUsers($conn);
+		break;
+	case 'viewusers':
+		$data =  viewUsers($conn);
+		break;
+	
+	default:
+		$data = array("error" => TRUE, "error_msg" => "Wrong function Name");
+		break;
+
+
+}
+return $data;
+
+
+
+}
+
+function viewUsers($conn){
+
+	$response = array("error" => FALSE);
 	$sql = "SELECT * FROM users";
 	$result = mysqli_query($conn, $sql);
 	$response["data"]  = array();
@@ -105,8 +127,6 @@ $response = array("error" => FALSE);
 	
 
 	return json_encode($response);
-
 }
-
 
 ?>
