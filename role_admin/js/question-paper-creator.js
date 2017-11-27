@@ -154,79 +154,57 @@ var subjval=1;
 var redirect=0;
 
 function filterSubj() {
-	// if(redirect==0 && $('#class').val()!='select'){
-	// 	redirect=1;
-	// 	filterClass();
-	// 	redirect=0;
-	// }
-	
-	var s=$('#subj').val();
-	var reset=false;
-	console.log(s+" selected");
-	
-	if(classval==0){
-		$.fn.dataTable.ext.search.pop();
-		table.draw();
-	}
-
-	$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-
-        var col = data[4]; // use data for the subj column
-
+  var s=$('#subj').val();
+  var reset=false;
+  console.log(s+" selected");
+  $.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+ 
+        var col = ( data[4] ); // use data for the subj column
+ 
         if(s=='select'){
-        	subjval=0;
-        	return true;
+          reset=true;
         }
-
+ 
         if (col == s)
         {
-        	subjval=1;
-        	return true;
+          return true;
         }
-
         return false;
     });
-
-	table.draw();
+ 
+    if(reset==true){
+      $.fn.dataTable.ext.search.pop();
+    }
+ 
+  table.draw();
 }
 
 
 function filterClass() {
-
-	// if(redirect==0 && $('#subj').val()!='select'){
-	// 	redirect=1;
-	// 	filterSubj();
-	// 	redirect=0;
-	// }
-
-
-	var s=$('#class').val();
-	console.log(s+" selected");
-	var reset = false;
-
-	if(subjval==0){
-		$.fn.dataTable.ext.search.pop();
-		table.draw();
-	}
-	
-	$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-
-        var col = data[2]; // use data for the subj column
-
+  var s=$('#class').val();
+  console.log(s+" selected");
+  var reset=false;
+  $.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+ 
+        var col = ( data[2] ); // use data for the subj column
+ 
         if(s=='select'){
-        	classval=0;
-        	return true;
+          reset=true;
         }
-
+ 
         if (col == s)
         {
-        	classval=1;
-        	return true;
+          return true;
         }
         return false;
     });
-
-	table.draw();
+ 
+ 
+    if(reset==true){
+      $.fn.dataTable.ext.search.pop();
+    }
+ 
+  table.draw();
 }
