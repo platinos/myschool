@@ -77,7 +77,7 @@ if(isset($_GET['addQuestionsFromCsv'])){
 }
 
 //local api to view users
-function localapicall($func){
+function localapicall($func, $id){
 
 $servername = "localhost";
 $username = "platirvw_google";
@@ -96,7 +96,7 @@ switch ($func) {
 		$data =  viewUsers($conn);
 		break;
 	case 'assigncreator':
-		$data =  assignCreator($conn);
+		$data =  assignCreator($conn, $id);
 		break;
 	
 	default:
@@ -133,14 +133,8 @@ function assignCreator($conn, $userId){
 	$response = array("error" => FALSE);
 	$sql = "UPDATE users SET `status` = 'Creator' WHERE `id` = $userId";
 	$result = mysqli_query($conn, $sql);
-	$response["data"]  = array();
-	while($data = mysqli_fetch_assoc($result)){
-
-		
-		$response["data"][] = array("id" => $data["id"], "status" => $data["status"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
-
-
-	}
+	$response["msg"]  = "Role assigned as Question Paper Creator.";
+	
 	
 
 	return json_encode($response);
