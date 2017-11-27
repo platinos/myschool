@@ -163,10 +163,12 @@ function filterSubj() {
 	var s=$('#subj').val();
 	var reset=false;
 	console.log(s+" selected");
+	
 	if(classval==0){
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
 	}
+
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
@@ -207,6 +209,7 @@ function filterClass() {
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
 	}
+	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
