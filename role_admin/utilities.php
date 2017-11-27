@@ -95,8 +95,8 @@ switch ($func) {
 	case 'viewusers':
 		$data =  viewUsers($conn);
 		break;
-	case 'viewusers':
-		$data =  viewUsers($conn);
+	case 'assigncreator':
+		$data =  assignCreator($conn);
 		break;
 	
 	default:
@@ -115,6 +115,23 @@ function viewUsers($conn){
 
 	$response = array("error" => FALSE);
 	$sql = "SELECT * FROM users";
+	$result = mysqli_query($conn, $sql);
+	$response["data"]  = array();
+	while($data = mysqli_fetch_assoc($result)){
+
+		
+		$response["data"][] = array("id" => $data["id"], "status" => $data["status"], "name" => $data["first_name"].' '.$data["last_name"], "email" => $data["email"], "picture" => $data["picture"]);
+
+
+	}
+	
+
+	return json_encode($response);
+}
+function assignCreator($conn, $userId){
+
+	$response = array("error" => FALSE);
+	$sql = "UPDATE users SET `status` = 'Creator' WHERE `id` = $userId";
 	$result = mysqli_query($conn, $sql);
 	$response["data"]  = array();
 	while($data = mysqli_fetch_assoc($result)){

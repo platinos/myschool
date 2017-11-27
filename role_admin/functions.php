@@ -42,7 +42,11 @@ else{
 
 
 }
+else if (isset($_POST['funcLocal']) && !empty($_POST['funcLocal'])) {
+	include 'utilities.php';
+	echo localapicall($funcLocal);
 
+}
 
 function getparams()
 {
