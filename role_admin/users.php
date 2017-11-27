@@ -153,7 +153,7 @@
 
     <script>
 
-        function onchange(id){
+        function userAction(id){
 var ans=confirm('Do you really want to do this action?');
                     if(ans===true){
                     
