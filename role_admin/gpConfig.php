@@ -8,8 +8,8 @@ include_once 'src/contrib/Google_Oauth2Service.php';
 /*
  * Configuration and setup Google API
  */
-$clientId = '952627492933-bksru6n1gudlme8bkph9qe38gs47r328.apps.googleusercontent.com'; //Google client ID
-$clientSecret = 'Wkv6OXlFnrVokklB0O150lAT'; //Google client secret
+$clientId = '228513160561-vdla7qufebqkbktk7ve165vrp4ftvvk6.apps.googleusercontent.com'; //Google client ID
+$clientSecret = 'XmZnPbx1chU_TfpjBW6gBkFs'; //Google client secret
 $redirectURL = 'http://msmypaper.com/role_admin/google.php'; //Callback URL
 
 //Call Google API
