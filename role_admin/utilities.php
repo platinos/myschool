@@ -80,9 +80,9 @@ if(isset($_GET['addQuestionsFromCsv'])){
 function localapicall($func, $id){
 
 $servername = "localhost";
-$username = "platirvw_google";
+$username = "mypaper_google";
 $password = "P@$$9333172315";
-$dbname = "platirvw_google";
+$dbname = "msmypaper_google";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
