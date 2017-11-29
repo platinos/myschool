@@ -1,9 +1,9 @@
 <?php
 class User {
 	private $dbHost     = "localhost";
-    private $dbUsername = "platirvw_google";
+    private $dbUsername = "msmypaper_google";
     private $dbPassword = "P@$$9333172315";
-    private $dbName     = "platirvw_google";
+    private $dbName     = "mypaper_google";
     private $userTbl    = 'users';
 	
 	function __construct(){
