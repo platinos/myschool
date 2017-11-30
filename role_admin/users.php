@@ -92,7 +92,7 @@
                                             <td><?php echo $feed['data'][$i]['name'] ?></td>
                                             <td><?php echo $feed['data'][$i]['email'] ?></td>
                                             <td><img width='100' src='<?php echo $feed['data'][$i]['picture'] ?>'/></td>
-                                            <td><select id='user_action' name="user_action" onchange="userAction(<?php echo $feed['data'][$i]['id'] ?>)">
+                                            <td><select id='user_action<?php echo $feed['data'][$i]['id'] ?>' name="user_action" onchange="userAction(<?php echo $feed['data'][$i]['id'] ?>)">
                                                 <option value="">Choose an Action</option>
                                                 <option value="assignCreator">Assign as Paper Creator</option>
                                                 <option value="assignEditor">Assign as Editor</option>
@@ -161,7 +161,7 @@ var ans=confirm('Do you really want to do this action?');
             $.ajax({
                 url: 'functions.php',
                 type: 'POST',
-                data: {id: id, funcLocal: $('#user_action').val()},
+                data: {id: id, funcLocal: $('#user_action'+id).val()},
                 
             })
             .done(function(data){
