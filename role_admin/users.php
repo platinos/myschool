@@ -167,7 +167,7 @@ var ans=confirm('Do you really want to do this action?');
             .done(function(data){
                 data=JSON.parse(data);
 
-                $('#status'+id).innerHTML=data.status;
+                $('#status'+id).html(data.status);
                 showNotification("bg-green", data.msg, "bottom", "right", "animated bounceInRight", "animated bounceOutRight");   
             })
             .fail(function() {
