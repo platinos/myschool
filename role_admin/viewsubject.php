@@ -92,7 +92,7 @@
                             for($i=0; $i<$size; $i++)
                                 {?>
                                     <tr>
-                                        <td><?php echo $i ?></td>
+                                        <td><?php echo $i+1 ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['chapter_count'] ?></td>
                                         <td><?php echo $feed['data'][$i]['question_count'] ?></td>
