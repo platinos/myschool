@@ -172,6 +172,7 @@ function filterSubj() {
  
         if (col == s)
         {
+        	subjval=1;
           return true;
         }
         return false;
@@ -203,6 +204,7 @@ function filterClass() {
  
         if (col == s)
         {
+        	classval=1;
           return true;
         }
         return false;
