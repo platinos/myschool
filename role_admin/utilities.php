@@ -98,7 +98,12 @@ switch ($func) {
 	case 'assignCreator':
 		$data =  assignCreator($conn, $id);
 		break;
-	
+	case 'assignAdmin':
+		$data =  assignAdmin($conn, $id);
+		break;
+	case 'assignEditor':
+		$data =  assignEditor($conn, $id);
+		break;
 	default:
 		$data = array("error" => TRUE, "error_msg" => "Wrong function Name");
 		break;
@@ -139,5 +144,27 @@ function assignCreator($conn, $userId){
 
 	return json_encode($response);
 }
+function assignAdmin($conn, $userId){
 
+	$response = array("error" => FALSE);
+	$sql = "UPDATE users SET `status` = 'Admin' WHERE `id` = $userId";
+	$result = mysqli_query($conn, $sql);
+	$response["msg"]  = "Role assigned as Question Paper Creator.";
+	
+	
+
+	return json_encode($response);
+}
+
+function assignEditor($conn, $userId){
+
+	$response = array("error" => FALSE);
+	$sql = "UPDATE users SET `status` = 'EDitor' WHERE `id` = $userId";
+	$result = mysqli_query($conn, $sql);
+	$response["msg"]  = "Role assigned as Question Paper Creator.";
+	
+	
+
+	return json_encode($response);
+}
 ?>
