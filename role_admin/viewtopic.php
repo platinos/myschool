@@ -65,7 +65,6 @@
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Name</th>
                                     <th>Chapter</th>                                    
                                     <th>Actions</th>
@@ -77,7 +76,6 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                 <th>Id</th>
                                  <th>Name</th>
                                  <th>Chapter </th>                                       
                                  <th>Actions</th>
@@ -92,8 +90,7 @@
                             for($i=0; $i<$size; $i++)
                                 {?>
                                     <tr>
-                                        <td><?php echo $feed['data'][$i]['id'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['name'] ?></td>
+                                        <td><?php $i ?></td>
                                         <td><?php echo $feed['data'][$i]['chapter'] ?></td>
                                         <td><a href="edittopic.php?topic_id=<?php echo $feed['data'][$i]['id'] ?>"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
                                             <a onclick="window.open('functions.php?func=deletetopic&topicid=<?php echo $feed['data'][$i]['id'] ?>','_BLANK');setTimeout(location.reload.bind(location), 2000);"><i class="material-icons" style="color: red">delete</i></a>
