@@ -165,6 +165,7 @@ var ans=confirm('Do you really want to do this action?');
                 
             })
             .done(function(data){
+                alert(data);
                 data=JSON.parse(data);
                 showNotification("bg-green", data.msg, "bottom", "right", "animated bounceInRight", "animated bounceOutRight");   
             })
