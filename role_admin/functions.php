@@ -43,8 +43,10 @@ else{
 
 }
 else if (isset($_POST['funcLocal']) && !empty($_POST['funcLocal'])) {
+	$funcLocal = $_POST['funcLocal'];
+	$id = $_POST['id'];
 	include 'utilities.php';
-	echo localapicall($funcLocal);
+	echo localapicall($funcLocal, $id);
 
 }
 
