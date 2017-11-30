@@ -149,7 +149,7 @@ function assignAdmin($conn, $userId){
 	$response = array("error" => FALSE);
 	$sql = "UPDATE users SET `status` = 'Admin' WHERE `id` = $userId";
 	$result = mysqli_query($conn, $sql);
-	$response["msg"]  = "Role assigned as Question Paper Creator.";
+	$response["msg"]  = "Role assigned as Question Paper Admin.";
 	
 	
 
@@ -161,7 +161,7 @@ function assignEditor($conn, $userId){
 	$response = array("error" => FALSE);
 	$sql = "UPDATE users SET `status` = 'EDitor' WHERE `id` = $userId";
 	$result = mysqli_query($conn, $sql);
-	$response["msg"]  = "Role assigned as Question Paper Creator.";
+	$response["msg"]  = "Role assigned as Question Paper Editor.";
 	
 	
 
