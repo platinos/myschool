@@ -97,7 +97,7 @@
                                                 <option value="assignCreator">Assign as Paper Creator</option>
                                                 <option value="assignEditor">Assign as Editor</option>
                                                 <option value="assignAdmin">Assign as Admin</option>
-                                                <option value="assignDelete">Delete User</option>
+                                                <option value="deleteUser">Delete User</option>
                                                 option
                                             </select></td>
 

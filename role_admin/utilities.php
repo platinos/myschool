@@ -104,6 +104,9 @@ switch ($func) {
 	case 'assignEditor':
 		$data =  assignEditor($conn, $id);
 		break;
+	case 'deleteUser':
+		$data =  deleteUser($conn, $id);
+		break;
 	default:
 		$data = array("error" => TRUE, "error_msg" => "Wrong function Name");
 		break;
@@ -162,6 +165,18 @@ function assignEditor($conn, $userId){
 	$sql = "UPDATE users SET `status` = 'Editor' WHERE `id` = $userId";
 	$result = mysqli_query($conn, $sql);
 	$response["msg"]  = "Role assigned as Question Paper Editor.";
+	
+	
+
+	return json_encode($response);
+}
+
+function deleteUser($conn, $userId){
+
+	$response = array("error" => FALSE);
+	$sql = "DELETE FROM users WHERE `id` = $userId";
+	$result = mysqli_query($conn, $sql);
+	$response["msg"]  = "User Remove.";
 	
 	
 
