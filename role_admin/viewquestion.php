@@ -103,7 +103,7 @@ else
                                     {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
                                                
-                                        <td><?php echo $feed['data'][$i]['id'] ?></td>
+                                        <td><?php echo ($i+1) ?></td>
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
                                         <td><?php echo $feed['data'][$i]['type'] ?></td>
                                         <td><?php echo $feed['data'][$i]['subject'] ?></td>

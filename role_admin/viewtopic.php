@@ -92,7 +92,7 @@
                             for($i=0; $i<$size; $i++)
                                 {?>
                                     <tr>
-                                        <td><?php echo $feed['data'][$i]['id'] ?></td>
+                                        <td><?php echo ($i+1) ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['chapter'] ?></td>
                                         <td><a href="edittopic.php?topic_id=<?php echo $feed['data'][$i]['id'] ?>"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;

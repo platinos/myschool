@@ -160,7 +160,6 @@ function filterSubj() {
     $.fn.dataTable.ext.search.pop();
     table.draw();
   }
-  filterClass();
   $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
  
@@ -173,6 +172,7 @@ function filterSubj() {
  
         if (col == s)
         {
+        	subjval=1;
           return true;
         }
         return false;
@@ -192,7 +192,6 @@ function filterClass() {
     $.fn.dataTable.ext.search.pop();
     table.draw();
   }
-  filterSubj();
   $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
  
@@ -205,6 +204,7 @@ function filterClass() {
  
         if (col == s)
         {
+        	classval=1;
           return true;
         }
         return false;

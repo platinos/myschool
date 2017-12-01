@@ -142,7 +142,7 @@ function assignCreator($conn, $userId){
 	$sql = "UPDATE users SET `status` = 'Creator' WHERE `id` = $userId";
 	$result = mysqli_query($conn, $sql);
 	$response["msg"]  = "Role assigned as Question Paper Creator.";
-	
+	$response["status"]="Creator";
 	
 
 	return json_encode($response);
@@ -153,7 +153,7 @@ function assignAdmin($conn, $userId){
 	$sql = "UPDATE users SET `status` = 'Admin' WHERE `id` = $userId";
 	$result = mysqli_query($conn, $sql);
 	$response["msg"]  = "Role assigned as Question Paper Admin.";
-	
+	$response["status"]="Admin";
 	
 
 	return json_encode($response);
@@ -165,7 +165,7 @@ function assignEditor($conn, $userId){
 	$sql = "UPDATE users SET `status` = 'Editor' WHERE `id` = $userId";
 	$result = mysqli_query($conn, $sql);
 	$response["msg"]  = "Role assigned as Question Paper Editor.";
-	
+	$response["status"]="Editor";
 	
 
 	return json_encode($response);

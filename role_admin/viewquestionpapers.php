@@ -55,7 +55,6 @@
                         <table class="table table-bordered table-striped table-hover dataTable" id="questionPaperTable">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Name</th>
                                     <th>Class</th>
                                     <th>Subject</th>
@@ -71,7 +70,6 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                   <th>Id</th>
                                     <th>Name</th>
                                     <th>Class</th>
                                     <th>Subject</th>
@@ -90,7 +88,6 @@
                                 {?>
                                     <tr>
                                         <?php $id=$feed['data'][$i]['id'] ?>
-                                        <td><?php echo $id ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
                                         <td><?php echo $subject=$feed['data'][$i]['subject'] ?></td>
