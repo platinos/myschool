@@ -153,62 +153,58 @@ var classval;
 var subjval;
 
 function filterSubj() {
-  var s=$('#subj').val();
-  var reset=false;
-  console.log(s+" selected");
-  if(classval==null){
-    $.fn.dataTable.ext.search.pop();
-    table.draw();
-  }
-  $.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
- 
+	var s=$('#subj').val();
+	var reset=false;
+	console.log(s+" selected");
+	$.fn.dataTable.ext.search.pop();
+	table.draw();
+	$.fn.dataTable.ext.search.push(
+		function( settings, data, dataIndex ) {
+			
         var col = data[4]; // use data for the subj column
- 
+        
         if(s=='select'){
-          classval=null;
-          return true;
+        	classval=null;
+        	return true;
         }
- 
+        
         if (col == s)
         {
         	subjval=1;
-          return true;
+        	return true;
         }
         return false;
     });
- 
- 
-  table.draw();
+	
+	
+	table.draw();
 }
 
 
 function filterClass() {
-  var s=$('#class').val();
-  console.log(s+" selected");
-  var reset = false;
- 
-  if(subjval==null){
-    $.fn.dataTable.ext.search.pop();
-    table.draw();
-  }
-  $.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
- 
+	var s=$('#class').val();
+	console.log(s+" selected");
+	var reset = false;
+	
+	$.fn.dataTable.ext.search.pop();
+	table.draw();
+	$.fn.dataTable.ext.search.push(
+		function( settings, data, dataIndex ) {
+			
         var col = data[2]; // use data for the subj column
- 
+        
         if(s=='select'){
-          classval=null;
-          return true;
+        	classval=null;
+        	return true;
         }
- 
+        
         if (col == s)
         {
         	classval=1;
-          return true;
+        	return true;
         }
         return false;
     });
- 
-  table.draw();
+	
+	table.draw();
 }
