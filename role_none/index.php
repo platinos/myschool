@@ -23,7 +23,7 @@
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="info-box-3 bg-pink hover-zoom-effect" >
+				<div class="info-box-3 bg-info hover-zoom-effect" >
 					<div class="icon" >
 						<a href="#"><i class="material-icons">face</i></a>
 					</div>
