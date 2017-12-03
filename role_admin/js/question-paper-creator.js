@@ -156,35 +156,37 @@ function filterSubj() {
 	var s=$('#subj').val();
 	console.log(s+" selected");
 
- 	if(issubjset){
- 		$.fn.dataTable.ext.search.pop();
+ 	
+	if(issubjset){
+		$.fn.dataTable.ext.search.pop();
 		table.draw();
- 	}
-
+	}
+	
 	$.fn.dataTable.ext.search.push(
- 	function( settings, data, dataIndex ) {
- 		var subjval = data[3];
+		function( settings, data, dataIndex ) {
 
- 		if(s=='select'){
- 			issubjset=false;
- 			return true;
- 		}
- 		else if (subjval == s ) 
- 		{
- 			issubjset=true;
- 			return true;
- 		}
- 		return false;
- 	});
+        var col = data[3]; // use data for the subj column
 
+        if(s=='select'){
+        	issubjset=false;
+        	return true;
+        }
 
- table.draw();
+        if (col == s)
+        {
+        	issubjset=true;
+        	return true;
+        }
+        return false;
+    });
+
+	table.draw();
 }
 
 function filterClass() {
 	var s=$('#class').val();
 	console.log(s+" selected");
-	var reset = false;
+
 	if(isclassset){
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
