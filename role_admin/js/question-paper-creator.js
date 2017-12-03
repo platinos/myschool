@@ -171,10 +171,12 @@ function filterSubj() {
         	issubjset=false;
         	return true;
         }
+        else{
+        	issubjset=true;
+        }
 
         if (col == s)
         {
-        	issubjset=true;
         	return true;
         }
         return false;
@@ -201,10 +203,12 @@ function filterClass() {
         	isclassset=false;
         	return true;
         }
+        else{
+        	isclassset=true;
+        }
 
         if (col == s)
         {
-        	isclassset=true;
         	return true;
         }
         return false;
