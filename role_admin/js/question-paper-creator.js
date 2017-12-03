@@ -154,7 +154,7 @@ var issubjset=false;
 
 function filterSubj() {
 	var s=$('#subj').val();
-	console.log(s+" selected");
+	console.log(s+" selected "+issubjset);
 
  	
 	if(issubjset){
@@ -185,7 +185,7 @@ function filterSubj() {
 
 function filterClass() {
 	var s=$('#class').val();
-	console.log(s+" selected");
+	console.log(s+" selected "+isclassset);
 
 	if(isclassset){
 		$.fn.dataTable.ext.search.pop();
