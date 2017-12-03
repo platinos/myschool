@@ -150,44 +150,45 @@ function submitAll(file) {
 
 var table=$('#allQuestions').DataTable();
 var isclassset=false;
+var issubjset=false;
+
 function filterSubj() {
 	var s=$('#subj').val();
-	console.log(s+" selected");
+	console.log(s+" selected subj set: "+issubjset);
 
- 	if(isclassset){
- 		$.fn.dataTable.ext.search.pop();
+ 	
+		$.fn.dataTable.ext.search.pop();
 		table.draw();
- 	}
-
+	
 	$.fn.dataTable.ext.search.push(
- 	function( settings, data, dataIndex ) {
- 		var subjval = data[3];
+		function( settings, data, dataIndex ) {
 
- 		if(s=='select'){
- 			isclassset=false;
- 			return true;
- 		}
- 		else if (subjval == s ) 
- 		{
- 			isclassset=true;
- 			return true;
- 		}
- 		return false;
- 	});
+        var col = data[3]; // use data for the subj column
 
+        if(s=='select'){
+        	issubjset=false;
+        	return true;
+        }
+        else{
+        	issubjset=true;
+        }
 
- table.draw();
+        if (col == s)
+        {
+        	return true;
+        }
+        return false;
+    });
+
+	table.draw();
 }
-
 
 function filterClass() {
 	var s=$('#class').val();
-	console.log(s+" selected");
-	var reset = false;
-	if(issubjset){
+	console.log(s+" selected class set: "+isclassset);
+
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
-	}
 	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
@@ -198,10 +199,12 @@ function filterClass() {
         	isclassset=false;
         	return true;
         }
+        else{
+        	isclassset=true;
+        }
 
         if (col == s)
         {
-        	isclassset=true;
         	return true;
         }
         return false;
