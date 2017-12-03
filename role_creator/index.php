@@ -17,19 +17,7 @@
 
 	<?php
 
-
-	$ch = curl_init();
-
-	curl_setopt($ch, CURLOPT_URL,$api_url);
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_POSTFIELDS,
-		"func=countdata");
-
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-	$output1 = curl_exec ($ch);
-
-	$feed = json_decode($output1, true);
+	$feed = apicall('countdata');
 	if($feed['error']==true)
 	{
 		?>
@@ -137,15 +125,10 @@
 				</div>
 			</div>
 
-
-		</div>
-
-
-
 	</section>
 
 	<?php }?>
-
+<!-- 
 	<section class="content">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
@@ -216,7 +199,7 @@
 					</div>
 				</div>
 			</section>
-
+ -->
 		</div>
 
 
