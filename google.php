@@ -29,8 +29,7 @@ if ($gClient->getAccessToken()) {
         'gender'        => $gpUserProfile['gender'],
         'locale'        => $gpUserProfile['locale'],
         'picture'       => $gpUserProfile['picture'],
-        'link'          => $gpUserProfile['link'],
-        'status'        => 'none'
+        'link'          => $gpUserProfile['link']
     );
     $userData = $user->checkUser($gpUserData);
     
@@ -52,6 +51,9 @@ if ($gClient->getAccessToken()) {
         $output .= '<br/><a href="'.$userData['link'].'" target="_blank">Click to Visit Google+ Page</a>';
         $output .= '<br/>Logout from <a href="logout.php">Google</a>'; 
         //Redirect according to status 
+        if(!isset($userData['status']))
+            $userData['status'] = 'none';
+
         $statusStr = strtolower($userData['status']);
         header('location:role_'.$statusStr.'/index.php');
 
