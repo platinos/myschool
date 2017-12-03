@@ -150,11 +150,12 @@ function submitAll(file) {
 
 var table=$('#allQuestions').DataTable();
 var isclassset=false;
+var issubjset=false;
 function filterSubj() {
 	var s=$('#subj').val();
 	console.log(s+" selected");
 
- 	if(isclassset){
+ 	if(issubjset){
  		$.fn.dataTable.ext.search.pop();
 		table.draw();
  	}
@@ -164,12 +165,12 @@ function filterSubj() {
  		var subjval = data[3];
 
  		if(s=='select'){
- 			isclassset=false;
+ 			issubjset=false;
  			return true;
  		}
  		else if (subjval == s ) 
  		{
- 			isclassset=true;
+ 			issubjset=true;
  			return true;
  		}
  		return false;
@@ -184,7 +185,7 @@ function filterClass() {
 	var s=$('#class').val();
 	console.log(s+" selected");
 	var reset = false;
-	if(issubjset){
+	if(isclassset){
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
 	}
