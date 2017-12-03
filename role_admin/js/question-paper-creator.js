@@ -153,28 +153,27 @@ var isclassset=false;
 var issubjset=false;
 
 function filterSubj() {
-	var s=$('#subj').val();
-	console.log(s+" selected subj set: "+issubjset);
+	var subj=$('#subj').val();
+	var c=$('#class').val();
 
- 	
-		$.fn.dataTable.ext.search.pop();
-		table.draw();
+	$.fn.dataTable.ext.search.pop();
+	table.draw();
+	
 	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
-        var col = data[3]; // use data for the subj column
+        var subjcol = data[3]; // use data for the subj column
+        var classcol=data[1]; // use data for the class column
 
-        if(s=='select'){
-        	issubjset=false;
+        if(subj=='select' && c=='select'){
         	return true;
         }
-        else{
-        	issubjset=true;
-        }
 
-        if (col == s)
-        {
+        var nosubjpresent=subj=='select';
+        var noclasspresent=c=='select';
+
+        if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) ){
         	return true;
         }
         return false;
@@ -187,8 +186,11 @@ function filterClass() {
 	var s=$('#class').val();
 	console.log(s+" selected class set: "+isclassset);
 
+
+	if($('#subj').val()=='select'){
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
+	}
 	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
