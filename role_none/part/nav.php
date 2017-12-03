@@ -1,5 +1,5 @@
  <div class="menu">
-                <ul class="list">
+               <!--  <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
                         <a href="index.php">
@@ -80,11 +80,7 @@
                             <span>Users</span>
                         </a>
                     </li> 
-
-                    
-
-
-                </ul>
+                </ul> -->
             </div>
             <div class="legal">
                 <div class="copyright">
