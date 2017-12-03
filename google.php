@@ -29,7 +29,7 @@ if ($gClient->getAccessToken()) {
         'gender'        => $gpUserProfile['gender'],
         'locale'        => $gpUserProfile['locale'],
         'picture'       => $gpUserProfile['picture'],
-        'link'          => $gpUserProfile['link'],
+        'link'          => $gpUserProfile['link']
         //'status'        => $gpUserProfile['status']
     );
     $userData = $user->checkUser($gpUserData);
