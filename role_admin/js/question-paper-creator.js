@@ -153,23 +153,6 @@ var isclassset=false;
 function filterSubj() {
 	var s=$('#subj').val();
 	console.log(s+" selected");
-	// $.fn.dataTable.ext.search.push(
-	// 	function( settings, data, dataIndex ) {
-
- //        var col = data[4]; // use data for the subj column
-
- //        if(s=='select'){
- //        	classval=null;
- //        	return true;
- //        }
-
- //        if (col == s)
- //        {
- //        	subjval=1;
- //        	return true;
- //        }
- //        return false;
- //    });
 
  	if(isclassset){
  		$.fn.dataTable.ext.search.pop();
@@ -201,22 +184,24 @@ function filterClass() {
 	var s=$('#class').val();
 	console.log(s+" selected");
 	var reset = false;
-
-	$.fn.dataTable.ext.search.pop();
-	table.draw();
+	if(issubjset){
+		$.fn.dataTable.ext.search.pop();
+		table.draw();
+	}
+	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
         var col = data[1]; // use data for the subj column
 
         if(s=='select'){
-        	classval=null;
+        	isclassset=false;
         	return true;
         }
 
         if (col == s)
         {
-        	classval=1;
+        	isclassset=true;
         	return true;
         }
         return false;
