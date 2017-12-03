@@ -10,7 +10,7 @@ include_once 'src/contrib/Google_Oauth2Service.php';
  */
 $clientId = '228513160561-vdla7qufebqkbktk7ve165vrp4ftvvk6.apps.googleusercontent.com'; //Google client ID
 $clientSecret = 'XmZnPbx1chU_TfpjBW6gBkFs'; //Google client secret
-$redirectURL = 'http://msmypaper.com/mypaper/google.php'; //Callback URL
+$redirectURL = 'http://msmypaper.com/mypaper/role_admin/google.php'; //Callback URL
 
 //Call Google API
 $gClient = new Google_Client();
