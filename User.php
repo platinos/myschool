@@ -1,12 +1,12 @@
 <?php
 class User {
-	private $dbHost     = "localhost";
+    private $dbHost     = "localhost";
     private $dbUsername = "mypaper_google";
     private $dbPassword = "P@$$9333172315";
     private $dbName     = "msmypaper_google";
     private $userTbl    = 'users';
-	
-	function __construct(){
+    
+    function __construct(){
         if(!isset($this->db)){
             // Connect to the database
             $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName);
@@ -17,8 +17,9 @@ class User {
             }
         }
     }
-	
 	function checkUser($userData = array()){
+    
+    function checkUser($userData = array()){
         if(!empty($userData)){
             //Check whether user data already exists in database
             $prevQuery = "SELECT * FROM ".$this->userTbl." WHERE oauth_provider = '".$userData['oauth_provider']."' AND oauth_uid = '".$userData['oauth_uid']."'";
