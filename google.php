@@ -33,6 +33,9 @@ if ($gClient->getAccessToken()) {
     );
     $userData = $user->checkUser($gpUserData);
     
+    //test
+    var_dump($userData);
+
     //Storing user data into session
     echo $_SESSION['userData'] = $userData;
     
