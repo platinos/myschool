@@ -17,7 +17,6 @@ class User {
             }
         }
     }
-	function checkUser($userData = array()){
     
     function checkUser($userData = array()){
         if(!empty($userData)){
