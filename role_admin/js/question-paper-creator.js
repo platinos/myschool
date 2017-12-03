@@ -149,7 +149,7 @@ function submitAll(file) {
 
 
 var table=$('#allQuestions').DataTable();
-
+var isclassset=false;
 function filterSubj() {
 	var s=$('#subj').val();
 	console.log(s+" selected");
@@ -171,16 +171,26 @@ function filterSubj() {
  //        return false;
  //    });
 
- $.fn.dataTable.ext.search.push(
+ 	if(isclassset){
+ 		$.fn.dataTable.ext.search.pop();
+		table.draw();
+ 	}
+
+	$.fn.dataTable.ext.search.push(
  	function( settings, data, dataIndex ) {
  		var subjval = data[3];
 
-        if (subjval == s ) 
-        {
-        	return true;
-        }
-        return false;
-    });
+ 		if(s=='select'){
+ 			isclassset=false;
+ 			return true;
+ 		}
+ 		else if (subjval == s ) 
+ 		{
+ 			isclassset=true;
+ 			return true;
+ 		}
+ 		return false;
+ 	});
 
 
  table.draw();
@@ -197,7 +207,7 @@ function filterClass() {
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
-        var col = data[2]; // use data for the subj column
+        var col = data[1]; // use data for the subj column
 
         if(s=='select'){
         	classval=null;
