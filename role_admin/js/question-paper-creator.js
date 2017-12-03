@@ -173,7 +173,7 @@ function filterSubj() {
         var nosubjpresent=subj=='select';
         var noclasspresent=c=='select';
 
-        if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c){
+        if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) ){
         	return true;
         }
         return false;
