@@ -120,7 +120,7 @@ else
 
                                     <td>
                                        <a target="_blank" href = "https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['qr'] ?>"  >
-                                        <img hieght="100" width="100" alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['id'] ?>">
+                                        <img hieght="100" width="100" alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['qr'] ?>">
                                     </a>
                                 </td>
 
