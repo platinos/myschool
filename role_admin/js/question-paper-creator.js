@@ -173,7 +173,7 @@ function filterSubj() {
 
  $.fn.dataTable.ext.search.push(
  	function( settings, data, dataIndex ) {
- 		var subjval = data[4];
+ 		var subjval = data[3];
 
         if (subjval == s ) 
         {
