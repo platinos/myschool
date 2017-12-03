@@ -149,10 +149,8 @@ function submitAll(file) {
 
 
 var table=$('#allQuestions').DataTable();
-var isclassset=false;
-var issubjset=false;
 
-function filterSubj() {
+function filter() {
 	var subj=$('#subj').val();
 	var c=$('#class').val();
 
@@ -174,39 +172,6 @@ function filterSubj() {
         var noclasspresent=c=='select';
 
         if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) ){
-        	return true;
-        }
-        return false;
-    });
-
-	table.draw();
-}
-
-function filterClass() {
-	var s=$('#class').val();
-	console.log(s+" selected class set: "+isclassset);
-
-
-	if($('#subj').val()=='select'){
-		$.fn.dataTable.ext.search.pop();
-		table.draw();
-	}
-	
-	$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-
-        var col = data[1]; // use data for the subj column
-
-        if(s=='select'){
-        	isclassset=false;
-        	return true;
-        }
-        else{
-        	isclassset=true;
-        }
-
-        if (col == s)
-        {
         	return true;
         }
         return false;
