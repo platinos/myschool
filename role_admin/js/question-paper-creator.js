@@ -157,10 +157,8 @@ function filterSubj() {
 	console.log(s+" selected subj set: "+issubjset);
 
  	
-	if(issubjset){
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
-	}
 	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
@@ -189,10 +187,8 @@ function filterClass() {
 	var s=$('#class').val();
 	console.log(s+" selected class set: "+isclassset);
 
-	if(isclassset){
 		$.fn.dataTable.ext.search.pop();
 		table.draw();
-	}
 	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
