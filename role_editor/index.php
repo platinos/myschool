@@ -108,21 +108,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-					<div class="info-box-3 bg-yellow hover-zoom-effect">
-						<div class="icon">
-							<i class="material-icons">DUMMY</i>
-						</div>
-						<div class="content">
-							<div class="text">DUMMY</div>
-							<div class="number">92</div>
-						</div>
-					</div>
-
-
-
-
-				</div>
+				
 			</div>
 
 
