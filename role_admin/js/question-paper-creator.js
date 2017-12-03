@@ -179,7 +179,7 @@ function filterSubj() {
  table.draw();
 }
 
-
+var issubjset=false;
 function filterClass() {
 	var s=$('#class').val();
 	console.log(s+" selected");
@@ -195,13 +195,13 @@ function filterClass() {
         var col = data[1]; // use data for the subj column
 
         if(s=='select'){
-        	isclassset=false;
+        	issubjset=false;
         	return true;
         }
 
         if (col == s)
         {
-        	isclassset=true;
+        	issubjset=true;
         	return true;
         }
         return false;
