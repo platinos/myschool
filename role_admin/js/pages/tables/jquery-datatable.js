@@ -10,6 +10,7 @@ $(function () {
 
     //All Questions table
     $('#allQuestions').DataTable({
+        responsive: true,
         order: [[ 0, "asc" ]]
     });
 
