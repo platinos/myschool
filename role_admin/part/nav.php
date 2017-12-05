@@ -1,6 +1,5 @@
  <div class="menu">
                 <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
                         <a href="index.php">
                             <i class="material-icons">home</i>
