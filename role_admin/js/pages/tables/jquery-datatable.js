@@ -15,7 +15,6 @@ $(function () {
 
     //Question Paper table
     $('#questionPaperTable').DataTable({
-        dom: 'Bfrtip',
         order: [[ 0, "asc" ]]
     });
 
