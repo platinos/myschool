@@ -48,7 +48,7 @@
 
 						<!-- qpname, qpclass, qpsubject qptime qlist qparraywhichitrig-->
 						<div class="modal fade in" id="mdModal" tabindex="-1" role="dialog">
-							<div class="modal-dialog" role="document">
+							<div class="modal-dialog modal-sm" role="document">
 								<div class="modal-content modal-col-teal">
 									<div class="modal-header">
 										<h4 class="modal-title" id="defaultModalLabel">Enter question paper details: </h4>
