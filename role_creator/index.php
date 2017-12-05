@@ -40,7 +40,7 @@
 
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-pink hover-zoom-effect" >
 						<div class="icon" >
 							<a href="viewquestion.php">  <i class="material-icons" >QUESTIONS</i></a>
@@ -52,7 +52,7 @@
 					</div>
 
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-blue hover-zoom-effect">
 						<div class="icon">
 							<a href="viewchapter.php">      <i class="material-icons">CHAPTERS</i></a>
@@ -63,7 +63,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-light-green hover-zoom-effect">
 						<div class="icon">
 							<a href="viewsubject.php"><i class="material-icons">SUBJECTS</i></a>
@@ -74,7 +74,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-cyan hover-zoom-effect">
 						<div class="icon">
 							<a href="viewtopic.php"> <i class="material-icons">TOPIC</i></a>
@@ -85,7 +85,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-grey hover-zoom-effect">
 						<div class="icon">
 							<i class="material-icons">GENERATED</i>
@@ -97,7 +97,7 @@
 					</div>
 
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-red hover-zoom-effect">
 						<div class="icon">
 							<i class="material-icons">USERS</i>
@@ -108,22 +108,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-					<div class="info-box-3 bg-yellow hover-zoom-effect">
-						<div class="icon">
-							<i class="material-icons">DUMMY</i>
-						</div>
-						<div class="content">
-							<div class="text">DUMMY</div>
-							<div class="number">92</div>
-						</div>
-					</div>
+							</div>
 
 
-
-
-				</div>
-			</div>
+		</div>
 
 	</section>
 

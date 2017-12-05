@@ -40,8 +40,8 @@
             {
                 ?>
                 <!--  answer key and question paper switch button -->
-                <button class="btn btn-primary waves-effect pull-right" id="answerkeybutton">View Answer Key</button>
-                <button class="btn btn-primary waves-effect pull-right" id="questionpaperbutton" style='display: none;'>Go back to Question Paper</button>
+               <!--  <button class="btn btn-primary waves-effect pull-right" id="answerkeybutton">View Answer Key</button>
+                <button class="btn btn-primary waves-effect pull-right" id="questionpaperbutton" style='display: none;'>Go back to Question Paper</button> -->
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 

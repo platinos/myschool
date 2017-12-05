@@ -38,7 +38,7 @@ function printSection($sectionFeed){
 		?>
 		<div id="question">
 			<div><strong id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo strip_tags($question['ques_txt']) ?> </span><span id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></span></div>
-			<div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div>
+			<!-- <div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div> -->
 
 
 			<?php
@@ -62,7 +62,7 @@ function printSection($sectionFeed){
 
 			$answer=array_search($options['A'], $shuffled_options);
 			//var_dump($answer);
-			$answerkey2 = $answerkey2.($index+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['question_id']."' height=50px><br><br>";
+			$answerkey2 = $answerkey2.($index+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>";
 		
 
 			?>
