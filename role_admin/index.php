@@ -40,6 +40,15 @@
 
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="card">
+					<div class="header">
+						<h2>
+							SHORTCUT CONTROLS
+							<small>links on fingertip</small>
+						</h2>
+
+					</div>
+					<div class="body">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-pink hover-zoom-effect" >
 						<div class="icon" >
@@ -108,6 +117,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 							</div>
 
 
