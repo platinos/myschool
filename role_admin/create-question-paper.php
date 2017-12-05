@@ -74,34 +74,34 @@ else
                             <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
                                 <thead>
                                     <tr>
-                                        <th>Select</th>
-                                        
                                         <th>Class</th>
+                                        <th>Question</th>                                       
                                         <th>Type</th>
                                         <th>Subject</th>
                                         <th>Chapter</th>
                                         <th>Topic</th>
                                         <th>Marks</th>
-                                        <th>Question</th>                                       
-                                        <th>Image</th>
-
-
-
+                                        <th>Select</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Select</th>
-                                        
+
+                                    <!--
+                                    1.mcq
+                                    2.t/f 
+                                    3.short
+                                    4.long
+                                    5.comprehension.-->
+
                                         <th>Class</th>
+                                        <th>Question</th>                                       
                                         <th>Type</th>
                                         <th>Subject</th>
                                         <th>Chapter</th>
                                         <th>Topic</th>
                                         <th>Marks</th>
-                                        <th>Question</th>                                       
-                                        <th>Image</th>
-
+                                        <th>Select</th>
 
                                     </tr>
                                 </tfoot>
@@ -111,7 +111,17 @@ else
                                     for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                                <td>
+                                            
+                                            <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
+                                            <td><?php echo $feed['data'][$i]['class'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['type'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['subject'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['chapter'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['topic'] ?></td>
+                                            <td><?php echo $feed['data'][$i]['marks'] ?></td>
+                                            
+
+                                            <td>
                                                     <?php if(incart($feed['data'][$i]['id'])){
                                                         ?>
                                                         <button class='btn btn-danger waves-effect' id="<?php echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php echo $feed['data'][$i]['id'] ?>)'>Remove</button>
@@ -132,19 +142,6 @@ else
                                                 <?php }
                                                 ?>
                                             </td>
-                                            
-                                            <td><?php echo $feed['data'][$i]['class'] ?></td>
-                                            <td><?php echo $feed['data'][$i]['type'] ?></td>
-                                            <td><?php echo $feed['data'][$i]['subject'] ?></td>
-                                            <td><?php echo $feed['data'][$i]['chapter'] ?></td>
-                                            <td><?php echo $feed['data'][$i]['topic'] ?></td>
-                                            <td><?php echo $feed['data'][$i]['marks'] ?></td>
-                                            <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
-                                            <td>
-                                               <a target="_blank" href = "<?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
-                                                <img alt="<?php echo $feed['data'][$i]['ques_img'] ?>" src="<?php echo $feed['data'][$i]['ques_img'] ?>">
-                                            </a>
-                                        </td>
 
                                     </tr>
                                     <?php  }
