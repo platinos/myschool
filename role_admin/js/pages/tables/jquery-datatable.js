@@ -11,10 +11,7 @@ $(function () {
     //All Questions table
     $('#allQuestions').DataTable({
         dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel'
-        ],
-        order: [[ 2, "asc" ]]
+        order: [[ 0, "asc" ]]
     });
 
     //Question Paper table
