@@ -20,10 +20,7 @@ $(function () {
     //Question Paper table
     $('#questionPaperTable').DataTable({
         dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel'
-        ],
-        order: [[ 4, "desc" ]]
+        order: [[ 0, "asc" ]]
     });
 
 });
