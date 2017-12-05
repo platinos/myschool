@@ -111,9 +111,9 @@ else
                                     for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                            
-                                            <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
                                             <td><?php echo $feed['data'][$i]['class'] ?></td>
+                                            <td><?php echo strip_tags(htmlspecialchars_decode($feed['data'][$i]['ques_txt'])) ?></td>
+                                            
                                             <td><?php echo $feed['data'][$i]['type'] ?></td>
                                             <td><?php echo $feed['data'][$i]['subject'] ?></td>
                                             <td><?php echo $feed['data'][$i]['chapter'] ?></td>

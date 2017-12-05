@@ -162,7 +162,7 @@ function filter() {
 		function( settings, data, dataIndex ) {
 
         var subjcol = data[3]; // use data for the subj column
-        var classcol=data[1]; // use data for the class column
+        var classcol=data[0]; // use data for the class column
 
         if(subj=='select' && c=='select'){
         	return true;
