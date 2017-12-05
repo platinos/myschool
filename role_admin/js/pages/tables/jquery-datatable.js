@@ -10,7 +10,6 @@ $(function () {
 
     //All Questions table
     $('#allQuestions').DataTable({
-        dom: 'Bfrtip',
         order: [[ 0, "asc" ]]
     });
 
