@@ -17,7 +17,7 @@
 
 	<?php
 
-    $feed = apicall('countdata');
+	$feed = apicall('countdata');
 	if($feed['error']==true)
 	{
 		?>
@@ -40,7 +40,8 @@
 
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="info-box-3 bg-pink hover-zoom-effect" >
 						<div class="icon" >
 							<a href="viewquestion.php">  <i class="material-icons" >QUESTIONS</i></a>
@@ -52,7 +53,7 @@
 					</div>
 
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-blue hover-zoom-effect">
 						<div class="icon">
 							<a href="viewchapter.php">      <i class="material-icons">CHAPTERS</i></a>
@@ -63,7 +64,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-light-green hover-zoom-effect">
 						<div class="icon">
 							<a href="viewsubject.php"><i class="material-icons">SUBJECTS</i></a>
@@ -74,7 +75,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="info-box-3 bg-cyan hover-zoom-effect">
 						<div class="icon">
 							<a href="viewtopic.php"> <i class="material-icons">TOPIC</i></a>
@@ -85,7 +86,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-grey hover-zoom-effect">
 						<div class="icon">
 							<i class="material-icons">GENERATED</i>
@@ -97,7 +98,7 @@
 					</div>
 
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-red hover-zoom-effect">
 						<div class="icon">
 							<i class="material-icons">USERS</i>
@@ -108,18 +109,15 @@
 						</div>
 					</div>
 				</div>
-				
-			</div>
+							</div>
 
 
 		</div>
 
-
-
 	</section>
 
 	<?php }?>
-
+<!-- 
 	<section class="content">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
@@ -190,13 +188,45 @@
 					</div>
 				</div>
 			</section>
-
+ -->
 		</div>
 
 
-		<?php include 'part/footer.php'; 
+<!-- Jquery Core Js -->
+<script src="plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+<!-- Select Plugin Js -->
+<script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+<!-- Slimscroll Plugin Js -->
+<script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="plugins/node-waves/waves.js"></script>
+
+<!-- Jquery DataTable Plugin Js -->
+<script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+<script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+<!-- Custom Js -->
+<script src="js/admin.js"></script>
+<script src="js/pages/tables/jquery-datatable.js"></script>
+
+<!-- Demo Js -->
+<script src="js/demo.js"></script>
+
+</body>
+
+</html>
 
 
-
-		?>
-		</html
