@@ -14,8 +14,8 @@ $(function () {
     });
 
     //Question Paper table
-    $('#questionPaperTable').DataTable({
-        order: [[ 0, "asc" ]]
+    $('#questionPaperTable').DataTable({    
+        order: [[ 3, "desc" ]]
     });
 
 });
