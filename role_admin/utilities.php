@@ -182,4 +182,46 @@ function deleteUser($conn, $userId){
 
 	return json_encode($response);
 }
+
+function mapDifficulty($difficultyId){
+	$val='none';
+	switch ($difficultyId) {
+		case 1:
+			$val='Easy';
+			break;
+		case 2:
+			$val='Medium';
+			break;
+		case 3:
+			$val='Hard';			
+			break;
+		case 4:
+			$val='HOTS';
+			break;
+	}
+	return $val;
+}
+
+function mapQuesType($typeId){
+	$val='none';
+	switch ($typeId) {
+		case 1:
+			$val='MCQ';
+			break;
+		case 2:
+			$val='True/False';
+			break;
+		case 3:
+			$val='Short';			
+			break;
+		case 4:
+			$val='Long';
+			break;
+		case 5:
+			$val='Comprehension';
+			break;
+	}
+	return $val;
+}
+
 ?>
