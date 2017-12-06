@@ -18,6 +18,7 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
+<?php include 'utility.php'; ?>
 
 <?php
 $feed = apicall("viewquestion");
