@@ -37,7 +37,12 @@
 
 		<section class="content">
 
-			<div class="card">
+			
+
+
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="card">
 					<div class="header">
 						<h1>
 							Hi <?php  echo $_SESSION['userData']['first_name'] ?>! Welcome to MyPaper Control Room
@@ -47,10 +52,6 @@
 					</div>
 					<div class="body"></div>
 			</div>
-
-
-
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="info-box-3 bg-pink hover-zoom-effect" >
