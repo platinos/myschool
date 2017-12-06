@@ -37,9 +37,26 @@
 
 		<section class="content">
 
+			
+
 
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="card">
+					<div class="header">
+						<h1>
+							Hi <?php  echo $_SESSION['userData']['first_name'] ?>! Welcome to MyPaper Control Room
+							
+						</h1>
+
+					</div>
+					<div class="body">
+						<p>
+							Drool pounce on unsuspecting person fall asleep on the washing machine, yet playing with balls of wool but suddenly go on wild-eyed crazy rampage yet vommit food and eat it again and has closed eyes but still sees you. Push your water glass on the floor. Spread kitty litter all over house shove bum in owner's face like camera lens. Find a way to fit in tiny box eat half my food and ask for more so sit in box hiding behind the couch until lured out by a feathery toy. Proudly present butt to human loved it, hated it, loved it, hated it
+						</p>
+
+					</div>
+			</div>
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="info-box-3 bg-pink hover-zoom-effect" >
