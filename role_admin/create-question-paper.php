@@ -18,7 +18,7 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
-<?php include 'utilities.php'; ?>
+
 
 <?php
 $feed = apicall("viewquestion");
@@ -127,7 +127,7 @@ else
                                             <td class="hide"><?php echo $feed['data'][$i]['chapter'] ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['topic'] ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['marks'] ?></td>
-                                            <td class=""><?php echo mapDificulty($feed['data'][$i]['level']); ?></td>
+                                            <td class=""><?php echo mapDifficulty($feed['data'][$i]['level']); ?></td>
                                             
 
                                             <td>
