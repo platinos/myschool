@@ -58,11 +58,11 @@
 					</div>
 			</div>
 
-			<div class="header">
-						<h1>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header">
+						<h2>
 							MyPaper Stats
 							
-						</h1>
+						</h2>
 
 					</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
