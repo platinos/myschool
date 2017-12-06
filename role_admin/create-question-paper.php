@@ -6,7 +6,11 @@
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     <link href="plugins/animate-css/animate.css" rel="stylesheet">
     <title>MyPaper-Controller</title>
-    
+    <style type="text/css" media="screen">
+        .hide{
+            display: none;
+        }
+    </style>
 
     <!-- Favicon-->
 
@@ -75,13 +79,13 @@ else
                             <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
                                 <thead>
                                     <tr>
-                                        <th>Class</th>
+                                        <th class="hide">Class</th>
                                         <th>Question</th>                                       
-                                        <th>Type</th>
-                                        <th style="display:none;">Subject</th>
-                                        <th>Chapter</th>
-                                        <th>Topic</th>
-                                        <th>Marks</th>
+                                        <th class="hide">Type</th>
+                                        <th class="hide">Subject</th>
+                                        <th class="hide">Chapter</th>
+                                        <th class="hide">Topic</th>
+                                        <th class="hide">Marks</th>
                                         <th>Select</th>
                                     </tr>
                                 </thead>
@@ -95,13 +99,13 @@ else
                                     4.long
                                     5.comprehension.-->
 
-                                        <th>Class</th>
+                                        <th class="hide">Class</th>
                                         <th>Question</th>                                       
-                                        <th>Type</th>
-                                        <th style="display:none;">Subject</th>
-                                        <th>Chapter</th>
-                                        <th>Topic</th>
-                                        <th>Marks</th>
+                                        <th class="hide">Type</th>
+                                        <th class="hide">Subject</th>
+                                        <th class="hide">Chapter</th>
+                                        <th class="hide">Topic</th>
+                                        <th class="hide">Marks</th>
                                         <th>Select</th>
 
                                     </tr>
@@ -112,14 +116,14 @@ else
                                     for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                            <td><?php echo $feed['data'][$i]['class'] ?></td>
+                                            <td class="hide"><?php echo $feed['data'][$i]['class'] ?></td>
                                             <td><?php echo strip_tags(htmlspecialchars_decode($feed['data'][$i]['ques_txt'])) ?></td>
                                             
-                                            <td><?php echo $feed['data'][$i]['type'] ?></td>
-                                            <td style="display:none;"><?php echo $feed['data'][$i]['subject'] ?></td>
-                                            <td><?php echo $feed['data'][$i]['chapter'] ?></td>
-                                            <td><?php echo $feed['data'][$i]['topic'] ?></td>
-                                            <td><?php echo $feed['data'][$i]['marks'] ?></td>
+                                            <td class="hide"><?php echo $feed['data'][$i]['type'] ?></td>
+                                            <td class="hide"><?php echo $feed['data'][$i]['subject'] ?></td>
+                                            <td class="hide"><?php echo $feed['data'][$i]['chapter'] ?></td>
+                                            <td class="hide"><?php echo $feed['data'][$i]['topic'] ?></td>
+                                            <td class="hide"><?php echo $feed['data'][$i]['marks'] ?></td>
                                             
 
                                             <td>
