@@ -86,7 +86,7 @@ else
                                     <tr>
                                         <th class="hide">Class</th>
                                         <th>Question</th>                                       
-                                        <th class="hide">Type</th>
+                                        <th class="">Type</th>
                                         <th class="hide">Subject</th>
                                         <th class="hide">Chapter</th>
                                         <th class="hide">Topic</th>
@@ -107,7 +107,7 @@ else
 
                                         <th class="hide">Class</th>
                                         <th>Question</th>                                       
-                                        <th class="hide">Type</th>
+                                        <th class="">Type</th>
                                         <th class="hide">Subject</th>
                                         <th class="hide">Chapter</th>
                                         <th class="hide">Topic</th>
@@ -126,7 +126,7 @@ else
                                             <td class="hide"><?php echo $feed['data'][$i]['class'] ?></td>
                                             <td><?php echo strip_tags(htmlspecialchars_decode($feed['data'][$i]['ques_txt'])) ?></td>
                                             
-                                            <td class="hide"><?php echo mapQuesType($feed['data'][$i]['type']); ?></td>
+                                            <td class=""><?php echo mapQuesType($feed['data'][$i]['type']); ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['subject'] ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['chapter'] ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['topic'] ?></td>
