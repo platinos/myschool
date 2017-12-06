@@ -10,6 +10,9 @@ $(function () {
 
     //All Questions table
     $('#allQuestions').DataTable({
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
         responsive: true,
         order: [[ 0, "asc" ]]
     });
