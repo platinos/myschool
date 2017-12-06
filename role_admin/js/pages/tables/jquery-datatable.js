@@ -14,7 +14,8 @@ $(function () {
             selector: 'td:nth-child(2)'
         },
         responsive: true,
-        order: [[ 0, "asc" ]]
+        order: [[ 0, "asc" ]],
+        pageLength: 100
     });
 
     //Question Paper table
