@@ -10,6 +10,8 @@
 	?>
 	<title>MyPaper-Controller</title>
 
+	
+
 </head>
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
