@@ -10,8 +10,9 @@ $(function () {
 
     //All Questions table
     $('#allQuestions').DataTable({
-        responsive: true,
-        order: [[ 0, "asc" ]]
+        order: [[ 0, "asc" ]],
+        pageLength: 100
+
     });
 
     //Question Paper table
