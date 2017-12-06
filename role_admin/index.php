@@ -37,6 +37,17 @@
 
 		<section class="content">
 
+			<div class="card">
+					<div class="header">
+						<h1>
+							Hi <?php  echo $_SESSION['userData']['first_name'] ?>! Welcome to MyPaper Control Room
+							
+						</h1>
+
+					</div>
+					<div class="body"></div>
+			</div>
+
 
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
