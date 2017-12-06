@@ -86,6 +86,7 @@ else
                                         <th class="hide">Chapter</th>
                                         <th class="hide">Topic</th>
                                         <th class="hide">Marks</th>
+                                        <th class="">Level</th>
                                         <th>Select</th>
                                     </tr>
                                 </thead>
@@ -106,6 +107,7 @@ else
                                         <th class="hide">Chapter</th>
                                         <th class="hide">Topic</th>
                                         <th class="hide">Marks</th>
+                                        <th class="">Level</th>
                                         <th>Select</th>
 
                                     </tr>
@@ -119,11 +121,12 @@ else
                                             <td class="hide"><?php echo $feed['data'][$i]['class'] ?></td>
                                             <td><?php echo strip_tags(htmlspecialchars_decode($feed['data'][$i]['ques_txt'])) ?></td>
                                             
-                                            <td class="hide"><?php echo $feed['data'][$i]['type'] ?></td>
+                                            <td class="hide"><?php echo mapQuesType($feed['data'][$i]['type']); ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['subject'] ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['chapter'] ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['topic'] ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['marks'] ?></td>
+                                            <td class=""><?php echo mapDificulty($feed['data'][$i]['level']); ?></td>
                                             
 
                                             <td>
