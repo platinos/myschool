@@ -35,7 +35,7 @@ header('Location: ../');
 <link href="css/themes/all-themes.css" rel="stylesheet" />
 
 <style type="text/css" media="screen">
-	html {zoom: 90%;}
+	body {zoom: 90%;}
 </style>
 
 
