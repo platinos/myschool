@@ -99,8 +99,8 @@
 							<!-- Right Column -->
 
 
-							<label class="form-label" >Class</label>
-							<select class="form-control show-tick" name="class" id="class" onchange="chap_select()">
+						<label class="form-label" >Class</label>
+						<select class="form-control show-tick" name="class" required id="class" onchange="chap_select()">
 								<option value="9" selected>IX</option>
 								<option value="10">X</option>
 								<option value="11">XI</option>
@@ -125,7 +125,7 @@
 							}
 							else
 								{?>
-									<select class="form-control show-tick"  required name="subject" id="subject" onchange="chap_select()">
+									<select class="form-control show-tick" required name="subject" id="subject" onchange="chap_select()">
 										<option value="select" selected>Select</option>
 										<?php
 										$size = $feed['data']['size']; 
@@ -173,7 +173,7 @@
 
 									<label class="form-label">Level</label>
 									<select id="level" name="level" size="4" required class="form-control">
-										<option value="1">Easy</option>
+										<option value="1" selected>Easy</option>
 										<option value="2">Medium</option>
 										<option value="3">Tough</option>
 										<option value="4">HOTS</option>
