@@ -58,6 +58,13 @@
 					</div>
 			</div>
 
+			<div class="header">
+						<h1>
+							MyPaper Stats
+							
+						</h1>
+
+					</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="info-box-3 bg-pink hover-zoom-effect" >
 						<div class="icon" >
