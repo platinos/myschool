@@ -40,7 +40,7 @@
 
 						<form method="POST" action='' enctype="multipart/form-data">
 
-							<textarea id="question" name="question">
+							<textarea id="question" name="question" required>
 								Question
 							</textarea>
 
@@ -99,8 +99,8 @@
 							<!-- Right Column -->
 
 
-							<label class="form-label" >Class</label>
-							<select class="form-control show-tick" name="class" id="class">
+						<label class="form-label" >Class</label>
+						<select class="form-control show-tick" name="class" required id="class" onchange="chap_select()">
 								<option value="9" selected>IX</option>
 								<option value="10">X</option>
 								<option value="11">XI</option>
@@ -125,7 +125,7 @@
 							}
 							else
 								{?>
-									<select class="form-control show-tick" name="subject" id="subject" onchange="chap_select()">
+									<select class="form-control show-tick" required name="subject" id="subject" onchange="chap_select()">
 										<option value="select" selected>Select</option>
 										<?php
 										$size = $feed['data']['size']; 
@@ -146,7 +146,7 @@
 									<br><br>
 
 									<label class="form-label">Type</label>
-									<select name="type" class="form-control" id="type" onchange="just_change(this.value)">                  
+									<select name="type" class="form-control" required id="type" onchange="just_change(this.value)">                  
 										<option value="1">MCQ</option>
 										<option value="2">TRUE/FALSE</option>
 										<option value="3" selected>SHORT ANSWER</option>
@@ -156,24 +156,24 @@
 									<br><br>
 
 									<label class="form-label">Tag</label>
-									<input type="text" class="form-control" name="tag" >
+									<input type="text" class="form-control" required name="tag" >
 									<br>                 
 
 									<label class="form-label">Chapter</label>
-									<select id="chapters" name="chapters" class="form-control" onchange="topic_select()">
+									<select id="chapters" name="chapters" required class="form-control" onchange="topic_select()">
 										<option value="Motion in 1 D">Loading...</option>
 									</select>
 									<br><br>
 
 									<label class="form-label">Topic</label>
-									<select id="topic" name="topic" size="6" class="form-control"> 
+									<select id="topic" name="topic" size="6" required class="form-control"> 
 										<option value="Test">Loading...</option>              
 									</select>    
 									<br><br>
 
 									<label class="form-label">Level</label>
-									<select id="level" name="level" size="4" class="form-control">
-										<option value="1">Easy</option>
+									<select id="level" name="level" size="4" required class="form-control">
+										<option value="1" selected>Easy</option>
 										<option value="2">Medium</option>
 										<option value="3">Tough</option>
 										<option value="4">HOTS</option>
