@@ -165,7 +165,7 @@ function filter() {
 
         var classcol=data[0]; // use data for the class column
         var typecol=data[1]; //use data for type column
-        var subjcol = data[3]; // use data for the subj column
+        var subjcol = data[2]; // use data for the subj column
         var difficultycol=data[7]; 
 
         if(subj=='select' && c=='select' && type=='select' && difficulty=='select'){
