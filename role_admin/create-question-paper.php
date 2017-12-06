@@ -51,7 +51,7 @@ else
                             if(displayPaperButton()){
                                 ?>
 
-                                <ul class="header-dropdown m-r--5">
+                                <ul class="header-dropdown m-r--5"> 
                                 <li><?php include 'selectdifficulty.html'; ?></li>
                                 <li><?php include 'selectquestype.html'; ?></li>
                                 <li><?php include 'selectclass.html'; ?></li>
@@ -74,7 +74,7 @@ else
 
                              <?php } ?>
                              <h2>
-                                ALL QUESTIONS SELECTION
+                                ALL QUESTIONS SELECTIONzz
                             </h2>
 
                         </div>
