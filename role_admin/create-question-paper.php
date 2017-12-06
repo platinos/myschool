@@ -6,11 +6,7 @@
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     <link href="plugins/animate-css/animate.css" rel="stylesheet">
     <title>MyPaper-Controller</title>
-    <style>
-   .big-col {
-    width: 500px !important;
-    }
-    </style>
+    
 
     <!-- Favicon-->
 
@@ -80,7 +76,7 @@ else
                                 <thead>
                                     <tr>
                                         <th>Class</th>
-                                        <th class="big-col">Question</th>                                       
+                                        <th>Question</th>                                       
                                         <th>Type</th>
                                         <th>Subject</th>
                                         <th>Chapter</th>
@@ -100,7 +96,7 @@ else
                                     5.comprehension.-->
 
                                         <th>Class</th>
-                                        <th class="big-col">Question</th>                                       
+                                        <th>Question</th>                                       
                                         <th>Type</th>
                                         <th>Subject</th>
                                         <th>Chapter</th>
