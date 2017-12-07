@@ -12,7 +12,7 @@ $feedchapters = apicall("getchapters",$value); ?>
    for($i=0; $i<$size; $i++)
     {?>
 
-       <option value=<?php echo $feedsubjects['data'][$i]['chapter'] ?> ><?php echo $feedsubjects['data'][$i]['chapter'] ?></option>
+       <option value=<?php echo $feedchapters['data'][$i]['chapter'] ?> ><?php echo $feedchapters['data'][$i]['chapter'] ?></option>
        <?php  }
        ?>
 
