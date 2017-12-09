@@ -5,7 +5,7 @@ $value = array("subject"=>$subj,"class"=>$class);
 
 $feedchapters = apicall("getchapters",$value); ?>
 
-<select onchange="filter();" class="form-control" name="subj" id="subj">
+<select onchange="filter();" class="form-control" name="chapter" id="chapter">
 <option value="select" selected>Select chapters</option>
    <?php
 
