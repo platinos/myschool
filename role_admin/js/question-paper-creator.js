@@ -185,10 +185,6 @@ function filter() {
         	return true;
 
     }
-
-    if( !nosubjpresent && !noclasspresent){
-    	chap_select();
-    }
     return false;
 });	
 
@@ -200,7 +196,7 @@ function chap_select(){
 	var form = new FormData();
 	form.append("func", "getchapters");
 	form.append("class", document.getElementById("class").value);
-	form.append("subject", document.getElementById("subj").value);
+	form.append("subject", document.getElementById("subject").value);
 
 	var settings = {
 		"async": true,
