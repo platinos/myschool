@@ -155,6 +155,7 @@ function filter() {
 	var c=$('#class').val();
 	var type=$('#type').val();
 	var difficulty=$('#difficulty').val();
+	var chapter=$('#chapter').val();
 
 	$.fn.dataTable.ext.search.pop();
 	table.draw();
@@ -166,9 +167,10 @@ function filter() {
         var classcol=data[0]; // use data for the class column
         var typecol=data[2]; //use data for type column
         var subjcol = data[3]; // use data for the subj column
+        var chaptercol=data[4]; 
         var difficultycol=data[7]; 
 
-        if(subj=='select' && c=='select' && type=='select' && difficulty=='select'){
+        if(subj=='select' && c=='select' && type=='select' && difficulty=='select' && chapter=='select'){
         	return true; 
         }
 
@@ -176,9 +178,10 @@ function filter() {
         var noclasspresent=c=='select';
         var notypepresent=type=='select';
         var nodifficultpresent=difficulty=='select';
+        var nochapterpresent=chapter=='select';
 
         if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
-        	 (nodifficultpresent|| difficulty==difficultycol)){
+        	 (nochapterpresent || chaptercol == chapter) && (nodifficultpresent|| difficulty==difficultycol)){
         	return true;
         }
         return false;
