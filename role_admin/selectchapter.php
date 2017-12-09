@@ -1,6 +1,6 @@
 <?php 
 $subj="chemistry";
-$class="11";
+$class="9";
 $value = array("subject"=>$subj,"class"=>$class);
 
 $feedchapters = apicall("getchapters",$value); ?>
