@@ -20,8 +20,3 @@ var_dump($feedchapters, $feedchapters['data'][$i]['chapter']);?>
        ?>
 
     </select>
-
-
-
-
- array(3) { ["error"]=> bool(false) ["data"]=> array(1) { [0]=> array(2) { ["id"]=> string(1) "7" ["chapter"]=> string(20) "Chemical Equilibrium" } } ["size"]=> int(1) }
