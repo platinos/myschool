@@ -18,6 +18,3 @@ $feedchapters = apicall("getchapters",$value); ?>
        ?>
 
     </select>
-
-
-    array(3) { ["error"]=> bool(false) ["data"]=> array(1) { [0]=> array(2) { ["id"]=> string(1) "7" ["chapter"]=> string(20) "Chemical Equilibrium" } } ["size"]=> int(1) } NULL
