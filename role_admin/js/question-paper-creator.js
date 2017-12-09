@@ -200,7 +200,7 @@ function chap_select(){
 	var form = new FormData();
 	form.append("func", "getchapters");
 	form.append("class", document.getElementById("class").value);
-	form.append("subject", document.getElementById("subject").value);
+	form.append("subject", document.getElementById("subj").value);
 
 	var settings = {
 		"async": true,
