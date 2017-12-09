@@ -4,7 +4,7 @@
 <head>
 	<?php include 'part/head.php'; ?>
 	<link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-	<script type="text/javascript" src="http://rudrai.com/mypaper/role_admin/plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=image"></script>
+	<script src="http://msmypaper.com/mypaper/role_admin/plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=image"></script>
 	<!-- <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" /> -->
 
 	<title>MyPaper-Controller</title>
@@ -485,10 +485,10 @@ tinymce.init({
 	'advlist autolink lists link image charmap print preview hr anchor pagebreak',
 	'searchreplace wordcount visualblocks visualchars code fullscreen',
 	'insertdatetime media nonbreaking save table contextmenu directionality',
-	'emoticons template paste textcolor colorpicker textpattern imagetools'
+	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-	toolbar2: 'print preview media | forecolor backcolor emoticons',
+	toolbar2: 'print preview media | forecolor backcolor emoticons | tiny_mce_wiris_formulaEditor',
 	image_advtab: true
 });
 

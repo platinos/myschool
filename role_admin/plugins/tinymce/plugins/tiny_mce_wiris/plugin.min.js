@@ -10,7 +10,6 @@ var _wrs_conf_editor = "TinyMCE";
 if (typeof _wrs_isMoodle24 == 'undefined') {
     _wrs_baseURL = tinymce.baseURL;
     _wrs_conf_path = _wrs_baseURL + '/plugins/tiny_mce_wiris/'; // TODO use the same variable name always.
-    _wrs_conf_path = 'plugins/tinymce/plugins/tiny_mce_wiris/'; // TODO use the same variable name always.
 }else{
     var base = tinymce.baseURL;
     var search = 'lib/editor/tinymce';
@@ -70,6 +69,9 @@ var _wrs_int_langCode = 'en';
 (function () {
     tinymce.create('tinymce.plugins.tiny_mce_wiris', {
         init: function (editor, url) {
+            // Var to access to selected element from all the WIRIS tiny mce functions.
+            var element;
+
             _wrs_int_imagesDataimgFilterBackup[editor.id] = editor.settings.images_dataimg_filter;
             editor.settings.images_dataimg_filter = function(img) {
                 if (img.hasAttribute('class') && img.getAttribute('class').indexOf('Wirisformula') != -1) {
@@ -102,7 +104,6 @@ var _wrs_int_langCode = 'en';
             } else {
                 _wrs_int_editorIcon = _wrs_conf_path + 'icons/formula.png';
             }
-            var element;
 
             // Fix a Moodle 2.4 bug. data-mathml was lost without this.
             if (typeof _wrs_isMoodle24 !== 'undefined' && _wrs_isMoodle24){
@@ -165,7 +166,9 @@ var _wrs_int_langCode = 'en';
                         // the content doesn't need to be filtered.
                         if (!editor.getParam('fullscreen_is_enabled') && content !== ""){
 
-                            editor.setContent(wrs_initParse(content, language), {format: "raw"});
+                            // We set content in html because other tiny plugins need data-mce
+                            // and this is not posibil with raw format
+                            editor.setContent(wrs_initParse(content, language), {format: "html"});
                             // Init parsing OK. If a setContent method is called
                             // wrs_initParse is called again.
                             // Now if source code is edited the returned code is parsed.
@@ -185,11 +188,11 @@ var _wrs_int_langCode = 'en';
                                 });
                             }
                         } else { // Inline.
-                            element = editorElement;
+                            element = editor.getElement();
                             wrs_addElementEvents(element, function (div, element) {
                                 wrs_int_doubleClickHandler(editor, div, false, element);
                             },  wrs_int_mousedownHandler, wrs_int_mouseupHandler);
-                            // Attaching obsevers to wiris images.
+                            // Attaching observers to wiris images.
                             Array.prototype.forEach.call(document.getElementsByClassName(_wrs_conf_imageClassName), function(wirisImages) {
                                 wrs_observer.observe(wirisImages, wrs_observer_config);
                             });
@@ -256,7 +259,31 @@ var _wrs_int_langCode = 'en';
                     }
                 });
             }
-
+            // We use a mutation to oberseve iframe of tiny and filter to remove data-mce
+            const observerConfig = { attributes: true, childList: true, characterData: true, subtree: true };
+            function onMutations(mutations) {
+                Array.prototype.forEach.call(mutations,function(mutation) {
+                    Array.prototype.forEach.call(mutation.addedNodes,function(node){
+                        // We search only in element nodes
+                        if(node.nodeType == 1){
+                            Array.prototype.forEach.call(node.getElementsByClassName(_wrs_conf_imageClassName),function(image){
+                                image.removeAttribute('data-mce-src');
+                                image.removeAttribute('data-mce-style');
+                            });
+                        }
+                    });
+                });
+            }
+            var mo = new MutationObserver(onMutations);
+            // We wait for iframe definition for observe this
+            function waitForIframeBody(){
+                if(typeof editor.contentDocument != 'undefined'){
+                    mo.observe(editor.getBody(), observerConfig);
+                }else{
+                    setTimeout(waitForIframeBody, 50);
+                }
+            }
+            waitForIframeBody();
             if (_wrs_int_conf_async || _wrs_conf_editorEnabled) {
                 editor.addCommand('tiny_mce_wiris_openFormulaEditor', function () {
                     if ('wiriseditorparameters' in editor.settings) {

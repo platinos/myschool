@@ -1009,14 +1009,47 @@ com.wiris.js.JsPluginViewer.prototype = {
 		data += "&metrics=true&centerbaseline=false&mml=" + StringTools.urlEncode(mml);
 		data += "&lang=" + this.lang;
 		if(this.zoom != 1) data += "&zoom=" + this.zoom;
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 544, className : "com.wiris.js.JsPluginViewer", methodName : "callService"});
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 546, className : "com.wiris.js.JsPluginViewer", methodName : "callService"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 703, className : "com.wiris.js.JsPluginViewer", methodName : "callService"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 705, className : "com.wiris.js.JsPluginViewer", methodName : "callService"});
 		con.open("POST",url,false);
 		con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
 		con.send(data);
 		return con.responseText;
 	}
-	,callShowimage: function(mml,img) {
+	,latexToMathml: function(latex,nodeAfter,asynchronously,callbackFunc) {
+		var con = new js.XMLHttpRequest();
+		var url = (this.absoluteURL.length > 0?this.absoluteURL:this.baseURL + this.localpath) + "/service" + this.extension;
+		var data = "service=latex2mathml";
+		data += "&latex=" + StringTools.urlEncode(latex);
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 647, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 649, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
+		var onloadFunc = function(e) {
+			try {
+				var mathml = haxe.Json.parse(con.responseText).result.text;
+				var newMathml = js.Lib.document.createElement("math");
+				var mathmlSpan = js.Lib.document.createElement("span");
+				mathmlSpan.appendChild(newMathml);
+				e.target.wiris.nodeAfter.parentElement.insertBefore(mathmlSpan,e.target.wiris.nodeAfter);
+				newMathml.outerHTML = mathml;
+				e.target.wiris.callbackFunc(mathmlSpan);
+			} catch( e1 ) {
+				if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("LatexToMathml call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 665, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
+			}
+		};
+		con.open("POST",url,asynchronously);
+		var newDynamic = { };
+		con.wiris = newDynamic;
+		con.wiris.nodeAfter = nodeAfter;
+		con.wiris.callbackFunc = callbackFunc;
+		con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
+		con.onload = onloadFunc;
+		con.onerror = function(e) {
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("LatexToMathml call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 678, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
+		};
+		con.send(data);
+	}
+	,callShowimage: function(mml,img,asynchronously,callbackFunc) {
+		var _g = this;
 		var con;
 		var height = 0;
 		var width = 0;
@@ -1027,8 +1060,8 @@ com.wiris.js.JsPluginViewer.prototype = {
 		con = new js.XMLHttpRequest();
 		var mmlEntities;
 		mmlEntities = "";
-		var _g1 = 0, _g = mml.length;
-		while(_g1 < _g) {
+		var _g1 = 0, _g2 = mml.length;
+		while(_g1 < _g2) {
 			var i = _g1++;
 			var character;
 			character = mml.charAt(i);
@@ -1037,36 +1070,69 @@ com.wiris.js.JsPluginViewer.prototype = {
 		var md5 = haxe.Md5.encode("centerbaseline=false\nmml=" + mmlEntities + "\n");
 		url = (this.absoluteURL.length > 0?this.absoluteURL:this.baseURL + this.localpath) + "/showimage" + this.extension;
 		if(new com.wiris.js.JsBrowser().isIE()) data = "?formula=" + md5 + "&lang=" + this.lang + "&useragent=IE"; else data = "?formula=" + md5 + "&lang=" + this.lang;
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 474, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("GET:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 476, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
-		con.open("GET",url + data,false);
+		data += "&version=" + com.wiris.js.JsPluginViewer.VERSION;
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 542, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("GET:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 544, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+		con.open("GET",url + data,asynchronously);
 		con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
+		var onloadFunc = function(e) {
+			var getResultFunc = function(e1) {
+				var result = { };
+				try {
+					result = haxe.Json.parse(con.responseText).result;
+				} catch( e2 ) {
+					console.warn("Formula is malformed and it can't be rendered");
+					return;
+				}
+				e1.target.wiris.img.src = result.format == "svg"?"data:image/svg+xml;charset=utf8,":"data:image/png;base64,";
+				e1.target.wiris.img.src = e1.target.wiris.img.src + StringTools.urlEncode(result.content);
+				if(result.height > 0) {
+					if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(_g.calculateAlignment(height,baseline),{ fileName : "JsPluginViewer.hx", lineNumber : 564, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+					e1.target.wiris.img.style.verticalAlign = "-" + _g.calculateAlignment(result.height,result.baseline) + "px";
+					e1.target.wiris.img.style.height = "" + Std.string(result.height) + "px";
+					e1.target.wiris.img.style.width = "" + Std.string(result.width) + "px";
+				}
+				var _wrs_conf_imageMathmlAttribute = _g.callGetVariableKeys("wiriseditormathmlattribute");
+				if(haxe.Json.parse(_wrs_conf_imageMathmlAttribute).status != "ok") e1.target.wiris.img.setAttribute("data-mathml",e1.target.wiris.mml); else e1.target.wiris.img.setAttribute(haxe.Json.parse(_wrs_conf_imageMathmlAttribute).result.wiriseditormathmlattribute,e1.target.wiris.mml);
+				e1.target.wiris.img.setAttribute("class","Wirisformula");
+				e1.target.wiris.img.setAttribute("role","math");
+				if(result.alt != null) e1.target.wiris.img.alt = result.alt; else {
+					var accessibilityResponse = _g.callService(e1.target.wiris.mml,"mathml2accessible");
+					if(haxe.Json.parse(accessibilityResponse).status != "error") e1.target.wiris.img.alt = haxe.Json.parse(accessibilityResponse).result.text;
+				}
+				callbackFunc();
+			};
+			if(haxe.Json.parse(con.responseText).status == "warning") {
+				con.open("POST",url,e.target.wiris.asynchronously);
+				con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
+				var onloadFunc1 = function(e1) {
+					getResultFunc(e1);
+				};
+				if(new com.wiris.js.JsBrowser().isIE()) data = "centerbaseline=false&mml=" + StringTools.urlEncode(e.target.wiris.mml) + "&useragent=IE"; else data = "centerbaseline=false&mml=" + StringTools.urlEncode(e.target.wiris.mml);
+				var newDynamic = { };
+				con.wiris = newDynamic;
+				con.wiris.callbackFunc = callbackFunc;
+				con.wiris.getResultFunc = getResultFunc;
+				con.wiris.mml = mml;
+				con.wiris.img = img;
+				con.onload = onloadFunc1;
+				con.onerror = function(e1) {
+					if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("ShowImage call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 615, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+				};
+				con.send(data);
+			} else getResultFunc(e);
+		};
+		var newDynamic = { };
+		con.wiris = newDynamic;
+		con.wiris.callbackFunc = callbackFunc;
+		con.wiris.mml = mml;
+		con.wiris.img = img;
+		con.wiris.asynchronously = asynchronously;
+		con.onload = onloadFunc;
+		con.onerror = function(e) {
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("ShowImage call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 635, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+		};
 		con.send(null);
-		var s = con.responseText;
-		if(haxe.Json.parse(con.responseText).status == "warning") {
-			con.open("POST",url,false);
-			con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
-			if(new com.wiris.js.JsBrowser().isIE()) data = "centerbaseline=false&mml=" + StringTools.urlEncode(mml) + "&useragent=IE"; else data = "centerbaseline=false&mml=" + StringTools.urlEncode(mml);
-			con.send(data);
-			s = con.responseText;
-		}
-		var result = haxe.Json.parse(con.responseText).result;
-		img.src = result.format == "svg"?"data:image/svg+xml;charset=utf8,":"data:image/png;base64,";
-		img.src = img.src + StringTools.urlEncode(result.content);
-		if(result.height > 0) {
-			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(this.calculateAlignment(height,baseline),{ fileName : "JsPluginViewer.hx", lineNumber : 501, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
-			img.style.verticalAlign = "-" + this.calculateAlignment(result.height,result.baseline) + "px";
-			img.style.height = "" + Std.string(result.height) + "px";
-			img.style.width = "" + Std.string(result.width) + "px";
-		}
-		var _wrs_conf_imageMathmlAttribute = this.callGetVariableKeys("wiriseditormathmlattribute");
-		if(haxe.Json.parse(_wrs_conf_imageMathmlAttribute).status != "ok") img.setAttribute("data-mathml",mml); else img.setAttribute(haxe.Json.parse(_wrs_conf_imageMathmlAttribute).result.wiriseditormathmlattribute,mml);
-		img.setAttribute("class","Wirisformula");
-		img.setAttribute("role","math");
-		if(result.alt != null) img.alt = result.alt; else {
-			var accessibilityResponse = this.callService(mml,"mathml2accessible");
-			if(haxe.Json.parse(accessibilityResponse).status != "error") img.alt = haxe.Json.parse(accessibilityResponse).result.text;
-		}
 	}
 	,callCreateImage: function(mml,img) {
 		var con;
@@ -1081,8 +1147,8 @@ com.wiris.js.JsPluginViewer.prototype = {
 		data = "metrics=true&centerbaseline=false&mml=" + StringTools.urlEncode(mml);
 		data += "&lang=" + this.lang;
 		if(this.zoom != 1) data += "&zoom=" + this.zoom;
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 392, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 394, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 458, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 460, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
 		con.open("POST",url,false);
 		con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
 		con.send(data);
@@ -1091,7 +1157,7 @@ com.wiris.js.JsPluginViewer.prototype = {
 		if(i >= 0) {
 			var scaleDpi = 1;
 			var h = this.queryToParams(HxOverrides.substr(s,i + 1,null));
-			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(h.get("formula"),{ fileName : "JsPluginViewer.hx", lineNumber : 417, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(h.get("formula"),{ fileName : "JsPluginViewer.hx", lineNumber : 483, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
 			if(h.exists("dpi")) scaleDpi = this.zoom * (Std.parseInt(h.get("dpi")) / 96);
 			baseline = Std.parseInt(h.get("cb")) / scaleDpi | 0;
 			height = Std.parseInt(h.get("ch")) / scaleDpi | 0;
@@ -1100,7 +1166,7 @@ com.wiris.js.JsPluginViewer.prototype = {
 		}
 		img.src = con.responseText;
 		if(height > 0) {
-			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(this.calculateAlignment(height,baseline),{ fileName : "JsPluginViewer.hx", lineNumber : 428, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(this.calculateAlignment(height,baseline),{ fileName : "JsPluginViewer.hx", lineNumber : 494, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
 			img.style.verticalAlign = "-" + this.calculateAlignment(height,baseline) + "px";
 			img.style.height = "" + height + "px";
 			img.style.width = "" + width + "px";
@@ -1127,13 +1193,13 @@ com.wiris.js.JsPluginViewer.prototype = {
 			return StringTools.trim(s.split("#")[0]);
 		} else return com.wiris.js.JsPluginViewer.TECH;
 	}
-	,processMathML: function(mml,container) {
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(mml,{ fileName : "JsPluginViewer.hx", lineNumber : 337, className : "com.wiris.js.JsPluginViewer", methodName : "processMathML"});
+	,processMathML: function(mml,container,asynchronously,callbackFunc) {
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(mml,{ fileName : "JsPluginViewer.hx", lineNumber : 403, className : "com.wiris.js.JsPluginViewer", methodName : "processMathML"});
 		var img = js.Lib.document.createElement("img");
 		if(this.performanceenabled == null) this.performanceenabled = this.isPerformanceEnabled();
-		if(this.mode == com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE && this.performanceenabled) this.callShowimage(mml,img); else if(this.mode == com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE && !this.performanceenabled) this.callCreateImage(mml,img); else img.src = this.baseURL + this.localpath + "/showimage" + this.extension + "?mml=" + StringTools.urlEncode(mml);
+		if(this.mode == com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE && this.performanceenabled) this.callShowimage(mml,img,asynchronously,callbackFunc); else if(this.mode == com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE && !this.performanceenabled) this.callCreateImage(mml,img); else img.src = this.baseURL + this.localpath + "/showimage" + this.extension + "?mml=" + StringTools.urlEncode(mml);
 		container.appendChild(img);
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(img.src,{ fileName : "JsPluginViewer.hx", lineNumber : 351, className : "com.wiris.js.JsPluginViewer", methodName : "processMathML"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(img.src,{ fileName : "JsPluginViewer.hx", lineNumber : 417, className : "com.wiris.js.JsPluginViewer", methodName : "processMathML"});
 	}
 	,getMathML_IE7: function(mathNode0) {
 		var mathml = "";
@@ -1169,17 +1235,17 @@ com.wiris.js.JsPluginViewer.prototype = {
 		mathml += "</math>";
 		return mathml;
 	}
-	,replaceNodes: function(mathNodes,n) {
+	,replaceNodes: function(mathNodes,n,asynchronously,callbackFunc) {
 		if(n >= mathNodes.length) return;
 		var mathNode = mathNodes[n];
 		var mathml = null;
 		var browser = new com.wiris.js.JsBrowser();
 		if(browser.getBrowser() == "Explorer" && (browser.getVersion() == "6" || browser.getVersion() == "7") && navigator.appVersion.indexOf("Trident") == -1) {
-			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Is ie7",{ fileName : "JsPluginViewer.hx", lineNumber : 236, className : "com.wiris.js.JsPluginViewer", methodName : "replaceNodes"});
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Is ie7",{ fileName : "JsPluginViewer.hx", lineNumber : 303, className : "com.wiris.js.JsPluginViewer", methodName : "replaceNodes"});
 			mathml = this.getMathML_IE7(mathNode);
 		}
 		var container = js.Lib.document.createElement("span");
-		mathNode.parentNode.replaceChild(container,mathNode);
+		if(mathNode.parentNode != null) mathNode.parentNode.replaceChild(container,mathNode);
 		if(mathml == null) {
 			container.appendChild(mathNode);
 			mathml = container.innerHTML;
@@ -1187,11 +1253,46 @@ com.wiris.js.JsPluginViewer.prototype = {
 		}
 		var index = mathml.indexOf("<math");
 		mathml = HxOverrides.substr(mathml,index,mathml.length - index);
-		this.processMathML(mathml,container);
+		this.processMathML(mathml,container,asynchronously,callbackFunc);
 		var self = this;
-		haxe.Timer.delay(function() {
-			self.replaceNodes(mathNodes,n + 1);
-		},1);
+		self.replaceNodes(mathNodes,n + 1,asynchronously,callbackFunc);
+	}
+	,findAndReplaceLatex: function(node,asynchronously,callbackFunc) {
+		var dollarIndex = node.textContent.indexOf("$$");
+		var stringLocation = 0;
+		while(dollarIndex != -1) {
+			var firstDollars = dollarIndex;
+			dollarIndex = node.textContent.indexOf("$$",dollarIndex + 2);
+			if(dollarIndex != -1) {
+				var newNode = node.cloneNode(true);
+				newNode.textContent = node.textContent.substring(stringLocation,firstDollars);
+				stringLocation = dollarIndex + 2;
+				node.parentElement.insertBefore(newNode,node);
+				var latex = node.textContent.substring(firstDollars + 2,dollarIndex);
+				this.latexToMathml(latex,node,asynchronously,callbackFunc);
+				dollarIndex = node.textContent.indexOf("$$",dollarIndex + 2);
+			}
+		}
+		node.textContent = node.textContent.substring(stringLocation);
+	}
+	,parseLatexDocument: function(asynchronously,callbackFunc) {
+		if(callbackFunc == null) callbackFunc = function() {
+		};
+		if(asynchronously == null) asynchronously = false;
+		var domTextNodes = this.findTextNodes(js.Lib.document);
+		var i = 0;
+		while(i < domTextNodes.length) {
+			var node = domTextNodes[i];
+			this.findAndReplaceLatex(node,asynchronously,callbackFunc);
+			i++;
+		}
+	}
+	,findTextNodes: function(el) {
+		var textNodes = [];
+		var walk = document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
+		var node;
+		while(node = walk.nextNode()) textNodes.push(node);
+		return textNodes;
 	}
 	,isEditable: function(element) {
 		while(element != null) {
@@ -1200,8 +1301,13 @@ com.wiris.js.JsPluginViewer.prototype = {
 		}
 		return false;
 	}
-	,parseElement: function(element) {
+	,parseElement: function(element,asynchronously,callbackFunc) {
 		if(!this.ready) throw "Document is not loaded.";
+		if(callbackFunc == null) callbackFunc = function() {
+		};
+		if(asynchronously == null) {
+			if(this.asyncParam) asynchronously = this.asyncParam;
+		}
 		var mathNodes = element.getElementsByTagName("math");
 		var arr = new Array();
 		var _g1 = 0, _g = mathNodes.length;
@@ -1209,13 +1315,13 @@ com.wiris.js.JsPluginViewer.prototype = {
 			var x = _g1++;
 			if(!this.isEditable(mathNodes[x])) arr.push(mathNodes[x]);
 		}
-		this.replaceNodes(arr,0);
+		this.replaceNodes(arr,0,asynchronously,callbackFunc);
 	}
-	,parseDocument: function() {
-		this.parseElement(js.Lib.document);
+	,parseDocument: function(asynchronously,callbackFunc) {
+		this.parseElement(js.Lib.document,asynchronously,callbackFunc);
 	}
 	,doLoad: function() {
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("doLoad",{ fileName : "JsPluginViewer.hx", lineNumber : 105, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("doLoad",{ fileName : "JsPluginViewer.hx", lineNumber : 107, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
 		this.scriptName = "WIRISplugins.js";
 		var col;
 		col = js.Lib.document.getElementsByTagName("script");
@@ -1234,7 +1340,7 @@ com.wiris.js.JsPluginViewer.prototype = {
 					var query = HxOverrides.substr(src,k + 1,null);
 					this.params = this.queryToParams(query);
 				}
-				if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(this.baseURL,{ fileName : "JsPluginViewer.hx", lineNumber : 124, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
+				if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(this.baseURL,{ fileName : "JsPluginViewer.hx", lineNumber : 126, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
 			}
 		}
 		this.tech = this.getTechnology();
@@ -1263,14 +1369,15 @@ com.wiris.js.JsPluginViewer.prototype = {
 			this.absoluteURL = "/wirispluginengine/integration";
 		}
 		this.ready = true;
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Tech:" + this.tech,{ fileName : "JsPluginViewer.hx", lineNumber : 155, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Tech:" + this.tech,{ fileName : "JsPluginViewer.hx", lineNumber : 157, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
 		if(this.params.exists("viewer")) this.viewer = this.params.get("viewer");
+		if(this.params.exists("async")) this.asyncParam = this.params.get("async") == "true"?true:false;
 		if(this.params.exists("zoom")) this.zoom = Std.parseFloat(this.params.get("zoom"));
 		if(this.params.exists("dpi")) this.zoom *= Std.parseFloat(this.params.get("dpi")) / 96;
 		if(this.params.exists("lang")) this.lang = this.params.get("lang"); else this.lang = "en";
 		if(this.lang == "inherit") this.lang = js.Lib.document.getElementsByTagName("html")[0].lang;
 		if(this.viewer == "image") this.parseDocument();
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Language:" + this.lang,{ fileName : "JsPluginViewer.hx", lineNumber : 186, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Language:" + this.lang,{ fileName : "JsPluginViewer.hx", lineNumber : 191, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
 		com.wiris.js.JsPluginViewer.instance = this;
 		com.wiris.js.JsPluginViewer.bypassEncapsulation();
 	}
@@ -1288,6 +1395,7 @@ com.wiris.js.JsPluginViewer.prototype = {
 	,tech: null
 	,lang: null
 	,performanceenabled: null
+	,asyncParam: null
 	,viewer: null
 	,zoom: null
 	,absoluteURL: null
@@ -2843,6 +2951,7 @@ js.XMLHttpRequest = window.XMLHttpRequest?XMLHttpRequest:window.ActiveXObject?fu
 com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE = 1;
 com.wiris.js.JsPluginViewer.DEBUG = false;
 com.wiris.js.JsPluginViewer.TECH = "php";
+com.wiris.js.JsPluginViewer.VERSION = "4.10.0.1383";
 haxe.Serializer.USE_CACHE = false;
 haxe.Serializer.USE_ENUM_INDEX = false;
 haxe.Serializer.BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:";
