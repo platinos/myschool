@@ -4,6 +4,7 @@ $class="11";
 $value = array("subject"=>$subj,"class"=>$class);
 
 $feedchapters = apicall("getchapters",$value); 
+echo "klsdjflasjdf";
 var_dump($value, $feedchapters);?>
 
 <select onchange="filter();" class="form-control" name="subj" id="subj">
