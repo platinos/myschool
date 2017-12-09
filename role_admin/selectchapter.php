@@ -5,7 +5,7 @@ $value = array("subject"=>$subj,"class"=>$class);
 
 $feedchapters = apicall("getchapters",$value); 
 
-var_dump($feedchapters, $feedchapters['data'][0]['chapter']);?>
+var_dump($feedchapters, $feedchapters['data'][0]['chapter'],$feedchapters['size']);?>
 
 <select onchange="filter();" class="form-control" name="subj" id="subj">
 <option value="select" selected>Select chapters</option>
