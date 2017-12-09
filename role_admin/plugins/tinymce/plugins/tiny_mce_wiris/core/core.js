@@ -16,7 +16,7 @@ wrs_addEvent(window, 'message', function (e) {
             postVariable.value = postVariables;
         }
         if (typeof(e.source) != 'undefined') { // Avoid sent message when popupWindows has been closed.
-            e.source.postMessage(postVariable, _wrs_conf_path);
+            e.source.postMessage(postVariable, _wrs_currentPath);
         }
     }
 });
