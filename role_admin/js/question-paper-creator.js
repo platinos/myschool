@@ -149,7 +149,7 @@ function submitAll(file) {
 
 
 var table=$('#allQuestions').DataTable();
-var prevClass=null,prevsubj=null;
+var prevClass=null,prevSubj=null;
 
 function filter() {
 	var subj=$('#subj').val();
