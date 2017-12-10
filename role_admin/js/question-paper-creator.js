@@ -160,6 +160,10 @@ function filter() {
 	$.fn.dataTable.ext.search.pop();
 	table.draw();
 	
+
+	if(subj!='select' && c!='select'){
+		chap_select(subj,c);
+	}
 	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
@@ -190,14 +194,14 @@ function filter() {
 	table.draw();
 }
 
-function chap_select(){
+function chap_select(subj, c){
 	var form = new FormData();
 	form.append("func", "getchapters");
-	form.append("class", document.getElementById("class").value);
-	form.append("subject", document.getElementById("subj").value);
+	form.append("class", c);
+	form.append("subject", subj);
 
 
-	
+
 	var settings = {
 		"async": true,
 		"url": "functions.php",
