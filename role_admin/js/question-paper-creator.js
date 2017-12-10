@@ -160,9 +160,6 @@ function filter() {
 
 	$.fn.dataTable.ext.search.pop();
 	table.draw();
-	
-
-	chapterloadrequired(subj,c);
 
 	
 	$.fn.dataTable.ext.search.push(
@@ -196,7 +193,10 @@ function filter() {
 	table.draw();
 }
 
-function chapterloadrequired (subj,c) {
+function chapterload () {
+
+	var subj=$('#subj').val();
+	var c=$('#class').val();
 	
 	if(subj=='select' ||c=='select'){
 		var select = $('#chapters');
