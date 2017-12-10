@@ -149,21 +149,21 @@ function submitAll(file) {
 
 
 var table=$('#allQuestions').DataTable();
+var prevClass=null, prevSubj=null;
 
 function filter() {
 	var subj=$('#subj').val();
 	var c=$('#class').val();
 	var type=$('#type').val();
 	var difficulty=$('#difficulty').val();
-	var chapter=$('#chapter').val();
+	var chapter=$('#chapters').val();
 
 	$.fn.dataTable.ext.search.pop();
 	table.draw();
 	
 
-	if(subj!='select' && c!='select'){
-		chap_select(subj,c);
-	}
+	chapterloadrequired(subj,c);
+
 	
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
@@ -194,6 +194,23 @@ function filter() {
 	table.draw();
 }
 
+function chapterloadrequired (subj,c) {
+	
+	if(subj=='select' ||c=='select'){
+		var select = $('#chapters');
+		select.empty().append("<option value='select'>Loading</option>");
+
+	}
+
+	if(prevClass!=c || prevSubj!=subj){
+		chap_select(subj,c);
+	}
+
+	prevClass=c;
+	prevSubj=subj;
+}
+
+
 function chap_select(subj, c){
 	var form = new FormData();
 	form.append("func", "getchapters");
@@ -222,7 +239,7 @@ function chap_select(subj, c){
 		var str="<option value=0>Select</option>";
 		for (var i = 0; i < jsonData.data.length; i++) {
 			var counter = jsonData.data[i];
-			str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
+			str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
 		}
 
 	var select = $('#chapters');
