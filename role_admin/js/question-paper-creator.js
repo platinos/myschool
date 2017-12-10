@@ -198,7 +198,7 @@ function chapterload () {
 		$('#chapters').empty().append("<option value='select'>Loading</option>");
 	}
 
-	if(prevClass!=c || prevSubj!=subj){
+	else if(prevClass!=c || prevSubj!=subj){
 		chap_select(subj,c);
 	}
 
