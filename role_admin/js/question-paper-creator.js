@@ -195,6 +195,7 @@ function chapterload () {
 	
 	if(subj=='select' ||c=='select'){
 		$('#chapters').empty().append("<option value='select' selected disabled>Select chapter</option>");
+		$('#chapters').attr('disabled', 'disabled');
 	}
 
 	else if(prevClass!=c || prevSubj!=subj){
