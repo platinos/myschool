@@ -225,14 +225,7 @@ function chap_select(subj, c){
 			str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
 		}
 
-
-	//alert(str);
-
-	//$('#here').html(str);
-
 	var select = $('#chapters');
 	select.empty().append(str);
-
-
-
-});
+	});
+}
