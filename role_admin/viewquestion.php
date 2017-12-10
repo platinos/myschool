@@ -103,7 +103,7 @@ else
                                         <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
                                         
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['type'] ?></td>
+                                        <td><?php echo mapQuesType($feed['data'][$i]['type']) ?></td>
                                         <td><?php echo $feed['data'][$i]['subject'] ?></td>
                                         <td><?php echo $feed['data'][$i]['chapter'] ?></td>
                                         <td><?php echo $feed['data'][$i]['level'] ?></td>
