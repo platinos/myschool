@@ -100,7 +100,7 @@ else
                                     <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
                                                
                                         <td style="display:none"><?php echo ($i+1) ?></td>
-                                        <td><?php echo strip_tags(htmlspecialchars_decode($feed['data'][$i]['ques_txt'])) ?></td>
+                                        <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
                                         
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
                                         <td><?php echo $feed['data'][$i]['type'] ?></td>

@@ -193,13 +193,21 @@ function chapterload () {
 	var subj=$('#subj').val();
 	var c=$('#class').val();
 	
+	var chapsel=$('#chapters');
 	if(subj=='select' ||c=='select'){
-		$('#chapters').empty().append("<option value='select' selected disabled>Select chapter</option>");
-		$('#chapters').attr('disabled', 'disabled');
+		chapsel.empty().append("<option value='select' selected disabled>Select chapter</option>");
+		chapsel.attr('disabled', 'disabled');
+		chapsel.css({
+			background-color: 'lightgrey'
+		});
 	}
 
 	else if(prevClass!=c || prevSubj!=subj){
+		chapsel.removeAttr('disabled');
 		chap_select(subj,c);
+		chapsel.css({
+			background-color: 'white'
+		});
 	}
 
 	prevClass=c;
