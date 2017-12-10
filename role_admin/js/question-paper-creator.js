@@ -149,7 +149,6 @@ function submitAll(file) {
 
 
 var table=$('#allQuestions').DataTable();
-var prevClass=null, prevSubj=null;
 
 function filter() {
 	var subj=$('#subj').val();
@@ -195,7 +194,7 @@ function chapterload () {
 	var c=$('#class').val();
 	
 	if(subj=='select' ||c=='select'){
-		$('#chapters').empty().append("<option value='select'>Loading</option>");
+		$('#chapters').empty().append("<option value='select' selected disabled>Select chapter</option>");
 	}
 
 	else if(prevClass!=c || prevSubj!=subj){
@@ -232,7 +231,7 @@ function chap_select(subj, c){
 		var dataSize = jsonData.size;
 
 
-		var str="<option value='select'>Select</option>";
+		var str="<option value='select'>Select chapter</option>";
 		for (var i = 0; i < jsonData.data.length; i++) {
 			var counter = jsonData.data[i];
 			str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
