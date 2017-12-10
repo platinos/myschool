@@ -197,7 +197,7 @@ function chapterload () {
 	var chapsel=$('#chapters');
 	if(subj=='select' ||c=='select'){
 		chapsel.attr('disabled', 'true');
-		chapsel.empty().append("<option value='select' selected disabled>Select chapter</option>");
+		chapsel.empty().append("<option value='select' selected>Select chapter</option>");
 		chapsel.css({
 			background: 'lightgrey'
 		});
