@@ -1,3 +1,5 @@
+
+<script src="http://msmypaper.com/mypaper/role_admin/plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=image"></script>
 <h2 style="text-align: center;">MySchool Coaching Institute</h2>
 <h3 style="text-align: center;">MySchool, Udichi Building, (Opp. Hotel Asansol INN) Police Line,</h3>
 <h3 style="text-align: center;">Asansol, West Bengal. 713304.</h3>
