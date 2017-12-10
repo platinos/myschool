@@ -1,11 +1,11 @@
 <?php 
 $subj="chemistry";
-$class="9";
+$class="11";
 $value = array("subject"=>$subj,"class"=>$class);
 
 $feedchapters = apicall("getchapters",$value); ?>
 
-<select onchange="filter();" class="form-control" name="chapter" id="chapter">
+<select onchange="filter();" class="form-control" name="subj" id="subj">
 <option value="select" selected>Select chapters</option>
    <?php
 
