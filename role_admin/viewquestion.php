@@ -125,7 +125,7 @@ else
                                 <td><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
 
 
-                                <td><a href="#"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
+                                <td><a href="editquestion.php?id=<?php echo $feed['data'][$i]['id'] ?>"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
                                     <a href="#" onclick="window.open('functions.php?func=deletequestion&qid=<?php echo $feed['data'][$i]['id'] ?>','_BLANK');setTimeout(location.reload.bind(location), 2000);"><i class="material-icons" style="color: red">delete</i></a>
                                 </td>
 
