@@ -16,6 +16,7 @@
 
 <?php
             if(isset($_POST['chap']) && !empty($_POST['chap'])) {
+                 
                 $ch_id = $_POST['chapters'];
                 if($ch_id=="0")
                     {?>
@@ -33,7 +34,7 @@
                                 'topic_name' => $_POST['chap']
                                 //'topic_id'=> $_GET['topic_id'] 
                             );
-                            $feed = apicall("addtopic", $values);
+                            $feed = apicall("edittopic", $values);
                             if($feed['error']==true)
                             {
                                 ?>
@@ -50,7 +51,7 @@
                                 <script>
                              alert("Topic Details Sucessfully Added");   
                             </script>
-                            
+
                              <?Php
                          }
                      }
