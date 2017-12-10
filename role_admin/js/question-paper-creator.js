@@ -181,11 +181,54 @@ function filter() {
         var nochapterpresent=chapter=='select';
 
         if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
-        	 (nochapterpresent|| chaptercol==chapter) && (nodifficultpresent|| difficulty==difficultycol)){
+        	(nochapterpresent|| chaptercol==chapter) && (nodifficultpresent|| difficulty==difficultycol)){
         	return true;
-        }
-        return false;
-    });
+    }
+    return false;
+});
 
 	table.draw();
 }
+
+function chap_select(){
+	var form = new FormData();
+	form.append("func", "getchapters");
+	form.append("class", document.getElementById("class").value);
+	form.append("subject", document.getElementById("subj").value);
+
+
+	
+	var settings = {
+		"async": true,
+		"url": "functions.php",
+		"method": "POST",
+
+		"processData": false,
+		"contentType": false,
+		"mimeType": "multipart/form-data",
+		"data": form
+	}
+
+	$.ajax(settings).done(function (response) {
+		var jsonData= JSON.parse(response);
+
+		var dataSize = jsonData.size;
+
+
+		var str="<option value=0>Select</option>";
+		for (var i = 0; i < jsonData.data.length; i++) {
+			var counter = jsonData.data[i];
+			str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
+		}
+
+
+	//alert(str);
+
+	//$('#here').html(str);
+
+	var select = $('#chapters');
+	select.empty().append(str);
+
+
+
+});
