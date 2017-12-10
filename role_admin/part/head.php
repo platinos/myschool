@@ -36,6 +36,11 @@ header('Location: ../');
 
 <script src="http://msmypaper.com/mypaper/role_admin/plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=image"></script>
 
+ <style type="text/css" media="screen">
+        .hide{
+            display: none;
+        }
+    </style>
 
 
 
