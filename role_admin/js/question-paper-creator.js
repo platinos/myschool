@@ -177,7 +177,7 @@ function filter() {
         var noclasspresent=c=='select';
         var notypepresent=type=='select';
         var nodifficultpresent=difficulty=='select';
-        var nochapterpresent=chapter=='select' || 0;
+        var nochapterpresent=chapter=='select';
 
         if(nosubjpresent && noclasspresent && notypepresent && nodifficultpresent && nochapterpresent){
         	return true; 
@@ -238,7 +238,7 @@ function chap_select(subj, c){
 		var dataSize = jsonData.size;
 
 
-		var str="<option value=0>Select</option>";
+		var str="<option value='select'>Select</option>";
 		for (var i = 0; i < jsonData.data.length; i++) {
 			var counter = jsonData.data[i];
 			str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
@@ -248,18 +248,3 @@ function chap_select(subj, c){
 	select.empty().append(str);
 	});
 }
-
-
-
-
-
-
-/*
-
-settings = {oFeatures: {…}, oScroll: {…}, oLanguage: {…}, oBrowser: {…}, ajax: null, …}, data = (9) ["9", "Some new Question.", "Short", "Chemistry", "Redox", "Reduction", "10", "Easy", "Remove                                            …                                                 "], dataIndex = 32
-
-​
-var classcol=data[0]; 
-classcol = "9", data = (9) ["9", "Some new Question.", "Short", "Chemistry", "Redox", "Reduction", "10", "Easy", "Remove                                            …                                                 "]
-
-*/
