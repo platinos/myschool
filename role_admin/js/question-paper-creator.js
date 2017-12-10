@@ -181,7 +181,7 @@ function filter() {
         var nochapterpresent=chapter=='select';
 
         if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
-        	 (nodifficultpresent|| difficulty==difficultycol)){
+        	 (nochapterpresent|| chaptercol==chapter) && (nodifficultpresent|| difficulty==difficultycol)){
         	return true;
         }
         return false;
