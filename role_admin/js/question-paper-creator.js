@@ -146,8 +146,6 @@ function submitAll(file) {
 	
 }
 
-
-
 var table=$('#allQuestions').DataTable();
 var prevClass=null,prevSubj=null;
 
@@ -161,54 +159,45 @@ function filter() {
 	$.fn.dataTable.ext.search.pop();
 	table.draw();
 
-	
+
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
-        var classcol=data[0]; 
-        var typecol=data[2]; 
-        var subjcol = data[3];
-        var chaptercol=data[4]; 
-        var difficultycol=data[7]; 
+			var classcol=data[0]; 
+			var typecol=data[2]; 
+			var subjcol = data[3];
+			var chaptercol=data[4]; 
+			var difficultycol=data[7]; 
 
 
 
-        var nosubjpresent=subj=='select';
-        var noclasspresent=c=='select';
-        var notypepresent=type=='select';
-        var nodifficultpresent=difficulty=='select';
-        var nochapterpresent=chapter=='select';
+			var nosubjpresent=subj=='select';
+			var noclasspresent=c=='select';
+			var notypepresent=type=='select';
+			var nodifficultpresent=difficulty=='select';
+			var nochapterpresent=chapter=='select';
 
-        if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
-        	(nochapterpresent|| chaptercol==chapter) && (nodifficultpresent|| difficulty==difficultycol)){
-        	return true;
-    }
-    return false;
-});
+			if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
+				(nochapterpresent|| chaptercol==chapter) && (nodifficultpresent|| difficulty==difficultycol)){
+				return true;
+		}
+		return false;
+	});
 
 	table.draw();
 }
-
 function chapterload () {
 
 	var subj=$('#subj').val();
 	var c=$('#class').val();
-	
-	var chapsel=$('#chapters');
+
 	if(subj=='select' ||c=='select'){
-		chapsel.empty().append("<option value='select' selected disabled>Select chapter</option>");
-		chapsel.attr('disabled', 'disabled');
-		chapsel.css({
-			background: 'lightgrey'
-		});
+		$('#chapters').empty().append("<option value='select' selected disabled>Select chapter</option>");
+		$('#chapters').attr('disabled', 'disabled');
 	}
 
 	else if(prevClass!=c || prevSubj!=subj){
-		chapsel.removeAttr('disabled');
 		chap_select(subj,c);
-		chapsel.css({
-			background: 'white'
-		});
 	}
 
 	prevClass=c;
@@ -221,7 +210,6 @@ function chap_select(subj, c){
 	form.append("func", "getchapters");
 	form.append("class", c);
 	form.append("subject", subj);
-
 
 
 	var settings = {
@@ -247,6 +235,6 @@ function chap_select(subj, c){
 			str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
 		}
 
-	$('#chapters').empty().append(str);
+		$('#chapters').empty().append(str);
 	});
 }
