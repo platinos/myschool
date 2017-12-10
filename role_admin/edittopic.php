@@ -110,9 +110,12 @@
                         if($feed2['error']==true)
                         {
                             ?>
-                            <div class="alert alert-danger">
+                            <!-- <div class="alert alert-danger">
                                 <h2><b><strong>Oh snap!</strong></b> <?php echo $feed2['error_msg'];?></h2>
-                            </div>
+                            </div> -->
+                            <script>
+                             alert("<?php echo $feed2['error_msg'];?>");   
+                            </script>
                             <?php   
 
 
