@@ -147,6 +147,7 @@ function submitAll(file) {
 }
 
 
+function filter(){
 
 var table=$('#allQuestions').DataTable();
 
