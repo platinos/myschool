@@ -179,10 +179,6 @@ function filter() {
         var nodifficultpresent=difficulty=='select';
         var nochapterpresent=chapter=='select';
 
-        if(nosubjpresent && noclasspresent && notypepresent && nodifficultpresent && nochapterpresent){
-        	return true; 
-        }
-
         if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
         	(nochapterpresent|| chaptercol==chapter) && (nodifficultpresent|| difficulty==difficultycol)){
         	return true;
@@ -199,9 +195,7 @@ function chapterload () {
 	var c=$('#class').val();
 	
 	if(subj=='select' ||c=='select'){
-		var select = $('#chapters');
-		select.empty().append("<option value='select'>Loading</option>");
-
+		$('#chapters').empty().append("<option value='select'>Loading</option>");
 	}
 
 	if(prevClass!=c || prevSubj!=subj){
@@ -244,7 +238,6 @@ function chap_select(subj, c){
 			str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
 		}
 
-	var select = $('#chapters');
-	select.empty().append(str);
+	$('#chapters').empty().append(str);
 	});
 }
