@@ -33,5 +33,16 @@ header('Location: ../');
 
 <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
 <link href="css/themes/all-themes.css" rel="stylesheet" />
+
+<script src="http://msmypaper.com/mypaper/role_admin/plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=image"></script>
+
+ <style type="text/css" media="screen">
+        .hide{
+            display: none;
+        }
+    </style>
+
+
+
 <?php include 'config.php';?>
 <?php include 'utilities.php'; ?>

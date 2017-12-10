@@ -61,7 +61,7 @@
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th class="hide">Id</th>
                                     <th>Name</th>
                                     <th>Subject</th>
                                     <th>Class</th>
@@ -74,7 +74,7 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                  <th>Id</th>
+                                  <th class="hide">Id</th>
                                   <th>Name</th>
                                   <th>Subject</th>
                                   <th>Class</th>
@@ -91,7 +91,7 @@
                             for($i=0; $i<$size; $i++)
                                 {?>
                                     <tr>
-                                        <td><?php echo ($i+1) ?></td>
+                                        <td class="hide"><?php echo ($i+1) ?></td>
                                         <td><?php echo $feed['data'][$i]['name'] ?></td>
                                         <td><?php echo $feed['data'][$i]['subject'] ?></td>
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
