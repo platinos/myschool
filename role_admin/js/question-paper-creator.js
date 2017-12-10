@@ -174,15 +174,17 @@ function filter() {
         var chaptercol=data[4]; 
         var difficultycol=data[7]; 
 
-        if(subj=='select' && c=='select' && type=='select' && difficulty=='select' && chapter=='select'){
-        	return true; 
-        }
+
 
         var nosubjpresent=subj=='select';
         var noclasspresent=c=='select';
         var notypepresent=type=='select';
         var nodifficultpresent=difficulty=='select';
-        var nochapterpresent=chapter=='select';
+        var nochapterpresent=chapter=='select' || 0;
+
+        if(nosubjpresent && noclasspresent && notypepresent && nodifficultpresent && nochapterpresent){
+        	return true; 
+        }
 
         if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
         	(nochapterpresent|| chaptercol==chapter) && (nodifficultpresent|| difficulty==difficultycol)){
@@ -246,3 +248,18 @@ function chap_select(subj, c){
 	select.empty().append(str);
 	});
 }
+
+
+
+
+
+
+/*
+
+settings = {oFeatures: {…}, oScroll: {…}, oLanguage: {…}, oBrowser: {…}, ajax: null, …}, data = (9) ["9", "Some new Question.", "Short", "Chemistry", "Redox", "Reduction", "10", "Easy", "Remove                                            …                                                 "], dataIndex = 32
+
+​
+var classcol=data[0]; 
+classcol = "9", data = (9) ["9", "Some new Question.", "Short", "Chemistry", "Redox", "Reduction", "10", "Easy", "Remove                                            …                                                 "]
+
+*/
