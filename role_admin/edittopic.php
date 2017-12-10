@@ -37,9 +37,9 @@
                             if($feed['error']==true)
                             {
                                 ?>
-                                <div class="alert alert-danger">
-                                  <h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
-                              </div>
+                                <script>
+                             alert("<?php echo $feed2['error_msg'];?>");   
+                            </script>
                                   <?php   
 
 
@@ -47,9 +47,10 @@
                               else
                               {
                                 ?>
-                                <div class="alert alert-info">
-                                 <h2><b><strong>Topic Details Sucessfully Added</strong></b></h2>
-                             </div>
+                                <script>
+                             alert("Topic Details Sucessfully Added");   
+                            </script>
+                            
                              <?Php
                          }
                      }
@@ -113,9 +114,7 @@
                             <!-- <div class="alert alert-danger">
                                 <h2><b><strong>Oh snap!</strong></b> <?php //echo $feed2['error_msg'];?></h2>
                             </div> -->
-                            <script>
-                             alert("<?php echo $feed2['error_msg'];?>");   
-                            </script>
+                            
                             <?php   
 
 
