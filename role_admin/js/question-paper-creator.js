@@ -150,42 +150,31 @@ function submitAll(file) {
 
 var table=$('#allQuestions').DataTable();
 
-function filter() {
-	var subj=$('#subj').val();
-	var c=$('#class').val();
-	var type=$('#type').val();
-	var difficulty=$('#difficulty').val();
-	var chapter=$('#chapter').val();
-
-	$.fn.dataTable.ext.search.pop();
-	table.draw();
-	
-	
-	$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-
+ $.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+ 
         var classcol=data[0]; // use data for the class column
         var typecol=data[2]; //use data for type column
         var subjcol = data[3]; // use data for the subj column
         var chaptercol=data[4]; 
         var difficultycol=data[7]; 
-
+ 
         if(subj=='select' && c=='select' && type=='select' && difficulty=='select' && chapter=='select'){
-        	return true; 
+          return true; 
         }
-
+ 
         var nosubjpresent=subj=='select';
         var noclasspresent=c=='select';
         var notypepresent=type=='select';
         var nodifficultpresent=difficulty=='select';
         var nochapterpresent=chapter=='select';
-
+ 
         if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
-        	  (nochapterpresent|| chaptercol==chapter) &&(nodifficultpresent|| difficulty==difficultycol)){
-        	return true;
+           (nochapterpresent || chaptercol == chapter) && (nodifficultpresent|| difficulty==difficultycol)){
+          return true;
         }
         return false;
     });
-
-	table.draw();
+ 
+  table.draw();
 }
