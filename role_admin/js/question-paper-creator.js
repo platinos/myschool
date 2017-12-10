@@ -196,8 +196,8 @@ function chapterload () {
 	
 	var chapsel=$('#chapters');
 	if(subj=='select' ||c=='select'){
-		chapsel.empty().append("<option value='select' selected disabled>Select chapter</option>");
 		chapsel.attr('disabled', 'true');
+		chapsel.empty().append("<option value='select' selected disabled>Select chapter</option>");
 		chapsel.css({
 			background: 'lightgrey'
 		});
@@ -205,10 +205,10 @@ function chapterload () {
 
 	else if(prevClass!=c || prevSubj!=subj){
 		chapsel.removeAttr('disabled');
-		chap_select(subj,c);
 		chapsel.css({
 			background: 'white'
 		});
+		chap_select(subj,c);
 	}
 
 	prevClass=c;
@@ -240,7 +240,7 @@ function chap_select(subj, c){
 		var dataSize = jsonData.size;
 
 
-		var str="<option value='select'>Select chapter</option>";
+		var str="<option value='select' selected>Select chapter</option>";
 		for (var i = 0; i < jsonData.data.length; i++) {
 			var counter = jsonData.data[i];
 			str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
