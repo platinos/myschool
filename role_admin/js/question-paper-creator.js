@@ -150,7 +150,7 @@ function submitAll(file) {
 
 var table=$('#allQuestions').DataTable();
 
-f$.fn.dataTable.ext.search.push(
+f$.fn.dataTable.ext.search.push({
     function( settings, data, dataIndex ) {
  
         var classcol=data[0]; // use data for the class column
