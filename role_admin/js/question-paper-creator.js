@@ -198,7 +198,7 @@ function chapterload () {
 		chapsel.empty().append("<option value='select' selected disabled>Select chapter</option>");
 		chapsel.attr('disabled', 'disabled');
 		chapsel.css({
-			background-color: 'lightgrey'
+			background: 'lightgrey'
 		});
 	}
 
@@ -206,7 +206,7 @@ function chapterload () {
 		chapsel.removeAttr('disabled');
 		chap_select(subj,c);
 		chapsel.css({
-			background-color: 'white'
+			background: 'white'
 		});
 	}
 
