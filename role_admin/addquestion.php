@@ -27,14 +27,6 @@
 					</div>
 					<div class="body">
 
-
-
-
-
-
-
-
-
 						<!-- ***************** FORM **********************-->
 						<!-- Middle Column -->
 
@@ -489,7 +481,15 @@ tinymce.init({
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
-	image_advtab: true
+	image_advtab: true,
+	setup : function(ed)
+  {
+    ed.on('init', function() 
+    {
+        this.execCommand("fontName", false, "tahoma");
+        this.execCommand("fontSize", false, "16px");
+    })
+	}
 });
 
 tinymce.init({
