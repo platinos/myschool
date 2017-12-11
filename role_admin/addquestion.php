@@ -9,7 +9,7 @@
 
 	<title>MyPaper-Controller</title>
 	<style>
-	body.mceContentBody {
+	.mce-content-body {
    	background: #000;
 	}	
 	</style>
