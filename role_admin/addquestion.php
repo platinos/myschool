@@ -8,6 +8,11 @@
 	<!-- <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" /> -->
 
 	<title>MyPaper-Controller</title>
+	<style>
+	.mce-content-body {
+   	background: #000;
+	}	
+	</style>
 
 	<!-- Favicon-->
 
@@ -26,14 +31,6 @@
 
 					</div>
 					<div class="body">
-
-
-
-
-
-
-
-
 
 						<!-- ***************** FORM **********************-->
 						<!-- Middle Column -->
@@ -488,7 +485,7 @@ tinymce.init({
 	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-	toolbar2: 'print preview media | forecolor backcolor emoticons | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true
 });
 

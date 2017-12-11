@@ -55,7 +55,8 @@ else
                             <thead>
                                 <tr>
                                     
-                                    <th>Id</th>
+                                    <th style="display:none">Id</th>
+                                    <th>Question</th>   
                                     <th>Class</th>
                                     <th>Type</th>
                                     <th>Subject</th>
@@ -63,9 +64,6 @@ else
                                     <th>Level</th>
                                     <th>Topic</th>
                                     <th>Marks</th>
-                                    <th>Question</th>                                       
-                                    <th>Image</th>
-                                    <th>QR</th>
                                     <th>Answer</th>
                                     <th>Youtube</th> 
                                     <th>Action</th>
@@ -77,7 +75,8 @@ else
                             <tfoot>
                                 <tr>
                                     
-                                    <th>Id</th>
+                                    <th style="display:none">Id</th>
+                                    <th>Question</th>   
                                     <th>Class</th>
                                     <th>Type</th>
                                     <th>Subject</th>
@@ -85,9 +84,6 @@ else
                                     <th>Level</th>
                                     <th>Topic</th>
                                     <th>Marks</th>
-                                    <th>Question</th>                                       
-                                    <th>Image</th>
-                                    <th>QR</th>
                                     <th>Answer</th>
                                     <th>Youtube</th> 
                                     <th>Action</th>
@@ -101,35 +97,36 @@ else
                                 $size = $feed['data']['size']; 
                                 for($i=0; $i<$size; $i++)
                                     {?>
-                                            <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
+                                    <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
                                                
-                                        <td><?php echo ($i+1) ?></td>
+                                        <td style="display:none"><?php echo ($i+1) ?></td>
+                                        <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
+                                        
                                         <td><?php echo $feed['data'][$i]['class'] ?></td>
-                                        <td><?php echo $feed['data'][$i]['type'] ?></td>
+                                        <td><?php echo mapQuesType($feed['data'][$i]['type']) ?></td>
                                         <td><?php echo $feed['data'][$i]['subject'] ?></td>
                                         <td><?php echo $feed['data'][$i]['chapter'] ?></td>
                                         <td><?php echo $feed['data'][$i]['level'] ?></td>
                                         <td><?php echo $feed['data'][$i]['topic'] ?></td>
                                         <td><?php echo $feed['data'][$i]['marks'] ?></td>
-                                        <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
-                                        <td>
-                                           <a target="_blank" href = "<?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
-                                            <img alt="<?php echo $feed['data'][$i]['ques_img'] ?>" src="<?php echo $feed['data'][$i]['ques_img'] ?>">
+                                        <!--td>
+                                           <a target="_blank" href = "< ?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
+                                            <img alt="< ?php echo $feed['data'][$i]['ques_img'] ?>" src="< ?php echo $feed['data'][$i]['ques_img'] ?>">
                                         </a>
                                     </td>
 
                                     <td>
-                                       <a target="_blank" href = "https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['id'] ?>"  >
-                                        <img hieght="100" width="100" alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['id'] ?>">
+                                       <a target="_blank" href = "https://api.qrserver.com/v1/create-qr-code/?data=< ?php echo $feed['data'][$i]['qr'] ?>"  >
+                                        <img hieght="100" width="100" alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?data=< ?php echo $feed['data'][$i]['qr'] ?>">
                                     </a>
-                                </td>
+                                </td-->
 
                                 <td><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
                                 <td><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
 
 
-                                <td><a href="fdaf"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
-                                    <a onclick="window.open('functions.php?func=deletequestion&qid=<?php echo $feed['data'][$i]['id'] ?>','_BLANK');setTimeout(location.reload.bind(location), 2000);"><i class="material-icons" style="color: red">delete</i></a>
+                                <td><a href="editquestion.php?id=<?php echo $feed['data'][$i]['id'] ?>"><i class="material-icons" style="color: Blue">edit</i></a>     &nbsp;&nbsp;&nbsp;
+                                    <a href="#" onclick="window.open('functions.php?func=deletequestion&qid=<?php echo $feed['data'][$i]['id'] ?>','_BLANK');setTimeout(location.reload.bind(location), 2000);"><i class="material-icons" style="color: red">delete</i></a>
                                 </td>
 
 

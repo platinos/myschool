@@ -16,6 +16,7 @@
 
 <?php
             if(isset($_POST['chap']) && !empty($_POST['chap'])) {
+                 
                 $ch_id = $_POST['chapters'];
                 if($ch_id=="0")
                     {?>
@@ -33,12 +34,13 @@
                                 'topic_name' => $_POST['chap']
                                 //'topic_id'=> $_GET['topic_id'] 
                             );
-                            $feed = apicall("addtopic", $values);
+                            $feed = apicall("edittopic", $values);
                             if($feed['error']==true)
                             {
                                 ?>
-                                <div class="alert alert-danger">
-                                  <h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+                                <script>
+                             alert("<?php echo $feed2['error_msg'];?>");   
+                            </script>
                                   <?php   
 
 
@@ -46,9 +48,10 @@
                               else
                               {
                                 ?>
-                                <div class="alert alert-info">
-                                 <h2><b><strong>Topic Details Sucessfully Added</strong></b></h2>
-                             </div>
+                                <script>
+                             alert("Topic Details Sucessfully Added");   
+                            </script>
+
                              <?Php
                          }
                      }
@@ -109,9 +112,10 @@
                         if($feed2['error']==true)
                         {
                             ?>
-                            <div class="alert alert-danger">
-                                <h2><b><strong>Oh snap!</strong></b> <?php echo $feed2['error_msg'];?></h2>
-                            </div>
+                            <!-- <div class="alert alert-danger">
+                                <h2><b><strong>Oh snap!</strong></b> <?php //echo $feed2['error_msg'];?></h2>
+                            </div> -->
+                            
                             <?php   
 
 
