@@ -17,7 +17,8 @@
 <?php include 'part/nav.php'; ?>
 <?php 	
 	$value=array('id'=>$_GET['id']);
-	$feedquestion=apicall('getquestionbyid',$value)
+	$feedquestion=apicall('getquestionbyid',$value);
+	var_dump($feedquestion);
  ?>
 <section class="content">
 	<div class="container-fluid">
@@ -49,7 +50,7 @@
 							</textarea>
 
 
-							<?php $type= $feedquestion['data'][0]['type']; var_dump($type); ?>
+							<?php $type= $feedquestion['data'][0]['type']; ?>
 							
 							<div id=1>
 
