@@ -15,6 +15,10 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
+<?php 	
+	$value=array('id'=>$_GET['id']);
+	$feedquestion=apicall('getquestionbyid',$value)
+ ?>
 <section class="content">
 	<div class="container-fluid">
 
@@ -22,7 +26,7 @@
 			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 				<div class="card">
 					<div class="header">
-						<h2 id="here">ADD QUESTIONS</h2>
+						<h2 id="here">EDIT QUESTIONS</h2>
 
 					</div>
 					<div class="body">
@@ -41,13 +45,36 @@
 						<form method="POST" action='' enctype="multipart/form-data">
 
 							<textarea id="question" name="question" required>
-								Question
+								<?php echo $feedquestion['data'][0]['ques_txt'] ?>
 							</textarea>
 
+
+							<?php $type= $feedquestion['data'][0]['type'] ?>
+							
 							<div id=1>
-								<textarea id="answer" name="answer">
-									Answer
+
+								<?php 
+									if($type==1) {
+									
+								?>
+								<textarea id="mcq1" name="mcq1">
+									<?php $feedquestion['data'][0]['option1'] ?>
 								</textarea>
+
+								<textarea id="mcq2" name="mcq2">
+									<?php $feedquestion['data'][0]['option2'] ?>
+								</textarea>
+
+								<textarea id="mcq3" name="mcq3">
+									<?php $feedquestion['data'][0]['option3'] ?>
+								</textarea>
+
+								<textarea id="mcq4" name="mcq4">
+									<?php $feedquestion['data'][0]['option4'] ?>
+								</textarea>
+								<?php
+								}
+								?>
 							</div>
 
 							<div id=2>
@@ -60,28 +87,20 @@
 
 							</div> 
 
+
 							<div id=3>
-								<textarea id="mcq1" name="mcq1">
-									option -1 - please place your correct answer in this field
-								</textarea>
-
-								<textarea id="mcq2" name="mcq2">
-									option -2
-								</textarea>
-
-								<textarea id="mcq3" name="mcq3">
-									option -3
-								</textarea>
-
-								<textarea id="mcq4" name="mcq4">
-									option -4
+								<textarea id="answer" name="answer">
+									<?php 
+										if($type==3 || $type==5 || $type==5) {
+											echo $feedquestion['data'][0]['answer'];
+										}
+									?>
+									Answer
 								</textarea>
 							</div>
-
 						</div>
 					</div>
 				</div>
-
 
 
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -345,17 +364,24 @@
 
 <script type="text/javascript">
 
-	$(document).ready(function(){
+$(document).ready(function() {
+	$('#class').val('<?php $feedquestion['data'][0]['class'] ?>'); 
+	$('#subject').val('<?php $feedquestion['data'][0]['subject'] ?>'); 
+	$('#type').val('<?php $feedquestion['data'][0]['type'] ?>'); 
 
-		$("#1").show();
-		$("#2").hide();
-		$("#3").hide();   
-	});
+	chap_select();
+	$('#chapter').val('');
+	topic_select();
+	
+	$('#topic').val('<?php $feedquestion['data'][0]['topic'] ?>');
+	$('#level').val('<?php $feedquestion['data'][0]['level'] ?>');
+	$('#marks').val('<?php $feedquestion['data'][0]['marks'] ?>');
+	$('#link').val('<?php $feedquestion['data'][0]['youtube'] ?>');
+
+});
 
 
-
-	function just_change() {
-// body...
+function just_change() {
 
 var value = document.getElementById("type").value;
 
