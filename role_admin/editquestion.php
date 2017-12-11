@@ -16,7 +16,7 @@
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
 <?php 	
-	$value=array('id'=>$_GET['id']);
+	$value=array('qid'=>$_GET['id']);
 	$feedquestion=apicall('getquestionbyid',$value);
 	var_dump($feedquestion);
  ?>
