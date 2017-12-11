@@ -481,15 +481,7 @@ tinymce.init({
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
-	image_advtab: true,
-	setup : function(ed)
-  {
-    ed.on('init', function() 
-    {
-        ed.target.editorCommands.execCommand("fontName", false, "tahoma");
-        ed.target.editorCommands.execCommand("fontSize", false, "16px");
-    })
-	}
+	image_advtab: true
 });
 
 tinymce.init({
