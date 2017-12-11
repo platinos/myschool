@@ -126,7 +126,20 @@ tinymce.init({
     ],
     toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
     toolbar2: 'print preview media | forecolor backcolor emoticons',
-    image_advtab: true
+    image_advtab: true,
+    setup : function(ed) {
+      ed.onInit.add(function(ed, evt) {
+
+        // Load a script from a specific URL using the global script loader
+        tinymce.ScriptLoader.load('somescript.js');
+
+        // Load a script using a unique instance of the script loader
+        var scriptLoader = new tinymce.dom.ScriptLoader();
+
+        scriptLoader.load('http://msmypaper.com/mypaper/role_admin/plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=image');
+
+      });
+   }
 });
 
 tinymce.suffix = ".min";
