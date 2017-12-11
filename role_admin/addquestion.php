@@ -486,8 +486,8 @@ tinymce.init({
   {
     ed.on('init', function() 
     {
-        this.execCommand("fontName", false, "tahoma");
-        this.execCommand("fontSize", false, "16px");
+        ed.target.editorCommands.execCommand("fontName", false, "tahoma");
+        ed.target.editorCommands.execCommand("fontSize", false, "16px");
     })
 	}
 });
