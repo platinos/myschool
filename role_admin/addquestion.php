@@ -8,6 +8,11 @@
 	<!-- <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" /> -->
 
 	<title>MyPaper-Controller</title>
+	<style>
+	body.mceContentBody {
+   	background: #000;
+	}	
+	</style>
 
 	<!-- Favicon-->
 
