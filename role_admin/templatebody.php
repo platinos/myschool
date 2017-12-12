@@ -24,7 +24,7 @@ foreach($sectionsFeed as $key=> $section) {
 		<?php $sectionName=getSectionName($i);?>
 		<h3 align="center">Section: <?php echo $i." ".$sectionName ?></h3>
 		<?php $answerkey =$answerkey."Section: ".$key."<br>";?>
-		<?php $answerkey = printSection($section, $i,$answerkey2); ?>
+		<?php array_push($answerkey ,printSection($section, $i,$answerkey2)); ?>
 	</section>
 
 	<?php

@@ -49,14 +49,17 @@
 
                     <textarea id="questionpaper" name="questionpaper">
                         <?php include 'templatehead.php'; ?>
-                        <?php $answerkey2=array(); ?>
+                        <?php $answerkey=array(); ?>
                         <?php include 'templatebody.php'; ?>
                     </textarea>
 
                     <textarea name="answerkey"" id="answerkey" name="answerkey">
                        <?php
-                            for ($i=0; $i < count($answerkey2); $i++) { 
-                                echo $answerkey2[$i];
+                            for ($i=0; $i < count($answerkey); $i++) { 
+                                for ($j=0; $j < count($answerkey[$i]); $j++) { 
+
+                                    echo $answerkey[$i][$j];
+                                }
                             }
                        ?> 
                    </textarea>
