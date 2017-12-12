@@ -23,6 +23,7 @@ foreach($sectionsFeed as $key=> $section) {
 	<section>
 		<?php $sectionName=getSectionName($i);?>
 		<h3 align="center">Section: <?php echo $i." ".$sectionName ?></h3>
+		<?php $answerkey =$answerkey."Section: ".$key."<br>";?>
 		<?php array_push($answerkey ,printSection($section, $i)); ?>
 	</section>
 
@@ -46,6 +47,7 @@ function getSectionName($i){
 <?php 
 function printSection($sectionFeed, $type,$answerkey2){
 	$currentanswerkey=array();
+	array_push($currentanswerkey,"Section: ".getSectionName($type));
 	$j=0;
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
