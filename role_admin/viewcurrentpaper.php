@@ -62,7 +62,7 @@
                                 <?php
                                 for ($j=1; $j < count($answerkey[$i]); $j++) { 
                                     echo '<tr>';
-                                    for($k=0;$k<3;$k++){
+                                    for($k=0;$k<3 && $j<count($answerkey[$i]);$k++,$j++){
 
                                     echo '<td>'.$answerkey[$i][$j].'</td>';
                                     }
