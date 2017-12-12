@@ -24,7 +24,7 @@ foreach($sectionsFeed as $key=> $section) {
 		<?php $sectionName=getSectionName($i);?>
 		<h3 align="center">Section: <?php echo $i." ".$sectionName ?></h3>
 		<?php $answerkey =$answerkey."Section: ".$key."<br>";?>
-		<?php array_push($answerkey ,printSection($section, $i,$answerkey2)); ?>
+		<?php array_push($answerkey ,printSection($section, $i)); ?>
 	</section>
 
 	<?php
@@ -46,7 +46,8 @@ function getSectionName($i){
 
 <?php 
 function printSection($sectionFeed, $type,$answerkey2){
-	$j=count($answerkey2);
+	$currentanswerkey=array();
+	$j=0;
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
@@ -63,7 +64,7 @@ function printSection($sectionFeed, $type,$answerkey2){
 
 
 			<?php
-				array_push($answerkey2 ,($j+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>");
+				array_push($currentanswerkey ,($j+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>");
 				$j++;
 			?>
 			<?php 
