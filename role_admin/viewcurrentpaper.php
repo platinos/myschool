@@ -60,7 +60,7 @@
                                 ?><table>
                                 <tbody>
                                 <?php
-                                for ($j=1; $j < count($answerkey[$i]); $j++) { 
+                                for ($j=1; $j < count($answerkey[$i]);) { 
                                     echo '<tr>';
                                     for($k=0;$k<3 && $j<count($answerkey[$i]);$k++,$j++){
 
