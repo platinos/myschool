@@ -16,7 +16,6 @@ $i='A';
 //contains every section
 ksort($sectionsFeed);
 
-$answerkey2 = array();
 foreach($sectionsFeed as $key=> $section) {
 
 	?>
@@ -44,7 +43,7 @@ function getSectionName($i){
 ?>
 
 <?php 
-function printSection($sectionFeed, $type,$answerkey2){
+function printSection($sectionFeed, $type){
 	$currentanswerkey=array();
 	array_push($currentanswerkey,"Section: ".getSectionName($type));
 	$j=0;
@@ -63,10 +62,7 @@ function printSection($sectionFeed, $type,$answerkey2){
 			<!-- <div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div> -->
 
 
-			<?php
-				array_push($currentanswerkey ,($j+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>");
-				$j++;
-			?>
+
 			<?php 
 			if($type=='A') { 
 			?>
@@ -113,6 +109,16 @@ function printSection($sectionFeed, $type,$answerkey2){
 		<p>&nbsp;</p>
 		<?php
 		}
+		?>
+
+		<?php
+				if($type!='A'){
+					$answer=$question['answer'];
+				}
+					
+				array_push($currentanswerkey ,($j+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>");
+				
+				$j++;
 		?>
 
 		<?php

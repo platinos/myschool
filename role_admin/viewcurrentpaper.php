@@ -56,7 +56,8 @@
                     <textarea name="answerkey"" id="answerkey" name="answerkey">
                        <?php   
                             for ($i=0; $i < count($answerkey); $i++) { 
-                                for ($j=0; $j < count($answerkey[$i]); $j++) { 
+                                echo $answerkey[$i][0]." <br>";
+                                for ($j=1; $j < count($answerkey[$i]); $j++) { 
 
                                     echo $answerkey[$i][$j];
                                 }
