@@ -46,7 +46,7 @@ function getSectionName($i){
 
 <?php 
 function printSection($sectionFeed, $type,$answerkey2){
-	$j=sizeof($answerkey2);
+	$j=count($answerkey2);
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
