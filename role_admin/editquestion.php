@@ -423,7 +423,7 @@ function topic_select(){
 
 var select = $('#topic');
 select.empty().append(str);
-
+select.val('<?php echo $feedquestion['data'][0]['topic'] ?>');
 
 
 });
@@ -469,7 +469,7 @@ function chap_select(){
 
 var select = $('#chapters');
 select.empty().append(str);
-select.val('<?php echo $feedquestion['data'][0]['chapter'] ?>');
+select.val('<?php echo $feedquestion['data'][0]['chapter_id'] ?>');
 
 
 
