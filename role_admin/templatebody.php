@@ -51,11 +51,7 @@ function printSection($sectionFeed){
 		<div id="question">
 			<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
 				<tbody>
-				<tr>
-				<td><strong style="width: 2.5%;" id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
-				<td style="width: 87.5%;" id="ques_txt"><?php echo$question['ques_txt'] ?></td>
-				<td style="width: 10%; align:right" id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></td>
-				</tr>
+				
 				</tbody>
 			</table>
 			<!-- <div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div> -->
@@ -87,16 +83,24 @@ function printSection($sectionFeed){
 
 			?>
 			
-			<table style="height: 68px; margin-left: auto; margin-right: auto; align:right" border="0px" width="97.5%">
+			<table style="height: 68px; margin-left: auto; margin-right: auto; align:right" border="0px" width="100%">
 				<tbody>
+
+					<tr>
+						<td><strong style="width: 2.5%;" id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
+						<td style="width: 87.5%;" id="ques_txt"><?php echo$question['ques_txt'] ?></td>
+						<td style="width: 10%; align:right" id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></td>
+					</tr>
 					<tr style="height: 26px;">
+						<td style="width: 2.5%"></td>
 						<td style="width: 50%; height: 26px;">(A)<?php echo strip_tags($shuffled_options['A']) ?></td>
 						<td style="width: 50%; 244px; height: 26px;">(B)<?php echo strip_tags($shuffled_options['B']) ?>
 						</td>
 					</tr>
 					<tr style="height: 26px;">
-						<td style="width: 50%; height: 26px;">(C)<?php echo strip_tags($shuffled_options['C']) ?></td>
-						<td style="width: 50%; height: 26px;">(D)<?php echo strip_tags($shuffled_options['D']) ?></td>
+						<td style="width: 2.5%"></td>
+						<td style="width: 48.75%; height: 26px;">(C)<?php echo strip_tags($shuffled_options['C']) ?></td>
+						<td style="width: 48.75%; height: 26px;">(D)<?php echo strip_tags($shuffled_options['D']) ?></td>
 					</tr>
 				</tbody>
 			</table>
