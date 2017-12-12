@@ -52,7 +52,7 @@
 
 						
 							
-							<div id=1>
+							<div id="3">
 
 								
 								<textarea id="mcq1" name="mcq1">
@@ -73,7 +73,7 @@
 								
 							</div>
 
-							<div id=2>
+							<div id="2">
 								<br>
 								<br>
 								<input name="group" type="radio" id="true" value="true" checked />
@@ -84,7 +84,7 @@
 							</div> 
 
 
-							<div id=3>
+							<div id="1">
 								<textarea id="answer" name="answer">
 								
 									Answer
