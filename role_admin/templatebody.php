@@ -22,7 +22,7 @@ foreach($sectionsFeed as $key=> $section) {
 		<?php $sectionName=getSectionName($i);?>
 		<h3 align="center">Section: <?php echo $i." ".$sectionName ?></h3>
 		<?php $answerkey =$answerkey."Section: ".$key."<br>";?>
-		<?php $answerkey = printSection($section); ?>
+		<?php $answerkey = printSection($section, $i); ?>
 	</section>
 
 	<?php
@@ -43,7 +43,7 @@ function getSectionName($i){
 ?>
 
 <?php 
-function printSection($sectionFeed){
+function printSection($sectionFeed, $type){
 	$index=0;
 	$answerkey2 = "";
 	foreach($sectionFeed as $quesid=> $question) {
@@ -61,6 +61,9 @@ function printSection($sectionFeed){
 			<!-- <div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div> -->
 
 
+			<?php 
+			if($type=='A') { 
+			?>
 			<?php
 			$options=array(
 				'A'=>$question['options']['option1'],
@@ -103,6 +106,10 @@ function printSection($sectionFeed){
 
 		</div>
 		<p>&nbsp;</p>
+		<?php
+		}
+		?>
+
 		<?php
 		$index++;
 	} 
