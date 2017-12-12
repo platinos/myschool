@@ -12,22 +12,34 @@ foreach ($questionsFeed as $key => $question) {
 	$i++;
 }
 
-$i=0;
+$i='A';
 //contains every section
 ksort($sectionsFeed);
 foreach($sectionsFeed as $key=> $section) {
 
 	?>
 	<section>
-		<p align="center">Section: <?php echo $key ?></p>
+		$sectionName=getSectionName($i);
+		<p align="center">Section: <?php echo $i." ".$sectionName ?></p>
 		<?php $answerkey =$answerkey."Section: ".$key."<br>";?>
-		<?php $answerkey .= printSection($section); ?>
+		<?php $answerkey = printSection($section); ?>
 	</section>
 
 	<?php
 
 	$i++;
 } 
+?>
+
+<?php
+function getSectionName($i){
+	if($i=='A')
+		return "(MCQ)";
+	else if($i=='B')
+		return "(Short answers)";
+	else if($i=='C')
+		return "(Long answers)";
+}
 ?>
 
 <?php 
@@ -37,7 +49,11 @@ function printSection($sectionFeed){
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
-			<div><strong id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong><span id="ques_txt"><?php echo$question['ques_txt'] ?> </span><span id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></span></div>
+			<table>
+				<td><strong id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
+				<td><span id="ques_txt"><?php echo$question['ques_txt'] ?> </span></td>
+				<td><span id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></span></td>
+			</table>
 			<!-- <div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div> -->
 
 
