@@ -585,7 +585,7 @@ $(document).ready(function() {
 	just_change();
 	
 	chap_select();
-	$('#chapter').val('');
+	$('#chapter').val('<?php echo $feedquestion['data'][0]['chapter'] ?>');
 	topic_select();
 
 	$('#topic').val('<?php echo $feedquestion['data'][0]['topic'] ?>');
