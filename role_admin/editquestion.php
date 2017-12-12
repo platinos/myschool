@@ -172,13 +172,13 @@
 
 									<label class="form-label">Chapter</label>
 									<select id="chapters" name="chapters" required class="form-control" onchange="topic_select()">
-										<option value="">Loading...</option>
+										<option value=""><?php echo $feedquestion['data'][0]['chapter'] ?></option>
 									</select>
 									<br><br>
 
 									<label class="form-label">Topic</label>
 									<select id="topic" name="topic" size="6" required class="form-control"> 
-										<option value="Test">Loading...</option>              
+										<option value="Test"><?php echo $feedquestion['data'][0]['topic'] ?></option>              
 									</select>    
 									<br><br>
 
@@ -456,8 +456,11 @@ function chap_select(){
 		var str="<option value=select>Select</option>";
 		for (var i = 0; i < jsonData.data.length; i++) {
 			var counter = jsonData.data[i];
-			str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
+			//str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
+			str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
 		}
+
+
 
 
 //alert(str);
@@ -466,6 +469,7 @@ function chap_select(){
 
 var select = $('#chapters');
 select.empty().append(str);
+select.val('<?php echo $feedquestion['data'][0]['chapter'] ?>');
 
 
 
