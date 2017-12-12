@@ -17,7 +17,6 @@ $i='A';
 ksort($sectionsFeed);
 
 $answerkey2 = "";
-$index=0;
 foreach($sectionsFeed as $key=> $section) {
 
 	?>
@@ -25,7 +24,7 @@ foreach($sectionsFeed as $key=> $section) {
 		<?php $sectionName=getSectionName($i);?>
 		<h3 align="center">Section: <?php echo $i." ".$sectionName ?></h3>
 		<?php $answerkey =$answerkey."Section: ".$key."<br>";?>
-		<?php $answerkey = printSection($section, $i,$answerkey2,$index); ?>
+		<?php $answerkey = printSection($section, $i,$answerkey2); ?>
 	</section>
 
 	<?php
@@ -63,6 +62,7 @@ function printSection($sectionFeed, $type,$answerkey2,$index){
 
 
 			<?php
+			$index=sizeof($answerkey2);
 				$answerkey2 = $answerkey2.($index+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>";
 			?>
 			<?php 
