@@ -55,7 +55,7 @@
 
                     <textarea name="answerkey"" id="answerkey" name="answerkey">
                        <?php
-                       var_dump($answerkey);
+                       var_dump($answerkey);    
                             for ($i=0; $i < count($answerkey); $i++) { 
                                 for ($j=0; $j < count($answerkey[$i]); $j++) { 
 
