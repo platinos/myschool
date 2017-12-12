@@ -49,7 +49,7 @@ function printSection($sectionFeed, $type){
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
-			<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
+			<table style=" margin-left: auto; margin-right: auto;" border="0px" width="100%">
 				<tbody>
 				<tr>
 				<td><strong style="width: 2.5%;" id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
@@ -90,14 +90,14 @@ function printSection($sectionFeed, $type){
 
 			?>
 			
-			<table style="height: 68px; margin-left: auto; margin-right: auto; align:right" border="0px" width="95%">
+			<table style=" margin-left: auto; margin-right: auto; align:right" border="0px" width="95%">
 				<tbody>
-					<tr style="height: 26px;">
+					<tr style="">
 						<td style="width: 50%; height: 26px;">(A)<?php echo strip_tags($shuffled_options['A']) ?></td>
 						<td style="width: 50%; 244px; height: 26px;">(B)<?php echo strip_tags($shuffled_options['B']) ?>
 						</td>
 					</tr>
-					<tr style="height: 26px;">
+					<tr style="">
 						<td style="width: 50%; height: 26px;">(C)<?php echo strip_tags($shuffled_options['C']) ?></td>
 						<td style="width: 50%; height: 26px;">(D)<?php echo strip_tags($shuffled_options['D']) ?></td>
 					</tr>
