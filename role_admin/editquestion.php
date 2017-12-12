@@ -394,7 +394,7 @@ function topic_select(){
 
 
 	var settings = {
-		"async": true,
+		"async": false,
 		"url": "functions.php",
 		"method": "POST",
 
@@ -437,7 +437,7 @@ function chap_select(){
 	form.append("subject", document.getElementById("subject").value);
 
 	var settings = {
-		"async": true,
+		"async": false,
 		"url": "functions.php",
 		"method": "POST",
 
@@ -585,7 +585,7 @@ $(document).ready(function() {
 	just_change();
 	
 	chap_select();
-	$('#chapter').val('');
+	$('#chapter').val('<?php echo $feedquestion['data'][0]['chapter'] ?>');
 	topic_select();
 
 	$('#topic').val('<?php echo $feedquestion['data'][0]['topic'] ?>');
