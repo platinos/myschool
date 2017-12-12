@@ -118,6 +118,6 @@ function printSection($sectionFeed, $type,$answerkey2){
 		<?php
 		$index++;
 	} 
-	return $answerkey2;
+	return $currentanswerkey;
 }
 ?>
