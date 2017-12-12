@@ -50,14 +50,11 @@
 							</textarea>
 
 
-							<?php $type= $feedquestion['data'][0]['type']; ?>
+						
 							
 							<div id=1>
 
-								<?php 
-									if($type==1) {
-									
-								?>
+								
 								<textarea id="mcq1" name="mcq1">
 									<?php $feedquestion['data'][0]['option1'] ?>
 								</textarea>
@@ -73,9 +70,7 @@
 								<textarea id="mcq4" name="mcq4">
 									<?php $feedquestion['data'][0]['option4'] ?>
 								</textarea>
-								<?php
-								}
-								?>
+								
 							</div>
 
 							<div id=2>
@@ -91,11 +86,7 @@
 
 							<div id=3>
 								<textarea id="answer" name="answer">
-									<?php 
-										if($type==3 || $type==4 || $type==5) {
-											echo $feedquestion['data'][0]['answer'];
-										}
-									?>
+								
 									Answer
 								</textarea>
 							</div>
@@ -181,7 +172,7 @@
 
 									<label class="form-label">Chapter</label>
 									<select id="chapters" name="chapters" required class="form-control" onchange="topic_select()">
-										<option value="Motion in 1 D">Loading...</option>
+										<option value="">Loading...</option>
 									</select>
 									<br><br>
 
