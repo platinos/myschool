@@ -56,7 +56,7 @@
                     <textarea name="answerkey"" id="answerkey" name="answerkey">
                        <?php   
                             for ($i=0; $i < count($answerkey); $i++) { 
-                                echo '<h3 style="align:center;'.$answerkey[$i][0].'<br><br>';
+                                echo '<h3 style="align:center;">'.$answerkey[$i][0].'</h3><br><br>';
                                 ?><table>
                                 <tbody>
                                 <?php
