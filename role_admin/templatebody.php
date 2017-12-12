@@ -47,7 +47,6 @@ function getSectionName($i){
 <?php 
 function printSection($sectionFeed, $type,$answerkey2){
 	$currentanswerkey=array();
-	array_push($currentanswerkey,"Section: ".getSectionName($type));
 	$j=0;
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
