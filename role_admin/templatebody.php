@@ -15,6 +15,9 @@ foreach ($questionsFeed as $key => $question) {
 $i='A';
 //contains every section
 ksort($sectionsFeed);
+
+$answerkey2 = "";
+$index=0;
 foreach($sectionsFeed as $key=> $section) {
 
 	?>
@@ -22,7 +25,7 @@ foreach($sectionsFeed as $key=> $section) {
 		<?php $sectionName=getSectionName($i);?>
 		<h3 align="center">Section: <?php echo $i." ".$sectionName ?></h3>
 		<?php $answerkey =$answerkey."Section: ".$key."<br>";?>
-		<?php $answerkey = printSection($section, $i); ?>
+		<?php $answerkey = printSection($section, $i,$answerkey2,$index); ?>
 	</section>
 
 	<?php
@@ -43,9 +46,7 @@ function getSectionName($i){
 ?>
 
 <?php 
-function printSection($sectionFeed, $type){
-	$index=0;
-	$answerkey2 = "";
+function printSection($sectionFeed, $type,$answerkey2,$index){
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
