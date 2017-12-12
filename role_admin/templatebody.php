@@ -61,6 +61,9 @@ function printSection($sectionFeed, $type){
 			<!-- <div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div> -->
 
 
+			<?php
+				$answerkey2 = $answerkey2.($index+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>";
+			?>
 			<?php 
 			if($type=='A') { 
 			?>
@@ -85,8 +88,7 @@ function printSection($sectionFeed, $type){
 
 			$answer=array_search($options['A'], $shuffled_options);
 			//var_dump($answer);
-			$answerkey2 = $answerkey2.($index+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>";
-		
+			
 
 			?>
 			
