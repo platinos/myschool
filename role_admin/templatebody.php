@@ -46,6 +46,7 @@ function getSectionName($i){
 
 <?php 
 function printSection($sectionFeed, $type,$answerkey2){
+	$j=sizeof($answerkey2);
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
@@ -62,8 +63,8 @@ function printSection($sectionFeed, $type,$answerkey2){
 
 
 			<?php
-			$j=sizeof($answerkey2);
 				$answerkey2 = $answerkey2.($j+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>";
+				$j++;
 			?>
 			<?php 
 			if($type=='A') { 
