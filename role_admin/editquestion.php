@@ -92,7 +92,7 @@
 							<div id=3>
 								<textarea id="answer" name="answer">
 									<?php 
-										if($type==3 || $type==5 || $type==5) {
+										if($type==3 || $type==4 || $type==5) {
 											echo $feedquestion['data'][0]['answer'];
 										}
 									?>
@@ -121,7 +121,7 @@
 
 						<label class="form-label" >Class</label>
 						<select class="form-control show-tick" name="class" required id="class" onchange="chap_select()">
-								<option value="9" selected>IX</option>
+								<option value="9">IX</option>
 								<option value="10">X</option>
 								<option value="11">XI</option>
 								<option value="12">XII</option>
@@ -365,22 +365,6 @@
 
 <script type="text/javascript">
 
-$(document).ready(function() {
-	$('#class').val('<?php $feedquestion['data'][0]['class'] ?>'); 
-	$('#subject').val('<?php $feedquestion['data'][0]['subject'] ?>'); 
-	$('#type').val('<?php $feedquestion['data'][0]['type'] ?>'); 
-	just_change();
-	
-	chap_select();
-	$('#chapter').val('');
-	topic_select();
-
-	$('#topic').val('<?php $feedquestion['data'][0]['topic'] ?>');
-	$('#level').val('<?php $feedquestion['data'][0]['level'] ?>');
-	$('#marks').val('<?php $feedquestion['data'][0]['marks'] ?>');
-	$('#link').val('<?php $feedquestion['data'][0]['youtube'] ?>');
-
-});
 
 
 function just_change() {
@@ -600,6 +584,25 @@ tinyMCE.baseURL = 'plugins/tinymce';
 });
 
 
+
+//***************************** Populating Data *****************************//
+
+$(document).ready(function() {
+	$('#class').val('<?php echo $feedquestion['data'][0]['class'] ?>'); 
+	$('#subject').val('<?php echo $feedquestion['data'][0]['subject'] ?>'); 
+	$('#type').val('<?php echo $feedquestion['data'][0]['type'] ?>'); 
+	just_change();
+	
+	chap_select();
+	$('#chapter').val('');
+	topic_select();
+
+	$('#topic').val('<?php echo $feedquestion['data'][0]['topic'] ?>');
+	$('#level').val('<?php echo $feedquestion['data'][0]['level'] ?>');
+	$('#marks').val('<?php echo $feedquestion['data'][0]['marks'] ?>');
+	$('#link').val('<?php echo $feedquestion['data'][0]['youtube'] ?>');
+
+});
 </script>
 
 
