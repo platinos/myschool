@@ -17,6 +17,7 @@
 <section class="content">
     <div class="container-fluid">
 
+
         <!-- Basic Examples -->
         
         <!-- #END# Basic Examples -->
@@ -54,7 +55,9 @@
 
                     <textarea name="answerkey"" id="answerkey" name="answerkey">
                        <?php
-                            echo $answerkey;
+                            for ($i=0; $i < count($answerkey); $i++) { 
+                                echo $answerkey[$i];
+                            }
                        ?> 
                    </textarea>
 
