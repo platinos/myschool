@@ -18,7 +18,7 @@
 <?php 	
 	$value=array('qid'=>$_GET['id']);
 	$feedquestion=apicall('getquestionbyid',$value);
-	var_dump($feedquestion);
+
  ?>
 <section class="content">
 	<div class="container-fluid">
@@ -52,7 +52,7 @@
 
 						
 							
-							<div id=1>
+							<div id="3">
 
 								
 								<textarea id="mcq1" name="mcq1">
@@ -73,7 +73,7 @@
 								
 							</div>
 
-							<div id=2>
+							<div id="2">
 								<br>
 								<br>
 								<input name="group" type="radio" id="true" value="true" checked />
@@ -84,7 +84,7 @@
 							</div> 
 
 
-							<div id=3>
+							<div id="1">
 								<textarea id="answer" name="answer">
 								
 									Answer
@@ -172,13 +172,13 @@
 
 									<label class="form-label">Chapter</label>
 									<select id="chapters" name="chapters" required class="form-control" onchange="topic_select()">
-										<option value=""><?php echo $feedquestion['data'][0]['chapter'] ?></option>
+										<option value="?php echo $feedquestion['data'][0]['chapter_id'] ?>"><?php echo $feedquestion['data'][0]['chapter'] ?></option>
 									</select>
 									<br><br>
 
 									<label class="form-label">Topic</label>
 									<select id="topic" name="topic" size="6" required class="form-control"> 
-										<option value="Test"><?php echo $feedquestion['data'][0]['topic'] ?></option>              
+										<option value="<?php echo $feedquestion['data'][0]['topic'] ?>"><?php echo $feedquestion['data'][0]['topic'] ?></option>              
 									</select>    
 									<br><br>
 
@@ -423,7 +423,7 @@ function topic_select(){
 
 var select = $('#topic');
 select.empty().append(str);
-
+select.val('<?php echo $feedquestion['data'][0]['topic'] ?>');
 
 
 });
@@ -457,7 +457,7 @@ function chap_select(){
 		for (var i = 0; i < jsonData.data.length; i++) {
 			var counter = jsonData.data[i];
 			//str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
-			str += "<option value='"+counter.chapter+"'>"+counter.chapter+"</option>";
+			str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
 		}
 
 
@@ -469,7 +469,7 @@ function chap_select(){
 
 var select = $('#chapters');
 select.empty().append(str);
-select.val('<?php echo $feedquestion['data'][0]['chapter'] ?>');
+select.val('<?php echo $feedquestion['data'][0]['chapter_id'] ?>');
 
 
 
