@@ -367,9 +367,10 @@
 
 $(document).ready(function() {
 	$('#class').val('<?php $feedquestion['data'][0]['class'] ?>'); 
-/*	$('#subject').val('<?php $feedquestion['data'][0]['subject'] ?>'); 
+	$('#subject').val('<?php $feedquestion['data'][0]['subject'] ?>'); 
 	$('#type').val('<?php $feedquestion['data'][0]['type'] ?>'); 
-
+	just_change();
+	
 	chap_select();
 	$('#chapter').val('');
 	topic_select();
@@ -378,7 +379,7 @@ $(document).ready(function() {
 	$('#level').val('<?php $feedquestion['data'][0]['level'] ?>');
 	$('#marks').val('<?php $feedquestion['data'][0]['marks'] ?>');
 	$('#link').val('<?php $feedquestion['data'][0]['youtube'] ?>');
-*/
+
 });
 
 
