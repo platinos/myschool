@@ -56,11 +56,23 @@
                     <textarea name="answerkey"" id="answerkey" name="answerkey">
                        <?php   
                             for ($i=0; $i < count($answerkey); $i++) { 
-                                echo $answerkey[$i][0]." <br>";
+                                echo '<h3 style="align:center;'.$answerkey[$i][0].'<br><br>';
+                                ?><table>
+                                <tbody>
+                                <?php
                                 for ($j=1; $j < count($answerkey[$i]); $j++) { 
+                                    echo '<tr>';
+                                    for($k=0;$k<3;$k++){
 
-                                    echo $answerkey[$i][$j];
+                                    echo '<td>'.$answerkey[$i][$j].'</td>';
+                                    }
+                                    echo '</tr>';
                                 }
+                                echo "<br>";
+                                ?>
+                                </tbody>
+                                </table>
+                            <?php
                             }
                        ?> 
                    </textarea>
