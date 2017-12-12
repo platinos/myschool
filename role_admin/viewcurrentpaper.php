@@ -54,9 +54,10 @@
                     </textarea>
 
                     <textarea name="answerkey"" id="answerkey" name="answerkey">
+                        <h3>Answer key</h3><br><br>
                        <?php   
                             for ($i=0; $i < count($answerkey); $i++) { 
-                                echo '<h3 style="align:center">'.$answerkey[$i][0].'</h3><br><br>';
+                                echo '<h3 align=center>'.$answerkey[$i][0].'</h3><br>';
                                 ?><table style=" margin-left: auto; margin-right: auto; align:center" border="0px" width="100%">
                                 <tbody>
                                 <?php
@@ -68,7 +69,7 @@
                                     }
                                     echo '</tr>';
                                 }
-                                echo "<br>";
+                                echo "<br><br>";
                                 ?>
                                 </tbody>
                                 </table>

@@ -93,12 +93,12 @@ function printSection($sectionFeed, $type){
 			
 			<table style=" margin-left: auto; margin-right: auto; align:right" border="0px" width="95%">
 				<tbody>
-					<tr style="">
+					<tr>
 						<td style="width: 50%; height: 26px;">(A)<?php echo strip_tags($shuffled_options['A']) ?></td>
 						<td style="width: 50%; 244px; height: 26px;">(B)<?php echo strip_tags($shuffled_options['B']) ?>
 						</td>
 					</tr>
-					<tr style="">
+					<tr>
 						<td style="width: 50%; height: 26px;">(C)<?php echo strip_tags($shuffled_options['C']) ?></td>
 						<td style="width: 50%; height: 26px;">(D)<?php echo strip_tags($shuffled_options['D']) ?></td>
 					</tr>
@@ -116,7 +116,7 @@ function printSection($sectionFeed, $type){
 					$answer=$question['answer'];
 				}
 					
-				array_push($currentanswerkey ,($j+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>");
+				array_push($currentanswerkey ,($j+1)." - <span>".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px></span><br><br>");
 				
 				$j++;
 		?>
