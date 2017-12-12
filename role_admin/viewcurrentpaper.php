@@ -49,7 +49,7 @@
 
                     <textarea id="questionpaper" name="questionpaper">
                         <?php include 'templatehead.php'; ?>
-                        <?php $answerkey=""; ?>
+                        <?php $answerkey2=array(); ?>
                         <?php include 'templatebody.php'; ?>
                     </textarea>
 
