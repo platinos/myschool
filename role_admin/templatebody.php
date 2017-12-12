@@ -52,8 +52,8 @@ function printSection($sectionFeed){
 			<table style="height: 68px; margin-left: auto; margin-right: auto;" border="0px" width="100%">
 				<tbody>
 				<tr>
-				<td><strong style="width: 10%;" id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
-				<td style="width: 80%;" id="ques_txt"><?php echo$question['ques_txt'] ?></td>
+				<td><strong style="width: 5%;" id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
+				<td style="width: 85%;" id="ques_txt"><?php echo$question['ques_txt'] ?></td>
 				<td style="width: 10%; align:right" id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></td>
 				</tr>
 				</tbody>
