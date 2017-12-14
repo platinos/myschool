@@ -14,11 +14,10 @@ foreach ($questionsFeed as $key => $question) {
 $i=1;
 //contains every section
 ksort($sectionsFeed);
-
-foreach($sectionsFeed as $key=> $section) {
-	$sec_name='A';
-	echo "<p>key: $key i: $i ";
-	if($key==$i){
+$sec_name='A';
+for($i=1;$i<sizeof($sectionsFeed);$i++) {
+	
+	if($sectionsFeed[$i]!=null){
 	?>
 	<section>
 		<?php $sectionName=getSectionName($i);?>
@@ -29,7 +28,6 @@ foreach($sectionsFeed as $key=> $section) {
 	<?php
 	 $sec_name++;
 	 }
-	$i++;
 } 
 ?>
 
