@@ -11,6 +11,7 @@ foreach ($questionsFeed as $key => $question) {
 	array_push($sectionsFeed[$question['section']],$question);
 	$i++;
 }
+?><script>alert(<?php var_dump($sectionsFeed)?>);</script><?php
 
 $i='A';
 //contains every section
