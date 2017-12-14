@@ -16,7 +16,6 @@ $i=1;
 ksort($sectionsFeed);
 $sec_letter='A';
 for($i=1;$i<4;$i++) {
-	echo '<p> jsdlkjfaskjfda;lsd '.$sectionsFeed[$i].'</p>';
 	if(!empty($sectionsFeed[$i])){
 		$section=$sectionsFeed[$i];
 	?>
