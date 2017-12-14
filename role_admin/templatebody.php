@@ -16,14 +16,14 @@ foreach ($questionsFeed as $key => $question) {
 $i='A';
 //contains every section
 ksort($sectionsFeed);
+
 foreach($sectionsFeed as $key=> $section) {
 
 	?>
 	<section>
 		<?php $sectionName=getSectionName($i);?>
 		<h3 align="center">Section: <?php echo $i." ".$sectionName ?></h3>
-		<?php $answerkey =$answerkey."Section: ".$key."<br>";?>
-		<?php $answerkey = printSection($section, $i); ?>
+		<?php array_push($answerkey ,printSection($section, $i)); ?>
 	</section>
 
 	<?php
@@ -45,8 +45,9 @@ function getSectionName($i){
 
 <?php 
 function printSection($sectionFeed, $type){
-	$index=0;
-	$answerkey2 = "";
+	$currentanswerkey=array();
+	array_push($currentanswerkey,"Section: ".getSectionName($type));
+	$j=0;
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
@@ -62,9 +63,7 @@ function printSection($sectionFeed, $type){
 			<!-- <div align="center"> <img width=50% src="<?php echo strip_tags($question['ques_img']) ?>" id="img_src" align="middle"/></div> -->
 
 
-			<?php
-				$answerkey2 = $answerkey2.($index+1)." - ".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px><br><br>";
-			?>
+
 			<?php 
 			if($type=='A') { 
 			?>
@@ -95,12 +94,12 @@ function printSection($sectionFeed, $type){
 			
 			<table style=" margin-left: auto; margin-right: auto; align:right" border="0px" width="95%">
 				<tbody>
-					<tr style="">
+					<tr>
 						<td style="width: 50%; height: 26px;">(A)<?php echo strip_tags($shuffled_options['A']) ?></td>
 						<td style="width: 50%; 244px; height: 26px;">(B)<?php echo strip_tags($shuffled_options['B']) ?>
 						</td>
 					</tr>
-					<tr style="">
+					<tr>
 						<td style="width: 50%; height: 26px;">(C)<?php echo strip_tags($shuffled_options['C']) ?></td>
 						<td style="width: 50%; height: 26px;">(D)<?php echo strip_tags($shuffled_options['D']) ?></td>
 					</tr>
@@ -114,8 +113,18 @@ function printSection($sectionFeed, $type){
 		?>
 
 		<?php
+				if($type!='A'){
+					$answer=$question['answer'];
+				}
+					
+				array_push($currentanswerkey ,($j+1)." - <span>".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px></span><br><br>");
+				
+				$j++;
+		?>
+
+		<?php
 		$index++;
 	} 
-	return $answerkey2;
+	return $currentanswerkey;
 }
 ?>

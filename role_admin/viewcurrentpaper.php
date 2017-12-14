@@ -17,6 +17,7 @@
 <section class="content">
     <div class="container-fluid">
 
+
         <!-- Basic Examples -->
         
         <!-- #END# Basic Examples -->
@@ -48,13 +49,32 @@
 
                     <textarea id="questionpaper" name="questionpaper">
                         <?php include 'templatehead.php'; ?>
-                        <?php $answerkey=""; ?>
+                        <?php $answerkey=array(); ?>
                         <?php include 'templatebody.php'; ?>
                     </textarea>
 
                     <textarea name="answerkey"" id="answerkey" name="answerkey">
-                       <?php
-                            echo $answerkey;
+                        <h3 align=center>Answer key</h3><br><br>
+                       <?php   
+                            for ($i=0; $i < count($answerkey); $i++) { 
+                                echo '<h3 align=center>'.$answerkey[$i][0].'</h3><br>';
+                                ?><table style=" margin-left: auto; margin-right: auto; align:center" border="0px" width="100%">
+                                <tbody>
+                                <?php
+                                for ($j=1; $j < count($answerkey[$i]);) { 
+                                    echo '<tr>';
+                                    for($k=0;$k<3 && $j<count($answerkey[$i]);$k++,$j++){
+
+                                    echo '<td style="width: 33.33%;">'.$answerkey[$i][$j].'</td>';
+                                    }
+                                    echo '</tr>';
+                                }
+                                echo "<br><br>";
+                                ?>
+                                </tbody>
+                                </table>
+                            <?php
+                            }
                        ?> 
                    </textarea>
 
