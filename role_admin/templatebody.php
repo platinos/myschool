@@ -21,7 +21,7 @@ for($i=1;$i<4;$i++) {
 	?>
 	<section>
 		<?php $sectionName=getSectionName($i);?>
-		<h3 align="center">Section: <?php echo $sec_name." ".$sectionName ?></h3>
+		<h3 align="center">Section: <?php echo $sec_name.": ".$sectionName ?></h3>
 		<?php array_push($answerkey ,printSection($section, $i)); ?>
 	</section>
 
@@ -45,7 +45,7 @@ function getSectionName($i){
 <?php 
 function printSection($sectionFeed, $type){
 	$currentanswerkey=array();
-	array_push($currentanswerkey,"Section: ".getSectionName($type));
+	//array_push($currentanswerkey,"Section: ".getSectionName($type));
 	$j=0;
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
