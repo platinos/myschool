@@ -15,7 +15,7 @@ $i=1;
 //contains every section
 ksort($sectionsFeed);
 $sec_name='A';
-for($i=1;$i<sizeof($sectionsFeed);$i++) {
+for($i=1;$i<4;$i++) {
 	echo '<p> jsdlkjfaskjfda;lsd $sectionsFeed[$i]</p>';
 	if($sectionsFeed[$i]!=null){
 	?>
