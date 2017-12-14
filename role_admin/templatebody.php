@@ -14,19 +14,20 @@ foreach ($questionsFeed as $key => $question) {
 $i=1;
 //contains every section
 ksort($sectionsFeed);
-$sec_name='A';
+$sec_letter='A';
 for($i=1;$i<4;$i++) {
 	echo '<p> jsdlkjfaskjfda;lsd '.$sectionsFeed[$i].'</p>';
 	if(!empty($sectionsFeed[$i])){
+		$section=$sectionsFeed[$i];
 	?>
 	<section>
 		<?php $sectionName=getSectionName($i);?>
-		<h3 align="center">Section: <?php echo $sec_name.": ".$sectionName ?></h3>
+		<h3 align="center">Section: <?php echo $sec_letter.": ".$sectionName ?></h3>
 		<?php array_push($answerkey ,printSection($section, $i)); ?>
 	</section>
 
 	<?php
-	 $sec_name++;
+	 $sec_letter++;
 	 }
 } 
 ?>
