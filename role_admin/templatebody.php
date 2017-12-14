@@ -11,7 +11,6 @@ foreach ($questionsFeed as $key => $question) {
 	array_push($sectionsFeed[$question['section']],$question);
 	$i++;
 }
-var_dump($sectionsFeed);
 $i=1;
 //contains every section
 ksort($sectionsFeed);
