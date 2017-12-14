@@ -17,7 +17,7 @@ ksort($sectionsFeed);
 
 foreach($sectionsFeed as $key=> $section) {
 	$sec_name='A';
-	if($key==i){
+	if($key==$i){
 	?>
 	<section>
 		<?php $sectionName=getSectionName($i);?>
