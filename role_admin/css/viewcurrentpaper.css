@@ -16,7 +16,7 @@ table{
 	width:50%;
 }
 
-.head_props .right{
+.head_props.right{
 	text-align: right;
 }
 
