@@ -6,6 +6,7 @@ table{
 }
 
 .head_titles{
+	height:15px;
 	text-align: center;
 }
 .head_table{
@@ -13,6 +14,7 @@ table{
 }
 
 .head_props{
+	height:15px;
 	width:50%;
 }
 
@@ -21,20 +23,22 @@ table{
 }
 
 .ques_no{
-	font-size: 14px;
+	font-size: 12pt;
 	width:2.5%;
 	vertical-align: top;
 }
 
 .ques_txt{
-	font-size: 1em;
+	font-size: 12pt;
 	width: 87.5%;
+	vertical-align: top;
 }
 
 .marks{
-	font-size: 1em;
+	font-size: 10pt;
 	width: 10%;
 	align:right;
+	vertical-align: bottom;
 }
 
 .option_tbl{
