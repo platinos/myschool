@@ -1,30 +1,3 @@
-<script>
-	.ques_no{
-		font-size: 1em;
-		width:2.5%;
-		vertical-align: top;
-	}
-
-	.ques_txt{
-		font-size: 1em;
-		width: 87.5%;
-	}
-
-	.marks{
-		font-size: 1em;
-		width: 10%;
-		align:right;
-	}
-
-	.option_tbl{
-		width:95%;
-	}
-
-	.option{
-		width: 50%;
-	}
-</script>
-
 <h2 style="text-align: center;">MySchool Coaching Institute</h2>
 <h3 style="text-align: center;">MySchool, Udichi Building, (Opp. Hotel Asansol INN) Police Line,</h3>
 <h3 style="text-align: center;">Asansol, West Bengal. 713304.</h3>

@@ -142,6 +142,7 @@
 //TinyMCE
 tinymce.init({
     selector: "textarea#questionpaper",
+    content_css : 'css/viewcurrentpaper.css',  // resolved to http://domain.mine/myLayout.css
     theme: "modern",
     height: screen.availHeight,
     plugins: [
