@@ -25,19 +25,18 @@ table{
 .ques_no{
 	font-size: 12pt;
 	width:2.5%;
+	vertical-align: baseline;
 }
 
 .ques_txt{
 	font-size: 12pt;
 	width: 87.5%;
-	vertical-align: baseline;
 }
 
 .marks{
 	font-size: 10pt;
 	width: 10%;
 	align:right;
-	vertical-align: bottom;
 }
 
 .option_tbl{
