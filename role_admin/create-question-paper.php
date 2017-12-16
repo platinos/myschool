@@ -117,7 +117,7 @@ else
                                 <tbody>
                                     <?php
                                     $size = $feed['data']['size']; 
-                                    for($i=0; $i<10; $i++)
+                                    for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
                                             <td class="hide"><?php echo $feed['data'][$i]['class'] ?></td>
