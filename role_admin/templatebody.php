@@ -11,33 +11,33 @@ foreach ($questionsFeed as $key => $question) {
 	array_push($sectionsFeed[$question['section']],$question);
 	$i++;
 }
-
-$i='A';
+$i=1;
 //contains every section
 ksort($sectionsFeed);
-
-foreach($sectionsFeed as $key=> $section) {
-
+$sec_letter='A';
+for($i=1;$i<4;$i++) {
+	if(!empty($sectionsFeed[$i])){
+		$section=$sectionsFeed[$i];
 	?>
 	<section>
 		<?php $sectionName=getSectionName($i);?>
-		<h3 align="center">Section: <?php echo $i." ".$sectionName ?></h3>
+		<h3 align="center">Section: <?php echo $sec_letter.": ".$sectionName ?></h3>
 		<?php array_push($answerkey ,printSection($section, $i)); ?>
 	</section>
 
 	<?php
-
-	$i++;
+	 $sec_letter++;
+	 }
 } 
 ?>
 
 <?php
 function getSectionName($i){
-	if($i=='A')
+	if($i==1)
 		return "(MCQ)";
-	else if($i=='B')
+	else if($i==2)
 		return "(Short answers)";
-	else if($i=='C')
+	else if($i==3)
 		return "(Long answers)";
 }
 ?>
@@ -45,14 +45,14 @@ function getSectionName($i){
 <?php 
 function printSection($sectionFeed, $type){
 	$currentanswerkey=array();
-	array_push($currentanswerkey,"Section: ".getSectionName($type));
+	//array_push($currentanswerkey,"Section: ".getSectionName($type));
 	$j=0;
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
 			<table style=" margin-left: auto; margin-right: auto;" border="0px" width="100%">
 				<tbody>
-				<tr>
+				<tr> 
 				<td><strong style="width: 2.5%;" id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
 				<td style="width: 87.5%;" id="ques_txt"><?php echo$question['ques_txt'] ?></td>
 				<td style="width: 10%; align:right" id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></td>
@@ -64,7 +64,7 @@ function printSection($sectionFeed, $type){
 
 
 			<?php 
-			if($type=='A') { 
+			if($type==1) { 
 			?>
 			<?php
 			$options=array(
@@ -112,7 +112,7 @@ function printSection($sectionFeed, $type){
 		?>
 
 		<?php
-				if($type!='A'){
+				if($type!=1){
 					$answer=$question['answer'];
 				}
 					
