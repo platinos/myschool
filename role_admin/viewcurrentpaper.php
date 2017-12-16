@@ -69,7 +69,7 @@
                                     }
                                     echo '</tr>';
                                 }
-                                echo "<br><br>";
+                                echo "<br><br><br>";
                                 ?>
                                 </tbody>
                                 </table>
