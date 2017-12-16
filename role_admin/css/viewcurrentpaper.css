@@ -17,7 +17,7 @@ table{
 }
 
 .head_props .right{
-	text-align: right;
+	align: right;
 }
 
 .ques_no{
