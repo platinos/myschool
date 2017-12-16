@@ -1,6 +1,7 @@
 <!-- removing p tags by using strip_tags to ensure no new line is created by default-->
 <?php 
 
+//creates an array which contains an array for every section. Each section may have n questions
 $i=0;
 $questionsFeed=$feed['data'];
 $sectionsFeed=array();
@@ -11,6 +12,7 @@ foreach ($questionsFeed as $key => $question) {
 	array_push($sectionsFeed[$question['section']],$question);
 	$i++;
 }
+
 $i=1;
 //contains every section
 ksort($sectionsFeed);
@@ -50,12 +52,12 @@ function printSection($sectionFeed, $type){
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
-			<table style=" margin-left: auto; margin-right: auto;" border="0px" width="100%">
+			<table>
 				<tbody>
 				<tr> 
-				<td><strong style="width: 2.5%;" id="ques_no">Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
-				<td style="width: 87.5%;" id="ques_txt"><?php echo$question['ques_txt'] ?></td>
-				<td style="width: 10%; align:right" id="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></td>
+				<td class="ques_no"><strong >Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
+				<td class="ques_txt"><?php echo $question['ques_txt'] ?></td>
+				<td class="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></td>
 				</tr>
 				</tbody>
 			</table>
@@ -91,16 +93,15 @@ function printSection($sectionFeed, $type){
 
 			?>
 			
-			<table style=" margin-left: auto; margin-right: auto; align:right" border="0px" width="95%">
+			<table class="option_tbl">
 				<tbody>
 					<tr>
-						<td style="width: 50%; height: 26px;">(A)<?php echo strip_tags($shuffled_options['A']) ?></td>
-						<td style="width: 50%; 244px; height: 26px;">(B)<?php echo strip_tags($shuffled_options['B']) ?>
-						</td>
+						<td class="option" >(A)<?php echo strip_tags($shuffled_options['A']) ?></td>
+						<td class="option" >(B)<?php echo strip_tags($shuffled_options['B']) ?></td>
 					</tr>
 					<tr>
-						<td style="width: 50%; height: 26px;">(C)<?php echo strip_tags($shuffled_options['C']) ?></td>
-						<td style="width: 50%; height: 26px;">(D)<?php echo strip_tags($shuffled_options['D']) ?></td>
+						<td class="option" >(C)<?php echo strip_tags($shuffled_options['C']) ?></td>
+						<td class="option" >(D)<?php echo strip_tags($shuffled_options['D']) ?></td>
 					</tr>
 				</tbody>
 			</table>

@@ -4,8 +4,10 @@
 <head>
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="role_admin/css/viewcurrentpaper.css" rel="stylesheet">
     
     <title>MyPaper-Controller</title>
+
 
     <!-- Favicon-->
 
@@ -53,37 +55,41 @@
                         <?php include 'templatebody.php'; ?>
                     </textarea>
 
-                    <textarea name="answerkey"" id="answerkey" name="answerkey">
+                    <textarea name="answerkey"" id="answerkey">
                         <h3 align=center>Answer key</h3><br><br>
-                       <?php   
-                            for ($i=0; $i < count($answerkey); $i++) { 
-                                echo '<h3 align=center>'.$answerkey[$i][0].'</h3><br>';
-                                ?><table style=" margin-left: auto; margin-right: auto; align:center" border="0px" width="100%">
+
+
+                        <?php   
+                        for($i=0; $i < count($answerkey); $i++) { 
+                            echo '<h3 align=center>'.$answerkey[$i][0].'</h3><br>';
+                            ?>
+                            <table>
                                 <tbody>
-                                <?php
-                                for ($j=1; $j < count($answerkey[$i]);) { 
-                                    echo '<tr>';
-                                    for($k=0;$k<3 && $j<count($answerkey[$i]);$k++,$j++){
-
-                                    echo '<td style="width: 33.33%;">'.$answerkey[$i][$j].'</td>';
+                                    <?php
+                                        for ($j=1; $j < count($answerkey[$i]);) { 
+                                            echo '<tr>';
+                                            for($k=0;$k<3 && $j<count($answerkey[$i]);$k++,$j++){
+                                                echo '<td style="width: 33.33%;">'.$answerkey[$i][$j].'</td>';
+                                        }
+                                        echo '</tr>';
                                     }
-                                    echo '</tr>';
-                                }
-                                echo "<br><br><br>";
-                                ?>
+                                    echo "<br><br><br>";
+                                    ?>
                                 </tbody>
-                                </table>
-                            <?php
-                            }
-                       ?> 
-                   </textarea>
+                        </table>
+                        <?php
+                        }
+                        ?> 
 
-               </div>
-           </div>
-           <!-- #END# Exportable Table -->
-       </div>
-   </section>
-   <?php
+
+                </textarea>
+
+            </div>
+        </div>
+        <!-- #END# Exportable Table -->
+    </div>
+</section>
+<?php
 }
 ?>
 
