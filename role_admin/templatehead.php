@@ -1,16 +1,16 @@
-<h2 style="text-align: center;">MySchool Coaching Institute</h2>
-<h3 style="text-align: center;">MySchool, Udichi Building, (Opp. Hotel Asansol INN) Police Line,</h3>
-<h3 style="text-align: center;">Asansol, West Bengal. 713304.</h3>
+<h2 class="head_titles">MySchool Coaching Institute</h2>
+<h3 class="head_titles">MySchool, Udichi Building, (Opp. Hotel Asansol INN) Police Line,</h3>
+<h3 class="head_titles">Asansol, West Bengal. 713304.</h3>
 <hr />
-<table border="0px">
+<table class="head_table" border="0px">
 	<tbody>
 		<tr >
-			<td style="width: 50%; height: 15px;" id="date"><?php echo "Date: ".$_GET['date'] ?></td>
-			<td style="width: 50%; text-align: right; height: 15px;" id="t_marks"><?php echo "F.M.: ".$_GET['fmarks'] ?> </td>
+			<td class="head_props" id="date"><?php echo "Date: ".$_GET['date'] ?></td>
+			<td class="head_props" id="t_marks"><?php echo "F.M.: ".$_GET['fmarks'] ?> </td>
 		</tr>
 		<tr style="height: 15px;">
-			<td style="width: 50%; height: 15px;" id="subject"><?php echo "Subject: ".$_GET['subject'] ?></td>
-			<td style="width: 50%; text-align: right; height: 15px;" id="time"><?php echo "Time: ".$_GET['time']." mins"
+			<td class="head_props" id="subject"><?php echo "Subject: ".$_GET['subject'] ?></td>
+			<td class="head_props" id="time"><?php echo "Time: ".$_GET['time']." mins"
 				?></td>
 			</tr>
 		</tbody>

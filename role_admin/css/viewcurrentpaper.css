@@ -2,8 +2,22 @@ table{
 	margin-left: auto;
 	margin-right: auto;
 	align:center;
-	border: 0 solid #000; 
 	width:100%;
+}
+
+.head_titles{
+	text-align: center;
+}
+.head_table{
+	width:80%;
+}
+
+.head_props{
+	width:50%;
+}
+
+.head_props .right{
+	text-align: right;
 }
 
 .ques_no{
