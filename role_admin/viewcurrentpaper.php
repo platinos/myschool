@@ -4,7 +4,7 @@
 <head>
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="role_admin/css/viewcurrentpaper.css" rel="stylesheet">
+    <link href="css/viewcurrentpaper.css" rel="stylesheet">
     
     <title>MyPaper-Controller</title>
 
