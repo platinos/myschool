@@ -1,4 +1,4 @@
 <?php include "config.php ";
 
-	var_dump(apicall('viewquestions'));
+	var_dump(apicall('viewquestion'));
 ?>
