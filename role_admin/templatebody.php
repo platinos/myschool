@@ -118,7 +118,7 @@ function printSection($sectionFeed, $type){
 				}
 				
 
-				$answertbl="<table border=0px ><tbody><tr><td>".($j+1).".</td><td>".$answer."</td><tr><td><img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']." height=50px></td></tr></tbody></table>";
+				$answertbl="<table border='0px' ><tbody><tr><td>".($j+1).".</td><td>".$answer."</td><tr><td><img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']." height=50px></td></tr></tbody></table>";
 				array_push($currentanswerkey ,$answertbl);
 				
 				$j++;

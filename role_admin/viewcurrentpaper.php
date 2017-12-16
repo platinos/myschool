@@ -63,7 +63,7 @@
                         for($i=0; $i < count($answerkey); $i++) { 
                             echo '<h3 align=center>'.$answerkey[$i][0].'</h3><br>';
                             ?>
-                            <table>
+                            <table border="0px">
                                 <tbody>
                                     <?php
                                         for ($j=1; $j < count($answerkey[$i]);) { 
