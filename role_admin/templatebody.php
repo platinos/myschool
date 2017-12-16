@@ -121,11 +121,12 @@ function printSection($sectionFeed, $type){
 				$answertbl="<table border='0px' >
 								<tbody>
 									<tr>
-										<td>".($j+1).".</td>
-										<td>".$answer."</td>
+										<td width=2.5%>".($j+1).".</td>
+										<td width=97.5%>".$answer."</td>
 									</tr>
 									<tr>
-										<td><img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px></td>
+										<td width=2.5%></td>
+										<td width=97.5%><img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px></td>
 									</tr>
 								</tbody>
 							</table>";
