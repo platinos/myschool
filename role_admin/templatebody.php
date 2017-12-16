@@ -116,8 +116,10 @@ function printSection($sectionFeed, $type){
 				if($type!=1){
 					$answer=$question['answer'];
 				}
-					
-				array_push($currentanswerkey ,($j+1)." - <span>".$answer." &nbsp;&nbsp;&nbsp;&nbsp;<img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px></span><br><br>");
+				
+
+				$answertbl="<table border=0px ><tbody><tr><td>".($j+1).".</td><td>".$answer."</td><tr><td><img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']." height=50px></td></tr></tbody></table>";
+				array_push($currentanswerkey ,$answertbl);
 				
 				$j++;
 		?>
