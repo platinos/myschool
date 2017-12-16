@@ -4,6 +4,8 @@ table{
 	align:center;
 	border: 0px; 
 	width:100%;
+	background: green;
+	color:green;
 }
 
 .ques_no{
