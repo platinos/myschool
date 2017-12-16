@@ -47,12 +47,12 @@ function getSectionName($i){
 <?php 
 function printSection($sectionFeed, $type){
 	$currentanswerkey=array();
-	//array_push($currentanswerkey,"Section: ".getSectionName($type));
+	array_push($currentanswerkey,"Section: ".getSectionName($type));
 	$j=0;
 	foreach($sectionFeed as $quesid=> $question) {
 		?>
 		<div id="question">
-			<table>
+			<table border="0px">
 				<tbody>
 				<tr> 
 				<td class="ques_no"><strong >Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>

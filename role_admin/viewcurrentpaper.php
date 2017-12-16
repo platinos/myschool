@@ -142,7 +142,7 @@
 //TinyMCE
 tinymce.init({
     selector: "textarea#questionpaper",
-    content_css : 'css/viewcurrentpaper.css',  // resolved to http://domain.mine/myLayout.css
+    content_css : 'css/viewcurrentpaper.css', 
     theme: "modern",
     height: screen.availHeight,
     plugins: [
@@ -163,6 +163,7 @@ tinyMCE.baseURL = 'plugins/tinymce';
 //TinyMCE
 tinymce.init({
     selector: "textarea#answerkey",
+    content_css : 'css/viewcurrentpaper.css', 
     theme: "modern",
     height: screen.availHeight,
     plugins: [
