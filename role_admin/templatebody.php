@@ -125,7 +125,7 @@ function printSection($sectionFeed, $type){
 										<td>".$answer."</td>
 									</tr>
 									<tr>
-										<td><img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']." height=50px></td>
+										<td><img src='https://api.qrserver.com/v1/create-qr-code/?data=".$question['qr']."' height=50px></td>
 									</tr>
 								</tbody>
 							</table>";
