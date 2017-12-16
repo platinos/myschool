@@ -208,7 +208,7 @@ else
 <script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 
 
-<script src="plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=image" async defer></script>
+<script src="plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=svg" async defer></script>
 
 </body>
 
