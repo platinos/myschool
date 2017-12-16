@@ -5,13 +5,12 @@
 <table class="head_table" border="0px">
 	<tbody>
 		<tr >
-			<td class="head_props" id="date"><?php echo "Date: ".$_GET['date'] ?></td>
-			<td class="head_props" id="t_marks"><?php echo "F.M.: ".$_GET['fmarks'] ?> </td>
+			<td class="head_props" id="date"><h3><?php echo "Date: ".$_GET['date'] ?></h3></td>
+			<td class="head_props right" id="t_marks"><h3><?php echo "F.M.: ".$_GET['fmarks'] ?></h3> </td>
 		</tr>
-		<tr style="height: 15px;">
-			<td class="head_props" id="subject"><?php echo "Subject: ".$_GET['subject'] ?></td>
-			<td class="head_props" id="time"><?php echo "Time: ".$_GET['time']." mins"
-				?></td>
+		<tr>
+			<td class="head_props" id="subject"><h3><?php echo "Subject: ".$_GET['subject'] ?></h3></td>
+			<td class="head_props right" id="time"><h3><?php echo "Time: ".$_GET['time']." mins" ?></h3></td>
 			</tr>
 		</tbody>
 	</table>
