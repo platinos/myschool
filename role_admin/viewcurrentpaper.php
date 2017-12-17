@@ -61,14 +61,20 @@
 
                         <?php   
                         for($i=0; $i < count($answerkey); $i++) { 
-                            echo '<h3 align=center>'.$answerkey[$i][0].'</h3><br>';
+                            if($answerkey[$i][0]==1){
+                                $rows=3;
+                            }
+                            else{
+                                $rows=1;
+                            }
+                            echo '<h3 align=center>'.$answerkey[$i][1].'</h3><br>';
                             ?>
                             <table border="0px">
                                 <tbody>
                                     <?php
                                         for ($j=1; $j < count($answerkey[$i]);) { 
                                             echo '<tr>';
-                                            for($k=0;$k<3 && $j<count($answerkey[$i]);$k++,$j++){
+                                            for($k=0;$k<$rows && $j<count($answerkey[$i]);$k++,$j++){
                                                 echo '<td style="width: 33.33%;">'.$answerkey[$i][$j].'</td>';
                                         }
                                         echo '</tr>';

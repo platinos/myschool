@@ -47,6 +47,7 @@ function getSectionName($i){
 <?php 
 function printSection($sectionFeed, $type){
 	$currentanswerkey=array();
+	array_push($currentanswerkey,$type);
 	array_push($currentanswerkey,"Section: ".getSectionName($type));
 	$j=0;
 	foreach($sectionFeed as $quesid=> $question) {
@@ -55,7 +56,7 @@ function printSection($sectionFeed, $type){
 			<table border="0px">
 				<tbody>
 				<tr> 
-				<td class="ques_no"><strong >Q.<?php echo $index+1?>&nbsp;&nbsp;&nbsp;</strong></td>
+				<td class="ques_no"><strong >Q.<?php echo $index+1?></strong></td>
 				<td class="ques_txt"><?php echo $question['ques_txt'] ?></td>
 				<td class="marks"><?php echo "(Marks: ".strip_tags($question['marks']).")"?></td>
 				</tr>
