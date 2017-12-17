@@ -26,11 +26,13 @@ table{
 .ques_no{
 	font-size: 12pt;
 	width:2.5%;
+	vertical-align: text-top;
 }
 
 .ques_txt{
 	font-size: 12pt;
 	width: 87.5%;
+	vertical-align: text-top;
 }
 
 .marks{
