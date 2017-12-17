@@ -72,7 +72,7 @@
                             <table border="0px">
                                 <tbody>
                                     <?php
-                                        for ($j=1; $j < count($answerkey[$i]);) { 
+                                        for ($j=2; $j < count($answerkey[$i]);) { 
                                             echo '<tr>';
                                             for($k=0;$k<$rows && $j<count($answerkey[$i]);$k++,$j++){
                                                 echo '<td style="width: 33.33%;">'.$answerkey[$i][$j].'</td>';
