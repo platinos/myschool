@@ -492,11 +492,7 @@ tinymce.init({
 	
 });
 
-tinymce.activeEditor.uploadImages(function(success) {
-  $.post('postuploadhandler.php', tinymce.activeEditor.getContent()).done(function() {
-    console.log("Uploaded images and posted content as an ajax request.");
-  });
-});
+
 
 tinymce.init({
 	selector: "textarea#answer",
@@ -577,7 +573,11 @@ tinymce.suffix = ".min";
 tinyMCE.baseURL = 'plugins/tinymce';
 });
 
-
+tinymce.activeEditor.uploadImages(function(success) {
+  $.post('postuploadhandler.php', tinymce.activeEditor.getContent()).done(function() {
+    console.log("Uploaded images and posted content as an ajax request.");
+  });
+});
 </script>
 
 
