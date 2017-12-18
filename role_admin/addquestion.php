@@ -486,8 +486,17 @@ tinymce.init({
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
-	images_upload_url: 'postuploadhandler.php'
-  
+	image_advtab: true,
+	images_upload_url: 'postuploadhandler.php',
+	images_upload_handler: function (blobInfo, success, failure) {
+    setTimeout(function() {
+      // no matter what you upload, we will turn it into TinyMCE logo :)
+      success('http://moxiecode.cachefly.net/tinymce/v9/images/logo.png');
+    }, 2000);
+  },
+  init_instance_callback: function (ed) {
+    ed.execCommand('mceImage');
+  }
 	
 });
 
@@ -572,11 +581,7 @@ tinymce.suffix = ".min";
 tinyMCE.baseURL = 'plugins/tinymce';
 });
 
-tinymce.activeEditor.uploadImages(function(success) {
-  $.post('postuploadhandler.php', tinymce.activeEditor.getContent()).done(function() {
-    console.log("Uploaded images and posted content as an ajax request.");
-  });
-});
+
 </script>
 
 
