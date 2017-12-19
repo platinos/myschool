@@ -199,8 +199,8 @@
 									<input id="link" name="link" required type="text" value="" class="form-control input-md">
 									<br>
 
-									<label class="form-label">Image</label> 
-									<img src="<?php echo $feed['data'][$i]['ques_img'] ?>" height="50px" width="50px">
+									<label class="form-label">Image</label> <br>
+									<img src="<?php echo $feed['data'][$i]['ques_img'] ?>" height="100px" width="100px"><br>
 
 									<label class="form-label">File upload</label> 
 									<input type="file" name="file_upload" id="upload" required accept="image/*">
