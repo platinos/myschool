@@ -199,7 +199,10 @@
 									<input id="link" name="link" required type="text" value="" class="form-control input-md">
 									<br>
 
-									<label class="form-label">Scanned Copy</label>  
+									<label class="form-label">Image</label> 
+									<img src="<?php echo $feed['data'][$i]['ques_img'] ?>" height="50px" width="50px">
+
+									<label class="form-label">File upload</label> 
 									<input type="file" name="file_upload" id="upload" required accept="image/*">
 									<br>
 
@@ -255,7 +258,7 @@
 										);
 
 										
-										$feed = apicall("addquestions", $values);
+										$feed = apicall("editquestion", $values);
 										if($feed['error']==true)
 										{
 											?>
