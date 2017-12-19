@@ -201,7 +201,7 @@
 
 									<label class="form-label">Image</label> <br>
 									<p><?php echo $_SERVER['REQUEST_URI']+"//"+$feedquestion['data'][0]['ques_img'] ?></p>
-									<img src="<?php echo $feedquestion['data'][$i]['ques_img'] ?>" height="100px" width="100px"><br>
+									<img src="<?php echo $_SERVER['REQUEST_URI']+"//"+$feedquestion['data'][0]['ques_img'] ?>" height="100px" width="100px"><br>
 
 									<label class="form-label">File upload</label> 
 									<input type="file" name="file_upload" id="upload" required accept="image/*">
