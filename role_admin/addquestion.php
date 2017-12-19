@@ -479,14 +479,14 @@ tinymce.init({
 	theme: "modern",
 	height: 200,
 	plugins: [
-	'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+	'advlist autolink lists link charmap print preview hr anchor pagebreak',
 	'searchreplace wordcount visualblocks visualchars code fullscreen',
 	'insertdatetime media nonbreaking save table contextmenu directionality',
-	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris',
+	'emoticons template paste textcolor colorpicker textpattern tiny_mce_wiris',
 	'image code'
 	],
 	images_upload_url: 'postAcceptor.php',
-	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | undo redo | image code',
+	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | undo redo | image code',
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
 	// images_upload_url: 'postuploadhandler.php',
