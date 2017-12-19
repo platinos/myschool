@@ -485,7 +485,7 @@ tinymce.init({
 	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | superscript subscript | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
@@ -501,7 +501,7 @@ tinymce.init({
 	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | superscript subscript | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
@@ -517,7 +517,7 @@ tinymce.init({
 	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | superscript subscript | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php',
 });
@@ -533,7 +533,7 @@ tinymce.init({
 	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | superscript subscript | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
@@ -549,7 +549,7 @@ tinymce.init({
 	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | superscript subscript | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
@@ -565,7 +565,7 @@ tinymce.init({
 	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | superscript subscript | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
