@@ -482,13 +482,14 @@ tinymce.init({
 	'advlist autolink lists link charmap print preview hr anchor pagebreak',
 	'searchreplace wordcount visualblocks visualchars code fullscreen',
 	'insertdatetime media nonbreaking save table contextmenu directionality',
-	'emoticons template paste textcolor colorpicker textpattern tiny_mce_wiris'
+	'emoticons template paste textcolor colorpicker textpattern tiny_mce_wiris',
+	'image code'
 	],
 	images_upload_url: 'postAcceptor.php',
-	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent| image code',
 	toolbar2: 'print prepend(nodes...: Node|DOMString)eview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
-	// images_upload_url: 'postuploadhandler.php',
+    images_upload_url: 'postuploadhandler.php',
 	// images_upload_handler: function (blobInfo, success, failure) {
  //    var xhr, formData;
 
