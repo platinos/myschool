@@ -149,7 +149,12 @@ tinymce.init({
   images_upload_url: 'postAcceptor.php',
   images_upload_base_path: '/some/basepath',
   images_upload_credentials: true,
-  toolbar1: 'image'
+  theme: "modern",
+    height: screen.availHeight,
+    plugins: [
+    'image imagetools'
+    ],
+    toolbar1: 'link image'
 });
 
 
