@@ -487,40 +487,7 @@ tinymce.init({
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
-	images_upload_url: 'postAcceptor.php',
-  
-  // we override default upload handler to simulate successful upload
-  // images_upload_handler: function (blobInfo, success, failure) {
-  // 	var xhr, formData;
-
-  //   xhr = new XMLHttpRequest();
-  //   xhr.withCredentials = false;
-  //   xhr.open('POST', 'postAcceptor.php');
-
-  //   xhr.onload = function() {
-  //     var json;
-
-  //     if (xhr.status != 200) {
-  //       failure('HTTP Error: ' + xhr.status);
-  //       return;
-  //     }
-
-  //     json = JSON.parse(xhr.responseText);
-
-  //     if (!json || typeof json.location != 'string') {
-  //       failure('Invalid JSON: ' + xhr.responseText);
-  //       return;
-  //     }
-
-  //     success(json.location);
-  //   };
-
-  //   formData = new FormData();
-  //   formData.append('file', blobInfo.blob(), blobInfo.filename());
-
-  //   xhr.send(formData);
-  // },
-
+	images_upload_url: 'postAcceptor.php'
 });
 
 tinymce.init({
@@ -535,7 +502,8 @@ tinymce.init({
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
-	image_advtab: true
+	image_advtab: true,
+	images_upload_url: 'postAcceptor.php'
 });
 
 tinymce.init({
@@ -550,7 +518,8 @@ tinymce.init({
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
-	image_advtab: true
+	image_advtab: true,
+	images_upload_url: 'postAcceptor.php',
 });
 
 tinymce.init({
@@ -565,7 +534,8 @@ tinymce.init({
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
-	image_advtab: true
+	image_advtab: true,
+	images_upload_url: 'postAcceptor.php'
 });
 
 tinymce.init({
@@ -580,7 +550,8 @@ tinymce.init({
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
-	image_advtab: true
+	image_advtab: true,
+	images_upload_url: 'postAcceptor.php'
 });
 
 tinymce.init({
@@ -595,7 +566,8 @@ tinymce.init({
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
-	image_advtab: true
+	image_advtab: true,
+	images_upload_url: 'postAcceptor.php'
 });
 
 tinymce.suffix = ".min";
@@ -611,3 +583,6 @@ tinyMCE.baseURL = 'plugins/tinymce';
 
 </html>
 
+<!-- addques
+viewques
+editcurrent -->
