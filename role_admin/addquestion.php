@@ -528,9 +528,10 @@ tinymce.init({
 
 
 
+
 tinymce.init({
 	selector: "textarea#answer",
-	theme: "modern",
+	// theme: "modern",
 	height: 200,
 	plugins: [
 	'advlist autolink lists link image charmap print preview hr anchor pagebreak',
@@ -540,7 +541,40 @@ tinymce.init({
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
-	image_advtab: true
+	// image_advtab: true,
+	images_upload_url: 'postuploadhandler.php',
+
+	images_upload_handler: function (blobInfo, success, failure) {
+    var xhr, formData;
+
+    xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+    xhr.open('POST', 'postAccepter.php');
+
+    xhr.onload = function() {
+      var json;
+
+      if (xhr.status != 200) {
+        failure('HTTP Error: ' + xhr.status);
+        return;
+      }
+
+      json = JSON.parse(xhr.responseText);
+
+      if (!json || typeof json.location != 'string') {
+        failure('Invalid JSON: ' + xhr.responseText);
+        return;
+      }
+
+      success(json.location);
+    };
+
+    formData = new FormData();
+    formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+    xhr.send(formData);
+  }
+
 });
 
 tinymce.init({
