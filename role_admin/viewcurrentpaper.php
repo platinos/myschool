@@ -148,7 +148,13 @@ tinymce.init({
   selector: 'textarea#testing',  // change this value according to your html
   images_upload_url: 'postAcceptor.php',
   images_upload_base_path: '/some/basepath',
-  images_upload_credentials: true
+  images_upload_credentials: true,
+  theme: "modern",
+    height: screen.availHeight,
+    plugins: [
+    'image imagetools'
+    ],
+    toolbar1: 'link image'
 });
 
 
