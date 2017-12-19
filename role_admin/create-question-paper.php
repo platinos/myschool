@@ -87,7 +87,7 @@ else
                                         <th class="hide">Subject</th>
                                         <th class="hide">Chapter</th>
                                         <th class="hide">Topic</th>
-                                        <th class="hide">Marks</th>
+                                        <th>Marks</th>
                                         <th class="">Level</th>
                                         <th>Select</th>
                                     </tr>
@@ -108,7 +108,7 @@ else
                                         <th class="hide">Subject</th>
                                         <th class="hide">Chapter</th>
                                         <th class="hide">Topic</th>
-                                        <th class="hide">Marks</th>
+                                        <th>Marks</th>
                                         <th class="">Level</th>
                                         <th>Select</th>
 
@@ -127,7 +127,7 @@ else
                                             <td class="hide"><?php echo $feed['data'][$i]['subject'] ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['chapter'] ?></td>
                                             <td class="hide"><?php echo $feed['data'][$i]['topic'] ?></td>
-                                            <td class="hide"><?php echo $feed['data'][$i]['marks'] ?></td>
+                                            <td class=""><?php echo $feed['data'][$i]['marks'] ?></td>
                                             <td class=""><?php echo mapDifficulty($feed['data'][$i]['level']); ?></td>
                                             
 
