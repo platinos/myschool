@@ -24,7 +24,7 @@
         
         <!-- #END# Basic Examples -->
         <!-- Exportable Table -->
-<textarea id="testing"></textarea>
+
 
 
         <div class="row clearfix">
@@ -47,6 +47,8 @@
                 <button class="btn btn-primary waves-effect pull-right" id="questionpaperbutton" style='display: none;'>Go back to Question Paper</button> -->
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <textarea id="testing"></textarea>
 
 
                     <textarea id="questionpaper" name="questionpaper">
@@ -168,8 +170,6 @@ tinymce.init({
     image_advtab: true
 });
 
-tinymce.suffix = ".min";
-tinyMCE.baseURL = 'plugins/tinymce';
 
 
 //TinyMCE
