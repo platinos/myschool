@@ -488,8 +488,6 @@ tinymce.init({
 	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
 	image_advtab: true,
 	*/
-
-	selector: 'textarea',
 	  plugins: 'image code',
 	  toolbar: 'undo redo | image code',
 	  
