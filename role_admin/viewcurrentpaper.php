@@ -48,6 +48,8 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
+                    <textarea id="testing"></textarea>
+
 
                     <textarea id="questionpaper" name="questionpaper">
                         <?php include 'templatehead.php'; ?>
@@ -142,6 +144,12 @@
     $(function () {
 
 
+tinymce.init({
+  selector: 'textarea#testing',  // change this value according to your html
+  images_upload_url: 'postAcceptor.php',
+  images_upload_base_path: '/some/basepath',
+  images_upload_credentials: true
+});
 
 
 
@@ -162,8 +170,6 @@ tinymce.init({
     image_advtab: true
 });
 
-tinymce.suffix = ".min";
-tinyMCE.baseURL = 'plugins/tinymce';
 
 
 //TinyMCE
