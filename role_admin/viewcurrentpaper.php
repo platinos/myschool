@@ -152,7 +152,10 @@ tinymce.init({
     plugins: [
     'image imagetools'
     ],
-    toolbar1: 'link image'
+    toolbar1: 'link image',
+    file_browser_callback: function(field_name, url, type, win) {
+    win.document.getElementById(field_name).value = 'my browser value';
+  }
 });
 
 
