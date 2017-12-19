@@ -475,34 +475,8 @@ $(function () {
 
 //TinyMCE
 tinymce.init({
-	selector: "textarea#question",
+/*	selector: "textarea#question",
 	theme: "modern",
-	height: 200,
-	plugins: [
-	/*'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-	'searchreplace wordcount visualblocks visualchars code fullscreen',
-	'insertdatetime media nonbreaking save table contextmenu directionality',
-	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris',*/
-	'image code'
-	],
-	images_upload_url: 'postAcceptor.php',
-	toolbar1: /*'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | undo redo |*/ 'image code',
-	/*toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',*/
-	images_upload_handler: function (blobInfo, success, failure) {
-	    setTimeout(function() {
-	      // no matter what you upload, we will turn it into TinyMCE logo :)
-	      success('http://moxiecode.cachefly.net/tinymce/v9/images/logo.png');
-	    }, 2000);
-  	},
-	image_advtab: false,
-	
-});
-
-tinymce.init({
-	selector: "textarea#answer",
-	// theme: "modern",
-	images_upload_url: 'postuploadhandler.php',
-
 	height: 200,
 	plugins: [
 	'advlist autolink lists link image charmap print preview hr anchor pagebreak',
@@ -511,41 +485,43 @@ tinymce.init({
 	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
 	],
 	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry'
-	// image_advtab: true,
-	//images_upload_url: 'postuploadhandler.php'
+	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+	image_advtab: true,
+	*/
 
-	// images_upload_handler: function (blobInfo, success, failure) {
- //    var xhr, formData;
+	selector: 'textarea',
+	  plugins: 'image code',
+	  toolbar: 'undo redo | image code',
+	  
+	  // without images_upload_url set, Upload tab won't show up
+	  images_upload_url: 'postAcceptor.php',
+	  
+	  // we override default upload handler to simulate successful upload
+	  images_upload_handler: function (blobInfo, success, failure) {
+	    setTimeout(function() {
+	      // no matter what you upload, we will turn it into TinyMCE logo :)
+	      success('http://moxiecode.cachefly.net/tinymce/v9/images/logo.png');
+	    }, 2000);
+	  },
+	  
+	  init_instance_callback: function (ed) {
+	    ed.execCommand('mceImage');
+	  }
+});
 
- //    xhr = new XMLHttpRequest();
- //    xhr.withCredentials = false;
- //    xhr.open('POST', 'postAccepter.php');
-
- //    xhr.onload = function() {
- //      var json;
-
- //      if (xhr.status != 200) {
- //        failure('HTTP Error: ' + xhr.status);
- //        return;
- //      }
-
- //      json = JSON.parse(xhr.responseText);
-
- //      if (!json || typeof json.location != 'string') {
- //        failure('Invalid JSON: ' + xhr.responseText);
- //        return;
- //      }
-
- //      success(json.location);
- //    };
-
- //    formData = new FormData();
- //    formData.append('file', blobInfo.blob(), blobInfo.filename());
-
- //    xhr.send(formData);
- //  }
-
+tinymce.init({
+	selector: "textarea#answer",
+	theme: "modern",
+	height: 200,
+	plugins: [
+	'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+	'searchreplace wordcount visualblocks visualchars code fullscreen',
+	'insertdatetime media nonbreaking save table contextmenu directionality',
+	'emoticons template paste textcolor colorpicker textpattern imagetools tiny_mce_wiris'
+	],
+	toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+	toolbar2: 'print preview media | forecolor backcolor emoticons |  fontsizeselect | tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+	image_advtab: true
 });
 
 tinymce.init({
