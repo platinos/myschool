@@ -87,7 +87,7 @@
 							<div id="1">
 								<textarea id="answer" name="answer">
 								
-									Answer
+									<?php $feedquestion['data'][0]['answer'] ?>
 								</textarea>
 							</div>
 						</div>
