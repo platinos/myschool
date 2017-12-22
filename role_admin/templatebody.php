@@ -101,7 +101,7 @@ function printSection($sectionFeed, $type){
 						<td class="option" >(B)<?php echo $shuffled_options['B'] ?></td>
 					</tr>
 					<tr>
-						<td class="option" >(C)<?php $shuffled_options['C'] ?></td>
+						<td class="option" >(C)<?php echo $shuffled_options['C'] ?></td>
 						<td class="option" >(D)<?php echo $shuffled_options['D'] ?></td>
 					</tr>
 				</tbody>
