@@ -607,7 +607,7 @@ $(document).ready(function() {
 	$('#link').val('<?php echo $feedquestion['data'][0]['youtube'] ?>');
 
 	console.log("hello world here is vardump:");
-	console.log("<?php echo var_dump($feedquestion);?>");
+	console.log(<?php echo var_dump($feedquestion);?>);
 });
 </script>
 
