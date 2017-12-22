@@ -97,12 +97,12 @@ function printSection($sectionFeed, $type){
 			<table class="option_tbl">
 				<tbody>
 					<tr>
-						<td class="option" >(A)<?php echo strip_tags($shuffled_options['A']) ?></td>
-						<td class="option" >(B)<?php echo strip_tags($shuffled_options['B']) ?></td>
+						<td class="option" >(A)<?php echo $shuffled_options['A'] ?></td>
+						<td class="option" >(B)<?php echo $shuffled_options['B'] ?></td>
 					</tr>
 					<tr>
-						<td class="option" >(C)<?php echo strip_tags($shuffled_options['C']) ?></td>
-						<td class="option" >(D)<?php echo strip_tags($shuffled_options['D']) ?></td>
+						<td class="option" >(C)<?php $shuffled_options['C'] ?></td>
+						<td class="option" >(D)<?php echo $shuffled_options['D'] ?></td>
 					</tr>
 				</tbody>
 			</table>
