@@ -56,19 +56,19 @@
 
 								
 								<textarea id="mcq1" name="mcq1">
-									<?php $feedquestion['data'][0]['option1'] ?>
+									<?php echo $feedquestion['data'][0]['option1'] ?>
 								</textarea>
 
 								<textarea id="mcq2" name="mcq2">
-									<?php $feedquestion['data'][0]['option2'] ?>
+									<?php echo $feedquestion['data'][0]['option2'] ?>
 								</textarea>
 
 								<textarea id="mcq3" name="mcq3">
-									<?php $feedquestion['data'][0]['option3'] ?>
+									<?php echo $feedquestion['data'][0]['option3'] ?>
 								</textarea>
 
 								<textarea id="mcq4" name="mcq4">
-									<?php $feedquestion['data'][0]['option4'] ?>
+									<?php echo $feedquestion['data'][0]['option4'] ?>
 								</textarea>
 								
 							</div>
@@ -87,7 +87,7 @@
 							<div id="1">
 								<textarea id="answer" name="answer">
 								
-									<?php $feedquestion['data'][0]['answer'] ?>
+									<?php echo $feedquestion['data'][0]['answer'] ?>
 								</textarea>
 							</div>
 						</div>
