@@ -94,7 +94,7 @@ function printSection($sectionFeed, $type){
 
 			?>
 			
-			<table class="option_tbl">
+			<table border="0" class="option_tbl">
 				<tbody>
 					<tr>
 						<td class="option" >(A)<?php echo $shuffled_options['A'] ?></td>
