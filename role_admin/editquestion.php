@@ -18,7 +18,6 @@
 <?php 	
 	$value=array('qid'=>$_GET['id']);
 	$feedquestion=apicall('getquestionbyid',$value);
-	var_dump($feedquestion);
  ?>
 <section class="content">
 	<div class="container-fluid">
