@@ -18,7 +18,7 @@
 <?php 	
 	$value=array('qid'=>$_GET['id']);
 	$feedquestion=apicall('getquestionbyid',$value);
-
+	
  ?>
 <section class="content">
 	<div class="container-fluid">
@@ -606,6 +606,8 @@ $(document).ready(function() {
 	$('#marks').val('<?php echo $feedquestion['data'][0]['marks'] ?>');
 	$('#link').val('<?php echo $feedquestion['data'][0]['youtube'] ?>');
 
+	console.log("hello world here is vardump:");
+	console.log("<?php echo var_dump($feedquestion);?>");
 });
 </script>
 
