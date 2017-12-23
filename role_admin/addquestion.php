@@ -445,7 +445,7 @@ function topic_select(){
 
 
 	var settings = {
-		"async": true,
+		"async": false,
 		"url": "functions.php",
 		"method": "POST",
 
@@ -488,7 +488,7 @@ function chap_select(){
 	form.append("subject", document.getElementById("subject").value);
 
 	var settings = {
-		"async": true,
+		"async": false,
 		"url": "functions.php",
 		"method": "POST",
 
