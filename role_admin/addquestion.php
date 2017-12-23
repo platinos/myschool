@@ -530,7 +530,10 @@ select.empty().append(str);
 });
 
 }  
-
+function alertNotification(){
+	$(function () {showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+});
+}
 $(function () {
 
 retrieveFromLocalStorage();
@@ -638,9 +641,6 @@ tinymce.suffix = ".min";
 tinyMCE.baseURL = 'plugins/tinymce';
 });
 
-function alertNotification(){
-	showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
-}
 </script>
 
 
