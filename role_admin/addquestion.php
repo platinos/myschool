@@ -255,8 +255,10 @@
 		{
 			?>
 			<script>
-			showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+			$(document).ready(function(){showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
 		
+			});
+			
 			</script>
 			<!-- <div class="alert alert-info">
 				<h2><b><strong>Question Details Sucessfully Added</strong></b></h2>
@@ -341,6 +343,8 @@
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
+<script src="js/notifications.js"></script>
+
 
 
 
