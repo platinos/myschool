@@ -245,7 +245,7 @@
 		{
 			?>
 			<script>
-			showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+			showNotification("bg-green"," Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
 		
 			</script>
 			<!-- <div class="alert alert-info">
