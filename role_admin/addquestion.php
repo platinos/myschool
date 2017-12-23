@@ -383,8 +383,11 @@ function sendToLocalStorage(){
 
 function retrieveFromLocalStorage(){
 	var question=localStorage.getItem("question");
-	$('#question').val(question);
-}
+	if(question!=null)
+		$('#question').val(question);
+	else
+		$('#question').val("no localstorage data available");	
+}	
 
 
 function topic_select(){
