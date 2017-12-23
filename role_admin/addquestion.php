@@ -390,7 +390,7 @@ function retrieveFromLocalStorage(){
 	checkAndSetFromLS("mcq4");
 	checkAndSetFromLS("answer");
 
-	var class=checkAndSetFromLS("class");
+	var class_val=checkAndSetFromLS("class");
 	var subj=checkAndSetFromLS("subject");
 	checkAndSetFromLS("type");
 	checkAndSetFromLS("tag");
@@ -398,7 +398,7 @@ function retrieveFromLocalStorage(){
 	checkAndSetFromLS("marks");
 	checkAndSetFromLS("link");
 	
-	if(class!=null && subj!=null){
+	if(class_val!=null && subj!=null){
 		chap_select();
 		var chap=checkAndSetFromLS("chapters");
 
