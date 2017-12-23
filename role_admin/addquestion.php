@@ -377,12 +377,12 @@ function just_change() {
 }
 
 function sendToLocalStorage(){
-	var question=window.parent.tinymce.get('question').getContent();;
-	var mcq1=window.parent.tinymce.get('mcq1').getContent();
-	var mcq2=window.parent.tinymce.get('mcq2').getContent();
-	var mcq3=window.parent.tinymce.get('mcq3').getContent();
-	var mcq4=window.parent.tinymce.get('mcq4').getContent();
-	var otherAns=window.parent.tinymce.get('answer').getContent();
+	var question=window.parent.tinymce.get('question').getContent().toString();
+	var mcq1=window.parent.tinymce.get('mcq1').getContent().toString();
+	var mcq2=window.parent.tinymce.get('mcq2').getContent().toString();
+	var mcq3=window.parent.tinymce.get('mcq3').getContent().toString();
+	var mcq4=window.parent.tinymce.get('mcq4').getContent().toString();
+	var otherAns=window.parent.tinymce.get('answer').getContent().toString();
 
 	localStorage.setItem("question",question);
 	localStorage.setItem("mcq1",mcq1);
