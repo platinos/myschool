@@ -377,12 +377,12 @@ function just_change() {
 }
 
 function sendToLocalStorage(){
-	var question=$("#tinymce[data-id='question']").val();
-	var mcq1=$("#tinymce[data-id='mcq1']").val();
-	var mcq2=$("#tinymce[data-id='mcq2']").val();
-	var mcq3=$("#tinymce[data-id='mcq3']").val();
-	var mcq4=$("#tinymce[data-id='mcq4']").val();
-	var otherAns=$("#tinymce[data-id='answer']").val();
+	var question=$("#tinymce[data-id='question']>p");
+	var mcq1=$("#tinymce[data-id='mcq1']>p");
+	var mcq2=$("#tinymce[data-id='mcq2']>p");
+	var mcq3=$("#tinymce[data-id='mcq3']>p");
+	var mcq4=$("#tinymce[data-id='mcq4']>p");
+	var otherAns=$("#tinymce[data-id='answer']>p");
 
 	localStorage.setItem("question",question);
 	localStorage.setItem("mcq1",mcq1);
