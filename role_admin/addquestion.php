@@ -256,7 +256,8 @@
 			?>
 			<script>
 			
-			alertNotification();
+			an();
+			
 			</script>
 			<!-- <div class="alert alert-info">
 				<h2><b><strong>Question Details Sucessfully Added</strong></b></h2>
@@ -350,8 +351,9 @@
 <script type="text/javascript">
 
 
-function alertNotification(){
+function an(){
 	showNotification("bg-green", " Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+
 }
 
 
