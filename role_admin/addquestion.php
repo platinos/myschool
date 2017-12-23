@@ -189,7 +189,7 @@
 									<input type="file" name="file_upload" id="upload" required accept="image/*">
 									<br>
 
-									<input type="submit" id="submit" name="submit" value="Save Question" class="btn btn-primary btn-lg" onclick='ClickToSave()'/>
+									<input type="submit" id="submit" name="submit" value="Save Question" class="btn btn-primary btn-lg" onclick='sendToLocalStorage();ClickToSave();'/>
 								</form>
 
 
@@ -351,34 +351,40 @@
 
 
 
-	function just_change() {
-// body...
+function just_change() {
 
-var value = document.getElementById("type").value;
+	var value = document.getElementById("type").value;
 
-if(value =="3"||value =="4"||value =="5")
-{
-	$("#1").show();
-	$("#2").hide();
-	$("#3").hide();  
+	if(value =="3"||value =="4"||value =="5")
+	{
+		$("#1").show();
+		$("#2").hide();
+		$("#3").hide();  
+	}
+
+	else if(value=="1")
+	{
+		$("#1").hide();
+		$("#2").hide();
+		$("#3").show();  
+	}
+	else if(value=="2")
+	{
+		$("#1").hide();
+		$("#2").show();
+		$("#3").hide();  
+	}
 }
 
-else if(value=="1")
-{
-	$("#1").hide();
-	$("#2").hide();
-	$("#3").show();  
-}
-else if(value=="2")
-{
-	$("#1").hide();
-	$("#2").show();
-	$("#3").hide();  
-}
+function sendToLocalStorage(){
+	var question=$('#question').val();
+	localStorage.setItem("question",question);
 }
 
-
-
+function retrieveFromLocalStorage(){
+	var question=localStorage.getItem("question");
+	$('#question').val(question);
+}
 
 
 function topic_select(){
@@ -469,7 +475,7 @@ select.empty().append(str);
 
 $(function () {
 
-
+retrieveFromLocalStorage();
 
 
 
