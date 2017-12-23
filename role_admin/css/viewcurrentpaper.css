@@ -5,10 +5,6 @@ table{
 	width:100%;
 }
 
-#questionpaper{
-	font-size: 15pt
-}
-
 .head_titles{
 	height:26px;
 	text-align: center;
@@ -28,19 +24,19 @@ table{
 }
 
 .ques_no{
-	font-size: 12pt;
+	font-size: 10pt;
 	width:2.5%;
 	vertical-align: text-top;
 }
 
 .ques_txt{
-	font-size: 20pt;
+	font-size: 12pt;
 	width: 87.5%;
 	vertical-align: text-top;
 }
 
 .marks{
-	font-size: 12pt;
+	font-size: 10pt;
 	width: 10%;
 	align:right;
 }
