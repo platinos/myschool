@@ -108,7 +108,6 @@
 							<label class="form-label" >Subject</label>
 
 							<?php
-
 							$feed = apicall("viewsubject");
 							if($feed['error']==true)
 							{
@@ -117,8 +116,6 @@
 									<h2><b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
 								</div>
 								<?php   
-
-
 							}
 							else
 								{?>
@@ -132,7 +129,6 @@
 												<option value=<?php echo $feed['data'][$i]['name'] ?> ><?php echo $feed['data'][$i]['name'] ?></option>
 												<?php  
 											}
-
 											?>
 
 										</select>
@@ -195,17 +191,14 @@
 
 								<?php
 								if(isset($_POST['submit']) && !empty($_POST['submit'])) {
-
 									$t=time();
 									$new = date("Y-m-d-H-i-sa",$t);
 									$fileName = $_FILES["file_upload"]["name"];
 									$splitName = explode(".", $fileName); //split the file name by the dot
 									$fileExt = end($splitName); //get the file extension
 									$newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
-
 									if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
 									{
-
 										if($_POST['type']==1)
 										{
 											$ans = $_POST['mcq1'];
@@ -218,8 +211,6 @@
 										{
 											$ans = $_POST['answer'];
 										}
-
-
 										$values = array(
 											'question' => $_POST['question'],    
 											'answer' => $ans,    
@@ -239,7 +230,6 @@
 											'link' => $_POST['link'], 
 											'file' => 'scan/'.$newFileName
 										);
-
 										
 										$feed = apicall("addquestions", $values);
 										if($feed['error']==true)
@@ -248,38 +238,26 @@
 		<div class="alert alert-danger">
 			<h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
 			<?php   
-
-
 		}
 		else
 		{
 			?>
 			<script>
-			
-			alert("Question added.");
+			showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+		
 			</script>
 			<!-- <div class="alert alert-info">
 				<h2><b><strong>Question Details Sucessfully Added</strong></b></h2>
 				
 			</div> -->
 			<?Php
-
 		}
-
-
 	}
-
 	else
 	{
 		echo 'file upload error';
 	}
-
-
-
-
-
 }
-
 ?>
 
 <!--  ***************** END FORM ********************** -->
@@ -337,42 +315,28 @@
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
-<script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
 <!--  <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
-<script src="js/notifications.js"></script>
-
 
 
 
 
 <script type="text/javascript">
-
-
-
-
 	$(document).ready(function(){
-
 		$("#1").show();
 		$("#2").hide();
 		$("#3").hide();   
 	});
-
-
-
 function just_change() {
-
 	var value = document.getElementById("type").value;
-
 	if(value =="3"||value =="4"||value =="5")
 	{
 		$("#1").show();
 		$("#2").hide();
 		$("#3").hide();  
 	}
-
 	else if(value=="1")
 	{
 		$("#1").hide();
@@ -386,7 +350,6 @@ function just_change() {
 		$("#3").hide();  
 	}
 }
-
 function sendToLocalStorage(){
 	var question=window.parent.tinymce.get('question').getContent().toString();
 	var mcq1=window.parent.tinymce.get('mcq1').getContent().toString();
@@ -403,7 +366,6 @@ function sendToLocalStorage(){
 	var level=$('#level').val();
 	var marks=$('#marks').val();
 	var link=$('#link').val();
-
 	localStorage.setItem("question",question);
 	localStorage.setItem("mcq1",mcq1);
 	localStorage.setItem("mcq2",mcq2);
@@ -420,7 +382,6 @@ function sendToLocalStorage(){
 	localStorage.setItem("marks",marks);
 	localStorage.setItem("link",link);
 }
-
 function retrieveFromLocalStorage(){
 	checkAndSetFromLS("question");
 	checkAndSetFromLS("mcq1");
@@ -428,7 +389,6 @@ function retrieveFromLocalStorage(){
 	checkAndSetFromLS("mcq3");
 	checkAndSetFromLS("mcq4");
 	checkAndSetFromLS("answer");
-
 	checkAndSetFromLS("class");
 	checkAndSetFromLS("subject");
 	chap_select();
@@ -437,7 +397,6 @@ function retrieveFromLocalStorage(){
 	checkAndSetFromLS("level");
 	checkAndSetFromLS("marks");
 	checkAndSetFromLS("link");
-
 	checkAndSetFromLS("chapters");
 	topic_select();
 	checkAndSetFromLS("topic");
@@ -447,100 +406,62 @@ function checkAndSetFromLS(name){
 	if(data!=null)
 		$('#'+name).val(data);
 }
-
-
 function topic_select(){
 	var form = new FormData();
 	form.append("func", "gettopics");
 	form.append("ch_id", document.getElementById("chapters").value);
-
-
 	var settings = {
 		"async": false	,
 		"url": "functions.php",
 		"method": "POST",
-
 		"processData": false,
 		"contentType": false,
 		"mimeType": "multipart/form-data",
 		"data": form
 	}
-
 	$.ajax(settings).done(function (response) {
 		var jsonData1= JSON.parse(response);
-
 		var dataSize = jsonData1.data.size;
-
-
 		var str="";
 		for (var i = 0; i < dataSize; i++) {
 			var counter = jsonData1.data[i];
 			str += "<option value='"+counter.topic+"'>"+counter.topic+"</option>";
-
 		}
-
-
-
 //$('#here').html(str);
-
 var select = $('#topic');
 select.empty().append(str);
-
-
-
 });
-
 }  
-
 function chap_select(){
 	var form = new FormData();
 	form.append("func", "getchapters");
 	form.append("class", document.getElementById("class").value);
 	form.append("subject", document.getElementById("subject").value);
-
 	var settings = {
 		"async": false,
 		"url": "functions.php",
 		"method": "POST",
-
 		"processData": false,
 		"contentType": false,
 		"mimeType": "multipart/form-data",
 		"data": form
 	}
-
 	$.ajax(settings).done(function (response) {
 		var jsonData= JSON.parse(response);
-
 		var dataSize = jsonData.size;
-
-
 		var str="<option value=select>Select</option>";
 		for (var i = 0; i < jsonData.data.length; i++) {
 			var counter = jsonData.data[i];
 			str += "<option value='"+counter.id+"'>"+counter.chapter+"</option>";
 		}
-
-
 //alert(str);
-
 //$('#here').html(str);
-
 var select = $('#chapters');
 select.empty().append(str);
-
-
-
 });
-
 }  
-
 $(function () {
-
 retrieveFromLocalStorage();
-
-
-
 //TinyMCE
 tinymce.init({
 	selector: "textarea#question",
@@ -557,7 +478,6 @@ tinymce.init({
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
-
 tinymce.init({
 	selector: "textarea#answer",
 	theme: "modern",
@@ -573,7 +493,6 @@ tinymce.init({
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
-
 tinymce.init({
 	selector: "textarea#mcq1",
 	theme: "modern",
@@ -589,7 +508,6 @@ tinymce.init({
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php',
 });
-
 tinymce.init({
 	selector: "textarea#mcq2",
 	theme: "modern",
@@ -605,7 +523,6 @@ tinymce.init({
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
-
 tinymce.init({
 	selector: "textarea#mcq3",
 	theme: "modern",
@@ -621,7 +538,6 @@ tinymce.init({
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
-
 tinymce.init({
 	selector: "textarea#mcq4",
 	theme: "modern",
@@ -637,11 +553,9 @@ tinymce.init({
 	image_advtab: true,
 	images_upload_url: 'postAcceptor.php'
 });
-
 tinymce.suffix = ".min";
 tinyMCE.baseURL = 'plugins/tinymce';
 });
-
 </script>
 
 
