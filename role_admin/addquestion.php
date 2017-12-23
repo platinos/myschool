@@ -255,10 +255,8 @@
 		{
 			?>
 			<script>
-			$(document).ready(function(){showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
-		
-			});
 			
+			alertNotification();
 			</script>
 			<!-- <div class="alert alert-info">
 				<h2><b><strong>Question Details Sucessfully Added</strong></b></h2>
@@ -640,7 +638,9 @@ tinymce.suffix = ".min";
 tinyMCE.baseURL = 'plugins/tinymce';
 });
 
-
+function alertNotification(){
+	showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+}
 </script>
 
 
