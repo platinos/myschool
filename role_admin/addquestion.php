@@ -189,7 +189,7 @@
 									<input type="file" name="file_upload" id="upload" required accept="image/*">
 									<br>
 
-									<input type="submit" id="submit" name="submit" value="Save Question" class="btn btn-primary btn-lg" onclick='sendToLocalStorage();ClickToSave();'/>
+									<input type="submit" id="submit" name="submit" value="Save Question" class="btn btn-primary btn-lg" onclick='sendToLocalStorage()'/>
 								</form>
 
 
@@ -378,6 +378,7 @@ function just_change() {
 
 function sendToLocalStorage(){
 	var question=$('#question').val();
+	alert("inserting in local: "+question);
 	localStorage.setItem("question",question);
 }
 
