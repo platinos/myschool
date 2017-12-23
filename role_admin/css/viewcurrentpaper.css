@@ -5,6 +5,10 @@ table{
 	width:100%;
 }
 
+#questionpaper{
+	font-size: 15pt
+}
+
 .head_titles{
 	height:26px;
 	text-align: center;
