@@ -8,6 +8,8 @@
 	<!-- <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" /> -->
 
 	<title>MyPaper-Controller</title>
+
+	<script src="js/notifications.js"></script>
 	<style>
 	.mce-content-body {
    	background: #000;
@@ -185,7 +187,7 @@
 									<input type="file" name="file_upload" id="upload" required accept="image/*">
 									<br>
 
-									<input type="submit" id="submit" name="submit" value="Save Question" class="btn btn-primary btn-lg" onclick='sendToLocalStorage()'/>
+									<input type="submit" id="submit" name="submit" value="Save Question" class="btn btn-primary btn-lg" onclick='sendToLocalStorage();ClickToSave();'/>
 								</form>
 
 
@@ -315,7 +317,6 @@
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
-<script src="js/notifications.js"></script>
 <!--  <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
 
 <!-- Demo Js -->
