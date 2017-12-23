@@ -153,7 +153,7 @@
 									<br><br>
 
 									<label class="form-label">Tag</label>
-									<input type="text" class="form-control" required name="tag" >
+									<input type="text" class="form-control" id="tag" required name="tag" >
 									<br>                 
 
 									<label class="form-label">Chapter</label>
@@ -382,14 +382,32 @@ function sendToLocalStorage(){
 	var mcq2=window.parent.tinymce.get('mcq2').getContent().toString();
 	var mcq3=window.parent.tinymce.get('mcq3').getContent().toString();
 	var mcq4=window.parent.tinymce.get('mcq4').getContent().toString();
-	var otherAns=window.parent.tinymce.get('answer').getContent().toString();
+	var answer=window.parent.tinymce.get('answer').getContent().toString();
+	var class_val=$('#class').val();
+	var subject=$('#subject').val();
+	var type=$('#type').val();
+	var tag=$('#tag').val();
+	var chapters=$('#chapters').val();
+	var topic=$('#topic').val();
+	var level=$('#level').val();
+	var marks=$('#marks').val();
+	var link=$('#link').val();
 
 	localStorage.setItem("question",question);
 	localStorage.setItem("mcq1",mcq1);
 	localStorage.setItem("mcq2",mcq2);
 	localStorage.setItem("mcq3",mcq3);
 	localStorage.setItem("mcq4",mcq4);
-	localStorage.setItem("otherAns",otherAns);
+	localStorage.setItem("answer",otherAns);
+	localStorage.setItem("class",class_val);
+	localStorage.setItem("subject",subject);
+	localStorage.setItem("type",type);
+	localStorage.setItem("tag",tag);
+	localStorage.setItem("chapters",chapters);
+	localStorage.setItem("topic",topic);
+	localStorage.setItem("level",level);
+	localStorage.setItem("marks",marks);
+	localStorage.setItem("link",link);
 }
 
 function retrieveFromLocalStorage(){
@@ -398,7 +416,20 @@ function retrieveFromLocalStorage(){
 	checkAndSetFromLS("mcq2");
 	checkAndSetFromLS("mcq3");
 	checkAndSetFromLS("mcq4");
-	checkAndSetFromLS("mcq5");
+	checkAndSetFromLS("answer");
+
+	checkAndSetFromLS("class");
+	checkAndSetFromLS("subject");
+	chap_select();
+	checkAndSetFromLS("type");
+	checkAndSetFromLS("tag");
+	checkAndSetFromLS("level");
+	checkAndSetFromLS("marks");
+	checkAndSetFromLS("link");
+
+	checkAndSetFromLS("chapters");
+	topic_select();
+	checkAndSetFromLS("topic");
 }	
 function checkAndSetFromLS(name){
 	var data=localStorage.getItem(name);
