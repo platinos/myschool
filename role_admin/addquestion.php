@@ -385,9 +385,7 @@ function sendToLocalStorage(){
 function retrieveFromLocalStorage(){
 	var question=localStorage.getItem("question");
 	if(question!=null)
-		$('#question').val(question);
-	else
-		$('#question').val("no localstorage data available");	
+		$('#question').val(question);	
 }	
 
 
