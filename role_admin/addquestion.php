@@ -256,7 +256,7 @@
 			?>
 			<script>
 			
-			alertNotification();
+			alert("Question added.");
 			</script>
 			<!-- <div class="alert alert-info">
 				<h2><b><strong>Question Details Sucessfully Added</strong></b></h2>
