@@ -256,8 +256,7 @@
 			?>
 			<script>
 			
-			an();
-			
+			alertNotification();
 			</script>
 			<!-- <div class="alert alert-info">
 				<h2><b><strong>Question Details Sucessfully Added</strong></b></h2>
@@ -338,6 +337,7 @@
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
+<script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
 <!--  <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
 
 <!-- Demo Js -->
@@ -351,10 +351,6 @@
 <script type="text/javascript">
 
 
-function an(){
-	showNotification("bg-green", " Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
-
-}
 
 
 	$(document).ready(function(){
