@@ -5,6 +5,8 @@
 	<?php include 'part/head.php'; ?>
 	<link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 	
+	<!-- Jquery Core Js -->
+	<script src="plugins/jquery/jquery.min.js"></script>	
 	<!-- <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" /> -->
 
 	<title>MyPaper-Controller</title>
@@ -286,8 +288,6 @@
 </section>
 
 
-<!-- Jquery Core Js -->
-<script src="plugins/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Core Js -->
 <script src="plugins/bootstrap/js/bootstrap.js"></script>
