@@ -445,7 +445,7 @@ function topic_select(){
 
 
 	var settings = {
-		"async": false,
+		"async": false	,
 		"url": "functions.php",
 		"method": "POST",
 
