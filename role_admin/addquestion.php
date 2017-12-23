@@ -389,22 +389,31 @@ function retrieveFromLocalStorage(){
 	checkAndSetFromLS("mcq3");
 	checkAndSetFromLS("mcq4");
 	checkAndSetFromLS("answer");
-	checkAndSetFromLS("class");
-	checkAndSetFromLS("subject");
-	chap_select();
+
+	var class=checkAndSetFromLS("class");
+	var subj=checkAndSetFromLS("subject");
 	checkAndSetFromLS("type");
 	checkAndSetFromLS("tag");
 	checkAndSetFromLS("level");
 	checkAndSetFromLS("marks");
 	checkAndSetFromLS("link");
-	checkAndSetFromLS("chapters");
-	topic_select();
-	checkAndSetFromLS("topic");
+	
+	if(class!=null && subj!=null){
+		chap_select();
+		var chap=checkAndSetFromLS("chapters");
+
+		if(chap!=null){
+			topic_select();
+			checkAndSetFromLS("topic");
+		}
+			
+	}		
 }	
 function checkAndSetFromLS(name){
 	var data=localStorage.getItem(name);
 	if(data!=null)
 		$('#'+name).val(data);
+	return data;
 }
 function topic_select(){
 	var form = new FormData();
