@@ -349,6 +349,12 @@
 
 <script type="text/javascript">
 
+
+function alertNotification(){
+	showNotification("bg-green", " Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+}
+
+
 	$(document).ready(function(){
 
 		$("#1").show();
@@ -530,10 +536,7 @@ select.empty().append(str);
 });
 
 }  
-function alertNotification(){
-	$(function () {showNotification("bg-green", data.added+" Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
-});
-}
+
 $(function () {
 
 retrieveFromLocalStorage();
