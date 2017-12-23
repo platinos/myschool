@@ -377,16 +377,34 @@ function just_change() {
 }
 
 function sendToLocalStorage(){
-	var question=$('#question').val();
-	alert("inserting in local: "+question);
+	var question=$("#tinymce[data-id='question']").val();
+	var mcq1=$("#tinymce[data-id='mcq1']").val();
+	var mcq2=$("#tinymce[data-id='mcq2']").val();
+	var mcq3=$("#tinymce[data-id='mcq3']").val();
+	var mcq4=$("#tinymce[data-id='mcq4']").val();
+	var otherAns=$("#tinymce[data-id='answer']").val();
+
 	localStorage.setItem("question",question);
+	localStorage.setItem("mcq1",mcq1);
+	localStorage.setItem("mcq2",mcq2);
+	localStorage.setItem("mcq3",mcq3);
+	localStorage.setItem("mcq4",mcq4);
+	localStorage.setItem("otherAns",otherAns);
 }
 
 function retrieveFromLocalStorage(){
-	var question=localStorage.getItem("question");
-	if(question!=null)
-		$('#question').val(question);	
+	checkAndSetFromLS("question");
+	checkAndSetFromLS("mcq1");
+	checkAndSetFromLS("mcq2");
+	checkAndSetFromLS("mcq3");
+	checkAndSetFromLS("mcq4");
+	checkAndSetFromLS("mcq5");
 }	
+function checkAndSetFromLS(name){
+	var data=localStorage.getItem(name);
+	if(data!=null)
+		$('#'+name).val(data);
+}
 
 
 function topic_select(){
