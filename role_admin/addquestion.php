@@ -398,7 +398,7 @@ function sendToLocalStorage(){
 	localStorage.setItem("mcq2",mcq2);
 	localStorage.setItem("mcq3",mcq3);
 	localStorage.setItem("mcq4",mcq4);
-	localStorage.setItem("answer",otherAns);
+	localStorage.setItem("answer",answer);
 	localStorage.setItem("class",class_val);
 	localStorage.setItem("subject",subject);
 	localStorage.setItem("type",type);
