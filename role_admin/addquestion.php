@@ -247,8 +247,10 @@
 		{
 			?>
 			<script>
-			showNotification("bg-green"," Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+			alert("Questions Successfully added."); // temporary notification
 		
+			showNotification("bg-green"," Questions Successfully added.", "top", "right", "animated bounceInRight", "animated bounceOutRight");
+			
 			</script>
 			<!-- <div class="alert alert-info">
 				<h2><b><strong>Question Details Sucessfully Added</strong></b></h2>
