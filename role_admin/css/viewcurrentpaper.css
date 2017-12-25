@@ -51,3 +51,10 @@ table{
 	font-size: 12pt;
 	vertical-align: text-top;
 }
+
+.option-ques-n{
+	width:5%;
+}
+.option-ques-val{
+	width:45%;
+}

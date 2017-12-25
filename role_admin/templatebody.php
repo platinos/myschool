@@ -98,19 +98,19 @@ function printSection($sectionFeed, $type){
 				<tbody>
 					<tr>
 						<td class="option" >
-							<table>
+							<table border="0px">
 								<tr>
-								<td>(A)</td>
-								<td><?php echo $shuffled_options['A'] ?></td>
+								<td class="option-ques-n">(A)</td>
+								<td class="option-ques-val"><?php echo $shuffled_options['A'] ?></td>
 								</tr>
 							</table>
 						</td>
 
 						<td class="option" >
-							<table>
+							<table border="0px">
 								<tr>
-								<td>(B)</td>
-								<td><?php echo $shuffled_options['B'] ?></td>
+								<td class="option-ques-n">(B)</td>
+								<td class="option-ques-val"><?php echo $shuffled_options['B'] ?></td>
 								</tr>
 							</table>
 						</td>
@@ -118,18 +118,18 @@ function printSection($sectionFeed, $type){
 					</tr>
 					<tr>
 						<td class="option" >
-							<table>
+							<table border="0px">
 								<tr>
-								<td>(C)</td>
-								<td><?php echo $shuffled_options['C'] ?></td>
+								<td class="option-ques-n">(C)</td>
+								<td class="option-ques-val"><?php echo $shuffled_options['C'] ?></td>
 								</tr>
 							</table>
 						</td>
 						<td class="option" >
-							<table>
+							<table border="0px">
 								<tr>
-								<td>(D)</td>
-								<td><?php echo $shuffled_options['D'] ?></td>
+								<td class="option-ques-n">(D)</td>
+								<td class="option-ques-val"><?php echo $shuffled_options['D'] ?></td>
 								</tr>
 							</table>
 						</td>
