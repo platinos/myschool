@@ -54,7 +54,6 @@ function printSection($sectionFeed, $type){
 		?>
 		<div id="question">
 			<table border="0px">
-				<script>alert("printing options");</script>
 				<tbody>
 				<tr> 
 				<td class="ques_no"><strong >Q.<?php echo $index+1?></strong></td>
