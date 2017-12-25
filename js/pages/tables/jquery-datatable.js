@@ -10,6 +10,7 @@ $(function () {
     });
 
     $('#questionpaper').DataTable( {
+        dom: 'Bfrtip',
         buttons: [
             {
                 extend: 'print',
