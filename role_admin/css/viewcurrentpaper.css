@@ -24,19 +24,19 @@ table{
 }
 
 .ques_no{
-	font-size: 10pt;
+	font-size: 14pt;
 	width:2.5%;
 	vertical-align: text-top;
 }
 
 .ques_txt{
-	font-size: 12pt;
+	font-size: 14pt;
 	width: 87.5%;
 	vertical-align: text-top;
 }
 
 .marks{
-	font-size: 12pt;
+	font-size: 14pt;
 	width: 10%;
 	align:right;
 }
