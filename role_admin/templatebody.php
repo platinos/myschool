@@ -97,12 +97,42 @@ function printSection($sectionFeed, $type){
 			<table border="0px" class="option_tbl">
 				<tbody>
 					<tr>
-						<td class="option" >(A)<?php echo $shuffled_options['A'] ?></td>
-						<td class="option" >(B)<?php echo $shuffled_options['B'] ?></td>
+						<td class="option" >
+							<table>
+								<tr>
+								<td>(A)</td>
+								<td><?php echo $shuffled_options['A'] ?></td>
+								</tr>
+							</table>
+						</td>
+
+						<td class="option" >
+							<table>
+								<tr>
+								<td>(B)</td>
+								<td><?php echo $shuffled_options['B'] ?></td>
+								</tr>
+							</table>
+						</td>
+						
 					</tr>
 					<tr>
-						<td class="option" >(C)<?php echo $shuffled_options['C'] ?></td>
-						<td class="option" >(D)<?php echo $shuffled_options['D'] ?></td>
+						<td class="option" >
+							<table>
+								<tr>
+								<td>(C)</td>
+								<td><?php echo $shuffled_options['C'] ?></td>
+								</tr>
+							</table>
+						</td>
+						<td class="option" >
+							<table>
+								<tr>
+								<td>(D)</td>
+								<td><?php echo $shuffled_options['D'] ?></td>
+								</tr>
+							</table>
+						</td>
 					</tr>
 				</tbody>
 			</table>
