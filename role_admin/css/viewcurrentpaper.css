@@ -2,6 +2,7 @@ table{
 	margin-left: auto;
 	margin-right: auto;
 	align:center;
+	font-size:12px;
 	width:100%;
 }
 
@@ -24,19 +25,16 @@ table{
 }
 
 .ques_no{
-	font-size: 14pt;
 	width:2.5%;
 	vertical-align: text-top;
 }
 
 .ques_txt{
-	font-size: 14pt;
 	width: 87.5%;
 	vertical-align: text-top;
 }
 
 .marks{
-	font-size: 14pt;
 	width: 10%;
 	align:right;
 }
