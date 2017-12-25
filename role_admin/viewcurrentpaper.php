@@ -169,7 +169,7 @@ tinymce.init({
 //TinyMCE
 tinymce.init({
     selector: "textarea#answerkey",
-    content_css : 'css/viewcurrentpaper.css?'+new Date().getTime()
+    content_css : 'css/viewcurrentpaper.css?'+new Date().getTime(),
     theme: "modern",
     height: screen.availHeight,
     plugins: [
