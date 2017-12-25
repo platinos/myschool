@@ -8,4 +8,9 @@ $(function () {
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     });
+
+    $('textarea#questionpaper').DataTable({
+
+        footer:false
+    })
 });
