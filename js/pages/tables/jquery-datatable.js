@@ -9,8 +9,13 @@ $(function () {
         ]
     });
 
-    $('textarea#questionpaper').DataTable({
-
-        footer:false
-    })
+    $('#questionpaper').DataTable( {
+        buttons: [
+            {
+                extend: 'print',
+                text: 'Print current page',
+                autoPrint: false
+            }
+        ]
+    } );
 });
