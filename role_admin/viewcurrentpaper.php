@@ -70,7 +70,7 @@
                             }
                             echo '<h3 align=center>'.$answerkey[$i][1].'</h3><br>';
                             ?>
-                            <table border="0px">
+                            <table border="0px" width=100%>
                                 <tbody>
                                     <?php
                                         for ($j=2; $j < count($answerkey[$i]);) { 

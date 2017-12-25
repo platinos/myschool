@@ -149,7 +149,7 @@ function printSection($sectionFeed, $type){
 				}
 				
 
-				$answertbl="<table border='0px' width=100%>
+				$answertbl="<table border='0px' >
 								<tbody>
 									<tr>
 										<td width=2.5% class='answer'>".($j+1).".</td>
