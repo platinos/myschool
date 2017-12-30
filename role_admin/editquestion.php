@@ -108,6 +108,7 @@
 
 							<!-- Right Column -->
 
+						<input type="text" hidden name="id" value="<?php echo $feedquestion['data'][0]['id'];?>">
 
 						<label class="form-label" >Class</label>
 						<select class="form-control show-tick" name="class" required id="class" onchange="chap_select()">
@@ -200,6 +201,7 @@
 
 									<label class="form-label">Image</label> <br>
 									<img src="<?php echo $feedquestion['data'][0]['ques_img'] ?>" width="150px"><br>
+									<input type="text" hidden name="old_img" value="<?php echo $feedquestion['data'][0]['ques_img'];?>">
 
 									<label class="form-label">File upload</label> 
 									<input type="file" name="file_upload" id="upload" required accept="image/*">
