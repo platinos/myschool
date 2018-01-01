@@ -214,32 +214,33 @@
 								<?php
 								if(isset($_POST['submit']) && !empty($_POST['submit'])) {
 									//echo $_FILES['file_upload'];
-									echo "i was here";
+									//echo "i was here";
 									if(isset($_FILES['file_upload']) && !empty($_FILES['file_upload'])){
-										$t=time();
-									$new = date("Y-m-d-H-i-sa",$t);
-									$fileName = $_FILES["file_upload"]["name"];
-									$splitName = explode(".", $fileName); //split the file name by the dot
-									$fileExt = end($splitName); //get the file extension
-									$newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
+											$t=time();
+											$new = date("Y-m-d-H-i-sa",$t);
+											$fileName = $_FILES["file_upload"]["name"];
+											$splitName = explode(".", $fileName); //split the file name by the dot
+											$fileExt = end($splitName); //get the file extension
+											$newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
 
-									if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
-									{
-										echo "i was here2";
-										$flag=1;
-										$file = 'scan/'.$newFileName;
-									}
+											if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
+											{
+												//echo "i was here2";
+												$flag=1;
+												$file = 'scan/'.$newFileName;
+											}
 											else
-										{
-											echo "i was here3";
-											$flag=0;
-											$file = $_POST['old_img'];
-											echo 'file upload error';
-										}
+											{
+													//echo "i was here3";
+													$flag=0;
+													echo 'file upload error';
+											}
 
 									}
-
-									
+									else{
+										$flag=1;
+										$file = $_POST['old_img'];
+									}
 
 									if($flag==1){
 										echo "i was here4";
