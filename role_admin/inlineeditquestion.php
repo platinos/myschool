@@ -128,7 +128,7 @@ else
 
                                 <td>
                                     <button onclick="editQuestion(<?php echo $i ?>);">Edit</button>
-                                    <button onclick="saveQuestion(this);">Save</button>
+                                    <button onclick="saveQuestion(<?php echo $feed['data'][$i]['id'] ?>, <?php echo $i ?>);">Save</button>
                                 </td>        
 
                                 <td>
