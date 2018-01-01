@@ -216,6 +216,7 @@
 									//echo $_FILES['file_upload'];
 									//echo "i was here";
 									if(isset($_FILES['file_upload']) && !empty($_FILES['file_upload'])){
+										echo "i was here";
 											$t=time();
 											$new = date("Y-m-d-H-i-sa",$t);
 											$fileName = $_FILES["file_upload"]["name"];
