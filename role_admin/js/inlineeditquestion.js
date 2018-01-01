@@ -1,7 +1,7 @@
 function editQuestion(youtubeid){
     var yt=$('#youtube'+youtubeid);
     var val=yt.text();
-    yt.html('<textarea>'+val+'</textarea>');
+    yt.html('<input type="text" val="'+val+'"');
 }
 
 function saveQuestion(obj){
