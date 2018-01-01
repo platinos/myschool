@@ -127,8 +127,8 @@ else
                                 <td><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
 
                                 <td>
-                                    <button onclick="alert('edit ques')">Edit</button>
-                                    <button onclick="alert(' ques')">Save</button>
+                                    <button onclick="editQuestion();">Edit</button>
+                                    <button onclick="saveQuestion();">Save</button>
                                 </td>        
 
                                 <td>
@@ -182,7 +182,7 @@ else
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
-
+<script src="js/inlineeditquestion.js"></script>
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
