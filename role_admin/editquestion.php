@@ -213,6 +213,8 @@
 
 								<?php
 								if(isset($_POST['submit']) && !empty($_POST['submit'])) {
+									//echo $_FILES['file_upload'];
+									echo "i was here";
 									if(isset($_FILES['file_upload']) && !empty($_FILES['file_upload'])){
 										$t=time();
 									$new = date("Y-m-d-H-i-sa",$t);
@@ -223,11 +225,15 @@
 
 									if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
 									{
+										echo "i was here2";
 										$flag=1;
+										$file = 'scan/'.$newFileName;
 									}
 											else
 										{
+											echo "i was here3";
 											$flag=0;
+											$file = $_POST['old_img'];
 											echo 'file upload error';
 										}
 
@@ -236,6 +242,7 @@
 									
 
 									if($flag==1){
+										echo "i was here4";
 										if($_POST['type']==1)
 										{
 											$ans = $_POST['mcq1'];
@@ -268,7 +275,8 @@
 											'level' => $_POST['level'], 
 											'marks' => $_POST['marks'], 
 											'link' => $_POST['link'], 
-											'file' => 'scan/'.$newFileName
+											'file' => $file
+											
 										);
 
 										
