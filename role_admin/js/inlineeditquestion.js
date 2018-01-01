@@ -2,6 +2,7 @@ function editQuestion(obj){
     console.log("inside edit question")
     console.log(this);
     obj.style.color= '#cc0000';
+    remove(this);
 }
 
 function saveQuestion(obj){
