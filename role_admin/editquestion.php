@@ -204,7 +204,7 @@
 									<input type="text" hidden name="old_img" value="<?php echo $feedquestion['data'][0]['ques_img'];?>">
 
 									<label class="form-label">File upload</label> 
-									<input type="file" name="file_upload" id="upload" required accept="image/*">
+									<input type="file" name="file_upload" id="upload" accept="image/*">
 									<br>
 
 									<input type="submit" id="submit" name="submit" value="Save Question" class="btn btn-primary btn-lg" onclick='ClickToSave()'/>
@@ -213,8 +213,10 @@
 
 								<?php
 								if(isset($_POST['submit']) && !empty($_POST['submit'])) {
-
-									$t=time();
+									//echo $_FILES['file_upload'];
+									echo "i was here";
+									if(isset($_FILES['file_upload']) && !empty($_FILES['file_upload'])){
+										$t=time();
 									$new = date("Y-m-d-H-i-sa",$t);
 									$fileName = $_FILES["file_upload"]["name"];
 									$splitName = explode(".", $fileName); //split the file name by the dot
@@ -223,7 +225,24 @@
 
 									if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
 									{
+										echo "i was here2";
+										$flag=1;
+										$file = 'scan/'.$newFileName;
+									}
+											else
+										{
+											echo "i was here3";
+											$flag=0;
+											$file = $_POST['old_img'];
+											echo 'file upload error';
+										}
 
+									}
+
+									
+
+									if($flag==1){
+										echo "i was here4";
 										if($_POST['type']==1)
 										{
 											$ans = $_POST['mcq1'];
@@ -239,6 +258,7 @@
 
 
 										$values = array(
+											'id' => $_POST['id'],
 											'question' => $_POST['question'],    
 											'answer' => $ans,    
 											'truefalse' => $_POST['group'],  
@@ -255,43 +275,33 @@
 											'level' => $_POST['level'], 
 											'marks' => $_POST['marks'], 
 											'link' => $_POST['link'], 
-											'file' => 'scan/'.$newFileName
+											'file' => $file
+											
 										);
 
 										
 										$feed = apicall("editquestion", $values);
+									
 										if($feed['error']==true)
 										{
 											?>
-		<div class="alert alert-danger">
-			<h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
-			<?php   
+									<div class="alert alert-danger">
+						<h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+						<?php   
 
 
-		}
-		else
-		{
-			?>
-			<div class="alert alert-info">
-				<h2><b><strong>Question Details Sucessfully Added</strong></b></h2>
-			</div>
-			<?Php
+							}
+						else
+					{
+						?>
+						<div class="alert alert-info">
+							<h2><b><strong><?php echo $feed['msg'];?></strong></b></h2>
+						</div>
+						<?Php
 
-		}
-
-
-	}
-
-	else
-	{
-		echo 'file upload error';
-	}
-
-
-
-
-
-}
+					}
+				}
+			}
 
 ?>
 
