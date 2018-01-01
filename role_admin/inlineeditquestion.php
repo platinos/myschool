@@ -127,8 +127,8 @@ else
                                 <td><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
 
                                 <td>
-                                    <button onclick="editQuestion();">Edit</button>
-                                    <button onclick="saveQuestion();">Save</button>
+                                    <button onclick="editQuestion(this);">Edit</button>
+                                    <button onclick="saveQuestion(this);">Save</button>
                                 </td>        
 
                                 <td>

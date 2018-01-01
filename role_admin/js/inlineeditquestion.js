@@ -1,10 +1,10 @@
-function editQuestion(){
+function editQuestion(obj){
     console.log("inside edit question")
     console.log(this);
-    this.style.color= '#cc0000';
+    obj.style.color= '#cc0000';
 }
 
-function saveQuestion(){
+function saveQuestion(obj){
     console.log("inside save question");
     console.log(this);
 }
