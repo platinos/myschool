@@ -51,7 +51,7 @@ else
 
                     </div>
                     <div class="body">
-                        <table class="table table-bordered table-striped table-hover dataTable">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
                                     
@@ -124,10 +124,10 @@ else
                                 </td-->
 
                                 <td><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
-                                <td><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
+                                <td id="youtube<?php echo $i ?>"><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
 
                                 <td>
-                                    <button onclick="editQuestion(this);">Edit</button>
+                                    <button onclick="editQuestion(<?php echo $i ?>);">Edit</button>
                                     <button onclick="saveQuestion(this);">Save</button>
                                 </td>        
 
