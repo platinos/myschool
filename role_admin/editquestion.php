@@ -215,7 +215,7 @@
 								if(isset($_POST['submit']) && !empty($_POST['submit'])) {
 									//echo $_FILES['file_upload'];
 									//echo "i was here";
-									if(isset($_FILES['file_upload']) && !empty($_FILES['file_upload'])){
+									if(!empty($_FILES)){
 										echo "i was here";
 											$t=time();
 											$new = date("Y-m-d-H-i-sa",$t);
