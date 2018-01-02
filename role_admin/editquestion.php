@@ -91,8 +91,9 @@
 										if($feed['error']==true)
 										{
 											?>
-									<div class="alert alert-danger">
-						<h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+									<script>
+									alert("<?php echo $feed['error_msg'];?>");</script>
+									
 						<?php   
 
 
@@ -100,9 +101,9 @@
 						else
 					{
 						?>
-						<div class="alert alert-info">
-							<h2><b><strong><?php echo $feed['msg'];?></strong></b></h2>
-						</div>
+						<script>
+									alert("<?php echo $feed['msg'];?>");</script>
+						
 						<?Php
 
 					}
