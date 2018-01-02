@@ -15,6 +15,105 @@
 
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
+
+								<?php
+								if(isset($_POST['submit']) && !empty($_POST['submit'])) {
+									
+									if($_FILES['file_upload']['name']!=''){
+										
+											$t=time();
+											$new = date("Y-m-d-H-i-sa",$t);
+											$fileName = $_FILES["file_upload"]["name"];
+											$splitName = explode(".", $fileName); //split the file name by the dot
+											$fileExt = end($splitName); //get the file extension
+											$newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
+
+											if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
+											{
+												
+												$flag=1;
+												$file = 'scan/'.$newFileName;
+											}
+											else
+											{
+													
+													$flag=0;
+													echo 'file upload error';
+											}
+
+									}
+									else{
+										$flag=1;
+										$file = $_POST['old_img'];
+									}
+
+									if($flag==1){
+										
+										if($_POST['type']==1)
+										{
+											$ans = $_POST['mcq1'];
+										}
+										else if($_POST['type']==2)
+										{
+											$ans = $_POST['group'];
+										}
+										else
+										{
+											$ans = $_POST['answer'];
+										}
+
+
+										$values = array(
+											'id' => $_POST['id'],
+											'question' => $_POST['question'],    
+											'answer' => $ans,    
+											'truefalse' => $_POST['group'],  
+											'mcq1' => $_POST['mcq1'],  
+											'mcq2' => $_POST['mcq2'],  
+											'mcq3' => $_POST['mcq3'], 
+											'mcq4' => $_POST['mcq4'], 
+											'class' => $_POST['class'], 
+											'subject' => $_POST['subject'], 
+											'type' => $_POST['type'], 
+											'tag' => $_POST['tag'], 
+											'chapter' => $_POST['chapters'], 
+											'topic' => $_POST['topic'], 
+											'level' => $_POST['level'], 
+											'marks' => $_POST['marks'], 
+											'link' => $_POST['link'], 
+											'file' => $file
+											
+										);
+
+										
+										$feed = apicall("editquestion", $values);
+									
+										if($feed['error']==true)
+										{
+											?>
+									<div class="alert alert-danger">
+						<h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
+						<?php   
+
+
+							}
+						else
+					{
+						?>
+						<div class="alert alert-info">
+							<h2><b><strong><?php echo $feed['msg'];?></strong></b></h2>
+						</div>
+						<?Php
+
+					}
+				}
+			}
+
+?>
+
+
+
+
 <?php 	
 	$value=array('qid'=>$_GET['id']);
 	$feedquestion=apicall('getquestionbyid',$value);
@@ -211,102 +310,6 @@
 								</form>
 
 
-								<?php
-								if(isset($_POST['submit']) && !empty($_POST['submit'])) {
-									//echo $_FILES['file_upload'];
-									//echo "i was here";
-									if($_FILES['file_upload']['name']!=''){
-										echo "i was here".$_POST['old_img'];
-										var_dump($_FILES);
-											$t=time();
-											$new = date("Y-m-d-H-i-sa",$t);
-											$fileName = $_FILES["file_upload"]["name"];
-											$splitName = explode(".", $fileName); //split the file name by the dot
-											$fileExt = end($splitName); //get the file extension
-											$newFileName  = strtolower($new.'.'.$fileExt); //join file name and ext.
-
-											if(move_uploaded_file($_FILES['file_upload']['tmp_name'], 'scan/'.$newFileName))
-											{
-												//echo "i was here2";
-												$flag=1;
-												$file = 'scan/'.$newFileName;
-											}
-											else
-											{
-													//echo "i was here3";
-													$flag=0;
-													echo 'file upload error';
-											}
-
-									}
-									else{
-										$flag=1;
-										$file = $_POST['old_img'];
-									}
-
-									if($flag==1){
-										echo "i was here4";
-										if($_POST['type']==1)
-										{
-											$ans = $_POST['mcq1'];
-										}
-										else if($_POST['type']==2)
-										{
-											$ans = $_POST['group'];
-										}
-										else
-										{
-											$ans = $_POST['answer'];
-										}
-
-
-										$values = array(
-											'id' => $_POST['id'],
-											'question' => $_POST['question'],    
-											'answer' => $ans,    
-											'truefalse' => $_POST['group'],  
-											'mcq1' => $_POST['mcq1'],  
-											'mcq2' => $_POST['mcq2'],  
-											'mcq3' => $_POST['mcq3'], 
-											'mcq4' => $_POST['mcq4'], 
-											'class' => $_POST['class'], 
-											'subject' => $_POST['subject'], 
-											'type' => $_POST['type'], 
-											'tag' => $_POST['tag'], 
-											'chapter' => $_POST['chapters'], 
-											'topic' => $_POST['topic'], 
-											'level' => $_POST['level'], 
-											'marks' => $_POST['marks'], 
-											'link' => $_POST['link'], 
-											'file' => $file
-											
-										);
-
-										
-										$feed = apicall("editquestion", $values);
-									
-										if($feed['error']==true)
-										{
-											?>
-									<div class="alert alert-danger">
-						<h2> <b><strong>Oh snap!</strong></b> <?php echo $feed['error_msg'];?></h2>
-						<?php   
-
-
-							}
-						else
-					{
-						?>
-						<div class="alert alert-info">
-							<h2><b><strong><?php echo $feed['msg'];?></strong></b></h2>
-						</div>
-						<?Php
-
-					}
-				}
-			}
-
-?>
 
 <!--  ***************** END FORM ********************** -->
 
