@@ -216,7 +216,7 @@
 									//echo $_FILES['file_upload'];
 									//echo "i was here";
 									if(!empty($_FILES)){
-										echo "i was here";
+										echo "i was here".$_POST['old_img'];
 											$t=time();
 											$new = date("Y-m-d-H-i-sa",$t);
 											$fileName = $_FILES["file_upload"]["name"];
