@@ -215,7 +215,7 @@
 								if(isset($_POST['submit']) && !empty($_POST['submit'])) {
 									//echo $_FILES['file_upload'];
 									//echo "i was here";
-									if(!empty($_FILES)){
+									if($_FILES['file_upload']['name']!=''){
 										echo "i was here".$_POST['old_img'];
 										var_dump($_FILES);
 											$t=time();
