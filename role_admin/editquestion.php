@@ -267,7 +267,7 @@
 									<br><br>
 
 									<label class="form-label">Tag</label>
-									<input type="text" class="form-control" required name="tag" >
+									<input type="text" class="form-control" required name="tag" value="<?php echo $feed['data'][$i]['tag'] ?>" >
 									<br>                 
 
 									<label class="form-label">Chapter</label>
