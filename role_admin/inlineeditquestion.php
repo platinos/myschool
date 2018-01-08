@@ -81,6 +81,7 @@ else
                                     <th class="hide">Option4</th>
                                     <th class="hide">Tag</th>
                                     <th class="hide">Type</th>
+                                    <th class="hide">Img</th>  
 
 
                                 </tr>
@@ -107,6 +108,7 @@ else
                                     <th class="hide">Option4</th>
                                     <th class="hide">Tag</th>
                                     <th class="hide">Type</th>  
+                                    <th class="hide">Img</th>  
 
 
                                 </tr>
@@ -161,6 +163,7 @@ else
                                         <td class="hide" id="<?php echo 'mcq4'.$i ?>"><?php echo $feed['data'][$i]['option4'] ?></td>
                                         <td class="hide" id="<?php echo 'type'.$i ?>"><?php echo $feed['data'][$i]['type'] ?></td>
                                         <td class="hide" id="<?php echo 'tag'.$i ?>"><?php echo $feed['data'][$i]['tag'] ?></td>
+                                        <td class="hide" id="<?php echo 'ques_img'.$i ?>"><?php echo $feed['data'][$i]['ques_img'] ?></td>
 
 
                             </tr>

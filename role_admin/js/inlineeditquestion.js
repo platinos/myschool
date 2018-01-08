@@ -21,8 +21,9 @@ function saveQuestion(questionid, rowid){
     var mcq2=$('#mcq2'+rowid).html();
     var mcq3=$('#mcq3'+rowid).html();
     var mcq4=$('#mcq4'+rowid).html();
-    
-    console.log(rowid+' '+questionid+' '+topic+' '+cls+' '+type+' '+subject+' '+chapter+' '+tag+' '+level+' '+marks+' '+question+' '+answer+' '+mcq1+' '+mcq2+' '+mcq3+' '+mcq4);
+    var file=$('#ques_img'+rowid).html();
+
+    console.log(rowid+' '+file+' '+questionid+' '+topic+' '+cls+' '+type+' '+subject+' '+chapter+' '+tag+' '+level+' '+marks+' '+question+' '+answer+' '+mcq1+' '+mcq2+' '+mcq3+' '+mcq4);
 
     var form = new FormData();
     form.append("func", "editquestion");
@@ -42,8 +43,7 @@ function saveQuestion(questionid, rowid){
     form.append("level", level);
     form.append("marks", marks);
     form.append("link", link);
-    form.append("truefalse", true);
-    form.append("file", "bfb dbjbd");
+    form.append("file", file);
 
     var settings = {
     "async": true,
