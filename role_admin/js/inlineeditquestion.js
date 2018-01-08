@@ -48,7 +48,8 @@ function saveQuestion(questionid, rowid){
     "processData": false,
     "contentType": false,
     "mimeType": "multipart/form-data",
-    "data": form
+    "data": form,
+    "Access-Control-Allow-Credentials":true
     }
 
     $.ajax(settings).done(function (response) {
