@@ -119,16 +119,16 @@ else
                                     {?>
                                     <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
                                                
-                                        <td class="hide"><?php echo ($i+1) ?></td>
-                                        <td class="<?php echo 'question'.($i+1) ?>"><?php echo $feed['data'][$i]['ques_txt'] ?></td>
+                                        <td class="hide"><?php echo $i ?></td>
+                                        <td class="<?php echo 'question'.$i ?>"><?php echo $feed['data'][$i]['ques_txt'] ?></td>
                                         
-                                        <td class="<?php echo 'class'.($i+1) ?>"><?php echo $feed['data'][$i]['class'] ?></td>
+                                        <td class="<?php echo 'class'.$i ?>"><?php echo $feed['data'][$i]['class'] ?></td>
                                         <td><?php echo mapQuesType($feed['data'][$i]['type']) ?></td>
-                                        <td class="<?php echo 'subject'.($i+1) ?>"><?php echo $feed['data'][$i]['subject'] ?></td>
-                                        <td class="<?php echo 'chapter'.($i+1) ?>"><?php echo $feed['data'][$i]['chapter'] ?></td>
-                                        <td class="<?php echo 'level'.($i+1) ?>"><?php echo $feed['data'][$i]['level'] ?></td>
-                                        <td class="<?php echo 'topic'.($i+1) ?>"><?php echo $feed['data'][$i]['topic'] ?></td>
-                                        <td class="<?php echo 'marks'.($i+1) ?>"><?php echo $feed['data'][$i]['marks'] ?></td>
+                                        <td class="<?php echo 'subject'.$i ?>"><?php echo $feed['data'][$i]['subject'] ?></td>
+                                        <td class="<?php echo 'chapter'.$i ?>"><?php echo $feed['data'][$i]['chapter'] ?></td>
+                                        <td class="<?php echo 'level'.$i ?>"><?php echo $feed['data'][$i]['level'] ?></td>
+                                        <td class="<?php echo 'topic'.$i ?>"><?php echo $feed['data'][$i]['topic'] ?></td>
+                                        <td class="<?php echo 'marks'.$i ?>"><?php echo $feed['data'][$i]['marks'] ?></td>
                                         <!--td>
                                            <a target="_blank" href = "< ?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
                                             <img alt="< ?php echo $feed['data'][$i]['ques_img'] ?>" src="< ?php echo $feed['data'][$i]['ques_img'] ?>">
@@ -141,7 +141,7 @@ else
                                             </a>
                                         </td-->
 
-                                        <td class="<?php echo 'answer'.($i+1) ?>"><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
+                                        <td class="<?php echo 'answer'.$i ?>"><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
                                         <td id="youtube<?php echo $i ?>"><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
 
                                         <td>
@@ -155,12 +155,12 @@ else
                                         </td>
 
 
-                                        <td class="hide <?php echo 'mcq1'.($i+1) ?>"><?php echo $feed['data'][$i]['option1'] ?></td>
-                                        <td class="hide <?php echo 'mcq2'.($i+1) ?>"><?php echo $feed['data'][$i]['option2'] ?></td>
-                                        <td class="hide <?php echo 'mcq3'.($i+1) ?>"><?php echo $feed['data'][$i]['option3'] ?></td>
-                                        <td class="hide <?php echo 'mcq4'.($i+1) ?>"><?php echo $feed['data'][$i]['option4'] ?></td>
-                                        <td class="hide <?php echo 'type'.($i+1) ?>"><?php echo $feed['data'][$i]['type'] ?></td>
-                                        <td class="hide <?php echo 'tag'.($i+1) ?>"><?php echo $feed['data'][$i]['tag'] ?></td>
+                                        <td class="hide <?php echo 'mcq1'.$i ?>"><?php echo $feed['data'][$i]['option1'] ?></td>
+                                        <td class="hide <?php echo 'mcq2'.$i ?>"><?php echo $feed['data'][$i]['option2'] ?></td>
+                                        <td class="hide <?php echo 'mcq3'.$i ?>"><?php echo $feed['data'][$i]['option3'] ?></td>
+                                        <td class="hide <?php echo 'mcq4'.$i ?>"><?php echo $feed['data'][$i]['option4'] ?></td>
+                                        <td class="hide <?php echo 'type'.$i ?>"><?php echo $feed['data'][$i]['type'] ?></td>
+                                        <td class="hide <?php echo 'tag'.$i ?>"><?php echo $feed['data'][$i]['tag'] ?></td>
 
 
                             </tr>
