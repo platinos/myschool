@@ -75,7 +75,12 @@ else
                                     <th>Youtube</th> 
                                     <th>Inline Edit</th> 
                                     <th>Action</th>
-
+                                    <th class="hide">Option1</th>
+                                    <th class="hide">Option2</th>
+                                    <th class="hide">Option3</th>
+                                    <th class="hide">Option4</th>
+                                    <th class="hide">Tag</th>
+                                    <th class="hide">Type</th>
 
 
                                 </tr>
@@ -96,6 +101,12 @@ else
                                     <th>Youtube</th> 
                                     <th>Inline Edit</th> 
                                     <th>Action</th>
+                                    <th class="hide">Option1</th>
+                                    <th class="hide">Option2</th>
+                                    <th class="hide">Option3</th>
+                                    <th class="hide">Option4</th>
+                                    <th class="hide">Tag</th>
+                                    <th class="hide">Type</th>  
 
 
                                 </tr>
