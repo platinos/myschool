@@ -22,7 +22,7 @@ function saveQuestion(questionid, rowid){
     var mcq3=$('#mcq3'+rowid).val();
     var mcq4=$('#mcq4'+rowid).val();
     
-    console.log(questionid+' '+topic+' '+cls+' '+type+' '+subject+' '+chapter+' '+tag+' '+level+' '+marks+' '+question+' '+answer+' '+mcq1+' '+mcq2+' '+mcq3+' '+mcq4+' '+)
+    console.log(questionid+' '+topic+' '+cls+' '+type+' '+subject+' '+chapter+' '+tag+' '+level+' '+marks+' '+question+' '+answer+' '+mcq1+' '+mcq2+' '+mcq3+' '+mcq4);
 
     var form = new FormData();
     form.append("func", "editquestion");
