@@ -7,20 +7,20 @@ function editQuestion(rowid){
 function saveQuestion(questionid, rowid){
     var link=$('#youtube'+rowid+' textarea').val();
     
-    var topic=$('#topic'+rowid).val();
-    var cls=$('#class'+rowid).val();
-    var type=$('#type'+rowid).val();
-    var subject=$('#subject'+rowid).val();
-    var chapter=$('#chapter'+rowid).val();
-    var tag=$('#tag'+rowid).val();
-    var level=$('#level'+rowid).val();
-    var marks=$('#marks'+rowid).val();
-    var question=$('#question'+rowid).val();
-    var answer=$('#answer'+rowid).val();
-    var mcq1=$('#mcq1'+rowid).val();
-    var mcq2=$('#mcq2'+rowid).val();
-    var mcq3=$('#mcq3'+rowid).val();
-    var mcq4=$('#mcq4'+rowid).val();
+    var topic=$('#topic'+rowid).html();
+    var cls=$('#class'+rowid).html();
+    var type=$('#type'+rowid).html();
+    var subject=$('#subject'+rowid).html();
+    var chapter=$('#chapter'+rowid).html();
+    var tag=$('#tag'+rowid).html();
+    var level=$('#level'+rowid).html();
+    var marks=$('#marks'+rowid).html();
+    var question=$('#question'+rowid).html();
+    var answer=$('#answer'+rowid).html();
+    var mcq1=$('#mcq1'+rowid).html();
+    var mcq2=$('#mcq2'+rowid).html();
+    var mcq3=$('#mcq3'+rowid).html();
+    var mcq4=$('#mcq4'+rowid).html();
     
     console.log(rowid+' '+questionid+' '+topic+' '+cls+' '+type+' '+subject+' '+chapter+' '+tag+' '+level+' '+marks+' '+question+' '+answer+' '+mcq1+' '+mcq2+' '+mcq3+' '+mcq4);
 
