@@ -43,13 +43,12 @@ function saveQuestion(questionid, rowid){
     var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://35.194.226.60/msapi/api.php",
+    "url": "functions.php",
     "method": "POST",
     "processData": false,
     "contentType": false,
     "mimeType": "multipart/form-data",
-    "data": form,
-    "Access-Control-Allow-Credentials":true
+    "data": form
     }
 
     $.ajax(settings).done(function (response) {
