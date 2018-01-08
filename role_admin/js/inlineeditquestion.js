@@ -9,6 +9,7 @@ function saveQuestion(questionid, rowid){
     
     var question=$('#question'+rowid).val();
     var answer=$('#answer'+rowid).val();
+    var topic=$('#topic'+rowid).val();
     var mcq1=$('#mcq1'+rowid).val();
     var mcq2=$('#mcq2'+rowid).val();
     var mcq3=$('#mcq3'+rowid).val();
@@ -24,6 +25,7 @@ function saveQuestion(questionid, rowid){
     var form = new FormData();
     form.append("func", "editquestion");
     form.append("id", questionid); 
+    form.append("topic", topic); 
     form.append("question", question); 
     form.append("answer", answer);
     form.append("mcq1", mcq1);
@@ -37,7 +39,7 @@ function saveQuestion(questionid, rowid){
     form.append("chapter", chapter);
     form.append("level", level);
     form.append("marks", marks);
-    form.append("link", link);//
+    form.append("link", link);
     form.append("file", "bfb dbjbd");
 
     var settings = {
