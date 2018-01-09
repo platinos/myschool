@@ -29,6 +29,14 @@
                     	</a>
                     </li>
 
+
+                    <li>
+                    	<a href="inlineeditquestion.php">
+                        	<i class="material-icons">note_add</i>
+                        	<span>Inline Edit Question</span>
+                    	</a>
+                    </li>
+
                     <li>
                     	<a href="viewsubject.php">
                         	<i class="material-icons">subject</i>

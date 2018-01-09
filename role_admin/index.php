@@ -82,17 +82,6 @@
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-blue hover-zoom-effect">
 						<div class="icon">
-							<a href="inlineeditquestion.php"><i class="material-icons">Inline Edit</i></a>
-						</div>
-						<div class="content">
-							<div class="text">Inline Edit</div>
-							<div class="number"><?php echo $feed['data']['chapters_count'] ?></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					<div class="info-box-3 bg-blue hover-zoom-effect">
-						<div class="icon">
 							<a href="viewchapter.php">      <i class="material-icons">CHAPTERS</i></a>
 						</div>
 						<div class="content">
@@ -133,6 +122,7 @@
 							<div class="number"><?php echo $feed['data']['questionpaper_count'] ?></div>
 						</div>
 					</div>
+
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box-3 bg-red hover-zoom-effect">
