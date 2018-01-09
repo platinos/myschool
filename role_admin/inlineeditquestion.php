@@ -72,6 +72,7 @@ else
                                     <th>Topic</th>
                                     <th>Marks</th>
                                     <th>Answer</th>
+                                    <th>Tags</th>
                                     <th>Youtube</th> 
                                     <th>Inline Edit</th> 
                                     <th>Action</th>
@@ -79,7 +80,6 @@ else
                                     <th class="hide">Option2</th>
                                     <th class="hide">Option3</th>
                                     <th class="hide">Option4</th>
-                                    <th class="hide">Tag</th>
                                     <th class="hide">Type</th>
                                     <th class="hide">Img</th>  
 
@@ -99,6 +99,7 @@ else
                                     <th>Topic</th>
                                     <th>Marks</th>
                                     <th>Answer</th>
+                                    <th>Tags</th>
                                     <th>Youtube</th> 
                                     <th>Inline Edit</th> 
                                     <th>Action</th>
@@ -106,7 +107,6 @@ else
                                     <th class="hide">Option2</th>
                                     <th class="hide">Option3</th>
                                     <th class="hide">Option4</th>
-                                    <th class="hide">Tag</th>
                                     <th class="hide">Type</th>  
                                     <th class="hide">Img</th>  
 
@@ -144,6 +144,7 @@ else
                                         </td-->
 
                                         <td id="<?php echo 'answer'.$i ?>"><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
+                                        <td id="<?php echo 'tag'.$i ?>"><?php echo $feed['data'][$i]['tag'] ?></td>
                                         <td id="youtube<?php echo $i ?>"><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
 
                                         <td>
@@ -162,7 +163,6 @@ else
                                         <td class="hide" id="<?php echo 'mcq3'.$i ?>"><?php echo $feed['data'][$i]['option3'] ?></td>
                                         <td class="hide" id="<?php echo 'mcq4'.$i ?>"><?php echo $feed['data'][$i]['option4'] ?></td>
                                         <td class="hide" id="<?php echo 'type'.$i ?>"><?php echo $feed['data'][$i]['type'] ?></td>
-                                        <td class="hide" id="<?php echo 'tag'.$i ?>"><?php echo $feed['data'][$i]['tag'] ?></td>
                                         <td class="hide" id="<?php echo 'ques_img'.$i ?>"><?php echo $feed['data'][$i]['ques_img'] ?></td>
 
 

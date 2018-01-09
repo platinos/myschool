@@ -1,20 +1,26 @@
 function editQuestion(rowid){
-    var yt=$('#youtube'+rowid);
-    var val=yt.text();
-    yt.html('<textarea>'+val+'</textarea>');
+    replaceByTextarea('youtube',rowid);
+    replaceByTextarea('tag',rowid);
+    replaceByTextarea('marks',rowid);
+}
+
+function replaceByTextarea(name, rowid){
+    var td=$('#'+name+rowid);
+    var val=td.text();
+    td.html('<textarea>'+val+'</textarea>');
 }
 
 function saveQuestion(questionid, rowid){
     var link=$('#youtube'+rowid+' textarea').val();
+    var tag=$('#tag'+rowid+' textarea').val();
+    var marks=$('#marks'+rowid+' textarea').val();
     
     var topic=$('#topic'+rowid).html();
     var cls=$('#class'+rowid).html();
     var type=$('#type'+rowid).html();
     var subject=$('#subject'+rowid).html();
     var chapter=$('#chapter'+rowid).html();
-    var tag=$('#tag'+rowid).html();
     var level=$('#level'+rowid).html();
-    var marks=$('#marks'+rowid).html();
     var question=$('#question'+rowid).html();
     var answer=$('#answer'+rowid).html();
     var mcq1=$('#mcq1'+rowid).html();
@@ -58,5 +64,7 @@ function saveQuestion(questionid, rowid){
 
     $.ajax(settings).done(function (response) {
         $('#youtube'+rowid).html(link);
+        $('#marks'+rowid).html(marks);
+        $('#tag'+rowid).html(tag);
     });
-}
+}   
