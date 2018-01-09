@@ -57,7 +57,6 @@ function saveQuestion(questionid, rowid){
     }
 
     $.ajax(settings).done(function (response) {
-        alert(response);
         $('#youtube'+rowid).html(link);
     });
 }
