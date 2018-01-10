@@ -128,8 +128,9 @@ else
                                         <td><?php echo mapQuesType($feed['data'][$i]['type']) ?></td>
                                         <td id="<?php echo 'subject'.$i ?>"><?php echo $feed['data'][$i]['subject'] ?></td>
                                         <td id="<?php echo 'chapter'.$i ?>"><?php echo $feed['data'][$i]['chapter'] ?></td>
-                                        <td id="<?php echo 'level'.$i ?>"><?php echo $feed['data'][$i]['level'] ?></td>
                                         <td id="<?php echo 'topic'.$i ?>"><?php echo $feed['data'][$i]['topic'] ?></td>
+                                        <td id="<?php echo 'answer'.$i ?>"><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
+                                        <td id="<?php echo 'level'.$i ?>"><?php echo $feed['data'][$i]['level'] ?></td>
                                         <td id="<?php echo 'marks'.$i ?>"><?php echo $feed['data'][$i]['marks'] ?></td>
                                         <!--td>
                                            <a target="_blank" href = "< ?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
@@ -143,7 +144,6 @@ else
                                             </a>
                                         </td-->
 
-                                        <td id="<?php echo 'answer'.$i ?>"><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
                                         <td id="<?php echo 'tag'.$i ?>"><?php echo $feed['data'][$i]['tag'] ?></td>
                                         <td id="youtube<?php echo $i ?>"><a target="_blank" href="<?php echo $feed['data'][$i]['youtube'] ?>"><?php echo $feed['data'][$i]['youtube'] ?></a></td>
 

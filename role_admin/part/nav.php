@@ -32,7 +32,7 @@
 
                     <li>
                     	<a href="inlineeditquestion.php">
-                        	<i class="material-icons">note_add</i>
+                        	<i class="material-icons">border-color</i>
                         	<span>Inline Edit Question</span>
                     	</a>
                     </li>
