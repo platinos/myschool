@@ -82,6 +82,7 @@ else
                                     <th class="hide">Option4</th>
                                     <th class="hide">Type</th>
                                     <th class="hide">Img</th>  
+                                    <th class="hide"></th>
 
 
                                 </tr>
@@ -109,6 +110,7 @@ else
                                     <th class="hide">Option4</th>
                                     <th class="hide">Type</th>  
                                     <th class="hide">Img</th>  
+                                    <th class="hide"></th>  
 
 
                                 </tr>
@@ -130,7 +132,7 @@ else
                                         <td id="<?php echo 'chapter'.$i ?>"><?php echo $feed['data'][$i]['chapter'] ?></td>
                                         <td id="<?php echo 'topic'.$i ?>"><?php echo $feed['data'][$i]['topic'] ?></td>
                                         <td id="<?php echo 'answer'.$i ?>"><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
-                                        <td id="<?php echo 'level'.$i ?>"><?php echo $feed['data'][$i]['level'] ?></td>
+                                        <td><?php echo mapDifficulty($feed['data'][$i]['level']); ?></td>
                                         <td id="<?php echo 'marks'.$i ?>"><?php echo $feed['data'][$i]['marks'] ?></td>
                                         <!--td>
                                            <a target="_blank" href = "< ?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
@@ -164,6 +166,8 @@ else
                                         <td class="hide" id="<?php echo 'mcq4'.$i ?>"><?php echo $feed['data'][$i]['option4'] ?></td>
                                         <td class="hide" id="<?php echo 'type'.$i ?>"><?php echo $feed['data'][$i]['type'] ?></td>
                                         <td class="hide" id="<?php echo 'ques_img'.$i ?>"><?php echo $feed['data'][$i]['ques_img'] ?></td>
+                                        <td class="hide" id="<?php echo 'level'.$i ?>"><?php echo $feed['data'][$i]['level'] ?></td>
+                                        
 
 
                             </tr>
