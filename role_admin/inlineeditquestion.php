@@ -68,10 +68,10 @@ else
                                     <th>Type</th>
                                     <th>Subject</th>
                                     <th>Chapter</th>
-                                    <th>Level</th>
                                     <th>Topic</th>
-                                    <th>Marks</th>
                                     <th>Answer</th>
+                                    <th>Level</th>
+                                    <th>Marks</th>
                                     <th>Tags</th>
                                     <th>Youtube</th> 
                                     <th>Inline Edit</th> 
@@ -95,10 +95,10 @@ else
                                     <th>Type</th>
                                     <th>Subject</th>
                                     <th>Chapter</th>
-                                    <th>Level</th>
                                     <th>Topic</th>
-                                    <th>Marks</th>
                                     <th>Answer</th>
+                                    <th>Level</th>
+                                    <th>Marks</th>
                                     <th>Tags</th>
                                     <th>Youtube</th> 
                                     <th>Inline Edit</th> 
