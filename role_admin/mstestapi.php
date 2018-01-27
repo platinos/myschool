@@ -6,5 +6,22 @@ header("Access-Control-Allow-Origin: *");
 
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
-echo json_encode($obj);
+$func = $obj['func'];
+$params = getparams();
+$feed = apicall($func,$params);
+
+echo json_encode($feed);
+
+function getparams()
+{
+	$params = array();
+
+	foreach ($obj as $key => $value) { 
+
+		if($obj != 'func')	$params[$key] = $value;
+		
+
+	}
+	return $params;
+}
 ?>
