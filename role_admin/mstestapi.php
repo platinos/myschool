@@ -5,13 +5,13 @@ include 'config.php';
 header("Access-Control-Allow-Origin: *");
 
 $json = file_get_contents('php://input');
-$obj = json_decode($json);
+$obj = json_decode($json, true);
 $func = $obj['func'];
 $params = getparams();
 $feed = apicall($func,$params);
-var_dump($params);
-var_dump($feed);
-//echo json_encode($feed);
+//var_dump($params);
+//var_dump($feed);
+echo json_encode($feed);
 
 function getparams()
 {
