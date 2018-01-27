@@ -21,7 +21,7 @@ function getparams()
 
 	foreach ($obj as $key => $value) { 
 
-		if($obj != 'func')	$params[$key] = $value;
+		if($key != 'func')	$params[$key] = $value;
 		
 
 	}
