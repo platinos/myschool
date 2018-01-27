@@ -4,9 +4,17 @@ include 'config.php';
 
 header("Access-Control-Allow-Origin: *");
 
-$json = file_get_contents('php://input');
-$obj = json_decode($json);
-var_dump($obj);
+
+$inputJSON = file_get_contents('php://input');
+$input= json_decode( $inputJSON, TRUE ); //convert JSON into array
+
+print_r(json_encode($input));
+
+
+
+// $json = file_get_contents('php://input');
+// $obj = json_decode($json);
+// var_dump($obj);
 //$func = $obj['func'];
 //$func = $obj
 //echo $func;
