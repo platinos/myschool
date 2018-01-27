@@ -9,6 +9,7 @@ $obj = json_decode($json);
 $func = $obj['func'];
 $params = getparams();
 $feed = apicall($func,$params);
+var_dump($params);
 var_dump($feed);
 //echo json_encode($feed);
 
