@@ -16,7 +16,7 @@
 
 
 <?php
-$feed = apicall("viewquestion");
+$feed = apicall("viewquestionsbysubject",array("subject"=>$_GET['subj']));
 if($feed['error']==true)
 {
     ?>
@@ -48,7 +48,6 @@ else
 
                                 <ul class="header-dropdown m-r--5"> 
                                 <li><?php include 'selectclass.html'; ?></li>
-                                 <li><?php include 'selectsubject.php'; ?></li>
                                 <li><?php include 'selectdifficulty.html'; ?></li>
                                 <li><?php include 'selectquestype.html'; ?></li>
                                 <li><?php include 'selectchapter.php'; ?></li>
@@ -61,7 +60,6 @@ else
                              <?php } else { ?>
                                  <ul class="header-dropdown m-r--5">
                                 <li><?php include 'selectclass.html'; ?></li>
-                                 <li><?php include 'selectsubject.php'; ?></li>
                                 <li><?php include 'selectdifficulty.html'; ?></li>
                                 <li><?php include 'selectquestype.html'; ?></li>
                                 <li><?php include 'selectchapter.php'; ?></li>
