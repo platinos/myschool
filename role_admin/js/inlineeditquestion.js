@@ -1,7 +1,15 @@
 function editQuestion(rowid){
-    replaceByTextarea('youtube',rowid);
-    replaceByTextarea('tag',rowid);
+    replaceByTextarea('question',rowid);
+    replaceByTextarea('class',rowid);
+    replaceByTextarea('type',rowid);
+    replaceByTextarea('subject',rowid);
+    replaceByTextarea('chapter',rowid);
+    replaceByTextarea('topic',rowid);
+    replaceByTextarea('answer',rowid);
+    replaceByTextarea('level',rowid);
     replaceByTextarea('marks',rowid);
+    replaceByTextarea('tag',rowid);
+    replaceByTextarea('youtube',rowid);
 }
 
 function replaceByTextarea(name, rowid){
@@ -15,14 +23,14 @@ function saveQuestion(questionid, rowid){
     var tag=$('#tag'+rowid+' textarea').val();
     var marks=$('#marks'+rowid+' textarea').val();
     
-    var topic=$('#topic'+rowid).html();
-    var cls=$('#class'+rowid).html();
-    var type=$('#type'+rowid).html();
-    var subject=$('#subject'+rowid).html();
-    var chapter=$('#chapter'+rowid).html();
-    var level=$('#level'+rowid).html();
-    var question=$('#question'+rowid).html();
-    var answer=$('#answer'+rowid).html();
+    var topic=$('#topic'+rowid+' textarea').val();
+    var cls=$('#class'+rowid+' textarea').val();
+    var type=$('#type'+rowid+' textarea').val();
+    var subject=$('#subject'+rowid+' textarea').val();
+    var chapter=$('#chapter'+rowid+' textarea').val();
+    var level=$('#level'+rowid+' textarea').val();
+    var question=$('#question'+rowid+' textarea').val();
+    var answer=$('#answer'+rowid+' textarea').val();
     var mcq1=$('#mcq1'+rowid).html();
     var mcq2=$('#mcq2'+rowid).html();
     var mcq3=$('#mcq3'+rowid).html();
