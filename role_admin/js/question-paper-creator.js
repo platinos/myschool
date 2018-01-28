@@ -158,6 +158,8 @@ function filter() {
 	var difficulty=$('#difficulty').val();
 	var chapter=$('#chapters').val();
 
+	console.log(subj+' '+c+' '+type+' '+difficulty+' '+chapter);
+
 	$.fn.dataTable.ext.search.pop();
 	table.draw();
 
