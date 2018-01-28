@@ -9,7 +9,7 @@
 
                     </li>
                     <li>
-                    	<a href="create-question-paper.php">
+                        <a href="javascript:void(0);" class="menu-toggle">
                         	<i class="material-icons">settings_applications</i>
                         	<span>Create Paper</span>
                         </a>
