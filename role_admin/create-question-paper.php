@@ -48,6 +48,7 @@ else
 
                                 <ul class="header-dropdown m-r--5"> 
                                 <li><?php include 'selectclass.html'; ?></li>
+                                <li class='hide'><?php include 'selectsubject.html'; ?></li>
                                 <li><?php include 'selectdifficulty.html'; ?></li>
                                 <li><?php include 'selectquestype.html'; ?></li>
                                 <li><?php include 'selectchapter.php'; ?></li>
@@ -60,6 +61,7 @@ else
                              <?php } else { ?>
                                  <ul class="header-dropdown m-r--5">
                                 <li><?php include 'selectclass.html'; ?></li>
+                                <li class='hide'><?php include 'selectsubject.html'; ?></li>
                                 <li><?php include 'selectdifficulty.html'; ?></li>
                                 <li><?php include 'selectquestype.html'; ?></li>
                                 <li><?php include 'selectchapter.php'; ?></li>
