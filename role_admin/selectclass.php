@@ -1,4 +1,4 @@
-<select onchange="chapterload(<?php echo $GET['subj']?>);filter();" class="form-control" name="class" id="class">
+<select onchange="chapterload(<?php echo $subj?>);filter();" class="form-control" name="class" id="class">
 	<option value="select" selected>Select class</option>
 	<option value='8' >8</option>
 	<option value='9' >9</option>

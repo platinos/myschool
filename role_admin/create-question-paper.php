@@ -16,7 +16,8 @@
 
 
 <?php
-$feed = apicall("viewquestionsbysubject",array("subject"=>$_GET['subj']));
+$subj=$_GET['subj'];
+$feed = apicall("viewquestionsbysubject",array("subject"=>$subj));
 if($feed['error']==true)
 {
     ?>
