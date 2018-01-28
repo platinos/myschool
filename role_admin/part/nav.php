@@ -11,7 +11,20 @@
                     <li>
                     	<a href="create-question-paper.php">
                         	<i class="material-icons">settings_applications</i>
-                        	<span>Create Paper</span>
+                        	
+                            <?php 
+                            $feedsubjects = apicall("viewsubject"); ?>
+
+                            <select onchange="chapterload();filter();" class="form-control" name="subj" id="subj">
+                            <option value="select" selected><span>Create Paper</span></option>
+                            <?php
+
+                            $size = $feedsubjects['data']['size']; 
+                            for($i=0; $i<$size; $i++) {?>
+                                <option value=<?php echo $feedsubjects['data'][$i]['name'] ?> ><?php echo $feedsubjects['data'][$i]['name'] ?></option>
+                        <?php }
+                        ?>
+                            </select>
                     	</a>
                     </li>
 
