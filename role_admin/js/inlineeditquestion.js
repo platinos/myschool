@@ -25,10 +25,10 @@ function saveQuestion(questionid, rowid){
     
     var topic=$('#topic'+rowid+' textarea').val();
     var cls=$('#class'+rowid+' textarea').val();
-    var type=$('#type'+rowid+' textarea').val();
+    var type=$('#type0'+rowid+' textarea').val();
     var subject=$('#subject'+rowid+' textarea').val();
     var chapter=$('#chapter'+rowid+' textarea').val();
-    var level=$('#level'+rowid+' textarea').val();
+    var level=$('#level0'+rowid+' textarea').val();
     var question=$('#question'+rowid+' textarea').val();
     var answer=$('#answer'+rowid+' textarea').val();
     var mcq1=$('#mcq1'+rowid).html();
