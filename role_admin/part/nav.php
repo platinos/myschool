@@ -16,19 +16,16 @@
                         
                         <ul class="ml-menu">
                             <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Cards</span>
-                                    <?php 
-                                    $feedsubjects = apicall("viewsubject"); 
-                                    $size = $feedsubjects['data']['size']; 
-                                    for($i=0; $i<$size; $i++) {?>
-                                        <a href="create-question-paper.php?subj=<?php echo $feedsubjects['data'][$i]['name'] ?>">
-                                            <span><?php echo $feedsubjects['data'][$i]['name'] ?></span>
-                                        </a>
-                                    <?php
-                                    }
-                                    ?>
-                                </a>
+                                <?php 
+                                $feedsubjects = apicall("viewsubject"); 
+                                $size = $feedsubjects['data']['size']; 
+                                for($i=0; $i<$size; $i++) {?>
+                                    <a href="create-question-paper.php?subj=<?php echo $feedsubjects['data'][$i]['name'] ?>">
+                                        <span><?php echo $feedsubjects['data'][$i]['name'] ?></span>
+                                    </a>
+                                <?php
+                                }
+                                ?>
                             </li>
                         </ul>
                     </li>
