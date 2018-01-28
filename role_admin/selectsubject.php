@@ -10,7 +10,7 @@ $feedsubjects = apicall("viewsubject"); ?>
     {?>
 
        <option value=<?php echo $feedsubjects['data'][$i]['name'] ?> ><?php echo $feedsubjects['data'][$i]['name'] ?></option>
-       <?php  }
+       <?php 
+    }
        ?>
-
-    </select>
+</select>

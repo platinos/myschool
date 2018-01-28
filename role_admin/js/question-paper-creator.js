@@ -152,7 +152,6 @@ var table=$('#allQuestions').DataTable();
 var prevClass=null,prevSubj=null;
 
 function filter() {
-	var subj=$('#subj').val();
 	var c=$('#class').val();
 	var type=$('#type').val();
 	var difficulty=$('#difficulty').val();
@@ -168,20 +167,16 @@ function filter() {
 		function( settings, data, dataIndex ) {
 
 			var classcol=data[0]; 
-			var typecol=data[2]; 
-			var subjcol = data[3];
+			var typecol=data[2];
 			var chaptercol=data[4]; 
 			var difficultycol=data[7]; 
 
-
-
-			var nosubjpresent=subj=='select';
 			var noclasspresent=c=='select';
 			var notypepresent=type=='select';
 			var nodifficultpresent=difficulty=='select';
 			var nochapterpresent=chapter=='select';
 
-			if ( (nosubjpresent || subjcol == subj) && (noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
+			if ((noclasspresent || classcol==c) && (notypepresent || typecol==type) && 
 				(nochapterpresent|| chaptercol==chapter) && (nodifficultpresent|| difficulty==difficultycol)){
 				return true;
 		}
