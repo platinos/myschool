@@ -11,21 +11,26 @@
                     <li>
                     	<a href="create-question-paper.php">
                         	<i class="material-icons">settings_applications</i>
-                        	
-                            <?php 
-                            $feedsubjects = apicall("viewsubject"); ?>
-
-                            <select onchange="chapterload();filter();" class="form-control" name="subj" id="subj">
-                            <option value="select" selected><span>Create Paper</span></option>
-                            <?php
-
-                            $size = $feedsubjects['data']['size']; 
-                            for($i=0; $i<$size; $i++) {?>
-                                <option value=<?php echo $feedsubjects['data'][$i]['name'] ?> ><?php echo $feedsubjects['data'][$i]['name'] ?></option>
-                        <?php }
-                        ?>
-                            </select>
-                    	</a>
+                        	<span>Create Paper</span>
+                        </a>
+                        
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <span>Cards</span>
+                                    <?php 
+                                    $feedsubjects = apicall("viewsubject"); 
+                                    $size = $feedsubjects['data']['size']; 
+                                    for($i=0; $i<$size; $i++) {?>
+                                        <a href="create-question-paper.php?subj=<?php echo $feedsubjects['data'][$i]['name'] ?>">
+                                            <span><?php echo $feedsubjects['data'][$i]['name'] ?></span>
+                                        </a>
+                                    <?php
+                                    }
+                                    ?>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li>
