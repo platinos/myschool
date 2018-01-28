@@ -186,9 +186,9 @@ function filter() {
 	table.draw();
 }
 
-function chapterload () {
+function chapterload (subject) {
 
-	var subj=<?php echo $GET['subj'] ?>;
+	var subj= subject;
 	var c=$('#class').val();
 	
 	var chapsel=$('#chapters');
