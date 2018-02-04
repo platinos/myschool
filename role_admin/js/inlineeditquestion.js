@@ -1,22 +1,29 @@
 function editQuestion(rowid){
-    replaceByTextarea('question',rowid);
-    replaceByTextarea('class',rowid);
-    replaceByTextarea('type0',rowid);
-    replaceByTextarea('subject',rowid);
-    replaceByTextarea('chapter',rowid);
-    replaceByTextarea('topic',rowid);
-    replaceByTextarea('answer',rowid);
-    replaceByTextarea('level0',rowid);
-    replaceByTextarea('marks',rowid);
-    replaceByTextarea('tag',rowid);
-    replaceByTextarea('youtube',rowid);
+    var columns=['question','class','type0','subject','chapter','topic','answer','level0','marks','tag','youtube'];
+    for(column in columns){
+        var td=$('#'+name+rowid);
+        var val=td.text();
+        td.html('<textarea>'+val+'</textarea>');
+    }
+
+    // replaceByTextarea('question',rowid);
+    // replaceByTextarea('class',rowid);
+    // replaceByTextarea('type0',rowid);
+    // replaceByTextarea('subject',rowid);
+    // replaceByTextarea('chapter',rowid);
+    // replaceByTextarea('topic',rowid);
+    // replaceByTextarea('answer',rowid);
+    // replaceByTextarea('level0',rowid);
+    // replaceByTextarea('marks',rowid);
+    // replaceByTextarea('tag',rowid);
+    // replaceByTextarea('youtube',rowid);
 }
 
-function replaceByTextarea(name, rowid){
-    var td=$('#'+name+rowid);
-    var val=td.text();
-    td.html('<textarea>'+val+'</textarea>');
-}
+// function replaceByTextarea(name, rowid){
+//     var td=$('#'+name+rowid);
+//     var val=td.text();
+//     td.html('<textarea>'+val+'</textarea>');
+// }
 
 function saveQuestion(questionid, rowid){
     var link=$('#youtube'+rowid+' textarea').val();
