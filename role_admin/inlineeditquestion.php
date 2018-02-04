@@ -127,12 +127,12 @@ else
                                         <td id="<?php echo 'question'.$i ?>"><?php echo $feed['data'][$i]['ques_txt'] ?></td>
                                         
                                         <td id="<?php echo 'class'.$i ?>"><?php echo $feed['data'][$i]['class'] ?></td>
-                                        <td id="<?php echo 'type0'.$i ?>"><?php echo mapQuesType($feed['data'][$i]['type']) ?></td>
+                                        <td id="<?php echo 'type'.$i ?>"><?php echo mapQuesType($feed['data'][$i]['type']) ?></td>
                                         <td id="<?php echo 'subject'.$i ?>"><?php echo $feed['data'][$i]['subject'] ?></td>
                                         <td id="<?php echo 'chapter'.$i ?>"><?php echo $feed['data'][$i]['chapter'] ?></td>
                                         <td id="<?php echo 'topic'.$i ?>"><?php echo $feed['data'][$i]['topic'] ?></td>
                                         <td id="<?php echo 'answer'.$i ?>"><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
-                                        <td id="<?php echo 'level0'.$i ?>"><?php echo mapDifficulty($feed['data'][$i]['level']) ?></td>
+                                        <td id="<?php echo 'level'.$i ?>"><?php echo mapDifficulty($feed['data'][$i]['level']) ?></td>
                                         <td id="<?php echo 'marks'.$i ?>"><?php echo $feed['data'][$i]['marks'] ?></td>
                                         <!--td>
                                            <a target="_blank" href = "< ?php echo $feed['data'][$i]['ques_img'] ?>" class = "thumbnail">
@@ -164,9 +164,9 @@ else
                                         <td class="hide" id="<?php echo 'mcq2'.$i ?>"><?php echo $feed['data'][$i]['option2'] ?></td>
                                         <td class="hide" id="<?php echo 'mcq3'.$i ?>"><?php echo $feed['data'][$i]['option3'] ?></td>
                                         <td class="hide" id="<?php echo 'mcq4'.$i ?>"><?php echo $feed['data'][$i]['option4'] ?></td>
-                                        <td class="hide" id="<?php echo 'type'.$i ?>"><?php echo $feed['data'][$i]['type'] ?></td>
+                                        <td class="hide" id="<?php echo 'type0'.$i ?>"><?php echo $feed['data'][$i]['type'] ?></td>
                                         <td class="hide" id="<?php echo 'ques_img'.$i ?>"><?php echo $feed['data'][$i]['ques_img'] ?></td>
-                                        <td class="hide" id="<?php echo 'level'.$i ?>"><?php echo $feed['data'][$i]['level'] ?></td>
+                                        <td class="hide" id="<?php echo 'level0'.$i ?>"><?php echo $feed['data'][$i]['level'] ?></td>
                                         
 
 
