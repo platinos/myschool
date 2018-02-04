@@ -1,12 +1,12 @@
 function editQuestion(rowid){
     replaceByTextarea('question',rowid);
     replaceByTextarea('class',rowid);
-    replaceByTextarea('type',rowid);
+    replaceByTextarea('type0',rowid);
     replaceByTextarea('subject',rowid);
     replaceByTextarea('chapter',rowid);
     replaceByTextarea('topic',rowid);
     replaceByTextarea('answer',rowid);
-    replaceByTextarea('level',rowid);
+    replaceByTextarea('level0',rowid);
     replaceByTextarea('marks',rowid);
     replaceByTextarea('tag',rowid);
     replaceByTextarea('youtube',rowid);
