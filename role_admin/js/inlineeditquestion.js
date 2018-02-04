@@ -1,43 +1,34 @@
+function getColumnsArray(){
+    var columns=['question','class','type','subject','chapter','topic','answer','level','marks','tag','youtube'];
+    return columns;
+}
+
 function editQuestion(rowid){
-    var columns=['question','class','type0','subject','chapter','topic','answer','level0','marks','tag','youtube'];
-    for(column in columns){
-        var td=$('#'+name+rowid);
+    var columns=getColumnsArray();
+    for(var i in columns){
+        var td=$('#'+columns[i]+rowid);
         var val=td.text();
         td.html('<textarea>'+val+'</textarea>');
     }
-
-    // replaceByTextarea('question',rowid);
-    // replaceByTextarea('class',rowid);
-    // replaceByTextarea('type0',rowid);
-    // replaceByTextarea('subject',rowid);
-    // replaceByTextarea('chapter',rowid);
-    // replaceByTextarea('topic',rowid);
-    // replaceByTextarea('answer',rowid);
-    // replaceByTextarea('level0',rowid);
-    // replaceByTextarea('marks',rowid);
-    // replaceByTextarea('tag',rowid);
-    // replaceByTextarea('youtube',rowid);
 }
 
-// function replaceByTextarea(name, rowid){
-//     var td=$('#'+name+rowid);
-//     var val=td.text();
-//     td.html('<textarea>'+val+'</textarea>');
-// }
-
 function saveQuestion(questionid, rowid){
-    var link=$('#youtube'+rowid+' textarea').val();
-    var tag=$('#tag'+rowid+' textarea').val();
-    var marks=$('#marks'+rowid+' textarea').val();
+    //var link=$('#youtube'+rowid+' textarea').val();
+    //var tag=$('#tag'+rowid+' textarea').val();
+    //var marks=$('#marks'+rowid+' textarea').val();
     
-    var topic=$('#topic'+rowid+' textarea').val();
-    var cls=$('#class'+rowid+' textarea').val();
-    var type=$('#type0'+rowid+' textarea').val();
-    var subject=$('#subject'+rowid+' textarea').val();
-    var chapter=$('#chapter'+rowid+' textarea').val();
-    var level=$('#level0'+rowid+' textarea').val();
-    var question=$('#question'+rowid+' textarea').val();
-    var answer=$('#answer'+rowid+' textarea').val();
+    //var topic=$('#topic'+rowid+' textarea').val();
+    //var cls=$('#class'+rowid+' textarea').val();
+    //var type=$('#type0'+rowid+' textarea').val();
+    //var subject=$('#subject'+rowid+' textarea').val();
+    //var chapter=$('#chapter'+rowid+' textarea').val();
+    //var level=$('#level0'+rowid+' textarea').val();
+    //var question=$('#question'+rowid+' textarea').val();
+    //var answer=$('#answer'+rowid+' textarea').val();
+    var columns=getColumnsArray();
+    for(var i in columns){
+
+    }
     var mcq1=$('#mcq1'+rowid).html();
     var mcq2=$('#mcq2'+rowid).html();
     var mcq3=$('#mcq3'+rowid).html();
