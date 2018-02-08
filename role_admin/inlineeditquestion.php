@@ -126,10 +126,44 @@ else
                                         <td class="hide"><?php echo $i ?></td>
                                         <td id="<?php echo 'question'.$i ?>"><?php echo $feed['data'][$i]['ques_txt'] ?></td>
                                         
-                                        <td id="<?php echo 'class'.$i ?>"><?php echo $feed['data'][$i]['class'] ?></td>
-                                        <td id="<?php echo 'type'.$i ?>"><?php echo mapQuesType($feed['data'][$i]['type']) ?></td>
-                                        <td id="<?php echo 'subject'.$i ?>"><?php echo $feed['data'][$i]['subject'] ?></td>
-                                        <td id="<?php echo 'chapter'.$i ?>"><?php echo $feed['data'][$i]['chapter'] ?></td>
+                                        <td id="<?php echo 'class'.$i ?>">
+                                            <?php echo $feed['data'][$i]['class'] ?>
+                                        
+                                            <select class="hide form-control show-tick" name="class" id="class" onchange="chap_select()">
+								                <option value="9" selected>IX</option>
+								                <option value="10">X</option>
+								                <option value="11">XI</option>
+								                <option value="12">XII</option>
+							                </select>  
+                                        </td>
+                                        
+                                        <td id="<?php echo 'type'.$i ?>">
+                                            <p class='val'>
+                                                <?php echo mapQuesType($feed['data'][$i]['type']) ?>
+                                            </p>
+                                            <select name="type" class="hide form-control" id="type">                  
+										        <option value="1">MCQ</option>
+										        <option value="2">TRUE/FALSE</option>
+										        <option value="3">SHORT ANSWER</option>
+										        <option value="4">LONG ANSWER</option>
+										        <option value="5">COMPREHENSION</option>
+									        </select>
+                                        </td>
+
+                                        <td id="<?php echo 'subject'.$i ?>">
+                                            <p class='val'>
+                                                <?php echo $feed['data'][$i]['subject'] ?>
+                                            <p>     
+                                        </td>
+
+                                        <td id="<?php echo 'chapter'.$i ?>">
+                                            <p class='val'>
+                                                <?php echo $feed['data'][$i]['chapter'] ?>
+                                            </p>
+
+                                            
+                                        </td>
+
                                         <td id="<?php echo 'topic'.$i ?>"><?php echo $feed['data'][$i]['topic'] ?></td>
                                         <td id="<?php echo 'answer'.$i ?>"><?php echo htmlspecialchars_decode($feed['data'][$i]['answer']) ?></td>
                                         <td id="<?php echo 'level'.$i ?>"><?php echo mapDifficulty($feed['data'][$i]['level']) ?></td>
