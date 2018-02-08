@@ -12,7 +12,7 @@ function editQuestion(rowid){
     var columnsTextarea=getColumnsTextArea();
     var columnSelect=getColumnSelect();
     for(var i in columnsTextarea){
-        var td=$('#'+columns[i]+rowid);
+        var td=$('#'+columnsTextArea[i]+rowid);
         var val=td.text();
         td.html('<textarea>'+val+'</textarea>');
     }
