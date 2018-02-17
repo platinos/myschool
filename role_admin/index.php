@@ -5,24 +5,14 @@
 	<?php 
 	
 
-	include 'part/head.php'; 
+	include 'part/head.php';
+
+
 	if($_SESSION['userData']['status']=='admin'){
 		header("location: errorPage.php");
 	}
 	?>
 	<title>MyPaper-Controller</title>
-
-	
-	
-	<?php 
-	if($_SESSION['userData']['status']=='admin'){
-	?>
-	<script>
-		//window.location.replace('errorPage.php');
-	</script>
-	<?php
-	}
-	?>
 
 </head>
 <?php include 'part/body.php'; ?>
