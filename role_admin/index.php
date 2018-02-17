@@ -251,9 +251,9 @@
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
-<script>
- console.log(<?php echo $_SESSION['userData'] ?>);
-</script>
+
+<?php var_dump($_SESSION['userData']); ?>
+
 </body>
 
 </html>
