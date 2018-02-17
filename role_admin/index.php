@@ -252,7 +252,7 @@
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
 <script>
- console.log($_SESSION['userData']);
+ console.log(<?php $_SESSION['userData']?>);
 </script>
 </body>
 
