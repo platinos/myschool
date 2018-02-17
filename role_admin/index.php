@@ -255,8 +255,9 @@
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
-
-<?php var_dump($_SESSION['userData']); ?>
+<script>
+console.log('<?php echo $_SESSION['userData']['status'] ?>');
+</script>
 
 </body>
 
