@@ -6,7 +6,9 @@
 	
 
 	include 'part/head.php'; 
-
+	if($_SESSION['userData']['status']=='admin'){
+		header("location: errorPage.php");
+	}
 	?>
 	<title>MyPaper-Controller</title>
 
@@ -16,7 +18,7 @@
 	if($_SESSION['userData']['status']=='admin'){
 	?>
 	<script>
-		window.location.replace('errorPage.php');
+		//window.location.replace('errorPage.php');
 	</script>
 	<?php
 	}
