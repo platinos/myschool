@@ -15,6 +15,7 @@
 </head>
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
+
 <div class="row">
 
 	<?php
@@ -250,7 +251,9 @@
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
-
+<script>
+ console.log($_SESSION['userData']);
+</script>
 </body>
 
 </html>

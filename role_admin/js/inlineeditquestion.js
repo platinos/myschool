@@ -12,10 +12,17 @@ function editQuestion(rowid){
     var columnsTextarea=getColumnsTextArea();
     var columnSelect=getColumnSelect();
     for(var i in columnsTextarea){
-        var td=$('#'+columnsTextArea[i]+rowid);
+        var td=$('#'+columnsTextarea[i]+rowid);
         var val=td.text();
         td.html('<textarea>'+val+'</textarea>');
     }
+
+    //for(var i in columnSelect){
+        var td=$('.'+columnSelect[i]+' val'.rowid);
+        var val=td.text();
+        td.addClass('hide');
+        $('class'.rowid).removeClass('hide');
+    //}
 }
 
 function saveQuestion(questionid, rowid){

@@ -126,10 +126,11 @@ else
                                         <td class="hide"><?php echo $i ?></td>
                                         <td id="<?php echo 'question'.$i ?>"><?php echo $feed['data'][$i]['ques_txt'] ?></td>
                                         
-                                        <td id="<?php echo 'class'.$i ?>">
-                                            <?php echo $feed['data'][$i]['class'] ?>
-                                        
-                                            <select class="hide form-control show-tick" name="class" id="class" onchange="chap_select()">
+                                        <td class="<?php echo 'class' ?>">
+                                            <p id='val'.$i>
+                                                <?php echo $feed['data'][$i]['class'] ?>
+                                            </p>
+                                            <select class="hide form-control show-tick" name="class" id="class".$i onchange="chap_select()">
 								                <option value="9" selected>IX</option>
 								                <option value="10">X</option>
 								                <option value="11">XI</option>
@@ -137,11 +138,11 @@ else
 							                </select>  
                                         </td>
                                         
-                                        <td id="<?php echo 'type'.$i ?>">
-                                            <p class='val'>
+                                        <td class="<?php echo 'type' ?>">
+                                            <p id='val'.$i>
                                                 <?php echo mapQuesType($feed['data'][$i]['type']) ?>
                                             </p>
-                                            <select name="type" class="hide form-control" id="type">                  
+                                            <select name="type".$i class="hide form-control" id="type">                  
 										        <option value="1">MCQ</option>
 										        <option value="2">TRUE/FALSE</option>
 										        <option value="3">SHORT ANSWER</option>
