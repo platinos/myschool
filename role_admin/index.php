@@ -16,7 +16,7 @@
 	if($_SESSION['userData']['status']=='admin'){
 	?>
 	<script>
-		window.open('errorPage.php');
+		window.location.replace('errorPage.php');
 	</script>
 	<?php
 	}
