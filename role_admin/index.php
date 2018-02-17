@@ -16,6 +16,7 @@
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
 <?php 
+	echo "<h1>this should be printed. PLEASESEEEEEEEEEEEEEEEE</h1>";
 	if($_SESSION['userData']['status']=='admin'){
 		header("Location:errorPage.php");
 		echo "this is working and not working at the same time.";
