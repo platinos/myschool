@@ -1,8 +1,3 @@
-<?php 
-	if($_SESSION['userData']['status']=='admin'){
-		header("location:errorPage.php");
-	}
-?>
 <html>
 
 <head>
@@ -20,6 +15,12 @@
 </head>
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
+<?php 
+	if($_SESSION['userData']['status']=='admin'){
+		header("Location:errorPage.php");
+		echo "this is working and not working at the same time.";
+	}
+?>
 <div class="row">
 
 	<?php
