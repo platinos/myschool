@@ -11,20 +11,21 @@
 	<title>MyPaper-Controller</title>
 
 	
+	
+	<?php 
+	if($_SESSION['userData']['status']=='admin'){
+	?>
+	<script>
+		window.open('errorPage.php');
+	</script>
+	<?php
+	}
+	?>
 
 </head>
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
-<?php 
-	//echo "<h1>this should be printed. PLEASESEEEEEEEEEEEEEEEE</h1>";
-	if($_SESSION['userData']['status']=='admin'){
-		header('Location:errorPage.php');
-		//echo "this is working and not working at the same time.";
-	}
-	else{
-		header('Location:errorTage.php');
-	}
-?>
+
 <div class="row">
 
 	<?php
