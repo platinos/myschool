@@ -1,7 +1,6 @@
 <?php 
 	if($_SESSION['userData']['status']=='admin'){
-		header("Location:http://msmypaper.com/mypaper/role_admin/errorPage.php", true, 301);
-		exit();
+		header("location:errorPage.php");
 	}
 ?>
 <html>
