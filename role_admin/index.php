@@ -15,7 +15,12 @@
 </head>
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
-
+<?php 
+	if($_SESSION['userData']['status']!='admin'){
+		header("Location: error.php", true, 301);
+		exit();
+	}
+?>
 <div class="row">
 
 	<?php
