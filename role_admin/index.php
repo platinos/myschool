@@ -1,6 +1,6 @@
 <?php 
 	if($_SESSION['userData']['status']=='admin'){
-		header("Location: error.php", true, 301);
+		header("Location:error.php", true, 301);
 		exit();
 	}
 ?>
