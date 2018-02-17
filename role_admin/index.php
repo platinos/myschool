@@ -8,11 +8,11 @@
 	include 'part/head.php';
 
 
-	if($_SESSION['userData']['status']=='admin'){
+	if($_SESSION['userData']['status']!='admin'){
 		header("location: errorPage.php");
 	}
 	?>
-	<title>MyPaper-Controller</title>
+	<title>MyPaper-Controller</title>	
 
 </head>
 <?php include 'part/body.php'; ?>
