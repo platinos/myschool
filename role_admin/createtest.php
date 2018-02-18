@@ -133,18 +133,21 @@
 											</div>
 
 											<div class="form-group">
-												<div class="form-line input-group date"id='datetimepicker1'>
-                                                            <input type='text' class="form-control" name='qpstartdate' placeholder="Start date"/>
-                                                            <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                            </span>
+												<div class="form-line input-group date"id='datetimepickertstart'>
+                                                        <input type='text' class="form-control" name='teststartdate' placeholder="Start date"/>
+                                                        <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
                                                 </div>
 											</div>
 
 											<div class="form-group">
-												<div class="form-line">
-													<input type="number" name='qpenddate' class="form-control" placeholder="End date">
-												</div>
+												<div class="form-line input-group date"id='datetimepickertend'>
+                                                        <input type='text' class="form-control" name='teststartdate' placeholder="End date"/>
+                                                        <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                </div>
 											</div>
 
 											<input type="hidden" name="func" value="sendcartdata">
