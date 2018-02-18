@@ -4,7 +4,7 @@
 <head>
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="/path/to/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
     <title>MyPaper-Controller</title>
 
     <!-- Favicon-->
@@ -96,8 +96,8 @@
                                         <td><?php echo $fmarks=$feed['data'][$i]['marks'] ?></td>
                                         <?php $querystr='qp_id='.$id.'&date='.$date.'&time='.$time.'&fmarks='.$fmarks.'&subject='.$subject?>
                                         <td>
-                                        <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#createTestModal" id="create_test"> Create Test</button>
-                                        <i class="material-icons">view_agenda</i> Create Test</button>
+                                        <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#createTestModal" id="create_test">
+                                        <i class="material-icons">view_agenda</i>Create Test</button>
                                         
                                         </td>                                      
 
@@ -217,6 +217,8 @@
 
 
 <!--date time library-->
+<script type="text/javascript" src="/path/to/bootstrap-datetimepicker.min.js">
+</script>
 <script type="text/javascript">
     $(function () {
         $('#datetimepicker1').datetimepicker();
