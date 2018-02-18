@@ -96,10 +96,10 @@
                                         <td><?php echo $fmarks=$feed['data'][$i]['marks'] ?></td>
                                         <?php $querystr='qp_id='.$id.'&date='.$date.'&time='.$time.'&fmarks='.$fmarks.'&subject='.$subject?>
                                         <td>
-                                        <a href="<?php echo 'viewcurrentpaper.php?'.$querystr ?>" >
-                                        <button class='btn btn-primary waves-effect'>
+                                        <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#createTestModal" id="create_test"> Create Test</button>
                                         <i class="material-icons">view_agenda</i> Create Test</button>
-                                        </a></td>                                      
+                                        
+                                        </td>                                      
 
                                     </tr>
                                     <?php  }
@@ -110,7 +110,7 @@
                             
 
                             <!-- qpname, qpclass, qpsubject qptime qlist qparraywhichitrig-->
-						<div class="modal fade in" id="mdModal" tabindex="-1" role="dialog">
+						<div class="modal fade in" id="createTestModal" tabindex="-1" role="dialog">
 							<div class="modal-dialog modal-sm" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
