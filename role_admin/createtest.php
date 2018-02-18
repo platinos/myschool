@@ -133,22 +133,25 @@
 											</div>
 
 											<div class="form-group">
-                                            <div class="input-group date" id='datetimepickertstart'>
-												<div class="form-line input-group date">
+                                                <div class="form-line">    
+                                                    <div class="input-group date" id='datetimepickertstart'>
                                                         <input type='text' class="form-control" name='teststartdate' placeholder="Start date"/>
                                                         <span class="input-group-addon">
                                                         <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
+                                                    </div>
                                                 </div>
-                                            </div>
 											</div>
 
 											<div class="form-group">
-												<div class="form-line input-group date"id='datetimepickertend'>
-                                                        <input type='text' class="form-control" name='teststartdate' placeholder="End date"/>
+                                                <div class="form-line">
+                                                    <div class='input-group date' id='datetimepickertend'>
+                                                        <input type='text' class="form-control" placeholder="End date"/>
                                                         <span class="input-group-addon">
                                                         <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
+                                                    </div>
+
                                                 </div>
 											</div>
 
@@ -163,7 +166,7 @@
 
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-link waves-effect" onclick="sessiontostring();">SAVE PAPER</button>
+										<button type="button" class="btn btn-link waves-effect" onclick="sessiontostring();">SAVE TEST</button>
 										<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCEL</button>
 									</div>
 								</div>
