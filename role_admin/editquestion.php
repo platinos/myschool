@@ -2,7 +2,12 @@
 <html>
 
 <head>
-	<?php include 'part/head.php'; ?>
+	<?php include 'part/head.php'; 
+	
+	if($_SESSION['userData']['status']!='admin'){
+		header("location: errorPage.php");
+	}
+	?>
 	<link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 	
 	<!-- <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" /> -->

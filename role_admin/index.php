@@ -3,14 +3,8 @@
 <head>
 	
 	<?php 
-	
-
 	include 'part/head.php';
 
-
-	if($_SESSION['userData']['status']!='admin'){
-		header("location: errorPage.php");
-	}
 	?>
 	<title>MyPaper-Controller</title>	
 
@@ -253,9 +247,6 @@
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
-<script>
-console.log('<?php echo $_SESSION['userData']['status'] ?>');
-</script>
 
 </body>
 
