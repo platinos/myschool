@@ -4,7 +4,7 @@
 <head>
     <?php include 'part/head.php'; ?>
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="/path/to/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
     <title>MyPaper-Controller</title>
 
     <!-- Favicon-->
@@ -217,8 +217,8 @@
 
 
 <!--date time library-->
-<script type="text/javascript" src="/path/to/bootstrap-datetimepicker.min.js">
-</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js">
+    </script>
 <script type="text/javascript">
     $(function () {
         $('#datetimepicker1').datetimepicker();
