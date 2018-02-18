@@ -135,7 +135,7 @@
 											<div class="form-group">
 												<div class="form-line">
                                                         <div class='input-group date'  id='datetimepicker1' >
-                                                            <input type='text' class="form-control" name='qpstartdate' placeholder="Start date" />
+                                                            <input type='text' class="form-control" name='qpstartdate' disabled='true' placeholder="Start date" />
                                                             <span class="input-group-addon">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                             </span>
