@@ -133,12 +133,14 @@
 											</div>
 
 											<div class="form-group">
-												<div class="form-line input-group date"id='datetimepickertstart'>
+                                            <div class="input-group date" id='datetimepickertstart'>
+												<div class="form-line input-group date">
                                                         <input type='text' class="form-control" name='teststartdate' placeholder="Start date"/>
                                                         <span class="input-group-addon">
                                                         <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
                                                 </div>
+                                            </div>
 											</div>
 
 											<div class="form-group">
@@ -226,7 +228,8 @@
             minDate:moment()
         });
         $('#datetimepickertend').datetimepicker({
-            useCurrent: false 
+            useCurrent: false,
+            maxDate:moment().add(1,'year')
         });
         $("#datetimepickertstart").on("dp.change", function (e) {
             $('#datetimepickertend').data("DateTimePicker").minDate(e.date);
