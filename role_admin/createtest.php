@@ -222,8 +222,18 @@
     </script>
 <script type="text/javascript">
     $(function () {
-        $('#datetimepickertstart').datetimepicker();
-        $('#datetimepickertend').datetimepicker();
+        $('#datetimepickertstart').datetimepicker({
+            minDate:moment()
+        });
+        $('#datetimepickertend').datetimepicker({
+            useCurrent: false 
+        });
+        $("#datetimepickertstart").on("dp.change", function (e) {
+            $('#datetimepickertend').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepickertend").on("dp.change", function (e) {
+            $('#datetimepickertstart').data("DateTimePicker").maxDate(e.date);
+        });
     });
 </script>
 </body>
