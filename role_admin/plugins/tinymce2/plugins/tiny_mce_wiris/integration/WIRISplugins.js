@@ -888,6 +888,13 @@ com.wiris.js.JsBrowser.prototype = {
 	,dataBrowser: null
 	,__class__: com.wiris.js.JsBrowser
 }
+com.wiris.js.JsPluginListener = $hxClasses["com.wiris.js.JsPluginListener"] = function() { }
+com.wiris.js.JsPluginListener.__name__ = ["com","wiris","js","JsPluginListener"];
+com.wiris.js.JsPluginListener.prototype = {
+	afterParseLatex: null
+	,afterParse: null
+	,__class__: com.wiris.js.JsPluginListener
+}
 com.wiris.js.JsPluginTools = $hxClasses["com.wiris.js.JsPluginTools"] = function() {
 	this.tryReady();
 };
@@ -931,7 +938,11 @@ com.wiris.js.JsPluginTools.prototype = {
 com.wiris.js.JsPluginViewer = $hxClasses["com.wiris.js.JsPluginViewer"] = function() {
 	this._wrs_conf_imageFormat = null;
 	this.javaServicePath = "/pluginwiris_engine/app";
+	this.wiriseditormathmlattribute = null;
 	this.performanceenabled = null;
+	this.eventListenersArray = [];
+	this.callsShowImageNumber = 0;
+	this.callsLatexToMathml = 0;
 	this.params = new Hash();
 	this.mode = com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE;
 	this.zoom = 1;
@@ -963,7 +974,14 @@ com.wiris.js.JsPluginViewer.bypassEncapsulation = function() {
 	if(window.com.wiris.js.JsPluginViewer == null) window.com.wiris.js.JsPluginViewer = com.wiris.js.JsPluginViewer.getInstance();
 }
 com.wiris.js.JsPluginViewer.prototype = {
-	getBaseURL: function() {
+	removeViewerListener: function(listener) {
+		while(HxOverrides.remove(this.eventListenersArray,listener)) {
+		}
+	}
+	,addViewerListener: function(listener) {
+		this.eventListenersArray.push(listener);
+	}
+	,getBaseURL: function() {
 		return this.baseURL;
 	}
 	,queryToParams: function(query) {
@@ -1009,20 +1027,21 @@ com.wiris.js.JsPluginViewer.prototype = {
 		data += "&metrics=true&centerbaseline=false&mml=" + StringTools.urlEncode(mml);
 		data += "&lang=" + this.lang;
 		if(this.zoom != 1) data += "&zoom=" + this.zoom;
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 703, className : "com.wiris.js.JsPluginViewer", methodName : "callService"});
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 705, className : "com.wiris.js.JsPluginViewer", methodName : "callService"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 794, className : "com.wiris.js.JsPluginViewer", methodName : "callService"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 796, className : "com.wiris.js.JsPluginViewer", methodName : "callService"});
 		con.open("POST",url,false);
 		con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
 		con.send(data);
 		return con.responseText;
 	}
 	,latexToMathml: function(latex,nodeAfter,asynchronously,callbackFunc) {
+		var _g = this;
 		var con = new js.XMLHttpRequest();
 		var url = (this.absoluteURL.length > 0?this.absoluteURL:this.baseURL + this.localpath) + "/service" + this.extension;
 		var data = "service=latex2mathml";
 		data += "&latex=" + StringTools.urlEncode(latex);
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 647, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 649, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 728, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 730, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
 		var onloadFunc = function(e) {
 			try {
 				var mathml = haxe.Json.parse(con.responseText).result.text;
@@ -1031,9 +1050,20 @@ com.wiris.js.JsPluginViewer.prototype = {
 				mathmlSpan.appendChild(newMathml);
 				e.target.wiris.nodeAfter.parentElement.insertBefore(mathmlSpan,e.target.wiris.nodeAfter);
 				newMathml.outerHTML = mathml;
+				if(--_g.callsLatexToMathml == 0) {
+					var _g2 = 0, _g1 = _g.eventListenersArray.length;
+					while(_g2 < _g1) {
+						var i = _g2++;
+						try {
+							_g.eventListenersArray[i].afterParseLatex();
+						} catch( e1 ) {
+						}
+					}
+				}
 				e.target.wiris.callbackFunc(mathmlSpan);
+				_g.parseElement(mathmlSpan,asynchronously);
 			} catch( e1 ) {
-				if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("LatexToMathml call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 665, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
+				if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("LatexToMathml call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 756, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
 			}
 		};
 		con.open("POST",url,asynchronously);
@@ -1044,11 +1074,11 @@ com.wiris.js.JsPluginViewer.prototype = {
 		con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
 		con.onload = onloadFunc;
 		con.onerror = function(e) {
-			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("LatexToMathml call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 678, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("LatexToMathml call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 769, className : "com.wiris.js.JsPluginViewer", methodName : "latexToMathml"});
 		};
 		con.send(data);
 	}
-	,callShowimage: function(mml,img,asynchronously,callbackFunc) {
+	,callShowimage: function(container,mml,img,asynchronously,callbackFunc) {
 		var _g = this;
 		var con;
 		var height = 0;
@@ -1071,8 +1101,8 @@ com.wiris.js.JsPluginViewer.prototype = {
 		url = (this.absoluteURL.length > 0?this.absoluteURL:this.baseURL + this.localpath) + "/showimage" + this.extension;
 		if(new com.wiris.js.JsBrowser().isIE()) data = "?formula=" + md5 + "&lang=" + this.lang + "&useragent=IE"; else data = "?formula=" + md5 + "&lang=" + this.lang;
 		data += "&version=" + com.wiris.js.JsPluginViewer.VERSION;
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 542, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("GET:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 544, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 606, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("GET:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 608, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
 		con.open("GET",url + data,asynchronously);
 		con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
 		var onloadFunc = function(e) {
@@ -1086,19 +1116,37 @@ com.wiris.js.JsPluginViewer.prototype = {
 				}
 				e1.target.wiris.img.src = result.format == "svg"?"data:image/svg+xml;charset=utf8,":"data:image/png;base64,";
 				e1.target.wiris.img.src = e1.target.wiris.img.src + StringTools.urlEncode(result.content);
+				var dpi = result.dpi == null?96:result.dpi;
+				var scaleDpi = _g.zoom * (96 / dpi);
+				var scaledHeight = result.height * scaleDpi | 0;
+				var scaledWitdh = result.width * scaleDpi | 0;
+				var scaledBaseLine = result.baseline * scaleDpi | 0;
 				if(result.height > 0) {
-					if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(_g.calculateAlignment(height,baseline),{ fileName : "JsPluginViewer.hx", lineNumber : 564, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
-					e1.target.wiris.img.style.verticalAlign = "-" + _g.calculateAlignment(result.height,result.baseline) + "px";
-					e1.target.wiris.img.style.height = "" + Std.string(result.height) + "px";
-					e1.target.wiris.img.style.width = "" + Std.string(result.width) + "px";
+					if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(_g.calculateAlignment(height,baseline),{ fileName : "JsPluginViewer.hx", lineNumber : 632, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+					e1.target.wiris.img.style.verticalAlign = "-" + _g.calculateAlignment(scaledHeight,scaledBaseLine) + "px";
+					e1.target.wiris.img.style.height = "" + scaledHeight + "px";
+					e1.target.wiris.img.style.width = "" + scaledWitdh + "px";
 				}
-				var _wrs_conf_imageMathmlAttribute = _g.callGetVariableKeys("wiriseditormathmlattribute");
-				if(haxe.Json.parse(_wrs_conf_imageMathmlAttribute).status != "ok") e1.target.wiris.img.setAttribute("data-mathml",e1.target.wiris.mml); else e1.target.wiris.img.setAttribute(haxe.Json.parse(_wrs_conf_imageMathmlAttribute).result.wiriseditormathmlattribute,e1.target.wiris.mml);
+				if(_g.wiriseditormathmlattribute == null) {
+					var wirisEditorMathmlAttributeCall = haxe.Json.parse(_g.callGetVariableKeys("wiriseditormathmlattribute"));
+					if(wirisEditorMathmlAttributeCall.status != "ok") _g.wiriseditormathmlattribute = "data-mathml"; else _g.wiriseditormathmlattribute = wirisEditorMathmlAttributeCall.result.wiriseditormathmlattribute;
+				}
+				e1.target.wiris.img.setAttribute(_g.wiriseditormathmlattribute,e1.target.wiris.mml);
 				e1.target.wiris.img.setAttribute("class","Wirisformula");
 				e1.target.wiris.img.setAttribute("role","math");
 				if(result.alt != null) e1.target.wiris.img.alt = result.alt; else {
 					var accessibilityResponse = _g.callService(e1.target.wiris.mml,"mathml2accessible");
 					if(haxe.Json.parse(accessibilityResponse).status != "error") e1.target.wiris.img.alt = haxe.Json.parse(accessibilityResponse).result.text;
+				}
+				if(--_g.callsShowImageNumber == 0) {
+					var _g2 = 0, _g1 = _g.eventListenersArray.length;
+					while(_g2 < _g1) {
+						var i = _g2++;
+						try {
+							_g.eventListenersArray[i].afterParse();
+						} catch( e2 ) {
+						}
+					}
 				}
 				callbackFunc();
 			};
@@ -1115,9 +1163,10 @@ com.wiris.js.JsPluginViewer.prototype = {
 				con.wiris.getResultFunc = getResultFunc;
 				con.wiris.mml = mml;
 				con.wiris.img = img;
+				con.wiris.container = container;
 				con.onload = onloadFunc1;
 				con.onerror = function(e1) {
-					if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("ShowImage call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 615, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+					if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("ShowImage call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 696, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
 				};
 				con.send(data);
 			} else getResultFunc(e);
@@ -1127,10 +1176,11 @@ com.wiris.js.JsPluginViewer.prototype = {
 		con.wiris.callbackFunc = callbackFunc;
 		con.wiris.mml = mml;
 		con.wiris.img = img;
+		con.wiris.container = container;
 		con.wiris.asynchronously = asynchronously;
 		con.onload = onloadFunc;
 		con.onerror = function(e) {
-			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("ShowImage call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 635, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("ShowImage call failed!",{ fileName : "JsPluginViewer.hx", lineNumber : 716, className : "com.wiris.js.JsPluginViewer", methodName : "callShowimage"});
 		};
 		con.send(null);
 	}
@@ -1147,8 +1197,8 @@ com.wiris.js.JsPluginViewer.prototype = {
 		data = "metrics=true&centerbaseline=false&mml=" + StringTools.urlEncode(mml);
 		data += "&lang=" + this.lang;
 		if(this.zoom != 1) data += "&zoom=" + this.zoom;
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 458, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 460, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Calling: " + url,{ fileName : "JsPluginViewer.hx", lineNumber : 535, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("POST:" + data,{ fileName : "JsPluginViewer.hx", lineNumber : 537, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
 		con.open("POST",url,false);
 		con.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
 		con.send(data);
@@ -1157,7 +1207,7 @@ com.wiris.js.JsPluginViewer.prototype = {
 		if(i >= 0) {
 			var scaleDpi = 1;
 			var h = this.queryToParams(HxOverrides.substr(s,i + 1,null));
-			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(h.get("formula"),{ fileName : "JsPluginViewer.hx", lineNumber : 483, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(h.get("formula"),{ fileName : "JsPluginViewer.hx", lineNumber : 547, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
 			if(h.exists("dpi")) scaleDpi = this.zoom * (Std.parseInt(h.get("dpi")) / 96);
 			baseline = Std.parseInt(h.get("cb")) / scaleDpi | 0;
 			height = Std.parseInt(h.get("ch")) / scaleDpi | 0;
@@ -1166,7 +1216,7 @@ com.wiris.js.JsPluginViewer.prototype = {
 		}
 		img.src = con.responseText;
 		if(height > 0) {
-			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(this.calculateAlignment(height,baseline),{ fileName : "JsPluginViewer.hx", lineNumber : 494, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(this.calculateAlignment(height,baseline),{ fileName : "JsPluginViewer.hx", lineNumber : 558, className : "com.wiris.js.JsPluginViewer", methodName : "callCreateImage"});
 			img.style.verticalAlign = "-" + this.calculateAlignment(height,baseline) + "px";
 			img.style.height = "" + height + "px";
 			img.style.width = "" + width + "px";
@@ -1194,12 +1244,12 @@ com.wiris.js.JsPluginViewer.prototype = {
 		} else return com.wiris.js.JsPluginViewer.TECH;
 	}
 	,processMathML: function(mml,container,asynchronously,callbackFunc) {
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(mml,{ fileName : "JsPluginViewer.hx", lineNumber : 403, className : "com.wiris.js.JsPluginViewer", methodName : "processMathML"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(mml,{ fileName : "JsPluginViewer.hx", lineNumber : 480, className : "com.wiris.js.JsPluginViewer", methodName : "processMathML"});
 		var img = js.Lib.document.createElement("img");
 		if(this.performanceenabled == null) this.performanceenabled = this.isPerformanceEnabled();
-		if(this.mode == com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE && this.performanceenabled) this.callShowimage(mml,img,asynchronously,callbackFunc); else if(this.mode == com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE && !this.performanceenabled) this.callCreateImage(mml,img); else img.src = this.baseURL + this.localpath + "/showimage" + this.extension + "?mml=" + StringTools.urlEncode(mml);
+		if(this.mode == com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE && this.performanceenabled) this.callShowimage(container,mml,img,asynchronously,callbackFunc); else if(this.mode == com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE && !this.performanceenabled) this.callCreateImage(mml,img); else img.src = this.baseURL + this.localpath + "/showimage" + this.extension + "?mml=" + StringTools.urlEncode(mml);
 		container.appendChild(img);
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(img.src,{ fileName : "JsPluginViewer.hx", lineNumber : 417, className : "com.wiris.js.JsPluginViewer", methodName : "processMathML"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(img.src,{ fileName : "JsPluginViewer.hx", lineNumber : 494, className : "com.wiris.js.JsPluginViewer", methodName : "processMathML"});
 	}
 	,getMathML_IE7: function(mathNode0) {
 		var mathml = "";
@@ -1241,7 +1291,7 @@ com.wiris.js.JsPluginViewer.prototype = {
 		var mathml = null;
 		var browser = new com.wiris.js.JsBrowser();
 		if(browser.getBrowser() == "Explorer" && (browser.getVersion() == "6" || browser.getVersion() == "7") && navigator.appVersion.indexOf("Trident") == -1) {
-			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Is ie7",{ fileName : "JsPluginViewer.hx", lineNumber : 303, className : "com.wiris.js.JsPluginViewer", methodName : "replaceNodes"});
+			if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Is ie7",{ fileName : "JsPluginViewer.hx", lineNumber : 370, className : "com.wiris.js.JsPluginViewer", methodName : "replaceNodes"});
 			mathml = this.getMathML_IE7(mathNode);
 		}
 		var container = js.Lib.document.createElement("span");
@@ -1253,46 +1303,93 @@ com.wiris.js.JsPluginViewer.prototype = {
 		}
 		var index = mathml.indexOf("<math");
 		mathml = HxOverrides.substr(mathml,index,mathml.length - index);
+		var containerMath = js.Lib.document.createElement("span");
+		var containerMathElement = js.Lib.document.createElement("math");
+		containerMath.appendChild(containerMathElement);
+		containerMathElement.outerHTML = mathml;
+		mathml = new XMLSerializer().serializeToString(containerMath.children[0]);
 		this.processMathML(mathml,container,asynchronously,callbackFunc);
 		var self = this;
 		self.replaceNodes(mathNodes,n + 1,asynchronously,callbackFunc);
 	}
-	,findAndReplaceLatex: function(node,asynchronously,callbackFunc) {
-		var dollarIndex = node.textContent.indexOf("$$");
+	,findLatex: function(node) {
+		var dollarIndex = node.nodeValue.indexOf("$$");
 		var stringLocation = 0;
+		var foundLatex = false;
+		var latexArray = [];
 		while(dollarIndex != -1) {
 			var firstDollars = dollarIndex;
-			dollarIndex = node.textContent.indexOf("$$",dollarIndex + 2);
+			dollarIndex = node.nodeValue.indexOf("$$",dollarIndex + 2);
 			if(dollarIndex != -1) {
-				var newNode = node.cloneNode(true);
-				newNode.textContent = node.textContent.substring(stringLocation,firstDollars);
-				stringLocation = dollarIndex + 2;
-				node.parentElement.insertBefore(newNode,node);
-				var latex = node.textContent.substring(firstDollars + 2,dollarIndex);
-				this.latexToMathml(latex,node,asynchronously,callbackFunc);
-				dollarIndex = node.textContent.indexOf("$$",dollarIndex + 2);
+				latexArray.push({ begin : firstDollars + 2, end : dollarIndex});
+				dollarIndex = node.nodeValue.indexOf("$$",dollarIndex + 2);
+				foundLatex = true;
 			}
 		}
-		node.textContent = node.textContent.substring(stringLocation);
+		return foundLatex?latexArray:null;
 	}
 	,parseLatexDocument: function(asynchronously,callbackFunc) {
+		this.parseLatexElement(js.Lib.document,asynchronously,callbackFunc);
+	}
+	,parseLatexElement: function(element,asynchronously,callbackFunc) {
 		if(callbackFunc == null) callbackFunc = function() {
 		};
-		if(asynchronously == null) asynchronously = false;
-		var domTextNodes = this.findTextNodes(js.Lib.document);
+		if(asynchronously == null) {
+			if(this.asyncParam) asynchronously = this.asyncParam;
+		}
+		var domTextNodes = this.findTextNodes(element);
+		var latexToProcess = [];
 		var i = 0;
 		while(i < domTextNodes.length) {
 			var node = domTextNodes[i];
-			this.findAndReplaceLatex(node,asynchronously,callbackFunc);
+			var findLatexResult = this.findLatex(node);
+			if(findLatexResult != null) latexToProcess.push({ node : node, indexes : findLatexResult});
 			i++;
+		}
+		if(latexToProcess.length == 0) {
+			var _g1 = 0, _g = this.eventListenersArray.length;
+			while(_g1 < _g) {
+				var i1 = _g1++;
+				try {
+					this.eventListenersArray[i1].afterParseLatex();
+				} catch( e ) {
+				}
+			}
+		} else {
+			this.callsLatexToMathml = latexToProcess.length;
+			var _g1 = 0, _g = latexToProcess.length;
+			while(_g1 < _g) {
+				var i1 = _g1++;
+				var latex_index = latexToProcess[i1].indexes[0];
+				var node = latexToProcess[i1].node;
+				var latex = node.textContent.substring(latex_index.begin,latex_index.end);
+				var splitedTextNode = node.splitText(latex_index.begin - 2);
+				var finaltext = splitedTextNode.textContent;
+				finaltext = finaltext.substring(finaltext.indexOf("$$",2) + 2);
+				var newNode = node.cloneNode(true);
+				newNode.textContent = finaltext;
+				node.parentElement.insertBefore(newNode,node.nextSibling);
+				this.latexToMathml(latex,newNode,asynchronously,callbackFunc);
+				var finalIndex = splitedTextNode.textContent.lastIndexOf("$$",2);
+				splitedTextNode.textContent = latex_index.begin == latex_index.end?splitedTextNode.nodeValue.substring(2,finalIndex):splitedTextNode.nodeValue.substring(0,finalIndex);
+			}
 		}
 	}
 	,findTextNodes: function(el) {
 		var textNodes = [];
 		var walk = document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
 		var node;
-		while(node = walk.nextNode()) textNodes.push(node);
+		while(node = walk.nextNode()) if(!this.thereIsParentTextArea(node)) textNodes.push(node);
 		return textNodes;
+	}
+	,thereIsParentTextArea: function(el) {
+		var thereIs = false;
+		var parentNode = el.parentNode;
+		while(!thereIs && parentNode != null) {
+			if(parentNode.nodeName == "TEXTAREA") thereIs = true;
+			parentNode = parentNode.parentNode;
+		}
+		return thereIs;
 	}
 	,isEditable: function(element) {
 		while(element != null) {
@@ -1315,13 +1412,24 @@ com.wiris.js.JsPluginViewer.prototype = {
 			var x = _g1++;
 			if(!this.isEditable(mathNodes[x])) arr.push(mathNodes[x]);
 		}
+		this.callsShowImageNumber = arr.length;
+		if(this.callsShowImageNumber == 0) {
+			var _g1 = 0, _g = this.eventListenersArray.length;
+			while(_g1 < _g) {
+				var i = _g1++;
+				try {
+					this.eventListenersArray[i].afterParse();
+				} catch( e ) {
+				}
+			}
+		}
 		this.replaceNodes(arr,0,asynchronously,callbackFunc);
 	}
 	,parseDocument: function(asynchronously,callbackFunc) {
 		this.parseElement(js.Lib.document,asynchronously,callbackFunc);
 	}
 	,doLoad: function() {
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("doLoad",{ fileName : "JsPluginViewer.hx", lineNumber : 107, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("doLoad",{ fileName : "JsPluginViewer.hx", lineNumber : 118, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
 		this.scriptName = "WIRISplugins.js";
 		var col;
 		col = js.Lib.document.getElementsByTagName("script");
@@ -1340,7 +1448,7 @@ com.wiris.js.JsPluginViewer.prototype = {
 					var query = HxOverrides.substr(src,k + 1,null);
 					this.params = this.queryToParams(query);
 				}
-				if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(this.baseURL,{ fileName : "JsPluginViewer.hx", lineNumber : 126, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
+				if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace(this.baseURL,{ fileName : "JsPluginViewer.hx", lineNumber : 137, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
 			}
 		}
 		this.tech = this.getTechnology();
@@ -1369,15 +1477,18 @@ com.wiris.js.JsPluginViewer.prototype = {
 			this.absoluteURL = "/wirispluginengine/integration";
 		}
 		this.ready = true;
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Tech:" + this.tech,{ fileName : "JsPluginViewer.hx", lineNumber : 157, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Tech:" + this.tech,{ fileName : "JsPluginViewer.hx", lineNumber : 168, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
 		if(this.params.exists("viewer")) this.viewer = this.params.get("viewer");
-		if(this.params.exists("async")) this.asyncParam = this.params.get("async") == "true"?true:false;
+		this.asyncParam = this.params.exists("async") && this.params.get("async") == "true"?true:false;
 		if(this.params.exists("zoom")) this.zoom = Std.parseFloat(this.params.get("zoom"));
 		if(this.params.exists("dpi")) this.zoom *= Std.parseFloat(this.params.get("dpi")) / 96;
 		if(this.params.exists("lang")) this.lang = this.params.get("lang"); else this.lang = "en";
 		if(this.lang == "inherit") this.lang = js.Lib.document.getElementsByTagName("html")[0].lang;
-		if(this.viewer == "image") this.parseDocument();
-		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Language:" + this.lang,{ fileName : "JsPluginViewer.hx", lineNumber : 191, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
+		if(this.viewer == "image") this.parseDocument(); else if(this.viewer == "latex") this.parseLatexDocument(this.asyncParam); else if(this.viewer == "all") {
+			this.parseLatexDocument(this.asyncParam);
+			this.parseDocument(this.asyncParam);
+		}
+		if(com.wiris.js.JsPluginViewer.DEBUG) haxe.Log.trace("Language:" + this.lang,{ fileName : "JsPluginViewer.hx", lineNumber : 198, className : "com.wiris.js.JsPluginViewer", methodName : "doLoad"});
 		com.wiris.js.JsPluginViewer.instance = this;
 		com.wiris.js.JsPluginViewer.bypassEncapsulation();
 	}
@@ -1389,11 +1500,15 @@ com.wiris.js.JsPluginViewer.prototype = {
 		}
 		if(!this.ready) haxe.Timer.delay($bind(this,this.tryReady),100);
 	}
+	,eventListenersArray: null
+	,callsLatexToMathml: null
+	,callsShowImageNumber: null
 	,_wrs_conf_imageFormat: null
 	,ready: null
 	,javaServicePath: null
 	,tech: null
 	,lang: null
+	,wiriseditormathmlattribute: null
 	,performanceenabled: null
 	,asyncParam: null
 	,viewer: null
@@ -1406,6 +1521,580 @@ com.wiris.js.JsPluginViewer.prototype = {
 	,scriptName: null
 	,baseURL: null
 	,__class__: com.wiris.js.JsPluginViewer
+}
+if(!com.wiris.system) com.wiris.system = {}
+com.wiris.system.JsBrowserData = $hxClasses["com.wiris.system.JsBrowserData"] = function() {
+};
+com.wiris.system.JsBrowserData.__name__ = ["com","wiris","system","JsBrowserData"];
+com.wiris.system.JsBrowserData.prototype = {
+	identity: null
+	,versionSearch: null
+	,subString: null
+	,prop: null
+	,string: null
+	,__class__: com.wiris.system.JsBrowserData
+}
+com.wiris.system.JsOSData = $hxClasses["com.wiris.system.JsOSData"] = function() {
+};
+com.wiris.system.JsOSData.__name__ = ["com","wiris","system","JsOSData"];
+com.wiris.system.JsOSData.prototype = {
+	identity: null
+	,subString: null
+	,string: null
+	,__class__: com.wiris.system.JsOSData
+}
+com.wiris.system.JsBrowser = $hxClasses["com.wiris.system.JsBrowser"] = function() {
+	this.dataBrowser = new Array();
+	this.addBrowser("navigator.userAgent",null,"Edge",null,"Edge");
+	this.addBrowser("navigator.userAgent",null,"Chrome",null,"Chrome");
+	this.addBrowser("navigator.userAgent",null,"OmniWeb",null,"OmniWeb");
+	this.addBrowser("navigator.vendor",null,"Apple","Version","Safari");
+	this.addBrowser(null,"window.opera",null,"Version","Opera");
+	this.addBrowser("navigator.vendor",null,"iCab",null,"iCab");
+	this.addBrowser("navigator.vendor",null,"KDE",null,"Konkeror");
+	this.addBrowser("navigator.userAgent",null,"Firefox",null,"Firefox");
+	this.addBrowser("navigator.vendor",null,"Camino",null,"Camino");
+	this.addBrowser("navigator.userAgent",null,"Netscape",null,"Netscape");
+	this.addBrowser("navigator.userAgent",null,"MSIE","MSIE","Explorer");
+	this.addBrowser("navigator.userAgent",null,"Trident","rv","Explorer");
+	this.addBrowser("navigator.userAgent",null,"Gecko","rv","Mozilla");
+	this.addBrowser("navigator.userAgent",null,"Mozilla","Mozilla","Netscape");
+	this.dataOS = new Array();
+	this.addOS("navigator.platform","Win","Windows");
+	this.addOS("navigator.platform","Mac","Mac");
+	this.addOS("navigator.userAgent","iPhone","iOS");
+	this.addOS("navigator.userAgent","iPad","iOS");
+	this.addOS("navigator.userAgent","Android","Android");
+	this.addOS("navigator.platform","Linux","Linux");
+	this.setBrowser();
+	this.setOS();
+	this.setTouchable();
+};
+com.wiris.system.JsBrowser.__name__ = ["com","wiris","system","JsBrowser"];
+com.wiris.system.JsBrowser.prototype = {
+	isTouchable: function() {
+		return this.touchable;
+	}
+	,isAndroid: function() {
+		return this.os == "Android";
+	}
+	,isMac: function() {
+		return this.os == "Mac";
+	}
+	,isIOS: function() {
+		return this.os == "iOS";
+	}
+	,isFF: function() {
+		return this.browser == "Firefox";
+	}
+	,isSafari: function() {
+		return this.browser == "Safari";
+	}
+	,isChrome: function() {
+		return this.browser == "Chrome";
+	}
+	,isEdge: function() {
+		return this.browser == "Edge";
+	}
+	,isIE: function() {
+		return this.browser == "Explorer";
+	}
+	,getVersion: function() {
+		return this.ver;
+	}
+	,getOS: function() {
+		return this.os;
+	}
+	,getBrowser: function() {
+		return this.browser;
+	}
+	,searchVersion: function(prop,search) {
+		var str = js.Boot.__cast(eval(prop) , String);
+		var index = str.indexOf(search);
+		if(index == -1) return null;
+		return "" + Std.parseFloat(HxOverrides.substr(str,index + search.length + 1,null));
+	}
+	,setTouchable: function() {
+		if(this.isIOS() || this.isAndroid()) {
+			this.touchable = true;
+			return;
+		}
+		this.touchable = false;
+	}
+	,setOS: function() {
+		var i = HxOverrides.iter(this.dataOS);
+		while(i.hasNext()) {
+			var s = i.next();
+			var str = js.Boot.__cast(eval(s.string) , String);
+			if(str.indexOf(s.subString) != -1) {
+				this.os = s.identity;
+				return;
+			}
+		}
+	}
+	,setBrowser: function() {
+		var i = HxOverrides.iter(this.dataBrowser);
+		while(i.hasNext()) {
+			var b = i.next();
+			if(b.string != null) {
+				var obj = eval(b.string);
+				if(obj != null) {
+					var str = js.Boot.__cast(obj , String);
+					if(str.indexOf(b.subString) != -1) {
+						this.browser = b.identity;
+						this.ver = this.searchVersion("navigator.userAgent",b.versionSearch);
+						if(this.ver == null) this.ver = this.searchVersion("navigator.appVersion",b.versionSearch);
+						return;
+					}
+				}
+			}
+		}
+	}
+	,addOS: function(string,subString,identity) {
+		var s = new com.wiris.system.JsOSData();
+		s.string = string;
+		s.subString = subString;
+		s.identity = identity;
+		this.dataOS.push(s);
+	}
+	,addBrowser: function(string,prop,subString,versionSearch,identity) {
+		var b = new com.wiris.system.JsBrowserData();
+		b.string = string;
+		b.prop = prop;
+		b.subString = subString;
+		b.versionSearch = versionSearch != null?versionSearch:identity;
+		b.identity = identity;
+		this.dataBrowser.push(b);
+	}
+	,touchable: null
+	,os: null
+	,ver: null
+	,browser: null
+	,dataOS: null
+	,dataBrowser: null
+	,__class__: com.wiris.system.JsBrowser
+}
+com.wiris.system.JsDOMUtils = $hxClasses["com.wiris.system.JsDOMUtils"] = function() { }
+com.wiris.system.JsDOMUtils.__name__ = ["com","wiris","system","JsDOMUtils"];
+com.wiris.system.JsDOMUtils.ieTouchEvents = null;
+com.wiris.system.JsDOMUtils.init = function() {
+	if(com.wiris.system.JsDOMUtils.initialized) return;
+	com.wiris.system.JsDOMUtils.ieTouchEvents = new Hash();
+	com.wiris.system.JsDOMUtils.ieTouchEvents.set("touchstart","MSPointerDown");
+	com.wiris.system.JsDOMUtils.ieTouchEvents.set("touchmove","MSPointerMove");
+	com.wiris.system.JsDOMUtils.ieTouchEvents.set("touchend","MSPointerUp");
+	com.wiris.system.JsDOMUtils.initialized = true;
+	com.wiris.system.JsDOMUtils.addEventListener(js.Lib.document,"MSPointerDown",function(e) {
+		com.wiris.system.JsDOMUtils.internetExplorerPointers.set("" + e.pointerId,e);
+	});
+	com.wiris.system.JsDOMUtils.addEventListener(js.Lib.document,"MSPointerUp",function(e) {
+		com.wiris.system.JsDOMUtils.internetExplorerPointers = new Hash();
+	});
+	com.wiris.system.JsDOMUtils.addEventListener(js.Lib.document,"scroll",function(e) {
+		com.wiris.system.JsDOMUtils.internetExplorerPointers = new Hash();
+	});
+	var touched = false;
+	var triggerEvents = function(listeners) {
+		var i = HxOverrides.iter(listeners);
+		while(i.hasNext()) {
+			var callbackFunction = i.next();
+			callbackFunction();
+		}
+	};
+	com.wiris.system.JsDOMUtils.addEventListener(js.Lib.document,"touchstart",function(e) {
+		if(!com.wiris.system.JsDOMUtils.browser.touchable) {
+			com.wiris.system.JsDOMUtils.browser.touchable = true;
+			triggerEvents(com.wiris.system.JsDOMUtils.touchDeviceListeners);
+		}
+		touched = true;
+	});
+	var onTouchEnd = function(e) {
+		if(!com.wiris.system.JsDOMUtils.browser.touchable) {
+			com.wiris.system.JsDOMUtils.browser.touchable = true;
+			triggerEvents(com.wiris.system.JsDOMUtils.touchDeviceListeners);
+		}
+		touched = true;
+		setTimeout(function() {
+			touched = false;
+		},500);
+	};
+	com.wiris.system.JsDOMUtils.addEventListener(js.Lib.document,"touchend",onTouchEnd);
+	com.wiris.system.JsDOMUtils.addEventListener(js.Lib.document,"touchleave",onTouchEnd);
+	com.wiris.system.JsDOMUtils.addEventListener(js.Lib.document,"touchcancel",onTouchEnd);
+	com.wiris.system.JsDOMUtils.addEventListener(js.Lib.document,"mousemove",function(e) {
+		if(!touched) {
+			if(com.wiris.system.JsDOMUtils.browser.touchable) {
+				com.wiris.system.JsDOMUtils.browser.touchable = false;
+				triggerEvents(com.wiris.system.JsDOMUtils.mouseDeviceListeners);
+			}
+		}
+	});
+}
+com.wiris.system.JsDOMUtils.addEventListener = function(element,eventName,handler) {
+	return com.wiris.system.JsDOMUtils.addEventListenerImpl(element,eventName,handler,false);
+}
+com.wiris.system.JsDOMUtils.addEventListenerImpl = function(element,eventName,handler,useCapture) {
+	if(navigator.msPointerEnabled && com.wiris.system.JsDOMUtils.ieTouchEvents.exists(eventName)) {
+		eventName = com.wiris.system.JsDOMUtils.ieTouchEvents.get(eventName);
+		return com.wiris.system.JsDOMUtils.addEventListenerImpl(element,eventName,function(e) {
+			if(e.pointerType == "touch") {
+				if(eventName == "MSPointerUp") com.wiris.system.JsDOMUtils.internetExplorerPointers.remove("" + e.pointerId); else com.wiris.system.JsDOMUtils.internetExplorerPointers.set("" + e.pointerId,e);
+				e.touches = new Array();
+				var i = com.wiris.system.JsDOMUtils.internetExplorerPointers.iterator();
+				while(i.hasNext()) e.touches.push(i.next());
+				handler(e);
+			}
+		},useCapture);
+	}
+	if(eventName == "touchhold" && com.wiris.system.JsDOMUtils.browser.isTouchable()) {
+		var timeout = null;
+		var startX = -1;
+		var startY = -1;
+		var descriptor = com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"touchstart",function(e) {
+			touching = true;
+			startX = e.touches[0].clientX;
+			startY = e.touches[0].clientY;
+			timeout = setTimeout(function() {
+				timeout = null;
+				handler(e);
+			},500);
+		},useCapture);
+		descriptor.subDescriptors.push(com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"touchmove",function(e) {
+			if(timeout != null) {
+				if(Math.abs(e.touches[0].clientX - startX) > com.wiris.system.JsDOMUtils.TOUCHHOLD_MOVE_MARGIN || Math.abs(e.touches[0].clientY - startY) > com.wiris.system.JsDOMUtils.TOUCHHOLD_MOVE_MARGIN) {
+					clearTimeout(timeout);
+					timeout = null;
+				} else com.wiris.system.JsDOMUtils.cancelEvent(e);
+			}
+		},useCapture));
+		descriptor.subDescriptors.push(com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"touchend",function(e) {
+			if(timeout != null) {
+				clearTimeout(timeout);
+				timeout = null;
+			}
+		},useCapture));
+		return descriptor;
+	}
+	var descriptor = { };
+	descriptor.element = element;
+	descriptor.eventName = eventName;
+	descriptor.handler = handler;
+	descriptor.useCapture = useCapture;
+	descriptor.subDescriptors = new Array();
+	if(eventName == "dblclick") {
+		var event = null;
+		var touching = false;
+		var firstClickTimestamp = null;
+		descriptor.subDescriptors.push(com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"touchstart",function(e) {
+			touching = true;
+			event = e;
+		},useCapture));
+		descriptor.subDescriptors.push(com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"touchmove",function(e) {
+			touching = false;
+		},useCapture));
+		descriptor.subDescriptors.push(com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"touchend",function(e) {
+			if(touching) {
+				touching = false;
+				var currentTimestamp = new Date().getTime();
+				if(firstClickTimestamp == null || currentTimestamp > firstClickTimestamp + 500) firstClickTimestamp = currentTimestamp; else {
+					event._wrs_dealAsTouch = true;
+					handler(e);
+				}
+			}
+		},useCapture));
+	}
+	if(eventName == "fullscreenchange") {
+		com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"webkitfullscreenchange",handler,useCapture);
+		com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"mozfullscreenchange",handler,useCapture);
+		com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"MSFullscreenChange",handler,useCapture);
+		com.wiris.system.JsDOMUtils.addEventListenerImpl(element,"wrs_fullscreenchange",handler,useCapture);
+	}
+	if(element.attachEvent) element.attachEvent("on" + eventName,function() {
+		handler(window.event);
+	}); else element.addEventListener(eventName,handler,useCapture);
+	return descriptor;
+}
+com.wiris.system.JsDOMUtils.removeEventListener = function(descriptor) {
+	if(com.wiris.system.JsDOMUtils.browser.isIE() && descriptor.element.detachEvent) descriptor.element.detachEvent("on" + Std.string(descriptor.eventName),descriptor.handler); else descriptor.element.removeEventListener(descriptor.eventName,descriptor.handler,descriptor.useCapture);
+	var i = $iterator(descriptor.subDescriptors)();
+	while(i.hasNext()) com.wiris.system.JsDOMUtils.removeEventListener(i.next());
+}
+com.wiris.system.JsDOMUtils.cancelEvent = function(e) {
+	if(e.preventDefault) e.preventDefault(); else e.returnValue = false;
+}
+com.wiris.system.JsDOMUtils.fireEvent = function(element,eventName) {
+	var event;
+	if(document.createEvent) {
+		event = document.createEvent("HTMLEvents");
+		event.initEvent(eventName,true,true);
+		event.eventName = eventName;
+		element.dispatchEvent(event);
+	} else {
+		event = document.createEventObject();
+		event.eventType = eventName;
+		event.eventName = eventName;
+		element.fireEvent("on" + eventName,event);
+	}
+}
+com.wiris.system.JsDOMUtils.getComputedStyle = function(element) {
+	if(element.currentStyle) return element.currentStyle;
+	return document.defaultView.getComputedStyle(element,null);
+}
+com.wiris.system.JsDOMUtils.getComputedStyleProperty = function(element,name) {
+	var value;
+	if(document.defaultView && document.defaultView.getComputedStyle) {
+		var computedStyle = document.defaultView.getComputedStyle(element,null);
+		value = computedStyle == null?null:computedStyle.getPropertyValue(name);
+	} else if(com.wiris.system.JsDOMUtils.browser.isIE() && element.currentStyle) {
+		var camelName = com.wiris.system.JsDOMUtils.camelize(name);
+		value = element.currentStyle[camelName];
+		if(value != null && value.length > 0 && camelName != "zoom") {
+			var firstChar = HxOverrides.cca(value,0);
+			if(firstChar >= 48 && firstChar <= 57 && !StringTools.endsWith(value,"px")) {
+				var originalLeft = element.style.left;
+				var originalRuntimeLeft = element.runtimeStyle?element.runtimeStyle.left:null;
+				if(originalRuntimeLeft != null) element.runtimeStyle.left = element.currentStyle.left;
+				element.style.left = camelName == "fontSize"?"1em":value;
+				value = element.style.pixelLeft + "px";
+				element.style.left = originalLeft;
+				if(originalRuntimeLeft != null) element.runtimeStyle.left = originalRuntimeLeft;
+			}
+		}
+	} else value = element.style[com.wiris.system.JsDOMUtils.camelize(name)];
+	return value;
+}
+com.wiris.system.JsDOMUtils.camelize = function(str) {
+	var start = 0;
+	var pos;
+	var sb = new StringBuf();
+	while((pos = str.indexOf("-",start)) != -1) {
+		sb.b += Std.string(HxOverrides.substr(str,start,pos - start));
+		sb.b += Std.string(str.charAt(pos + 1).toUpperCase());
+		start = pos + 2;
+	}
+	sb.b += Std.string(HxOverrides.substr(str,start,null));
+	return sb.b;
+}
+com.wiris.system.JsDOMUtils.getElementsByClassName = function(parent,className,recursive) {
+	var returnValue = new Array();
+	var _g1 = 0, _g = parent.childNodes.length;
+	while(_g1 < _g) {
+		var i = _g1++;
+		if(com.wiris.system.JsDOMUtils.hasClass(parent.childNodes[i],className)) returnValue.push(parent.childNodes[i]);
+		if(recursive) returnValue = returnValue.concat(com.wiris.system.JsDOMUtils.getElementsByClassName(parent.childNodes[i],className,true));
+	}
+	return returnValue;
+}
+com.wiris.system.JsDOMUtils.getEventTarget = function(event) {
+	if(event.srcElement) return event.srcElement;
+	return event.target;
+}
+com.wiris.system.JsDOMUtils.getLeft = function(element) {
+	return element.getBoundingClientRect().left;
+}
+com.wiris.system.JsDOMUtils.getRelativeLeft = function(element,parent) {
+	if(parent == null) return com.wiris.system.JsDOMUtils.getLeft(element);
+	return com.wiris.system.JsDOMUtils.getLeft(element) - com.wiris.system.JsDOMUtils.getLeft(parent);
+}
+com.wiris.system.JsDOMUtils.getTop = function(element) {
+	return element.getBoundingClientRect().top;
+}
+com.wiris.system.JsDOMUtils.getRelativeTop = function(element,parent) {
+	if(parent == null) return com.wiris.system.JsDOMUtils.getTop(element);
+	return com.wiris.system.JsDOMUtils.getTop(element) - com.wiris.system.JsDOMUtils.getTop(parent);
+}
+com.wiris.system.JsDOMUtils.getWindowScroll = function() {
+	var scroll = new Array();
+	if(js.Lib.window.pageYOffset == undefined) {
+		scroll[0] = js.Lib.document.documentElement.scrollLeft;
+		scroll[1] = js.Lib.document.documentElement.scrollTop;
+	} else {
+		scroll[0] = js.Lib.window.pageXOffset;
+		scroll[1] = js.Lib.window.pageYOffset;
+	}
+	return scroll;
+}
+com.wiris.system.JsDOMUtils.isDescendant = function(parent,possibleDescendant) {
+	if(possibleDescendant.parentNode == null) return false;
+	if(possibleDescendant.parentNode == parent) return true;
+	return com.wiris.system.JsDOMUtils.isDescendant(parent,possibleDescendant.parentNode);
+}
+com.wiris.system.JsDOMUtils.parseDimension = function(x) {
+	return x < 0 || x == null?0:x;
+}
+com.wiris.system.JsDOMUtils.removeChildren = function(element) {
+	while(element.firstChild != null) element.removeChild(element.firstChild);
+}
+com.wiris.system.JsDOMUtils.hasClass = function(element,className) {
+	if(element == null || element.className == null || !(element.className.split)) return false;
+	var classes = element.className.split(" ");
+	var i = HxOverrides.iter(classes);
+	while(i.hasNext()) if(i.next() == className) return true;
+	return false;
+}
+com.wiris.system.JsDOMUtils.addClass = function(element,className) {
+	if(element == null) return;
+	if(element.className == "") element.className = className; else if(!com.wiris.system.JsDOMUtils.hasClass(element,className)) element.className += " " + className;
+}
+com.wiris.system.JsDOMUtils.removeClass = function(element,className) {
+	if(element == null || element.className == null || !(element.className.split)) return;
+	var classes = element.className.split(" ");
+	HxOverrides.remove(classes,className);
+	element.className = classes.join(" ");
+}
+com.wiris.system.JsDOMUtils.toggleClass = function(element,className) {
+	if(com.wiris.system.JsDOMUtils.hasClass(element,className)) com.wiris.system.JsDOMUtils.removeClass(element,className); else com.wiris.system.JsDOMUtils.addClass(element,className);
+}
+com.wiris.system.JsDOMUtils.activateClass = function(element,className) {
+	if(!com.wiris.system.JsDOMUtils.hasClass(element,className)) com.wiris.system.JsDOMUtils.addClass(element,className);
+}
+com.wiris.system.JsDOMUtils.setCaretPosition = function(element,position,end) {
+	if(element.setSelectionRange) element.setSelectionRange(position,end); else if(element.createTextRange) {
+		var range = element.createTextRange();
+		range.collapse(true);
+		range.moveStart("character",position);
+		range.moveEnd("character",end);
+		range.select();
+	}
+}
+com.wiris.system.JsDOMUtils.getSelectionBounds = function(element) {
+	var bounds = new Array();
+	if(element.selectionStart != null) {
+		bounds[0] = element.selectionStart;
+		bounds[1] = element.selectionEnd;
+		return bounds;
+	}
+	var range = document.selection.createRange();
+	if(range && range.parentElement() == element) {
+		var length = element.value.length;
+		var normalizedValue = element.value.split("\r\n").join("\n");
+		var textInputRange = element.createTextRange();
+		textInputRange.moveToBookmark(range.getBookmark());
+		var endRange = element.createTextRange();
+		endRange.collapse(false);
+		if(textInputRange.compareEndPoints("StartToEnd",endRange) > -1) bounds[0] = bounds[1] = length; else {
+			bounds[0] = -textInputRange.moveStart("character",-length);
+			bounds[0] += normalizedValue.slice(0,bounds[0]).split("\n").length - 1;
+			if(textInputRange.compareEndPoints("EndToEnd",endRange) > -1) bounds[1] = length; else {
+				bounds[1] = -textInputRange.moveEnd("character",-length);
+				bounds[1] += normalizedValue.slice(0,bounds[1]).split("\n").length - 1;
+			}
+		}
+		return bounds;
+	}
+	return null;
+}
+com.wiris.system.JsDOMUtils.getMousePosition = function(target,e) {
+	if(e._wrs_dealAsTouch) return com.wiris.system.JsDOMUtils.getTouchPosition(target,e.touches[0]);
+	var elementScroll = new Array();
+	elementScroll[0] = target.scrollLeft;
+	elementScroll[1] = target.scrollTop;
+	return com.wiris.system.JsDOMUtils.getMousePositionImpl(target,e,elementScroll,0);
+}
+com.wiris.system.JsDOMUtils.getMousePositionImpl = function(target,e,elementScroll,border) {
+	var position = new Array();
+	position[0] = e.clientX - com.wiris.system.JsDOMUtils.getLeft(target) - border + elementScroll[0];
+	position[1] = e.clientY - com.wiris.system.JsDOMUtils.getTop(target) - border + elementScroll[1];
+	return position;
+}
+com.wiris.system.JsDOMUtils.inFixedParent = function(element) {
+	while(element != null) {
+		if(com.wiris.system.JsDOMUtils.getComputedStyleProperty(element,"position") == "fixed") return true;
+		element = element.offsetParent;
+	}
+	return false;
+}
+com.wiris.system.JsDOMUtils.getTouchPosition = function(target,touch) {
+	var elementScroll = new Array();
+	elementScroll[0] = target.scrollLeft;
+	elementScroll[1] = target.scrollTop;
+	return com.wiris.system.JsDOMUtils.getTouchPositionImpl(target,touch,elementScroll,0);
+}
+com.wiris.system.JsDOMUtils.getTouchPositionImpl = function(target,touch,elementScroll,border) {
+	var position = new Array();
+	position[0] = touch.clientX - com.wiris.system.JsDOMUtils.getLeft(target) - border + elementScroll[0];
+	position[1] = touch.clientY - com.wiris.system.JsDOMUtils.getTop(target) - border + elementScroll[1];
+	return position;
+}
+com.wiris.system.JsDOMUtils.getStandardButton = function(e) {
+	if(com.wiris.system.JsDOMUtils.browser.isTouchable()) return 0;
+	var button = e.button;
+	if(com.wiris.system.JsDOMUtils.browser.isIE()) {
+		if(button == 1) button = 0; else if(button == 4) button = 1;
+	}
+	return button;
+}
+com.wiris.system.JsDOMUtils.vibrate = function(milliseconds) {
+	if(navigator.vibrate) navigator.vibrate(milliseconds);
+}
+com.wiris.system.JsDOMUtils.onTouchDeviceDetected = function(callbackFunction) {
+	com.wiris.system.JsDOMUtils.init();
+	com.wiris.system.JsDOMUtils.touchDeviceListeners.push(callbackFunction);
+}
+com.wiris.system.JsDOMUtils.onMouseDeviceDetected = function(callbackFunction) {
+	com.wiris.system.JsDOMUtils.init();
+	com.wiris.system.JsDOMUtils.mouseDeviceListeners.push(callbackFunction);
+}
+com.wiris.system.JsDOMUtils.findScriptElement = function(reg) {
+	var scripts = js.Lib.document.getElementsByTagName("script");
+	var n = scripts.length;
+	var i = 0;
+	while(i < n) {
+		var src = scripts[i].getAttribute("src");
+		if(reg.match(src)) return scripts[i];
+		++i;
+	}
+	return null;
+}
+com.wiris.system.JsDOMUtils.rewriteDefaultPaths = function(contextPath) {
+	if(window.com.wiris.js.defaultServicePath != null && StringTools.startsWith(window.com.wiris.js.defaultServicePath,"http://")) {
+		var protocol = js.Lib.window.location.protocol;
+		var defaultServicePathWithoutProtocol = window.com.wiris.js.defaultServicePath.substr("http:".length);
+		var reg = new EReg("(http:|https:)" + defaultServicePathWithoutProtocol + "/" + contextPath,"");
+		if(com.wiris.system.JsDOMUtils.findScriptElement(reg) != null) protocol = reg.matched(1);
+		if(protocol == "https:") {
+			window.com.wiris.js.defaultServicePath = "https:" + defaultServicePathWithoutProtocol;
+			if(window.com.wiris.js.defaultBasePath != null) window.com.wiris.js.defaultBasePath = "https:" + window.com.wiris.js.defaultBasePath.substr("http:".length);
+		}
+	}
+}
+com.wiris.system.JsDOMUtils.createCSSRules = function(selector,rules) {
+	var style = js.Lib.document.createElement("style");
+	style.type = "text/css";
+	js.Lib.document.getElementsByTagName("head")[0].appendChild(style);
+	if(style.sheet != null && style.sheet.insertRule != null) style.sheet.insertRule(selector + "{" + rules + "}",0); else if(style.styleSheet != null) style.styleSheet.addRule(selector,rules); else if(style.sheet != null) style.sheet.addRule(selector,rules);
+}
+com.wiris.system.JsDOMUtils.enterFullscreen = function(element) {
+	document.wrs_fullscreen = true;
+	document.wrs_fullscreenElement = element;
+	com.wiris.system.JsDOMUtils.addClass(element,"wrs_fullscreen");
+	com.wiris.system.JsDOMUtils.fireEvent(document,"wrs_fullscreenchange");
+}
+com.wiris.system.JsDOMUtils.exitFullscreen = function() {
+	if(document.wrs_fullscreenElement != null) com.wiris.system.JsDOMUtils.removeClass(document.wrs_fullscreenElement,"wrs_fullscreen");
+	document.wrs_fullscreenElement = null;
+	document.wrs_fullscreen = false;
+	com.wiris.system.JsDOMUtils.fireEvent(document,"wrs_fullscreenchange");
+}
+com.wiris.system.JsDOMUtils.isFullscreen = function(element) {
+	if(element == null) return document.wrs_fullscreen || document.fullscreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement;
+	return document.wrs_fullscreenElement == element || document.fullscreenElement == element || document.mozFullScreenElement == element || document.webkitFullscreenElement || document.msFullscreenElement == element;
+}
+com.wiris.system.JsDOMUtils.execCommand = function(command) {
+	return document.execCommand(command);
+}
+com.wiris.system.JsDOMUtils.findServicePath = function(scriptName) {
+	var scriptTags = js.Lib.document.getElementsByTagName("script");
+	var servicePath = null;
+	var _g1 = 0, _g = scriptTags.length;
+	while(_g1 < _g) {
+		var i = _g1++;
+		var src = scriptTags[i].src;
+		var j = src.lastIndexOf("/" + scriptName);
+		if(j >= 0) servicePath = HxOverrides.substr(src,0,j); else if(src == scriptName) servicePath = "";
+	}
+	if(servicePath != null && StringTools.startsWith(servicePath,"http://") && js.Lib.window.location.protocol == "https:") servicePath = "https://" + HxOverrides.substr(servicePath,"http://".length,null);
+	return servicePath;
 }
 var haxe = haxe || {}
 haxe.Http = $hxClasses["haxe.Http"] = function(url) {
@@ -2889,6 +3578,7 @@ js.Lib.eval = function(code) {
 js.Lib.setErrorHandler = function(f) {
 	js.Lib.onerror = f;
 }
+function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; };
 var $_;
 function $bind(o,m) { var f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; return f; };
 if(Array.prototype.indexOf) HxOverrides.remove = function(a,o) {
@@ -2951,7 +3641,13 @@ js.XMLHttpRequest = window.XMLHttpRequest?XMLHttpRequest:window.ActiveXObject?fu
 com.wiris.js.JsPluginViewer.USE_CREATE_IMAGE = 1;
 com.wiris.js.JsPluginViewer.DEBUG = false;
 com.wiris.js.JsPluginViewer.TECH = "php";
-com.wiris.js.JsPluginViewer.VERSION = "4.10.0.1383";
+com.wiris.js.JsPluginViewer.VERSION = "7.0.0.1387";
+com.wiris.system.JsDOMUtils.TOUCHHOLD_MOVE_MARGIN = 10;
+com.wiris.system.JsDOMUtils.browser = new com.wiris.system.JsBrowser();
+com.wiris.system.JsDOMUtils.initialized = false;
+com.wiris.system.JsDOMUtils.touchDeviceListeners = new Array();
+com.wiris.system.JsDOMUtils.mouseDeviceListeners = new Array();
+com.wiris.system.JsDOMUtils.internetExplorerPointers = new Hash();
 haxe.Serializer.USE_CACHE = false;
 haxe.Serializer.USE_ENUM_INDEX = false;
 haxe.Serializer.BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:";

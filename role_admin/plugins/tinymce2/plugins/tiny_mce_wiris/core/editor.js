@@ -56,7 +56,7 @@ var _wrs_isNewElement; // Unfortunately we need this variabels as global variabl
     // Asyn methods
     // waitForIntVariables loads core.js. Don't start until _wrs_int_vars has been loaded from _wrs_int_opener.
     wrs_waitForIntVariables();
-    // Method waitForCore() loads WIRIS editor. Don't start until core.js has been loaded.
+    // Method waitForCore() loads MathType. Don't start until core.js has been loaded.
     wrs_waitForCore();
 
     /**
@@ -125,9 +125,19 @@ var _wrs_isNewElement; // Unfortunately we need this variabels as global variabl
      *
      */
     function wrs_loadCore() {
+        // Get MathType version for caching.
+        var queryParams = window.location.search.substring(1).split("&");
+        var version = "";
+        for (var i = 0; i < queryParams.length; i++) {
+            var pos = queryParams[i].indexOf("v=");
+            if (pos >= 0) {
+                version = queryParams[i].substring(2);
+            }
+        }
+        // Append core.js.
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = "core.js";
+        script.src = "core.js?v=" + version;
         document.getElementsByTagName('head')[0].appendChild(script);
     }
 
@@ -219,7 +229,7 @@ var _wrs_isNewElement; // Unfortunately we need this variabels as global variabl
 
     // Adding events:
     // 1.- onMessage event: for enable cross-origin communication between editor window and _wrs_int_opener.
-    // 2.- onLoad event: inserts WIRIS editor into editor.html DOM.
+    // 2.- onLoad event: inserts MathType into editor.html DOM.
     // 3.- onUnload: communicates _wrs_int_opener that editor has been closed.
 
     wrs_addEvent(window, 'message', function (e) { // Safely enable cross-origin communication.
@@ -272,9 +282,6 @@ var _wrs_isNewElement; // Unfortunately we need this variabels as global variabl
 
                 var editorElement = editor.getElement();
                 var editorContainer = document.getElementById('editorContainer');
-                if (isIOS) {
-                    editorContainer.className += ' wrs_editorContainer wrs_modalIos';
-                }
                 editor.insertInto(editorContainer);
 
                 // Mathml content.
@@ -302,17 +309,8 @@ var _wrs_isNewElement; // Unfortunately we need this variabels as global variabl
 
                 var popup = new PopUpMessage(strings);
 
-                if (isIOS) {
-                    // Editor and controls container.
-                    var editorAndControlsContainer = document.getElementById('container');
-                    editorAndControlsContainer.className += ' wrs_container wrs_modalIos';
-                }
-
                 // Submit button.
                 var controls = document.getElementById('controls');
-                if (isIOS) {
-                    controls.className += ' wrs_controls wrs_modalIos';
-                }
                 var submitButton = document.createElement('input');
                 submitButton.type = 'button';
                 submitButton.className = 'wrs_button_accept';
@@ -435,6 +433,8 @@ var _wrs_isNewElement; // Unfortunately we need this variabels as global variabl
                     }else if (e.data.objectName != 'undefined' && e.data.objectName == 'editorClose') {
                         window.editorListener.setWaitingForChanges(false);
                         window.editorListener.setIsContentChanged(false);
+                    }else if (e.data.objectName != 'undefined' && e.data.objectName == 'editorResize') {
+                        editor.getElement().style.height = (e.data.arguments[0] - controls.offsetHeight) + "px";
                     }
                 });
 
@@ -455,17 +455,18 @@ var _wrs_isNewElement; // Unfortunately we need this variabels as global variabl
                     var formulaDisplayDiv = document.getElementsByClassName('wrs_formulaDisplay')[0];
                     wrs_addEvent(formulaDisplayDiv, 'focus', function (e) {
                         if (_wrs_conf_modalWindow) {
-                            getMethod('_wrs_modalWindow', 'addClassVirtualKeyboard', [], null);
-                            editorElement.style.height = '100%';
+                            getMethod('_wrs_modalWindow', 'openedIosSoftkeyboard', [], null);
                         }
                     });
 
                     wrs_addEvent(formulaDisplayDiv, 'blur', function (e) {
                         if (_wrs_conf_modalWindow) {
-                            getMethod('_wrs_modalWindow', 'removeClassVirtualKeyboard', [], null);
-                            editorElement.style.height = '10%';
+                            getMethod('_wrs_modalWindow', 'closedIosSoftkeyboard', [], null);
                         }
                     });
+
+                    // Set editor size
+                    getMethod('_wrs_modalWindow', 'closedIosSoftkeyboard', [], null);
                 }
 
                 // Event for close window and trap focus
@@ -481,14 +482,11 @@ var _wrs_isNewElement; // Unfortunately we need this variabels as global variabl
                     }
                 });
 
-                // Auto resizing.
-                setInterval(function () {
-                    editorElement.style.height = (document.getElementById('container').offsetHeight - controls.offsetHeight - 10) + 'px';
-                }, 100);
-
-                // Due to IOS use soft keyboard, we don't want to move the cursor to WIRIS editor.
                 if (!isIOS) {
+                    // Due to IOS use soft keyboard, we don't want to move the cursor to MathType.
                     editor.focus();
+                    // Set initial editor height.
+                    editorElement.style.height = (document.getElementById('container').offsetHeight - controls.offsetHeight - 20) + 'px';
                 }
             } else {
                 setTimeout(wrs_waitForEditor, 100);

@@ -1,5 +1,6 @@
 // Define variables needed by core/core.js.
 var _wrs_int_conf_file = "integration/configurationjs.php";
+var _wrs_plugin_version = "7.0.0.1387";
 var _wrs_int_conf_async = true;
 var _wrs_baseURL;
 
@@ -54,7 +55,7 @@ var _wrs_int_wirisProperties;
 var _wrs_int_directionality;
 var _wrs_int_imagesDataimgFilterBackup = [];
 // Custom Editors.
-var _wrs_int_customEditors = {chemistry : {name: 'Chemistry', toolbar : 'chemistry', icon : 'chem.png', enabled : false, confVariable : '_wrs_conf_chemEnabled', title: 'WIRIS EDITOR chemistry'}}
+var _wrs_int_customEditors = {chemistry : {name: 'Chemistry', toolbar : 'chemistry', icon : 'chem.png', enabled : false, confVariable : '_wrs_conf_chemEnabled', tooltip: 'Insert a chemistry formula - ChemType', title : 'ChemType'}}
 
 // Variable to control first wrs_initParse call.
 var _wrs_int_initParsed = false;
@@ -69,6 +70,7 @@ var _wrs_int_langCode = 'en';
 (function () {
     tinymce.create('tinymce.plugins.tiny_mce_wiris', {
         init: function (editor, url) {
+             _wrs_currentEditor = editor;
             // Var to access to selected element from all the WIRIS tiny mce functions.
             var element;
 
@@ -87,7 +89,7 @@ var _wrs_int_langCode = 'en';
             }
 
             // Including core.js
-            // First of all: recalculating _wrs_conf_path if WIRIS plugin has been loaded as an external plugin.
+            // First of all: recalculating _wrs_conf_path if MathType for TinyMCE has been loaded as an external plugin.
             // Cant access editor params since now.
             if (typeof editor.getParam('external_plugins') != 'undefined' && editor.getParam('external_plugins') != null && typeof editor.getParam('external_plugins')['tiny_mce_wiris'] != 'undefined') {
                 var external_url = editor.getParam('external_plugins')['tiny_mce_wiris'];
@@ -114,13 +116,13 @@ var _wrs_int_langCode = 'en';
                 // Moodle call scriptLoader multiple times. _wrs_addCoreQueue global variable avoid core multiple loading.
                 if (!_wrs_addCoreQueue) {
                     var scriptLoader = new tinymce.dom.ScriptLoader();
-                    scriptLoader.add(_wrs_conf_path + 'core/core.js');
+                    scriptLoader.add(_wrs_conf_path + 'core/core.js?v=' + _wrs_plugin_version);
                     scriptLoader.loadQueue();
                     _wrs_addCoreQueue = true;
                 }
             } else {
                 if (!_wrs_addCoreQueue) {
-                    tinymce.ScriptLoader.load(_wrs_conf_path + 'core/core.js');
+                    tinymce.ScriptLoader.load(_wrs_conf_path + 'core/core.js?v=' + _wrs_plugin_version);
                     tinymce.ScriptLoader.loadQueue();
                     _wrs_addCoreQueue = true;
                 }
@@ -135,7 +137,7 @@ var _wrs_int_langCode = 'en';
                     if (window.wrs_initParse && typeof _wrs_conf_plugin_loaded != 'undefined') {
                         var language = editor.getParam('language');
                         // The file editor.js gets this variable _wrs_int_langCode variable to set
-                        // WIRIS Editor lang.
+                        // MathType for TinyMCE lang.
                         _wrs_int_langCode = language;
                         _wrs_int_directionality = editor.getParam('directionality');
 
@@ -169,6 +171,8 @@ var _wrs_int_langCode = 'en';
                             // We set content in html because other tiny plugins need data-mce
                             // and this is not posibil with raw format
                             editor.setContent(wrs_initParse(content, language), {format: "html"});
+                            // This clean undoQueue for prevent onChange and Dirty state.
+                            editor.undoManager.clear();
                             // Init parsing OK. If a setContent method is called
                             // wrs_initParse is called again.
                             // Now if source code is edited the returned code is parsed.
@@ -213,6 +217,17 @@ var _wrs_int_langCode = 'en';
             else {
                 editor.on('init', function () {
                     onInit(editor);
+                });
+            }
+
+            if ('onActivate' in editor) {
+                editor.onActivate.add( function (editor) {
+                    _wrs_currentEditor = editor;
+                });
+            }
+            else {
+                editor.on('focus', function (event) {
+                    _wrs_currentEditor = tinymce.activeEditor;
                 });
             }
 
@@ -263,10 +278,10 @@ var _wrs_int_langCode = 'en';
             const observerConfig = { attributes: true, childList: true, characterData: true, subtree: true };
             function onMutations(mutations) {
                 Array.prototype.forEach.call(mutations,function(mutation) {
-                    Array.prototype.forEach.call(mutation.addedNodes,function(node){
+                    Array.prototype.forEach.call(mutation.addedNodes,function(node) {
                         // We search only in element nodes
                         if(node.nodeType == 1){
-                            Array.prototype.forEach.call(node.getElementsByClassName(_wrs_conf_imageClassName),function(image){
+                            Array.prototype.forEach.call(node.getElementsByClassName(_wrs_conf_imageClassName),function(image) {
                                 image.removeAttribute('data-mce-src');
                                 image.removeAttribute('data-mce-style');
                             });
@@ -274,11 +289,11 @@ var _wrs_int_langCode = 'en';
                     });
                 });
             }
-            var mo = new MutationObserver(onMutations);
+            var mutationInstance = new MutationObserver(onMutations);
             // We wait for iframe definition for observe this
-            function waitForIframeBody(){
-                if(typeof editor.contentDocument != 'undefined'){
-                    mo.observe(editor.getBody(), observerConfig);
+            function waitForIframeBody() {
+                if(typeof editor.contentDocument != 'undefined') {
+                    mutationInstance.observe(editor.getBody(), observerConfig);
                 }else{
                     setTimeout(waitForIframeBody, 50);
                 }
@@ -314,7 +329,7 @@ var _wrs_int_langCode = 'en';
                 });
 
                 editor.addButton('tiny_mce_wiris_formulaEditor', {
-                    title: 'WIRIS EDITOR math',
+                    title: 'Insert a math equation - MathType',
                     cmd: 'tiny_mce_wiris_openFormulaEditor',
                     image: _wrs_int_editorIcon
                 });
@@ -362,7 +377,7 @@ var _wrs_int_langCode = 'en';
                         }
 
                         editor.addButton('tiny_mce_wiris_formulaEditor' + _wrs_int_customEditors[key].name, {
-                            title:  _wrs_int_customEditors[key].title,
+                            title:  _wrs_int_customEditors[key].tooltip,
                             cmd: cmd,
                             image: imagePath
                         });
