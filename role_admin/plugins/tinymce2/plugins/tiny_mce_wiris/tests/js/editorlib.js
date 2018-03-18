@@ -1,7 +1,7 @@
 /**
  * Creates a TINYMCE instance on "example" div.
- * @param  {string} lang              TINYMCE language. WIRIS plugin read this variable to set the editor lang.
- * @param  {string} wiriseditorparameters JSON containing WIRIS editor parameters.
+ * @param  {string} lang TinyMCE language. MathType integration read this variable to set the editor lang.
+ * @param  {string} wiriseditorparameters JSON containing MathType Web parameters.
  */
  function createEditorInstance(lang, wiriseditorparameters) {
 
@@ -26,7 +26,7 @@
  		init_instance_callback : "updateFunctionTimeOut",
  		setup : function(ed)
  		{
- 			ed.on('init', function() 
+ 			ed.on('init', function()
  			{
  				this.getDoc().body.style.fontSize = '16px';
  				this.getDoc().body.style.fontFamily = 'Arial, "Helvetica Neue", Helvetica, sans-serif';
@@ -50,7 +50,7 @@ createEditorInstance('en', {});
 
 /**
  * Getting data from editor using getContent TINYMCE method.
- * Using WIRIS formulas are parsed to WIRIS save mode format (mathml, image or base64)
+ * MathType formulas are parsed to save mode format (mathml, image or base64)
  * For more information see: http://www.wiris.com/es/plugins/docs/full-mathml-mode.
  * @return {string} TINYMCE parsed data.
  */
@@ -60,7 +60,7 @@ createEditorInstance('en', {});
 
 /**
  * Changes dynamically wiriseditorparameters TINYMCE config variable.
- * @param {json} json_params WIRIS editor parameters.
+ * @param {json} json_params MathType Web parameters.
  */
  function setParametersSpecificPlugin(wiriseditorparameters) {
  	//var lang = tinyMCE.activeEditor.settings.langCode;
@@ -77,11 +77,11 @@ createEditorInstance('en', {});
 
 /**
  * Gets wiriseditorparameters from TINYMCE.
- * @return {object} WIRIS editor parameters as JSON. An empty JSON if is not defined.
+ * @return {object} MathType Web parameters as JSON. An empty JSON if is not defined.
  */
  function getWirisEditorParameters() {
  	if (typeof tinyMCE.activeEditor.settings != 'undefined' && typeof tinyMCE.activeEditor.settings.wiriseditorparameters != 'undefined') {
  		return tinyMCE.activeEditor.settings.wiriseditorparameters;
- 	} 
+ 	}
  	return {};
  }

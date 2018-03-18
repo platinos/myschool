@@ -3,18 +3,15 @@
 <head>
 	
 	<?php 
-	
-
-	include 'part/head.php'; 
+	include 'part/head.php';
 
 	?>
-	<title>MyPaper-Controller</title>
-
-	
+	<title>MyPaper-Controller</title>	
 
 </head>
 <?php include 'part/body.php'; ?>
 <?php include 'part/nav.php'; ?>
+
 <div class="row">
 
 	<?php
