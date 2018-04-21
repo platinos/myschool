@@ -118,7 +118,7 @@ else
                                     for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                            <td><img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['qr'] ?>" widt="200"></td>
+                                            <td><img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['qr'] ?>" width="200"></td>
 
                                             <td class="hide"><?php echo $feed['data'][$i]['class'] ?></td>
                                             <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
