@@ -10,7 +10,7 @@
         
     // }
     ?>
-    <script>alert($_SESSION['userData']['status'])</script>
+    <script>alert("<?php echo $_SESSION['userData']['status']?>");</script>
 
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     
