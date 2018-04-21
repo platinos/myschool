@@ -79,12 +79,12 @@ else
                             <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
                                 <thead>
                                     <tr>
+                                        <th>QR</th>
                                         <th class="hide">Class</th>
                                         <th>Question</th>                                       
                                         <th class="hide">Type</th>
                                         <th class="hide">Subject</th>
                                         <th class="hide">Chapter</th>
-                                        <th class="hide">Topic</th>
                                         <th>Marks</th>
                                         <th class="">Level</th>
                                         <th>Select</th>
@@ -99,7 +99,7 @@ else
                                     3.short
                                     4.long
                                     5.comprehension.-->
-
+                                        <th>QR</th>
                                         <th class="hide">Class</th>
                                         <th>Question</th>                                       
                                         <th class="hide">Type</th>
@@ -118,6 +118,8 @@ else
                                     for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
+                                            <td class="hide"><img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['qr'] ?>" widt="200"></td>
+
                                             <td class="hide"><?php echo $feed['data'][$i]['class'] ?></td>
                                             <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
                                             
