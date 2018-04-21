@@ -2,7 +2,13 @@
 <html>
 
 <head>
-    <?php include 'part/head.php'; ?>
+    <?php include 'part/head.php'; 
+
+    if(strcasecmp($_SESSION['userData']['status'], 'Admin') == 0){
+        header("location: errorPage.php");
+    }
+    ?>
+
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     
     <title>MyPaper-Controller</title>

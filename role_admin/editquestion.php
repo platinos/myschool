@@ -4,7 +4,8 @@
 <head>
 	<?php include 'part/head.php'; 
 	
-	if($_SESSION['userData']['status']!='admin'){
+	//if($_SESSION['userData']['status']!='Admin'){
+	if(strcasecmp($_SESSION['userData']['status'], 'Admin') == 0){
 		header("location: errorPage.php");
 	}
 	?>
