@@ -122,7 +122,7 @@ else
                                             <td>
                                                 
                                                 <button class='btn btn-success waves-effect' 
-                                                        onclick='showQR(<?php echo $feed['data'][$i]['qr'] ?>)'>
+                                                        onclick='showQR("<?php echo $feed['data'][$i]['qr'] ?>")'>
                                                         Show QR.
                                                 </button>
 
