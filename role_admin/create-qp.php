@@ -274,15 +274,15 @@ $(document).ready(function() {
            $('#allQuestions2').DataTable( {
             data: questionData,
             columns: [
-                {"data": "questionData.qr"},
-                {"data": "questionData.clas"},
-                {"data": "questionData.type"},
-                {"data": "questionData.subject"},
-                {"data": "questionData.chapter"},
-                {"data": "questionData.topic"},
-                {"data": "questionData.marks"},
-                {"data": "questionData.level"},
-                {"data": "questionData.qr"}
+                {"data": qr},
+                {"data": clas},
+                {"data": type},
+                {"data": subject},
+                {"data": chapter},
+                {"data": topic},
+                {"data": marks},
+                {"data": level},
+                {"data": qr}
 
             ]
          });
