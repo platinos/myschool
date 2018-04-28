@@ -273,18 +273,18 @@ $(document).ready(function() {
            console.log(questionData);
            $('#allQuestions2').DataTable( {
             data: questionData,
-            columns: {
-                "data": "qr",
-                "data": "clas",
-                "data": "type",
-                "data": "subject",
-                "data": "chapter",
-                "data": "topic",
-                "data": "marks",
-                "data": "level",
-                "data": "qr",
+            columns: [
+                {"data": "qr"},
+                {"data": "clas"},
+                {"data": "type"},
+                {"data": "subject"},
+                {"data": "chapter"},
+                {"data": "topic"},
+                {"data": "marks"},
+                {"data": "level"},
+                {"data": "qr"}
 
-            }
+            ]
          });
 
     });
