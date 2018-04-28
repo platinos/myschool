@@ -241,10 +241,18 @@ $subj=$_GET['subj'];
 $(document).ready(function() {
 
     $.get('http://35.194.226.60:3000/api/v1/questions/all', function (data, status) {
-        console.log(data);
-        var questionsData = data.response;
+        
+        var allData = data.response;
+        var questionData = [{}];
+        
+        $.each(allData, function(key,value) {
+            //alert(value.com);
+            questionData.push({value.qr,value.class,value.type,value.subject,value.chapter,value.topic,value.marks,value.level});
+        });
+            console.log(questionsData);
+
          $('#allQuestions2').DataTable( {
-            data: questionsData
+            data: questionsData;
          });
 
     });
