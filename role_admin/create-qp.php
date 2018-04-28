@@ -69,6 +69,15 @@ $subj=$_GET['subj'];
                                 <thead>
                                     <tr>
                                         <th>QR</th>
+                                        <th>Class</th>
+                                        <th>Question</th>                                       
+                                        <th>Type</th>
+                                        <th>Subject</th>
+                                        <th>Chapter</th>
+                                        <th>Topic</th>
+                                        <th>Marks</th>
+                                        <th>Level</th>
+                                        <!-- <th>QR</th>
                                         <th class="hide">Class</th>
                                         <th>Question</th>                                       
                                         <th class="hide">Type</th>
@@ -77,7 +86,7 @@ $subj=$_GET['subj'];
                                         <th class="hide">Topic</th>
                                         <th>Marks</th>
                                         <th class="">Level</th>
-                                        <!-- <th>Select</th> -->
+                                         <th>Select</th> -->
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -90,15 +99,14 @@ $subj=$_GET['subj'];
                                     4.long
                                     5.comprehension.-->
                                         <th>QR</th>
-                                        <th class="hide">Class</th>
+                                        <th>Class</th>
                                         <th>Question</th>                                       
-                                        <th class="hide">Type</th>
-                                        <th class="hide">Subject</th>
-                                        <th class="hide">Chapter</th>
-                                        <th class="hide">Topic</th>
+                                        <th>Type</th>
+                                        <th>Subject</th>
+                                        <th>Chapter</th>
+                                        <th>Topic</th>
                                         <th>Marks</th>
-                                        <th class="">Level</th>
-                                        <!-- <th>Select</th> -->
+                                        <th>Level</th>
 
                                     </tr>
                                 </tfoot>
