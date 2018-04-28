@@ -242,9 +242,10 @@ $(document).ready(function() {
 
     $.get('http://35.194.226.60:3000/api/v1/questions/all', function (data, status) {
         console.log(data);
-        // $('#allQuestions').DataTable( {
-        
-        // });
+        var questionsData = data.response;
+         $('#allQuestions').DataTable( {
+            data: questionsData
+         });
 
     });
 
