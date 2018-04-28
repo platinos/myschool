@@ -298,17 +298,8 @@ $(document).ready(function() {
 
             ]
          });
-           var column1 = table.column('clas');
-           var column2 = table.column('type');
-           var column3 = table.column('subject');
-           var column4 = table.column('chapter');
-           var column5 = table.column('topic');
-
-           column1.visible( ! column1.visible() );
-           column2.visible( ! column2.visible() );
-           column3.visible( ! column3.visible() );
-           column4.visible( ! column4.visible() );
-           column5.visible( ! column5.visible() );
+           table.columns( [1,3,4,5,6] ).visible( false, false );
+            table.columns.adjust().draw( false ); // adjust column sizing and redraw
                                         
 
     });
