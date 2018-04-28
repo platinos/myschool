@@ -242,7 +242,7 @@ $(document).ready(function() {
 
     $.get('http://35.194.226.60:3000/api/v1/questions/all', function (data, status) {
         
-        var allData = jQuery.parseJSON(data.response);
+        var allData = data.response;
         var questionData = [{}];
         
         $.each(allData, function(key,value) {
