@@ -256,7 +256,7 @@ $(document).ready(function() {
             console.log(questionsData);
 
          $('#allQuestions2').DataTable( {
-            data: questionsData;
+            data: questionsData
          });
 
     });
