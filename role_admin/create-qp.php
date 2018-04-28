@@ -246,8 +246,11 @@ $(document).ready(function() {
         var questionData = [{}];
         
         $.each(allData, function(key,value) {
+
             //alert(value.com);
-            questionData.push({value.qr,value.class,value.type,value.subject,value.chapter,value.topic,value.marks,value.level});
+            console.log(value);
+            var x = {value.qr,value.class,value.type,value.subject,value.chapter,value.topic,value.marks,value.level};
+            questionData.push(x);
         });
             console.log(questionsData);
 
