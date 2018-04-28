@@ -299,7 +299,6 @@ $(document).ready(function() {
             ]
          });
            table.columns( [1,3,4,5,6] ).visible( false, false );
-            table.columns.adjust().draw( false ); // adjust column sizing and redraw
                                         
 
     });
