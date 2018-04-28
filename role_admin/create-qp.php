@@ -282,7 +282,7 @@ $(document).ready(function() {
         });
             questionData.splice(0, 1);
            console.log(questionData);
-           $('#allQuestions2').DataTable( {
+           var table = $('#allQuestions2').DataTable( {
             data: questionData,
             columns: [
                 {"data": "qr"},
@@ -298,6 +298,18 @@ $(document).ready(function() {
 
             ]
          });
+           var column1 = table.column('clas');
+           var column2 = table.column('type');
+           var column3 = table.column('subject');
+           var column4 = table.column('chapter');
+           var column5 = table.column('topic');
+
+           column1.visible( ! column1.visible() );
+           column2.visible( ! column2.visible() );
+           column3.visible( ! column3.visible() );
+           column4.visible( ! column4.visible() );
+           column5.visible( ! column5.visible() );
+                                        
 
     });
     
