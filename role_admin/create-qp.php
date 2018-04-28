@@ -249,9 +249,9 @@ $(document).ready(function() {
 
             //alert(value.com);
             console.log(value);
-            var x = 1;
-            //var x = {value.qr,value.class,value.type,value.subject,value.chapter,value.topic,value.marks,value.level};
-            questionData.push(x);
+            //var x = 1;
+            var x = {value.qr,value.class,value.type,value.subject,value.chapter,value.topic,value.marks,value.level};
+            questionsData.push(x);
         });
             console.log(questionsData);
 
