@@ -258,14 +258,14 @@ $(document).ready(function() {
             var level = value.level
 
                         var x = {
-                            qr,
-                            clas,
-                            type,
-                            subject,
-                            chapter,
-                            topic,
-                            marks,
-                            level
+                            "qr": qr,
+                            "clas": clas,
+                            "type": type,
+                            "subject": subject,
+                            "chapter": chapter,
+                            "topic": topic,
+                            "marks": marks,
+                            "level": level
                             };
             //console.log(x);
            questionData.push(x);
@@ -274,15 +274,15 @@ $(document).ready(function() {
            $('#allQuestions2').DataTable( {
             data: questionData,
             columns: [
-                {"data": qr},
-                {"data": clas},
-                {"data": type},
-                {"data": subject},
-                {"data": chapter},
-                {"data": topic},
-                {"data": marks},
-                {"data": level},
-                {"data": qr}
+                {"data": "qr"},
+                {"data": "clas"},
+                {"data": "type"},
+                {"data": "subject"},
+                {"data": "chapter"},
+                {"data": "topic"},
+                {"data": "marks"},
+                {"data": "level"},
+                {"data": "qr"}
 
             ]
          });
