@@ -248,15 +248,15 @@ $(document).ready(function() {
         $.each(allData, function(key,value) {
 
             //alert(value.com);
-            console.log(value);
+            console.log(value.qr);
             //var x = 1;
-            var x = {value.qr,value.class,value.type,value.subject,value.chapter,value.topic,value.marks,value.level};
-            questionsData.push(x);
+            //var x = { value.qr,value.class,value.type,value.subject,value.chapter,value.topic,value.marks,value.level};
+            //questionsData.push(x);
         });
             console.log(questionsData);
 
          $('#allQuestions2').DataTable( {
-            data: questionsData
+            //data: questionsData
          });
 
     });
