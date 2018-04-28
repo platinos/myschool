@@ -119,7 +119,14 @@ else
                                     for($i=0; $i<$size; $i++)
                                         {?>
                                             <tr id=" <?php echo $feed['data'][$i]['id'] ?>" >
-                                            <td><img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $feed['data'][$i]['qr'] ?>" width="200"></td>
+                                            <td>
+                                                
+                                                <button class='btn btn-success waves-effect' 
+                                                        onclick='showQR(<?php echo $feed['data'][$i]['qr'] ?>)'>
+                                                        Show QR.
+                                                </button>
+
+                                            </td>
 
                                             <td class="hide"><?php echo $feed['data'][$i]['class'] ?></td>
                                             <td><?php echo htmlspecialchars_decode($feed['data'][$i]['ques_txt']) ?></td>
@@ -164,6 +171,25 @@ else
                 </div>
             </div>
             <!-- #END# Exportable Table -->
+
+            <!-- Creates the bootstrap modal where the QR image will appear -->
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">QR Code</h4>
+      </div>
+      <div class="modal-body">
+        <img src="" id="imagepreview" style="width: 400px;"">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
         </div>
     </section>
     <?php
@@ -211,7 +237,17 @@ else
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 <!-- <script src="plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=svg" async defer></script>
+
+
  -->
+ <script>
+     function showQR(qrId) {
+
+   $('#imagepreview').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?data='+qrId); 
+   $('#imagemodal').modal('show'); 
+
+     }
+ </script>
 </body>
 
 </html>
