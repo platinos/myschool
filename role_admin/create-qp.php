@@ -138,8 +138,9 @@ $subj=$_GET['subj'];
                                                         Add to my paper
                                                     </button>
                                                     <?php
-                                                }
-                                                //else{ ?>
+                                                //}
+                                                //else
+                                                //{ ?>
                                                     <button style="display: none;" class='btn btn-danger waves-effect' id="<?php //echo 'removeQuestion'.$feed['data'][$i]['id'] ?>" onclick='removeQuestion(<?php //echo $feed['data'][$i]['id'] ?>)'>Remove</button>
                                                     <button class='btn btn-success waves-effect' 
                                                     id="<?php //echo 'addQuestion'.$feed['data'][$i]['id'] ?>" 
@@ -151,7 +152,7 @@ $subj=$_GET['subj'];
                                             </td>
 
                                     </tr> -->
-                                    <!-- <?php  }
+                                    <!-- <?php // }
                                     ?> -->
                                 </tbody>
                             </table>
@@ -182,7 +183,7 @@ $subj=$_GET['subj'];
         </div>
     </section>
 <!--     <?php
-}
+//}
 ?> -->
 
 <!-- Jquery Core Js -->
@@ -239,7 +240,7 @@ $subj=$_GET['subj'];
 
 $(document).ready(function() {
 
-    $.get(api_url+endpoint, function (data, status) {
+    $.get('http://35.194.226.60:3000/api/v1/questions/all', function (data, status) {
         console.log(data);
         // $('#allQuestions').DataTable( {
         
