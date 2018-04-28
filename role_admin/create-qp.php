@@ -77,7 +77,7 @@ $subj=$_GET['subj'];
                                         <th class="hide">Topic</th>
                                         <th>Marks</th>
                                         <th class="">Level</th>
-                                        <th>Select</th>
+                                        <!-- <th>Select</th> -->
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -98,7 +98,7 @@ $subj=$_GET['subj'];
                                         <th class="hide">Topic</th>
                                         <th>Marks</th>
                                         <th class="">Level</th>
-                                        <th>Select</th>
+                                        <!-- <th>Select</th> -->
 
                                     </tr>
                                 </tfoot>
@@ -283,7 +283,7 @@ $(document).ready(function() {
                 {"data": "topic"},
                 {"data": "marks"},
                 {"data": "level"},
-                {"data": "qr"}
+                // {"data": "qr"}
 
             ]
          });
