@@ -246,20 +246,37 @@ $(document).ready(function() {
         var questionData = [{}];
         
         $.each(allData, function(key,value) {
-
-            //alert(value.com);
-            console.log(value.qr);
+            //console.log(value.qr);
             //var x = 1;
-            //var x = { value.qr,value.class,value.type,value.subject,value.chapter,value.topic,value.marks,value.level};
-            //questionsData.push(x);
-        });
-            console.log(questionsData);
+            var qr = value.qr;
+            var clas = value.class
+            var type = value.type;
+            var subject = value.subject;
+            var chapter = value.chapter;
+            var topic = value.topic;
+            var marks = value.marks;
+            var level = value.level
 
-         $('#allQuestions2').DataTable( {
-            //data: questionsData
-         });
+                        var x = {
+                            qr,
+                            clas,
+                            type,
+                            subject,
+                            chapter,
+                            topic,
+                            marks,
+                            level
+                            };
+            //console.log(x);
+           questionData.push(x);
+        });
+           console.log(questionData);
 
     });
+    $('#allQuestions2').DataTable( {
+            data: questionData
+         });
+
 
     
 } );
