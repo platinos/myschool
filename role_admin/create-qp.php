@@ -271,11 +271,12 @@ $(document).ready(function() {
            questionData.push(x);
         });
            console.log(questionData);
-
-    });
-    $('#allQuestions2').DataTable( {
+           $('#allQuestions2').DataTable( {
             data: questionData
          });
+
+    });
+    
 
 
     
