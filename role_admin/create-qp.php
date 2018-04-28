@@ -65,7 +65,7 @@ $subj=$_GET['subj'];
 
                         </div>
                         <div class="body">
-                            <table id="allQuestions" class="table table-bordered table-striped table-hover dataTable">
+                            <table id="allQuestions2" class="table table-bordered table-striped table-hover dataTable">
                                 <thead>
                                     <tr>
                                         <th>QR</th>
@@ -243,7 +243,7 @@ $(document).ready(function() {
     $.get('http://35.194.226.60:3000/api/v1/questions/all', function (data, status) {
         console.log(data);
         var questionsData = data.response;
-         $('#allQuestions').DataTable( {
+         $('#allQuestions2').DataTable( {
             data: questionsData
          });
 
