@@ -270,6 +270,7 @@ $(document).ready(function() {
             //console.log(x);
            questionData.push(x);
         });
+            questionData.splice(0, 1);
            console.log(questionData);
            $('#allQuestions2').DataTable( {
             data: questionData,
