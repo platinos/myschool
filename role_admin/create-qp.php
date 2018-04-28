@@ -257,7 +257,8 @@ $(document).ready(function() {
             //console.log(value.qr);
             //var x = 1;
             var qr = value.qr;
-            var clas = value.class
+            var clas = value.class;
+            var ques = value.question
             var type = value.type;
             var subject = value.subject;
             var chapter = value.chapter;
@@ -268,6 +269,7 @@ $(document).ready(function() {
                         var x = {
                             "qr": qr,
                             "clas": clas,
+                            "ques": ques,
                             "type": type,
                             "subject": subject,
                             "chapter": chapter,
@@ -285,6 +287,7 @@ $(document).ready(function() {
             columns: [
                 {"data": "qr"},
                 {"data": "clas"},
+                {"data": "ques"},
                 {"data": "type"},
                 {"data": "subject"},
                 {"data": "chapter"},
