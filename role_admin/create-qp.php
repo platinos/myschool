@@ -258,7 +258,7 @@ $(document).ready(function() {
             //var x = 1;
             var qr = value.qr;
             var clas = value.class;
-            var ques = value.question
+            var ques = value.ques_txt;
             var type = value.type;
             var subject = value.subject;
             var chapter = value.chapter;
