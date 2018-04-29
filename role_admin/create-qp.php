@@ -267,12 +267,12 @@ $(document).ready(function() {
                             "qr": "<button class='btn btn-success waves-effect' onclick='showQR(\""+qr+"\")'>Show QR.</button>",
                             "clas": clas,
                             "ques": ques,
-                            "type": type,
+                            "type": mapQuesType(type),
                             "subject": subject,
                             "chapter": chapter,
                             "topic": topic,
                             "marks": marks,
-                            "level": level
+                            "level": mapDifficulty(level);
                             };
             //console.log(x);
            questionData.push(x);
