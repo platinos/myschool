@@ -86,7 +86,7 @@ $subj=$_GET['subj'];
                                         <th class="hide">Topic</th>
                                         <th>Marks</th>
                                         <th class="">Level</th>
-                                         <th>Select</th> -->
+                                        <th>Select</th> -->
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -267,7 +267,7 @@ $(document).ready(function() {
             var level = value.level
 
                         var x = {
-                            "qr": qr,
+                            "qr": "<button class='btn btn-success waves-effect' onclick='showQR(\""+qr+"\")'>Show QR.</button>",
                             "clas": clas,
                             "ques": ques,
                             "type": type,
