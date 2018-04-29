@@ -167,7 +167,7 @@ function filter() {
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 
-			var classcol=data[0]; 
+			var classcol=data[1]; 
 			var typecol=data[2];
 			var chaptercol=data[4]; 
 			var difficultycol=data[7]; 
