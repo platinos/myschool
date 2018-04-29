@@ -111,6 +111,7 @@ $subj=$_GET['subj'];
                                     </tr>
                                 </tfoot>
                                 <tbody>
+                                    <img id="tableLoader" src='https://i.redd.it/ounq1mw5kdxy.gif'>
                                    <!--  <?php
                                     // $size = $feed['data']['size']; 
                                     // for($i=0; $i<$size; $i++)
@@ -287,7 +288,9 @@ function mapQuesType(typeId){
 var table;
 $(document).ready(function() {
 
+
     $.get('http://35.194.226.60:3000/api/v1/questions/all', function (data, status) {
+
         
         var allData = data.response;
         var questionData = [{}];
@@ -323,7 +326,7 @@ $(document).ready(function() {
            console.log(questionData);
            var table1 = $('#allQuestions2').DataTable( {
             Language: {
-            Processing: "<img src='https://i.redd.it/ounq1mw5kdxy.gif'>"
+            Processing: ""
             },
             processing : true,
             data: questionData,
@@ -343,6 +346,7 @@ $(document).ready(function() {
             });
            table1.columns( [1,3,4,5,6] ).visible( false, false );
            table = table1;
+           $("#tableLoader").hide();
                                         
 
     });
