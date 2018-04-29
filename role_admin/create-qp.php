@@ -336,9 +336,9 @@ $(document).ready(function() {
                 // {"data": "qr"}
 
             ],
-            oLanguage: {
-        sProcessing: "<img src='https://i.redd.it/ounq1mw5kdxy.gif'>"
-    },
+            Language: {
+            Processing: "<img src='https://i.redd.it/ounq1mw5kdxy.gif'>"
+            },
     processing : true
          });
            table1.columns( [1,3,4,5,6] ).visible( false, false );
