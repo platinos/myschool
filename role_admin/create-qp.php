@@ -111,7 +111,7 @@ $subj=$_GET['subj'];
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <div class="align-items-center"><img id="tableLoader" src='https://i.redd.it/ounq1mw5kdxy.gif' width="300"></div>
+                                    <div class="text-center"><img id="tableLoader" src='https://i.redd.it/ounq1mw5kdxy.gif' width="300"></div>
                                    <!--  <?php
                                     // $size = $feed['data']['size']; 
                                     // for($i=0; $i<$size; $i++)
