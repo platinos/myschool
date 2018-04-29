@@ -322,6 +322,10 @@ $(document).ready(function() {
             questionData.splice(0, 1);
            console.log(questionData);
            var table1 = $('#allQuestions2').DataTable( {
+            Language: {
+            Processing: "<img src='https://i.redd.it/ounq1mw5kdxy.gif'>"
+            },
+            processing : true,
             data: questionData,
             columns: [
                 {"data": "qr"},
@@ -335,12 +339,8 @@ $(document).ready(function() {
                 {"data": "level"},
                 // {"data": "qr"}
 
-            ],
-            Language: {
-            Processing: "<img src='https://i.redd.it/ounq1mw5kdxy.gif'>"
-            },
-    processing : true
-         });
+            ]
+            });
            table1.columns( [1,3,4,5,6] ).visible( false, false );
            table = table1;
                                         
