@@ -165,9 +165,9 @@ function filter() {
 		function( settings, data, dataIndex ) {
 
 			var classcol=data[1]; 
-			var typecol=data[2];
-			var chaptercol=data[4]; 
-			var difficultycol=data[7]; 
+			var typecol=data[3];
+			var chaptercol=data[5]; 
+			var difficultycol=data[8]; 
 
 			var noclasspresent=c=='select';
 			var notypepresent=type=='select';
