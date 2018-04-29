@@ -148,7 +148,8 @@ function submitAll(file) {
 
 
 
-var table=$('#allQuestions').DataTable();
+var table=$('#allQuestions2');
+//var table=$('#allQuestions').DataTable();
 var prevClass=null,prevSubj=null;
 
 function filter() {

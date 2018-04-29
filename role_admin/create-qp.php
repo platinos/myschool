@@ -229,9 +229,6 @@ $subj=$_GET['subj'];
 <script src="js/demo.js"></script>
 <script src="js/pages/tables/jquery-datatable.js"></script>
 
-
-<script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
-
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 <!-- <script src="plugins/tinymce/plugins/tiny_mce_wiris/integration/WIRISplugins.js?viewer=svg" async defer></script>
@@ -309,6 +306,10 @@ $(document).ready(function() {
 } );
 
  </script>
+ 
+
+
+<script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 
 </html>
