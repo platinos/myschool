@@ -310,7 +310,7 @@ $(document).ready(function() {
 
 
 
-<script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="js/create-qp.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 
 </html>
