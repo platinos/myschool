@@ -272,7 +272,7 @@ $(document).ready(function() {
                             "chapter": chapter,
                             "topic": topic,
                             "marks": marks,
-                            "level": mapDifficulty(level);
+                            "level": mapDifficulty(level)
                             };
             //console.log(x);
            questionData.push(x);
