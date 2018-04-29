@@ -149,9 +149,7 @@ function submitAll(file) {
 
 
 
-var table=$('#allQuestions2').DataTable({
-	retrieve: true,
-    paging: false});
+//var table=$('#allQuestions1').DataTable();
 var prevClass=null,prevSubj=null;
 
 function filter() {

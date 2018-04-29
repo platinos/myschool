@@ -242,7 +242,7 @@ $subj=$_GET['subj'];
    $('#imagemodal').modal('show'); 
 
      }
-
+var table;
 $(document).ready(function() {
 
     $.get('http://35.194.226.60:3000/api/v1/questions/all', function (data, status) {
@@ -279,7 +279,7 @@ $(document).ready(function() {
         });
             questionData.splice(0, 1);
            console.log(questionData);
-           var table = $('#allQuestions2').DataTable( {
+           var table1 = $('#allQuestions2').DataTable( {
             data: questionData,
             columns: [
                 {"data": "qr"},
@@ -295,7 +295,8 @@ $(document).ready(function() {
 
             ]
          });
-           table.columns( [1,3,4,5,6] ).visible( false, false );
+           table1.columns( [1,3,4,5,6] ).visible( false, false );
+           table = table1;
                                         
 
     });
@@ -306,7 +307,7 @@ $(document).ready(function() {
 } );
 
  </script>
- 
+
 
 
 <script src="js/question-paper-creator.js" type="text/javascript" charset="utf-8" async defer></script>
