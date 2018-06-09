@@ -34,6 +34,11 @@ if($func == "sendcartdata"){
 	$_SESSION['questionCart'] = null;
 	$qpid = $feed['response']['question_paper_id'];
 	$feed2 = apicall("jsonqp", array('qpid' => $qpid ));
+	
+	$myfile = fopen("/jsonqp/".$qpid.".json", "w") or die("Unable to create file!");
+	fwrite($myfile, $feed2);
+	fclose($myfile);
+	
 	header('location:viewquestionpapers.php');
 
 }
