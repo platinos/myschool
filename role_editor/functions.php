@@ -32,6 +32,8 @@ $params = getparams2();
 $feed = apicall($func,$params);
 if($func == "sendcartdata"){
 	$_SESSION['questionCart'] = null;
+	$qpid = $feed['response']['question_paper_id'];
+	$feed2 = apicall("jsonqp", array('qpid' => $qpid ));
 	header('location:viewquestionpapers.php');
 
 }
